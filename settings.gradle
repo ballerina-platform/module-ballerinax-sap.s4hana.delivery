@@ -28,14 +28,16 @@ plugins {
     id "com.gradle.enterprise" version "3.2"
 }
 
-rootProject.name = "module-ballerinax-sap.s4hana.procurement"
+rootProject.name = "module-ballerinax-sap.s4hana.delivery"
 
-include ':procurement-ballerina'
-include ':procurement-examples'
+include ':delivery-ballerina'
+include ':delivery-ballerina:delivery'
+include ':delivery-examples'
 
 
-project(':procurement-ballerina').projectDir = file("ballerina")
-project(':procurement-examples').projectDir = file("examples")
+project(':delivery-ballerina').projectDir = file("ballerina")
+project(':delivery-ballerina:delivery').projectDir = file("ballerina/delivery")
+project(':delivery-examples').projectDir = file("examples")
 
 gradleEnterprise {
     buildScan {
