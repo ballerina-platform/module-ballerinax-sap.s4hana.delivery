@@ -1,4 +1,3 @@
-# module-ballerinax-sap.s4hana.delivery
 # Ballerina S/4HANA Delivery and Transportation Connectors
 
 [![Build](https://github.com/ballerina-platform/module-ballerinax-sap.s4hana.delivery/actions/workflows/ci.yml/badge.svg)](https://github.com/ballerina-platform/module-ballerinax-sap.s4hana.delivery/actions/workflows/ci.yml)
