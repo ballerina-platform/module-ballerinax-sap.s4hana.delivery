@@ -1,11 +1,11 @@
 [package]
 org = "ballerinax"
-name = "sap.s4hana.delivery"
-version = "1.0.0"
+name = "@package.name@"
+version = "@toml.version@"
 distribution = "2201.9.0"
 authors = ["Ballerina"]
-keywords = ["Business Management/ERP", "Cost/Paid", "Vendor/SAP", "Sales and Distribution", "SD"]
-export = ["sap.s4hana.delivery"]
+keywords = ["Business Management/ERP", "Cost/Paid", "Vendor/SAP", "Logistics Execution", "LE"]
+export = ["@package.name@"]
 repository = "https://github.com/ballerina-platform/module-ballerinax-sap.s4hana.delivery"
 icon = "../icon.png"
 license = ["Apache-2.0"]
