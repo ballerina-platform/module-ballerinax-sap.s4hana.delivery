@@ -106,7 +106,7 @@ function sanitizeEnumParamters(string specPath) returns error? {
     Specification spec = check openAPISpec.cloneWithType(Specification);
 
     boolean isODATA4 = false;
-    if (spec.x\-sap\-api\-type=="ODATAV4"){
+    if spec.x\-sap\-api\-type == "ODATAV4" {
         isODATA4 = true;
     }
 
@@ -136,7 +136,7 @@ function sanitizeEnumParamters(string specPath) returns error? {
             if items.'enum is () {
                 continue;
             }
-            string sanitizedParamName = getSanitizedParameterName(key, param.name ?: "",isODATA4);
+            string sanitizedParamName = getSanitizedParameterName(key, param.name ?: "", isODATA4);
 
             selectedSchemas[sanitizedParamName] = check param.schema.cloneWithType(EnumSchema);
             selectedParameters[sanitizedParamName] = {
@@ -166,14 +166,14 @@ function sanitizeEnumParamters(string specPath) returns error? {
 
 }
 
-function getSanitizedParameterName(string key, string paramName,boolean isODATA4) returns string {
+function getSanitizedParameterName(string key, string paramName, boolean isODATA4) returns string {
 
     string parameterName = "";
 
     regexp:RegExp pathRegex;
     if isODATA4 {
         pathRegex = re `^/([^/]+)?(/[^{]+)?(/[^/{]+)?(/.*)?$`;
-    }else {
+    } else {
         pathRegex = re `/([^(]*)(\(.*\))?(/.*)?`;
     }
 
