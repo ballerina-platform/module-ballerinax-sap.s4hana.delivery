@@ -54,13 +54,13 @@ modules = [
 
 [[package]]
 org = "ballerinax"
-name = "sap.s4hana.delivery"
+name = "sap.s4hana.api_del_doc_with_credit_block"
 version = "1.0.0"
 dependencies = [
 	{org = "ballerina", name = "io"},
 	{org = "ballerinai", name = "observe"}
 ]
 modules = [
-	{org = "ballerinax", packageName = "sap.s4hana.delivery", moduleName = "sap.s4hana.delivery"}
+	{org = "ballerinax", packageName = "sap.s4hana.api_del_doc_with_credit_block", moduleName = "sap.s4hana.api_del_doc_with_credit_block"}
 ]
 

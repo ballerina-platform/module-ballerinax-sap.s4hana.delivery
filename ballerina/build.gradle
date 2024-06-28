@@ -84,7 +84,7 @@ task clean {
 }
 
 task build {
-    build.dependsOn ':delivery-ballerina:delivery:build'
+    build.dependsOn ':delivery-ballerina:api_del_doc_with_credit_block:build'
 }
 
 publishToMavenLocal.dependsOn build
