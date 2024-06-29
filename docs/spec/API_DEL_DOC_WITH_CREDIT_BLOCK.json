@@ -81,6 +81,7 @@
   "paths": {
     "/A_CreditBlockedDeliveryDoc": {
       "get": {
+        "operationId": "listA_CreditBlockedDeliveryDocs",
         "summary": "Reads all credit blocked delivery documents.",
         "description": "Reads data of all credit blocked delivery documents in the system.",
         "tags": [
@@ -160,6 +161,7 @@
         }
       ],
       "get": {
+        "operationId": "getA_CreditBlockedDeliveryDoc",
         "summary": "Reads a specific credit blocked delivery document.",
         "description": "Reads the data of a specific credit blocked delivery document, which the consumer specifies by passing the delivery document number.",
         "tags": [
@@ -195,6 +197,7 @@
     },
     "/A_SalesDocumentRjcnReason": {
       "get": {
+        "operationId": "listA_SalesDocumentRjcnReasons",
         "summary": "Reads all rejection reasons.",
         "description": "Reads data of all rejection reasons in the system.",
         "tags": [
@@ -274,6 +277,7 @@
         }
       ],
       "get": {
+        "operationId": "getA_SalesDocumentRjcnReason",
         "summary": "Reads a specific rejection reason.",
         "description": "Reads data of a specific rejection reason, which the consumer specifies by passing the rejection reason ID.",
         "tags": [
@@ -309,6 +313,7 @@
     },
     "/CheckCreditBlock": {
       "post": {
+        "operationId": "createCheckCreditBlock",
         "summary": "Checks the credit status of a specific delivery document.",
         "description": "Checks credit status of a delivery document. Consumers must pass the delivery document number and SD document category.",
         "tags": [
@@ -366,6 +371,7 @@
     },
     "/RejectCreditBlock": {
       "post": {
+        "operationId": "createRejectCreditBlock",
         "summary": "Rejects a specific credit blocked delivery document.",
         "description": "Rejects the release request of a delivery document with a reject reason. Consumers must pass the delivery document number, SD document category, and rejection reason.",
         "tags": [
@@ -433,6 +439,7 @@
     },
     "/ReleaseCreditBlock": {
       "post": {
+        "operationId": "createReleaseCreditBlock",
         "summary": "Releases a specific delivery document from the credit block.",
         "description": "Releases a delivery document by removing the credit block on it. Consumers must pass the delivery document number and SD document category.",
         "tags": [
@@ -490,6 +497,7 @@
     },
     "/$batch": {
       "post": {
+        "operationId": "performBatchOperation",
         "summary": "Send a group of requests",
         "description": "Group multiple requests into a single request payload, see [Batch Requests](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=152).\n\n*Please note that \"Try it out\" is not supported for this request.*",
         "tags": [
