@@ -18,16 +18,19 @@
 // under the License.
 
 import ballerina/http;
+import ballerinax/sap;
 
 # The service contains entities for credit blocked delivery document and reject reason. Once the delivery document has been checked, released, or rejected, a success message containing the document number is sent in the response. Once the credit blocked delivery document has been retrieved, the data is sent in the response. If there are any issues when reading, checking, releasing, or rejecting the credit blocked delivery document, the system displays error messages in the response.
 public isolated client class Client {
-    final http:Client clientEp;
+    final sap:Client clientEp;
+
     # Gets invoked to initialize the `connector`.
     #
     # + config - The configurations to be used when initializing the `connector` 
     # + serviceUrl - URL of the target service 
     # + return - An error if connector initialization failed 
-    public isolated function init(ConnectionConfig config, string serviceUrl) returns error? {
+    public isolated function init(ConnectionConfig config, string hostname, int port = 443) returns error? {
+        string serviceUrl = string `https://${hostname}:${port}/sap/opu/odata/sap/API_DEL_DOC_WITH_CREDIT_BLOCK`;
         http:ClientConfiguration httpClientConfig = {auth: config.auth, httpVersion: config.httpVersion, timeout: config.timeout, forwarded: config.forwarded, poolConfig: config.poolConfig, compression: config.compression, circuitBreaker: config.circuitBreaker, retryConfig: config.retryConfig, validation: config.validation};
         do {
             if config.http1Settings is ClientHttp1Settings {
@@ -50,7 +53,7 @@ public isolated client class Client {
                 httpClientConfig.proxy = check config.proxy.ensureType(http:ProxyConfig);
             }
         }
-        http:Client httpEp = check new (serviceUrl, httpClientConfig);
+        sap:Client httpEp = check new (serviceUrl, httpClientConfig);
         self.clientEp = httpEp;
         return;
     }
