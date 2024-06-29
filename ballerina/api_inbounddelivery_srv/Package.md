@@ -3,8 +3,6 @@
 [S/4HANA](https://www.sap.com/india/products/erp/s4hana.html) is a robust enterprise resource planning (ERP) solution,
 designed for large-scale enterprises by SAP SE.
 
-
-
 ## Setup guide
 
 1. Sign in to your S/4HANA dashboard.
@@ -35,11 +33,11 @@ designed for large-scale enterprises by SAP SE.
 
 ## Quickstart
 
-To use the `sap.s4hana.delivery` connector in your Ballerina application, modify the `.bal` file as follows:
+To use the `sap.s4hana.api_inbounddelivery_srv` connector in your Ballerina application, modify the `.bal` file as follows:
 
 ### Step 1: Import the module
 
-Import the `sap.s4hana.delivery` module.
+Import the `sap.s4hana.api_inbounddelivery_srv` module.
 
 ```ballerina
 
