@@ -27,6 +27,7 @@ description = 'Ballerina - SAP S/4HANA Delivery Document with Credit Block API'
 def packageName = "sap.s4hana.api_del_doc_with_credit_block"
 def moduleVersion = project.api_del_doc_with_credit_blockVersion.replace("-SNAPSHOT", "")
 def ballerinaTomlFile = file("${project.projectDir}/Ballerina.toml")
+def ballerinaTomlFilePlaceHolder = new File("${project.rootDir}/build-config/resources/BallerinaDelivery.toml")
 
 ballerina {
     packageOrganization = project.ext.packageOrg
