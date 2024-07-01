@@ -16,6 +16,7 @@ on:
         required: true
         options:
           - api_del_doc_with_credit_block
+          - api_cv_attachment_srv
 
 jobs:
   publish-release:

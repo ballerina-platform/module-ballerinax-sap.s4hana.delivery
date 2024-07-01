@@ -32,11 +32,13 @@ rootProject.name = "module-ballerinax-sap.s4hana.delivery"
 
 include ':delivery-ballerina'
 include ':delivery-ballerina:api_del_doc_with_credit_block'
+include ':delivery-ballerina:api_cv_attachment_srv'
 include ':delivery-examples'
 
 
 project(':delivery-ballerina').projectDir = file("ballerina")
 project(':delivery-ballerina:api_del_doc_with_credit_block').projectDir = file("ballerina/api_del_doc_with_credit_block")
+project(':delivery-ballerina:api_cv_attachment_srv').projectDir = file("ballerina/api_cv_attachment_srv")
 project(':delivery-examples').projectDir = file("examples")
 
 gradleEnterprise {

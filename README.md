@@ -67,9 +67,10 @@ Execute the commands below to build from the source.
    ./gradlew clean :delivery-ballerina:<api_name>:build
    ```
 
-   |   API Name  |            Connector             |
-   | ----------- | -------------------------------- |
+   | API Name                      | Connector                                           |
+   | ----------------------------- | --------------------------------------------------- |
    | api_del_doc_with_credit_block | ballerinax/sap.s4hana.api_del_doc_with_credit_block |
+   | api_cv_attachment_srv         | ballerinax/sap.s4hana.api_cv_attachment_srv         |
 
 5. To run tests against different environment:
 
