@@ -597,6 +597,7 @@
   "paths": {
     "/AttachmentHarmonizedOperationSet": {
       "post": {
+        "operationId": "createAttachmentHarmonizedOperationSet",
         "summary": "Returns a URL and token to upload an attachment to a given SAP Object Type or SAP Object Node Type.",
         "description": "Returns a URL and token to upload an attachment to an SAP Object Type or SAP Object Node Type. To upload an attachment to an SAP Object Type, you must pass the SAP object type, file name, object key, and document type.To upload an attachment to an SAP Object Node Type, you must pass the SAP object type, SAP object node type, file name, object key, and document type. The URL and one time valid token is returned in the response to enable the upload of files that are larger than 100 MB. You can upload the attachment to your business object using this URL and token.",
         "tags": [
@@ -690,6 +691,7 @@
         }
       ],
       "get": {
+        "operationId": "getAttachmentHarmonizedOperationSet",
         "summary": "Returns a URL and token to download an attachment from a given SAP Object Type or SAP Object Node Type.",
         "description": "Returns a URL and token to download an attachment from an SAP Object Type or SAP Object Node Type. To download an attachment from an SAP object type, you must pass the SAP object type, document type, logical document ID, archive document ID, and object key. To download an attachment from an SAP object node type, you must pass the SAP object type, SAP object node type, document type, logical document ID, archive document ID, and object key. The URL and one time valid token is returned in the response to enable the download of files that are larger than 100 MB . You can download the attachment from",
         "tags": [
@@ -723,6 +725,7 @@
         }
       },
       "delete": {
+        "operationId": "deleteAttachmentHarmonizedOperationSet",
         "summary": "Deletes an attachment for a given SAP Object Type or SAP Object Node Type.",
         "description": "Deletes an attachment for an SAP Object Type  using the SAP object type, document type, logical document ID, archive document ID, and object key. To delete an attachment for an SAP Object Node Type, you must pass the SAP object type, SAP object node type, document type, logical document ID, archive document ID, and object key.",
         "tags": [
@@ -740,6 +743,7 @@
     },
     "/AttachmentForSAPObjectNodeTypeSet": {
       "post": {
+        "operationId": "createAttachmentForSAPObjectNodeTypeSet",
         "summary": "Returns a URL and token that are used to upload an attachment to a given SAP Object Node Type.",
         "description": "Returns a URL and token that are used to upload an attachment to an SAP Object Node Type. To upload an attachment to an SAP Object Node Type, you must pass the SAP Object Type, SAP Object Node Type, document type, file name and object key. The URL and the one-time-valid token are returned in the response to enable the upload of files that are larger than 100 MB. You can upload the attachment to your business object using this URL and token.",
         "tags": [
@@ -843,6 +847,7 @@
         }
       ],
       "get": {
+        "operationId": "getAttachmentForSAPObjectNodeTypeSet",
         "summary": "Returns a URL and a token that are used to download an attachment from a given SAP Object Node Type.",
         "description": "Returns a URL and a token that are used to download an attachment from an SAP Object Node Type. To download an attachment from an SAP Object Node Type, you must pass the SAP Object Type, SAP Object Node Type, document type, logical document ID, archive document ID and object key. The URL and the one-time-valid token are returned in the response to enable the download of files that are larger than 100 MB . You can download the attachment from your business object using this URL and token.",
         "tags": [
@@ -876,6 +881,7 @@
         }
       },
       "delete": {
+        "operationId": "deleteAttachmentForSAPObjectNodeTypeSet",
         "summary": "Deletes an attachment for a given SAP Object Node Type.",
         "description": "Deletes an attachment for a given SAP Object Node Type. To delete an attachment for an SAP Object Node Type, you must pass SAP Object Type, SAP Object Node Type, document type, logical document ID, archive document ID, and object key.",
         "tags": [
@@ -893,6 +899,7 @@
     },
     "/AttachmentContentSet": {
       "post": {
+        "operationId": "createAttachmentContentSet",
         "summary": " Uploads an attachment to a business object.",
         "description": "Uploads an attachment to a business object using the file name, mime type of the attachment, business object type, and business object instance key. If the Harmonized Document Management (HDM) functionality is enabled for the business object, then the attachment is created based on the active document type configured for the business object in Customizing. For the operation to be successful, one of the following must be true in Customizing: There must be only one active document type maintained for the business object or there must be a default document type maintained for the business object.Additonally, if the Harmonized Document Management (HDM) functionality is not enabled for the business object, then the attachment can be created with specific document type by passing the document type value in the documentinforecorddoctypeoptional parameter.",
         "tags": [
@@ -1017,6 +1024,7 @@
         }
       ],
       "delete": {
+        "operationId": "deleteAttachmentContentSet",
         "summary": "Deletes the attachment associated with the business object.",
         "description": "Deletes the attachment associated with the business object using the document type, document number, document version, document part, logical document ID, archive document ID, business object type, and business object instance key. If the Harmonized Document Management (HDM) functionality is enabled for the business object in Customizing, then you can delete the attachment only if it belongs to an active document framework.",
         "tags": [
@@ -1034,6 +1042,7 @@
     },
     "/A_DocumentInfoRecordAttch": {
       "get": {
+        "operationId": "listA_DocumentInfoRecordAttches",
         "summary": "Reads the document info records.",
         "description": "Retrieves the details of all the document info records such as document number, type, part, version, description, is document marked for deletion, and so on.",
         "tags": [
@@ -1147,6 +1156,7 @@
         }
       ],
       "get": {
+        "operationId": "getA_DocumentInfoRecordAttch",
         "summary": "Retrieves the details of a document info record.",
         "description": "Retrieves the details of a document info record using the document number, type, part, and version.",
         "tags": [
@@ -1228,6 +1238,7 @@
         }
       ],
       "get": {
+        "operationId": "listDocumentInfoRecordToAttachmentNavigationsOfA_DocumentInfoRecordAttch",
         "summary": "Reads the attachments associated with a document info record.",
         "description": "Reads the attachments associated with a document info record using the document number, type, part, and version.",
         "tags": [
@@ -1288,6 +1299,7 @@
         }
       },
       "post": {
+        "operationId": "createDocumentInfoRecordToAttachmentNavigationOfA_DocumentInfoRecordAttch",
         "summary": "Creates an attachment for a document info record.",
         "description": "Creates an attachment for a document info record using the DIR details, file name, MIME type of the attachment, and the file that you upload.",
         "tags": [
@@ -1331,6 +1343,7 @@
     },
     "/LinkAttachmentToSAPObjectNode": {
       "post": {
+        "operationId": "createLinkAttachmentToSAPObjectNode",
         "summary": "Creates an object link between an attachment and line item of a business object.",
         "description": "Creates an object link between an attachment and an SAP Object Node Type. To create an object link between an attachment and SAP Object Node Type, you must pass the SAP Object Type, SAP Object Node Type, document type, logical document ID, archive document ID and object key.",
         "tags": [
@@ -1429,6 +1442,7 @@
     },
     "/GetAllOriginals": {
       "get": {
+        "operationId": "getGetAllOriginals",
         "summary": "Retrieves the metadata of the attachments associated with the business object.",
         "description": "Retrieves the metadata of the attachments associated with the business object using the business object type and business object instance key. If the Harmonized Document Management (HDM) functionality is enabled for the business object, then you can retrieve the metadata of the attachments for a given SAP Object Type or SAP Object Node Type from all the active document frameworks configured in Customizing.",
         "tags": [
@@ -1528,6 +1542,7 @@
     },
     "/GetAttachmentCount": {
       "get": {
+        "operationId": "getGetAttachmentCount",
         "summary": "Retrieves the number of attachments for a business object instance key.",
         "description": "Retrieves the number of attachments for a business object using the business object type and business object instance key. If the Harmonized Document Management (HDM) functionality is enabled for the business object in Customizing, then you can retrieve the number of attachments for a given SAP Object Type or SAP Object Node Type from all the active document frameworks.",
         "tags": [
@@ -1620,6 +1635,7 @@
     },
     "/RenameAttachment": {
       "post": {
+        "operationId": "createRenameAttachment",
         "summary": "Renames an attachment that has been uploaded to a business object.",
         "description": "Renames an attachment that has been uploaded to a business object using the business object type, business object instance key, logical document ID, archive document ID, and new file name. You can only rename attachments that belong to the Document Management System (DMS) framework. If the Harmonized Document Management (HDM) functionality is enabled for the business object, then you can rename an attachment for a given SAP Object Type or SAP Object Node Type. If the DMS document framework is inactive in Customizing, then you cannot rename the attachment.",
         "tags": [
@@ -1784,6 +1800,7 @@
     },
     "/GetSAPObjectDocumentType": {
       "get": {
+        "operationId": "getGetSAPObjectDocumentType",
         "summary": "Reads the list of document types for a given SAP Object Type or SAP Object Node Type.",
         "description": "Retrieves the list of document types for a given SAP Object Type or SAP Object Node Type from all the active document frameworks.",
         "tags": [
@@ -1850,6 +1867,7 @@
     },
     "/LinkAttachmentToSAPObject": {
       "post": {
+        "operationId": "createLinkAttachmentToSAPObject",
         "summary": "Creates an object link between an attachment and business object.",
         "description": "Creates an object link between an attachment and SAP object type using the SAP object type, document type, logical document ID, archive document ID, and object key. To create an object link between an attachment and SAP object node type, you must pass the SAP object type, SAP object node type, document type, logical document ID, archive document ID, and object key.",
         "tags": [
@@ -1948,6 +1966,7 @@
     },
     "/AssignDocumentToBusinessObject": {
       "post": {
+        "operationId": "createAssignDocumentToBusinessObject",
         "summary": "Assigns documents to business objects.",
         "description": "Assigns all the documents (or document info records) from a source business object to a target business object. All the attachments associated with the document info records are assigned from the source business object to the target business object. To assign only a single document info record from a source business object to the target business object, send the archive document ID of an attachment that belongs to the document info record (along with the other mandatory URL parameters). Alternatively, you can also send the document info record as the source business object by specifying DRAW as the value for the SourceBusinessObjectTypeName property and the concatenated DIR key as the value for the SourceLinkedSAPObjectKey property to assign a document info record directly to a target business object. If the Harmonized Document Management (HDM) functionality is enabled for the business object, the configured active document frameworks for the source and target business objects must be compatible.",
         "tags": [
@@ -2084,6 +2103,7 @@
     },
     "/CreateUrlAsAttachment": {
       "post": {
+        "operationId": "createCreateUrlAsAttachment",
         "summary": "Uploads a URL as an attachment for a business object.",
         "description": "Uploads a URL as an attachment for a business object using the business object type, business object instance key, semantic object, URL that is to be uploaded as an attachment, URL description, and the media type of the URL. The media type must either be text/url or text/html. If the Harmonized Document Management (HDM) functionality is enabled for the business object, then you can create the attachment for a given SAP Object Type or SAP Object Node Type based on the document type that is passed in the request. The document type determines the framework in which the attachment must be created.",
         "tags": [
@@ -2215,6 +2235,7 @@
     },
     "/AuthorizationCheck": {
       "get": {
+        "operationId": "getAuthorizationCheck",
         "summary": "Invoke function AuthorizationCheck",
         "tags": [
           "Document Management"
@@ -2245,6 +2266,7 @@
     },
     "/$batch": {
       "post": {
+        "operationId": "performBatchOperation",
         "summary": "Send a group of requests",
         "description": "Group multiple requests into a single request payload, see [Batch Requests](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=152).\n\n*Please note that \"Try it out\" is not supported for this request.*",
         "tags": [
