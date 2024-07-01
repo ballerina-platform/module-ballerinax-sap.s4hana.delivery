@@ -105,97 +105,10 @@
             "$ref": "#/components/parameters/count"
           },
           {
-            "name": "$orderby",
-            "in": "query",
-            "description": "Order items by property values, see [Sorting](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=65)",
-            "explode": false,
-            "schema": {
-              "type": "array",
-              "uniqueItems": true,
-              "items": {
-                "type": "string",
-                "enum": [
-                  "DeliveryDocument",
-                  "DeliveryDocument desc",
-                  "SDDocumentCategory",
-                  "SDDocumentCategory desc",
-                  "SalesOrganization",
-                  "SalesOrganization desc",
-                  "SalesOffice",
-                  "SalesOffice desc",
-                  "ShippingPoint",
-                  "ShippingPoint desc",
-                  "CreationDate",
-                  "CreationDate desc",
-                  "CreatedByUser",
-                  "CreatedByUser desc",
-                  "LastChangedByUser",
-                  "LastChangedByUser desc",
-                  "LastChangeDate",
-                  "LastChangeDate desc",
-                  "SoldToParty",
-                  "SoldToParty desc",
-                  "CustomerCreditAccount",
-                  "CustomerCreditAccount desc",
-                  "ControllingAreaCurrency",
-                  "ControllingAreaCurrency desc",
-                  "ReleasedCreditAmount",
-                  "ReleasedCreditAmount desc",
-                  "CreditBlockReleaseDate",
-                  "CreditBlockReleaseDate desc",
-                  "NextShippingDate",
-                  "NextShippingDate desc",
-                  "CentralCreditChkTechErrSts",
-                  "CentralCreditChkTechErrSts desc",
-                  "OverallSDProcessStatus",
-                  "OverallSDProcessStatus desc",
-                  "OverallGoodsMovementStatus",
-                  "OverallGoodsMovementStatus desc",
-                  "TotalCreditCheckStatus",
-                  "TotalCreditCheckStatus desc",
-                  "FinDocCreditCheckStatus",
-                  "FinDocCreditCheckStatus desc",
-                  "CentralCreditCheckStatus",
-                  "CentralCreditCheckStatus desc"
-                ]
-              }
-            }
+            "$ref": "#/components/parameters/A_CreditBlockedDeliveryDocOrderByOptions"
           },
           {
-            "name": "$select",
-            "in": "query",
-            "description": "Select properties to be returned, see [Select](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=68)",
-            "explode": false,
-            "schema": {
-              "type": "array",
-              "uniqueItems": true,
-              "items": {
-                "type": "string",
-                "enum": [
-                  "DeliveryDocument",
-                  "SDDocumentCategory",
-                  "SalesOrganization",
-                  "SalesOffice",
-                  "ShippingPoint",
-                  "CreationDate",
-                  "CreatedByUser",
-                  "LastChangedByUser",
-                  "LastChangeDate",
-                  "SoldToParty",
-                  "CustomerCreditAccount",
-                  "ControllingAreaCurrency",
-                  "ReleasedCreditAmount",
-                  "CreditBlockReleaseDate",
-                  "NextShippingDate",
-                  "CentralCreditChkTechErrSts",
-                  "OverallSDProcessStatus",
-                  "OverallGoodsMovementStatus",
-                  "TotalCreditCheckStatus",
-                  "FinDocCreditCheckStatus",
-                  "CentralCreditCheckStatus"
-                ]
-              }
-            }
+            "$ref": "#/components/parameters/A_CreditBlockedDeliveryDocSelectOptions"
           }
         ],
         "responses": {
@@ -204,11 +117,11 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "title": "Wrapper",
+                  "title": "CollectionOfA_CreditBlockedDeliveryDocWrapper",
                   "type": "object",
                   "properties": {
                     "d": {
-                      "title": "Collection of A_CreditBlockedDeliveryDocType",
+                      "title": "CollectionOfA_CreditBlockedDeliveryDoc",
                       "type": "object",
                       "properties": {
                         "__count": {
@@ -217,7 +130,7 @@
                         "results": {
                           "type": "array",
                           "items": {
-                            "$ref": "#/components/schemas/API_DEL_DOC_WITH_CREDIT_BLOCK.A_CreditBlockedDeliveryDocType"
+                            "$ref": "#/components/schemas/A_CreditBlockedDeliveryDoc"
                           }
                         }
                       }
@@ -254,40 +167,7 @@
         ],
         "parameters": [
           {
-            "name": "$select",
-            "in": "query",
-            "description": "Select properties to be returned, see [Select](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=68)",
-            "explode": false,
-            "schema": {
-              "type": "array",
-              "uniqueItems": true,
-              "items": {
-                "type": "string",
-                "enum": [
-                  "DeliveryDocument",
-                  "SDDocumentCategory",
-                  "SalesOrganization",
-                  "SalesOffice",
-                  "ShippingPoint",
-                  "CreationDate",
-                  "CreatedByUser",
-                  "LastChangedByUser",
-                  "LastChangeDate",
-                  "SoldToParty",
-                  "CustomerCreditAccount",
-                  "ControllingAreaCurrency",
-                  "ReleasedCreditAmount",
-                  "CreditBlockReleaseDate",
-                  "NextShippingDate",
-                  "CentralCreditChkTechErrSts",
-                  "OverallSDProcessStatus",
-                  "OverallGoodsMovementStatus",
-                  "TotalCreditCheckStatus",
-                  "FinDocCreditCheckStatus",
-                  "CentralCreditCheckStatus"
-                ]
-              }
-            }
+            "$ref": "#/components/parameters/A_CreditBlockedDeliveryDocByKeySelectOptions"
           }
         ],
         "responses": {
@@ -296,11 +176,11 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "title": "A_CreditBlockedDeliveryDocType",
+                  "title": "A_CreditBlockedDeliveryDocWrapper",
                   "type": "object",
                   "properties": {
                     "d": {
-                      "$ref": "#/components/schemas/API_DEL_DOC_WITH_CREDIT_BLOCK.A_CreditBlockedDeliveryDocType"
+                      "$ref": "#/components/schemas/A_CreditBlockedDeliveryDoc"
                     }
                   }
                 }
@@ -339,40 +219,10 @@
             "$ref": "#/components/parameters/count"
           },
           {
-            "name": "$orderby",
-            "in": "query",
-            "description": "Order items by property values, see [Sorting](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=65)",
-            "explode": false,
-            "schema": {
-              "type": "array",
-              "uniqueItems": true,
-              "items": {
-                "type": "string",
-                "enum": [
-                  "SalesDocumentRjcnReason",
-                  "SalesDocumentRjcnReason desc",
-                  "SalesDocumentRjcnReason_Text",
-                  "SalesDocumentRjcnReason_Text desc"
-                ]
-              }
-            }
+            "$ref": "#/components/parameters/A_SalesDocumentRjcnReasonOrderByOptions"
           },
           {
-            "name": "$select",
-            "in": "query",
-            "description": "Select properties to be returned, see [Select](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=68)",
-            "explode": false,
-            "schema": {
-              "type": "array",
-              "uniqueItems": true,
-              "items": {
-                "type": "string",
-                "enum": [
-                  "SalesDocumentRjcnReason",
-                  "SalesDocumentRjcnReason_Text"
-                ]
-              }
-            }
+            "$ref": "#/components/parameters/A_SalesDocumentRjcnReasonSelectOptions"
           }
         ],
         "responses": {
@@ -381,11 +231,11 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "title": "Wrapper",
+                  "title": "CollectionOfA_SalesDocumentRjcnReasonWrapper",
                   "type": "object",
                   "properties": {
                     "d": {
-                      "title": "Collection of A_SalesDocumentRjcnReasonType",
+                      "title": "CollectionOfA_SalesDocumentRjcnReason",
                       "type": "object",
                       "properties": {
                         "__count": {
@@ -394,7 +244,7 @@
                         "results": {
                           "type": "array",
                           "items": {
-                            "$ref": "#/components/schemas/API_DEL_DOC_WITH_CREDIT_BLOCK.A_SalesDocumentRjcnReasonType"
+                            "$ref": "#/components/schemas/A_SalesDocumentRjcnReason"
                           }
                         }
                       }
@@ -431,21 +281,7 @@
         ],
         "parameters": [
           {
-            "name": "$select",
-            "in": "query",
-            "description": "Select properties to be returned, see [Select](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=68)",
-            "explode": false,
-            "schema": {
-              "type": "array",
-              "uniqueItems": true,
-              "items": {
-                "type": "string",
-                "enum": [
-                  "SalesDocumentRjcnReason",
-                  "SalesDocumentRjcnReason_Text"
-                ]
-              }
-            }
+            "$ref": "#/components/parameters/A_SalesDocumentRjcnReasonByKeySelectOptions"
           }
         ],
         "responses": {
@@ -454,11 +290,11 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "title": "A_SalesDocumentRjcnReasonType",
+                  "title": "A_SalesDocumentRjcnReasonWrapper",
                   "type": "object",
                   "properties": {
                     "d": {
-                      "$ref": "#/components/schemas/API_DEL_DOC_WITH_CREDIT_BLOCK.A_SalesDocumentRjcnReasonType"
+                      "$ref": "#/components/schemas/A_SalesDocumentRjcnReason"
                     }
                   }
                 }
@@ -513,7 +349,7 @@
                       "type": "object",
                       "properties": {
                         "CheckCreditBlock": {
-                          "$ref": "#/components/schemas/API_DEL_DOC_WITH_CREDIT_BLOCK.ReturnMessage"
+                          "$ref": "#/components/schemas/ReturnMessage"
                         }
                       }
                     }
@@ -580,7 +416,7 @@
                       "type": "object",
                       "properties": {
                         "RejectCreditBlock": {
-                          "$ref": "#/components/schemas/API_DEL_DOC_WITH_CREDIT_BLOCK.ReturnMessage"
+                          "$ref": "#/components/schemas/ReturnMessage"
                         }
                       }
                     }
@@ -637,7 +473,7 @@
                       "type": "object",
                       "properties": {
                         "ReleaseCreditBlock": {
-                          "$ref": "#/components/schemas/API_DEL_DOC_WITH_CREDIT_BLOCK.ReturnMessage"
+                          "$ref": "#/components/schemas/ReturnMessage"
                         }
                       }
                     }
@@ -692,7 +528,7 @@
   },
   "components": {
     "schemas": {
-      "API_DEL_DOC_WITH_CREDIT_BLOCK.A_CreditBlockedDeliveryDocType": {
+      "A_CreditBlockedDeliveryDoc": {
         "type": "object",
         "properties": {
           "DeliveryDocument": {
@@ -851,7 +687,7 @@
         },
         "title": "Credit Blocked Delivery Document"
       },
-      "API_DEL_DOC_WITH_CREDIT_BLOCK.A_CreditBlockedDeliveryDocType-create": {
+      "CreateA_CreditBlockedDeliveryDoc": {
         "type": "object",
         "properties": {
           "DeliveryDocument": {
@@ -1013,7 +849,7 @@
         ],
         "title": "Credit Blocked Delivery Document (for create)"
       },
-      "API_DEL_DOC_WITH_CREDIT_BLOCK.A_CreditBlockedDeliveryDocType-update": {
+      "UpdateA_CreditBlockedDeliveryDoc": {
         "type": "object",
         "properties": {
           "SDDocumentCategory": {
@@ -1167,7 +1003,7 @@
         },
         "title": "Credit Blocked Delivery Document (for update)"
       },
-      "API_DEL_DOC_WITH_CREDIT_BLOCK.A_SalesDocumentRjcnReasonType": {
+      "A_SalesDocumentRjcnReason": {
         "type": "object",
         "properties": {
           "SalesDocumentRjcnReason": {
@@ -1185,7 +1021,7 @@
         },
         "title": "Rejection Reason"
       },
-      "API_DEL_DOC_WITH_CREDIT_BLOCK.A_SalesDocumentRjcnReasonType-create": {
+      "CreateA_SalesDocumentRjcnReason": {
         "type": "object",
         "properties": {
           "SalesDocumentRjcnReason": {
@@ -1200,11 +1036,11 @@
         ],
         "title": "Rejection Reason (for create)"
       },
-      "API_DEL_DOC_WITH_CREDIT_BLOCK.A_SalesDocumentRjcnReasonType-update": {
+      "UpdateA_SalesDocumentRjcnReason": {
         "type": "object",
         "title": "Rejection Reason (for update)"
       },
-      "API_DEL_DOC_WITH_CREDIT_BLOCK.ReturnMessage": {
+      "ReturnMessage": {
         "type": "object",
         "properties": {
           "MessageType": {
@@ -1218,11 +1054,11 @@
         },
         "title": "ReturnMessage"
       },
-      "API_DEL_DOC_WITH_CREDIT_BLOCK.ReturnMessage-create": {
+      "CreateReturnMessage": {
         "type": "object",
         "title": "ReturnMessage (for create)"
       },
-      "API_DEL_DOC_WITH_CREDIT_BLOCK.ReturnMessage-update": {
+      "UpdateReturnMessage": {
         "type": "object",
         "title": "ReturnMessage (for update)"
       },
@@ -1268,6 +1104,111 @@
             }
           }
         }
+      },
+      "A_CreditBlockedDeliveryDocOrderByOptions": {
+        "type": "array",
+        "uniqueItems": true,
+        "items": {
+          "type": "string",
+          "enum": [
+            "DeliveryDocument",
+            "DeliveryDocument desc",
+            "SDDocumentCategory",
+            "SDDocumentCategory desc",
+            "SalesOrganization",
+            "SalesOrganization desc",
+            "SalesOffice",
+            "SalesOffice desc",
+            "ShippingPoint",
+            "ShippingPoint desc",
+            "CreationDate",
+            "CreationDate desc",
+            "CreatedByUser",
+            "CreatedByUser desc",
+            "LastChangedByUser",
+            "LastChangedByUser desc",
+            "LastChangeDate",
+            "LastChangeDate desc",
+            "SoldToParty",
+            "SoldToParty desc",
+            "CustomerCreditAccount",
+            "CustomerCreditAccount desc",
+            "ControllingAreaCurrency",
+            "ControllingAreaCurrency desc",
+            "ReleasedCreditAmount",
+            "ReleasedCreditAmount desc",
+            "CreditBlockReleaseDate",
+            "CreditBlockReleaseDate desc",
+            "NextShippingDate",
+            "NextShippingDate desc",
+            "CentralCreditChkTechErrSts",
+            "CentralCreditChkTechErrSts desc",
+            "OverallSDProcessStatus",
+            "OverallSDProcessStatus desc",
+            "OverallGoodsMovementStatus",
+            "OverallGoodsMovementStatus desc",
+            "TotalCreditCheckStatus",
+            "TotalCreditCheckStatus desc",
+            "FinDocCreditCheckStatus",
+            "FinDocCreditCheckStatus desc",
+            "CentralCreditCheckStatus",
+            "CentralCreditCheckStatus desc"
+          ]
+        }
+      },
+      "A_CreditBlockedDeliveryDocSelectOptions": {
+        "type": "array",
+        "uniqueItems": true,
+        "items": {
+          "type": "string",
+          "enum": [
+            "DeliveryDocument",
+            "SDDocumentCategory",
+            "SalesOrganization",
+            "SalesOffice",
+            "ShippingPoint",
+            "CreationDate",
+            "CreatedByUser",
+            "LastChangedByUser",
+            "LastChangeDate",
+            "SoldToParty",
+            "CustomerCreditAccount",
+            "ControllingAreaCurrency",
+            "ReleasedCreditAmount",
+            "CreditBlockReleaseDate",
+            "NextShippingDate",
+            "CentralCreditChkTechErrSts",
+            "OverallSDProcessStatus",
+            "OverallGoodsMovementStatus",
+            "TotalCreditCheckStatus",
+            "FinDocCreditCheckStatus",
+            "CentralCreditCheckStatus"
+          ]
+        }
+      },
+      "A_SalesDocumentRjcnReasonOrderByOptions": {
+        "type": "array",
+        "uniqueItems": true,
+        "items": {
+          "type": "string",
+          "enum": [
+            "SalesDocumentRjcnReason",
+            "SalesDocumentRjcnReason desc",
+            "SalesDocumentRjcnReason_Text",
+            "SalesDocumentRjcnReason_Text desc"
+          ]
+        }
+      },
+      "A_SalesDocumentRjcnReasonSelectOptions": {
+        "type": "array",
+        "uniqueItems": true,
+        "items": {
+          "type": "string",
+          "enum": [
+            "SalesDocumentRjcnReason",
+            "SalesDocumentRjcnReason_Text"
+          ]
+        }
       }
     },
     "parameters": {
@@ -1300,6 +1241,60 @@
             "allpages",
             "none"
           ]
+        }
+      },
+      "A_CreditBlockedDeliveryDocOrderByOptions": {
+        "name": "$orderby",
+        "in": "query",
+        "description": "Order items by property values, see [Sorting](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=65)",
+        "explode": false,
+        "schema": {
+          "$ref": "#/components/schemas/A_CreditBlockedDeliveryDocOrderByOptions"
+        }
+      },
+      "A_CreditBlockedDeliveryDocSelectOptions": {
+        "name": "$select",
+        "in": "query",
+        "description": "Select properties to be returned, see [Select](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=68)",
+        "explode": false,
+        "schema": {
+          "$ref": "#/components/schemas/A_CreditBlockedDeliveryDocSelectOptions"
+        }
+      },
+      "A_CreditBlockedDeliveryDocByKeySelectOptions": {
+        "name": "$select",
+        "in": "query",
+        "description": "Select properties to be returned, see [Select](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=68)",
+        "explode": false,
+        "schema": {
+          "$ref": "#/components/schemas/A_CreditBlockedDeliveryDocSelectOptions"
+        }
+      },
+      "A_SalesDocumentRjcnReasonOrderByOptions": {
+        "name": "$orderby",
+        "in": "query",
+        "description": "Order items by property values, see [Sorting](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=65)",
+        "explode": false,
+        "schema": {
+          "$ref": "#/components/schemas/A_SalesDocumentRjcnReasonOrderByOptions"
+        }
+      },
+      "A_SalesDocumentRjcnReasonSelectOptions": {
+        "name": "$select",
+        "in": "query",
+        "description": "Select properties to be returned, see [Select](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=68)",
+        "explode": false,
+        "schema": {
+          "$ref": "#/components/schemas/A_SalesDocumentRjcnReasonSelectOptions"
+        }
+      },
+      "A_SalesDocumentRjcnReasonByKeySelectOptions": {
+        "name": "$select",
+        "in": "query",
+        "description": "Select properties to be returned, see [Select](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=68)",
+        "explode": false,
+        "schema": {
+          "$ref": "#/components/schemas/A_SalesDocumentRjcnReasonSelectOptions"
         }
       }
     },
