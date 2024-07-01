@@ -3,6 +3,7 @@
 [S/4HANA](https://www.sap.com/india/products/erp/s4hana.html) is a robust enterprise resource planning (ERP) solution,
 designed for large-scale enterprises by SAP SE.
 
+The `ballerinax/sap.s4hana.api_del_doc_with_credit_block` package offers APIs for seamless integration with the [Delivery Document with Credit Block API v1.0.0](https://api.sap.com/api/API_DEL_DOC_WITH_CREDIT_BLOCK/overview). The service contains entities for credit blocked delivery document and reject reason. Once the delivery document has been checked, released, or rejected, a success message containing the document number is sent in the response.
 
 
 ## Setup guide
@@ -13,7 +14,7 @@ designed for large-scale enterprises by SAP SE.
 
    ![Display Scenarios](https://raw.githubusercontent.com/ballerina-platform/module-ballerinax-sap/main/docs/setup/3-1-display-scenarios.png)
 
-3. In the search bar, type `` and select the corresponding scenario from the results.
+3. In the search bar, type `Sales Credit Management Integration` and select the corresponding scenario from the results.
 
    ![Search Sales Order](https://raw.githubusercontent.com/ballerina-platform/module-ballerinax-sap/main/docs/setup/3-2-search-sales-order.png)
 
@@ -42,7 +43,7 @@ To use the `sap.s4hana.api_del_doc_with_credit_block` connector in your Ballerin
 Import the `sap.s4hana.api_del_doc_with_credit_block` module.
 
 ```ballerina
-
+import ballerinax/sap.s4hana.api_del_doc_with_credit_block as deldcwcb;
 ```
 
 ### Step 2: Instantiate a new connector
@@ -54,7 +55,7 @@ configurable string hostname = ?;
 configurable string username = ?;
 configurable string password = ?;
 
-
+deldcwcb:Client delDocClient = check new (
     hostname = hostname,
     config = {
         auth: {
@@ -70,7 +71,7 @@ configurable string password = ?;
 Now, utilize the available connector operations.
 
 ```ballerina
-
+deldcwcb:Wrapper listcreditBlockedDeliveryDocs = check delDocClient->listA_CreditBlockedDeliveryDocs();
 ```
 
 ### Step 4: Run the Ballerina application
