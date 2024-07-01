@@ -3,7 +3,7 @@
 [S/4HANA](https://www.sap.com/india/products/erp/s4hana.html) is a robust enterprise resource planning (ERP) solution,
 designed for large-scale enterprises by SAP SE.
 
-The `ballerinax/sap.s4hana.api_del_doc_with_credit_block` package offers APIs for seamless integration with the [Delivery Document with Credit Block API v1.0.0](https://api.sap.com/api/API_DEL_DOC_WITH_CREDIT_BLOCK/overview). The service contains entities for credit blocked delivery document and reject reason. Once the delivery document has been checked, released, or rejected, a success message containing the document number is sent in the response.
+The `ballerinax/sap.s4hana.api_customer_returns_delivery_srv_0002` package offers APIs for seamless integration with the [Customer Returns Delivery API v2.1.0](https://api.sap.com/api/API_CUSTOMER_RETURNS_DELIVERY_SRV_0002/overview). This synchronous inbound service enables you to read, create, update, and delete customer returns deliveries. It can be consumed in Fiori apps and on other user interfaces.
 
 ## Setup guide
 
@@ -13,7 +13,7 @@ The `ballerinax/sap.s4hana.api_del_doc_with_credit_block` package offers APIs fo
 
    ![Display Scenarios](https://raw.githubusercontent.com/ballerina-platform/module-ballerinax-sap/main/docs/setup/3-1-display-scenarios.png)
 
-3. In the search bar, type `Sales Credit Management Integration` and select the corresponding scenario from the results.
+3. In the search bar, type `Delivery Processing Integration` and select the corresponding scenario from the results.
 
    ![Search Sales Order](https://raw.githubusercontent.com/ballerina-platform/module-ballerinax-sap/main/docs/setup/3-2-search-sales-order.png)
 
@@ -35,14 +35,14 @@ The `ballerinax/sap.s4hana.api_del_doc_with_credit_block` package offers APIs fo
 
 ## Quickstart
 
-To use the `sap.s4hana.api_del_doc_with_credit_block` connector in your Ballerina application, modify the `.bal` file as follows:
+To use the `sap.s4hana.api_customer_returns_delivery_srv_0002` connector in your Ballerina application, modify the `.bal` file as follows:
 
 ### Step 1: Import the module
 
-Import the `sap.s4hana.api_del_doc_with_credit_block` module.
+Import the `sap.s4hana.api_customer_returns_delivery_srv_0002` module.
 
 ```ballerina
-import ballerinax/sap.s4hana.api_del_doc_with_credit_block as delDoc;
+import ballerinax/sap.s4hana.api_customer_returns_delivery_srv_0002 as returnDel;
 ```
 
 ### Step 2: Instantiate a new connector
@@ -54,7 +54,7 @@ configurable string hostname = ?;
 configurable string username = ?;
 configurable string password = ?;
 
-delDoc:Client delDocClient = check new (
+returnDel:Client returnDelClient = check new (
     hostname = hostname,
     config = {
         auth: {
@@ -70,7 +70,7 @@ delDoc:Client delDocClient = check new (
 Now, utilize the available connector operations.
 
 ```ballerina
-delDoc:CollectionOfA_CreditBlockedDeliveryDocWrapper listcreditBlockedDeliveryDocs = check delDocClient->listA_CreditBlockedDeliveryDocs();
+returnDel:CollectionOfA_ReturnsDeliveryItemWrapper listReturnsDeliveryItems = check returnDelClient->listA_ReturnsDeliveryItems();
 ```
 
 ### Step 4: Run the Ballerina application
