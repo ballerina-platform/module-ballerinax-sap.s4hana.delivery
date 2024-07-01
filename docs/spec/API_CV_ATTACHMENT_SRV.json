@@ -608,7 +608,7 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/API_CV_ATTACHMENT_SRV.AttachmentHarmonizedOperation-create"
+                "$ref": "#/components/schemas/CreateAttachmentHarmonizedOperation"
               }
             }
           }
@@ -623,7 +623,7 @@
                   "type": "object",
                   "properties": {
                     "d": {
-                      "$ref": "#/components/schemas/API_CV_ATTACHMENT_SRV.AttachmentHarmonizedOperation"
+                      "$ref": "#/components/schemas/AttachmentHarmonizedOperation"
                     }
                   }
                 }
@@ -697,48 +697,7 @@
         ],
         "parameters": [
           {
-            "name": "$select",
-            "in": "query",
-            "description": "Select properties to be returned, see [Select](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=68)",
-            "explode": false,
-            "schema": {
-              "type": "array",
-              "uniqueItems": true,
-              "items": {
-                "type": "string",
-                "enum": [
-                  "DocumentInfoRecordDocType",
-                  "DocumentInfoRecordDocNumber",
-                  "DocumentInfoRecordDocVersion",
-                  "DocumentInfoRecordDocPart",
-                  "LogicalDocument",
-                  "ArchiveDocumentID",
-                  "LinkedSAPObjectKey",
-                  "BusinessObjectTypeName",
-                  "FileSize",
-                  "FileName",
-                  "MimeType",
-                  "CheckoutUser",
-                  "CheckoutUserFullName",
-                  "CreatedByUser",
-                  "CreatedByUserFullName",
-                  "CreationDateTime",
-                  "LastChangedByUser",
-                  "LastChangedByUserFullName",
-                  "ChangedDateTime",
-                  "StorageCategory",
-                  "ArchiveLinkRepository",
-                  "SAPObjectType",
-                  "SAPObjectNodeType",
-                  "HarmonizedDocumentType",
-                  "AttachmentDeletionIsAllowed",
-                  "AttachmentRenameIsAllowed",
-                  "URLToUploadAttachment",
-                  "URLToReadAttachment",
-                  "OneTimeValidTokenForAttachment"
-                ]
-              }
-            }
+            "$ref": "#/components/parameters/AttachmentHarmonizedOperationSetByKeySelectOptions"
           }
         ],
         "responses": {
@@ -747,11 +706,11 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "title": "AttachmentHarmonizedOperation",
+                  "title": "AttachmentHarmonizedOperationWrapper",
                   "type": "object",
                   "properties": {
                     "d": {
-                      "$ref": "#/components/schemas/API_CV_ATTACHMENT_SRV.AttachmentHarmonizedOperation"
+                      "$ref": "#/components/schemas/AttachmentHarmonizedOperation"
                     }
                   }
                 }
@@ -792,7 +751,7 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/API_CV_ATTACHMENT_SRV.AttachmentForSAPObjectNodeType-create"
+                "$ref": "#/components/schemas/CreateAttachmentForSAPObjectNode"
               }
             }
           }
@@ -803,11 +762,11 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "title": "AttachmentForSAPObjectNodeType",
+                  "title": "AttachmentForSAPObjectNodeWrapper",
                   "type": "object",
                   "properties": {
                     "d": {
-                      "$ref": "#/components/schemas/API_CV_ATTACHMENT_SRV.AttachmentForSAPObjectNodeType"
+                      "$ref": "#/components/schemas/AttachmentForSAPObjectNode"
                     }
                   }
                 }
@@ -891,48 +850,7 @@
         ],
         "parameters": [
           {
-            "name": "$select",
-            "in": "query",
-            "description": "Select properties to be returned, see [Select](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=68)",
-            "explode": false,
-            "schema": {
-              "type": "array",
-              "uniqueItems": true,
-              "items": {
-                "type": "string",
-                "enum": [
-                  "DocumentInfoRecordDocType",
-                  "DocumentInfoRecordDocNumber",
-                  "DocumentInfoRecordDocVersion",
-                  "DocumentInfoRecordDocPart",
-                  "LogicalDocument",
-                  "ArchiveDocumentID",
-                  "LinkedSAPObjectKey",
-                  "BusinessObjectTypeName",
-                  "FileSize",
-                  "FileName",
-                  "MimeType",
-                  "CheckoutUser",
-                  "CheckoutUserFullName",
-                  "CreatedByUser",
-                  "CreatedByUserFullName",
-                  "CreationDateTime",
-                  "LastChangedByUser",
-                  "LastChangedByUserFullName",
-                  "ChangedDateTime",
-                  "StorageCategory",
-                  "ArchiveLinkRepository",
-                  "SAPObjectType",
-                  "SAPObjectNodeType",
-                  "HarmonizedDocumentType",
-                  "AttachmentDeletionIsAllowed",
-                  "AttachmentRenameIsAllowed",
-                  "URLToUploadAttachment",
-                  "URLToReadAttachment",
-                  "OneTimeValidTokenForAttachment"
-                ]
-              }
-            }
+            "$ref": "#/components/parameters/AttachmentForSAPObjectNodeTypeSetByKeySelectOptions"
           }
         ],
         "responses": {
@@ -941,11 +859,11 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "title": "AttachmentForSAPObjectNodeType",
+                  "title": "AttachmentForSAPObjectNodeWrapper",
                   "type": "object",
                   "properties": {
                     "d": {
-                      "$ref": "#/components/schemas/API_CV_ATTACHMENT_SRV.AttachmentForSAPObjectNodeType"
+                      "$ref": "#/components/schemas/AttachmentForSAPObjectNode"
                     }
                   }
                 }
@@ -1002,7 +920,7 @@
                   "type": "object",
                   "properties": {
                     "d": {
-                      "$ref": "#/components/schemas/API_CV_ATTACHMENT_SRV.AttachmentContent"
+                      "$ref": "#/components/schemas/AttachmentContent"
                     }
                   }
                 }
@@ -1140,78 +1058,13 @@
             "$ref": "#/components/parameters/count"
           },
           {
-            "name": "$orderby",
-            "in": "query",
-            "description": "Order items by property values, see [Sorting](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=65)",
-            "explode": false,
-            "schema": {
-              "type": "array",
-              "uniqueItems": true,
-              "items": {
-                "type": "string",
-                "enum": [
-                  "DocumentInfoRecordDocType",
-                  "DocumentInfoRecordDocType desc",
-                  "DocumentInfoRecordDocNumber",
-                  "DocumentInfoRecordDocNumber desc",
-                  "DocumentInfoRecordDocVersion",
-                  "DocumentInfoRecordDocVersion desc",
-                  "DocumentInfoRecordDocPart",
-                  "DocumentInfoRecordDocPart desc",
-                  "DocumentInfoRecord",
-                  "DocumentInfoRecord desc",
-                  "DocumentDescription",
-                  "DocumentDescription desc",
-                  "ExternalDocumentStatus",
-                  "ExternalDocumentStatus desc",
-                  "DocumentStatusName",
-                  "DocumentStatusName desc",
-                  "DocInfoRecdIsMarkedForDeletion",
-                  "DocInfoRecdIsMarkedForDeletion desc"
-                ]
-              }
-            }
+            "$ref": "#/components/parameters/A_DocumentInfoRecordAttchOrderByOptions"
           },
           {
-            "name": "$select",
-            "in": "query",
-            "description": "Select properties to be returned, see [Select](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=68)",
-            "explode": false,
-            "schema": {
-              "type": "array",
-              "uniqueItems": true,
-              "items": {
-                "type": "string",
-                "enum": [
-                  "DocumentInfoRecordDocType",
-                  "DocumentInfoRecordDocNumber",
-                  "DocumentInfoRecordDocVersion",
-                  "DocumentInfoRecordDocPart",
-                  "DocumentInfoRecord",
-                  "DocumentDescription",
-                  "ExternalDocumentStatus",
-                  "DocumentStatusName",
-                  "DocInfoRecdIsMarkedForDeletion",
-                  "DocumentInfoRecordToAttachmentNavigation"
-                ]
-              }
-            }
+            "$ref": "#/components/parameters/A_DocumentInfoRecordAttchSelectOptions"
           },
           {
-            "name": "$expand",
-            "in": "query",
-            "description": "Expand related entities, see [Expand](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=63)",
-            "explode": false,
-            "schema": {
-              "type": "array",
-              "uniqueItems": true,
-              "items": {
-                "type": "string",
-                "enum": [
-                  "DocumentInfoRecordToAttachmentNavigation"
-                ]
-              }
-            }
+            "$ref": "#/components/parameters/A_DocumentInfoRecordAttchExpandOptions"
           }
         ],
         "responses": {
@@ -1220,11 +1073,11 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "title": "Wrapper",
+                  "title": "CollectionOfA_DocumentInfoRecordAttchWrapper",
                   "type": "object",
                   "properties": {
                     "d": {
-                      "title": "Collection of A_DocumentInfoRecordAttchType",
+                      "title": "CollectionOfA_DocumentInfoRecordAttch",
                       "type": "object",
                       "properties": {
                         "__count": {
@@ -1233,7 +1086,7 @@
                         "results": {
                           "type": "array",
                           "items": {
-                            "$ref": "#/components/schemas/API_CV_ATTACHMENT_SRV.A_DocumentInfoRecordAttchType"
+                            "$ref": "#/components/schemas/A_DocumentInfoRecordAttch"
                           }
                         }
                       }
@@ -1301,45 +1154,10 @@
         ],
         "parameters": [
           {
-            "name": "$select",
-            "in": "query",
-            "description": "Select properties to be returned, see [Select](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=68)",
-            "explode": false,
-            "schema": {
-              "type": "array",
-              "uniqueItems": true,
-              "items": {
-                "type": "string",
-                "enum": [
-                  "DocumentInfoRecordDocType",
-                  "DocumentInfoRecordDocNumber",
-                  "DocumentInfoRecordDocVersion",
-                  "DocumentInfoRecordDocPart",
-                  "DocumentInfoRecord",
-                  "DocumentDescription",
-                  "ExternalDocumentStatus",
-                  "DocumentStatusName",
-                  "DocInfoRecdIsMarkedForDeletion",
-                  "DocumentInfoRecordToAttachmentNavigation"
-                ]
-              }
-            }
+            "$ref": "#/components/parameters/A_DocumentInfoRecordAttchByKeySelectOptions"
           },
           {
-            "name": "$expand",
-            "in": "query",
-            "description": "Expand related entities, see [Expand](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=63)",
-            "explode": false,
-            "schema": {
-              "type": "array",
-              "uniqueItems": true,
-              "items": {
-                "type": "string",
-                "enum": [
-                  "DocumentInfoRecordToAttachmentNavigation"
-                ]
-              }
-            }
+            "$ref": "#/components/parameters/A_DocumentInfoRecordAttchByKeyExpandOptions"
           }
         ],
         "responses": {
@@ -1348,11 +1166,11 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "title": "A_DocumentInfoRecordAttchType",
+                  "title": "A_DocumentInfoRecordAttchWrapper",
                   "type": "object",
                   "properties": {
                     "d": {
-                      "$ref": "#/components/schemas/API_CV_ATTACHMENT_SRV.A_DocumentInfoRecordAttchType"
+                      "$ref": "#/components/schemas/A_DocumentInfoRecordAttch"
                     }
                   }
                 }
@@ -1429,79 +1247,10 @@
             "$ref": "#/components/parameters/count"
           },
           {
-            "name": "$orderby",
-            "in": "query",
-            "description": "Order items by property values, see [Sorting](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=65)",
-            "explode": false,
-            "schema": {
-              "type": "array",
-              "uniqueItems": true,
-              "items": {
-                "type": "string",
-                "enum": [
-                  "FileSize",
-                  "FileSize desc",
-                  "FileName",
-                  "FileName desc",
-                  "MimeType",
-                  "MimeType desc",
-                  "CreatedByUser",
-                  "CreatedByUser desc",
-                  "CreationDateTime",
-                  "CreationDateTime desc",
-                  "LastChangedByUser",
-                  "LastChangedByUser desc",
-                  "ChangedDateTime",
-                  "ChangedDateTime desc"
-                ]
-              }
-            }
+            "$ref": "#/components/parameters/DocumentInfoRecordToAttachmentNavigationOfA_DocumentInfoRecordAttchOrderByOptions"
           },
           {
-            "name": "$select",
-            "in": "query",
-            "description": "Select properties to be returned, see [Select](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=68)",
-            "explode": false,
-            "schema": {
-              "type": "array",
-              "uniqueItems": true,
-              "items": {
-                "type": "string",
-                "enum": [
-                  "DocumentInfoRecordDocType",
-                  "DocumentInfoRecordDocNumber",
-                  "DocumentInfoRecordDocVersion",
-                  "DocumentInfoRecordDocPart",
-                  "LogicalDocument",
-                  "ArchiveDocumentID",
-                  "LinkedSAPObjectKey",
-                  "BusinessObjectTypeName",
-                  "SemanticObject",
-                  "WorkstationApplication",
-                  "FileSize",
-                  "FileName",
-                  "DocumentURL",
-                  "MimeType",
-                  "Content",
-                  "CreatedByUser",
-                  "CreatedByUserFullName",
-                  "CreationDateTime",
-                  "BusinessObjectType",
-                  "LastChangedByUser",
-                  "LastChangedByUserFullName",
-                  "ChangedDateTime",
-                  "StorageCategory",
-                  "ArchiveLinkRepository",
-                  "SAPObjectType",
-                  "SAPObjectNodeType",
-                  "HarmonizedDocumentType",
-                  "AttachmentDeletionIsAllowed",
-                  "AttachmentRenameIsAllowed",
-                  "Source",
-                  "AttachmentContentHash"
-                ]
-              }
-            }
+            "$ref": "#/components/parameters/DocumentInfoRecordToAttachmentNavigationOfA_DocumentInfoRecordAttchSelectOptions"
           }
         ],
         "responses": {
@@ -1510,11 +1259,11 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "title": "Wrapper",
+                  "title": "CollectionOfAttachmentContentWrapper",
                   "type": "object",
                   "properties": {
                     "d": {
-                      "title": "Collection of AttachmentContent",
+                      "title": "CollectionOfAttachmentContent",
                       "type": "object",
                       "properties": {
                         "__count": {
@@ -1523,7 +1272,7 @@
                         "results": {
                           "type": "array",
                           "items": {
-                            "$ref": "#/components/schemas/API_CV_ATTACHMENT_SRV.AttachmentContent"
+                            "$ref": "#/components/schemas/AttachmentContent"
                           }
                         }
                       }
@@ -1567,7 +1316,7 @@
                   "type": "object",
                   "properties": {
                     "d": {
-                      "$ref": "#/components/schemas/API_CV_ATTACHMENT_SRV.AttachmentContent"
+                      "$ref": "#/components/schemas/AttachmentContent"
                     }
                   }
                 }
@@ -1661,11 +1410,11 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "title": "AttachmentForSAPObjectNodeType",
+                  "title": "AttachmentForSAPObjectNodeWrapper",
                   "type": "object",
                   "properties": {
                     "d": {
-                      "$ref": "#/components/schemas/API_CV_ATTACHMENT_SRV.AttachmentForSAPObjectNodeType"
+                      "$ref": "#/components/schemas/AttachmentForSAPObjectNode"
                     }
                   }
                 }
@@ -1761,7 +1510,7 @@
                         "results": {
                           "type": "array",
                           "items": {
-                            "$ref": "#/components/schemas/API_CV_ATTACHMENT_SRV.AttachmentContent"
+                            "$ref": "#/components/schemas/AttachmentContent"
                           }
                         }
                       }
@@ -1854,7 +1603,7 @@
                       "type": "object",
                       "properties": {
                         "GetAttachmentCount": {
-                          "$ref": "#/components/schemas/API_CV_ATTACHMENT_SRV.AttachmentsCount"
+                          "$ref": "#/components/schemas/AttachmentsCount"
                         }
                       }
                     }
@@ -2020,7 +1769,7 @@
                   "type": "object",
                   "properties": {
                     "d": {
-                      "$ref": "#/components/schemas/API_CV_ATTACHMENT_SRV.AttachmentContent"
+                      "$ref": "#/components/schemas/AttachmentContent"
                     }
                   }
                 }
@@ -2083,7 +1832,7 @@
                         "results": {
                           "type": "array",
                           "items": {
-                            "$ref": "#/components/schemas/API_CV_ATTACHMENT_SRV.SAPObjectDocumentType"
+                            "$ref": "#/components/schemas/SAPObjectDocument"
                           }
                         }
                       }
@@ -2184,7 +1933,7 @@
                   "type": "object",
                   "properties": {
                     "d": {
-                      "$ref": "#/components/schemas/API_CV_ATTACHMENT_SRV.AttachmentHarmonizedOperation"
+                      "$ref": "#/components/schemas/AttachmentHarmonizedOperation"
                     }
                   }
                 }
@@ -2318,7 +2067,7 @@
                       "type": "object",
                       "properties": {
                         "AssignDocumentToBusinessObject": {
-                          "$ref": "#/components/schemas/API_CV_ATTACHMENT_SRV.AssignDocument"
+                          "$ref": "#/components/schemas/AssignDocument"
                         }
                       }
                     }
@@ -2451,7 +2200,7 @@
                   "type": "object",
                   "properties": {
                     "d": {
-                      "$ref": "#/components/schemas/API_CV_ATTACHMENT_SRV.AttachmentContent"
+                      "$ref": "#/components/schemas/AttachmentContent"
                     }
                   }
                 }
@@ -2481,7 +2230,7 @@
                   "type": "object",
                   "properties": {
                     "d": {
-                      "$ref": "#/components/schemas/API_CV_ATTACHMENT_SRV.AttachmentContent"
+                      "$ref": "#/components/schemas/AttachmentContent"
                     }
                   }
                 }
@@ -2534,7 +2283,7 @@
   },
   "components": {
     "schemas": {
-      "API_CV_ATTACHMENT_SRV.AttachmentHarmonizedOperation": {
+      "AttachmentHarmonizedOperation": {
         "type": "object",
         "properties": {
           "DocumentInfoRecordDocType": {
@@ -2707,7 +2456,7 @@
         },
         "title": "Harmonized Document Management"
       },
-      "API_CV_ATTACHMENT_SRV.AttachmentHarmonizedOperation-create": {
+      "CreateAttachmentHarmonizedOperation": {
         "type": "object",
         "properties": {
           "MimeType": {
@@ -2719,11 +2468,11 @@
         },
         "title": "Harmonized Document Management (for create)"
       },
-      "API_CV_ATTACHMENT_SRV.AttachmentHarmonizedOperation-update": {
+      "UpdateAttachmentHarmonizedOperation": {
         "type": "object",
         "title": "Harmonized Document Management (for update)"
       },
-      "API_CV_ATTACHMENT_SRV.AttachmentForSAPObjectNodeType": {
+      "AttachmentForSAPObjectNode": {
         "type": "object",
         "properties": {
           "DocumentInfoRecordDocType": {
@@ -2895,7 +2644,7 @@
         },
         "title": "Harmonized Document Management for Line Items"
       },
-      "API_CV_ATTACHMENT_SRV.AttachmentForSAPObjectNodeType-create": {
+      "CreateAttachmentForSAPObjectNode": {
         "type": "object",
         "properties": {
           "MimeType": {
@@ -2907,11 +2656,11 @@
         },
         "title": "Harmonized Document Management for Line Items (for create)"
       },
-      "API_CV_ATTACHMENT_SRV.AttachmentForSAPObjectNodeType-update": {
+      "UpdateAttachmentForSAPObjectNode": {
         "type": "object",
         "title": "Harmonized Document Management for Line Items (for update)"
       },
-      "API_CV_ATTACHMENT_SRV.AttachmentContent": {
+      "AttachmentContent": {
         "type": "object",
         "properties": {
           "DocumentInfoRecordDocType": {
@@ -3093,7 +2842,7 @@
         },
         "title": "Document Management"
       },
-      "API_CV_ATTACHMENT_SRV.AttachmentContent-create": {
+      "CreateAttachmentContent": {
         "type": "object",
         "properties": {
           "MimeType": {
@@ -3111,11 +2860,11 @@
         },
         "title": "Document Management (for create)"
       },
-      "API_CV_ATTACHMENT_SRV.AttachmentContent-update": {
+      "UpdateAttachmentContent": {
         "type": "object",
         "title": "Document Management (for update)"
       },
-      "API_CV_ATTACHMENT_SRV.SAPObjectDocumentType": {
+      "SAPObjectDocument": {
         "type": "object",
         "properties": {
           "SAPObjectType": {
@@ -3160,15 +2909,15 @@
         },
         "title": "Harmonized Document Types"
       },
-      "API_CV_ATTACHMENT_SRV.SAPObjectDocumentType-create": {
+      "CreateSAPObjectDocument": {
         "type": "object",
         "title": "Harmonized Document Types (for create)"
       },
-      "API_CV_ATTACHMENT_SRV.SAPObjectDocumentType-update": {
+      "UpdateSAPObjectDocument": {
         "type": "object",
         "title": "Harmonized Document Types (for update)"
       },
-      "API_CV_ATTACHMENT_SRV.A_DocumentInfoRecordAttchType": {
+      "A_DocumentInfoRecordAttch": {
         "type": "object",
         "properties": {
           "DocumentInfoRecordDocType": {
@@ -3237,7 +2986,7 @@
               "results": {
                 "type": "array",
                 "items": {
-                  "$ref": "#/components/schemas/API_CV_ATTACHMENT_SRV.AttachmentContent"
+                  "$ref": "#/components/schemas/AttachmentContent"
                 }
               }
             }
@@ -3245,7 +2994,7 @@
         },
         "title": "Attachments for Document Info Record"
       },
-      "API_CV_ATTACHMENT_SRV.A_DocumentInfoRecordAttchType-create": {
+      "CreateA_DocumentInfoRecordAttch": {
         "type": "object",
         "properties": {
           "DocumentInfoRecordDocType": {
@@ -3314,7 +3063,7 @@
               "results": {
                 "type": "array",
                 "items": {
-                  "$ref": "#/components/schemas/API_CV_ATTACHMENT_SRV.AttachmentContent-create"
+                  "$ref": "#/components/schemas/CreateAttachmentContent"
                 }
               }
             }
@@ -3328,7 +3077,7 @@
         ],
         "title": "Attachments for Document Info Record (for create)"
       },
-      "API_CV_ATTACHMENT_SRV.A_DocumentInfoRecordAttchType-update": {
+      "UpdateA_DocumentInfoRecordAttch": {
         "type": "object",
         "properties": {
           "DocumentInfoRecord": {
@@ -3369,7 +3118,7 @@
         },
         "title": "Attachments for Document Info Record (for update)"
       },
-      "API_CV_ATTACHMENT_SRV.AttachmentsCount": {
+      "AttachmentsCount": {
         "type": "object",
         "properties": {
           "AttachmentCount": {
@@ -3380,15 +3129,15 @@
         },
         "title": "AttachmentsCount"
       },
-      "API_CV_ATTACHMENT_SRV.AttachmentsCount-create": {
+      "CreateAttachmentsCount": {
         "type": "object",
         "title": "AttachmentsCount (for create)"
       },
-      "API_CV_ATTACHMENT_SRV.AttachmentsCount-update": {
+      "UpdateAttachmentsCount": {
         "type": "object",
         "title": "AttachmentsCount (for update)"
       },
-      "API_CV_ATTACHMENT_SRV.AssignDocument": {
+      "AssignDocument": {
         "type": "object",
         "properties": {
           "IsAssigned": {
@@ -3398,11 +3147,11 @@
         },
         "title": "AssignDocument"
       },
-      "API_CV_ATTACHMENT_SRV.AssignDocument-create": {
+      "CreateAssignDocument": {
         "type": "object",
         "title": "AssignDocument (for create)"
       },
-      "API_CV_ATTACHMENT_SRV.AssignDocument-update": {
+      "UpdateAssignDocument": {
         "type": "object",
         "title": "AssignDocument (for update)"
       },
@@ -3448,6 +3197,201 @@
             }
           }
         }
+      },
+      "AttachmentHarmonizedOperationSetByKeySelectOptions": {
+        "type": "array",
+        "uniqueItems": true,
+        "items": {
+          "type": "string",
+          "enum": [
+            "DocumentInfoRecordDocType",
+            "DocumentInfoRecordDocNumber",
+            "DocumentInfoRecordDocVersion",
+            "DocumentInfoRecordDocPart",
+            "LogicalDocument",
+            "ArchiveDocumentID",
+            "LinkedSAPObjectKey",
+            "BusinessObjectTypeName",
+            "FileSize",
+            "FileName",
+            "MimeType",
+            "CheckoutUser",
+            "CheckoutUserFullName",
+            "CreatedByUser",
+            "CreatedByUserFullName",
+            "CreationDateTime",
+            "LastChangedByUser",
+            "LastChangedByUserFullName",
+            "ChangedDateTime",
+            "StorageCategory",
+            "ArchiveLinkRepository",
+            "SAPObjectType",
+            "SAPObjectNodeType",
+            "HarmonizedDocumentType",
+            "AttachmentDeletionIsAllowed",
+            "AttachmentRenameIsAllowed",
+            "URLToUploadAttachment",
+            "URLToReadAttachment",
+            "OneTimeValidTokenForAttachment"
+          ]
+        }
+      },
+      "AttachmentForSAPObjectNodeTypeSetByKeySelectOptions": {
+        "type": "array",
+        "uniqueItems": true,
+        "items": {
+          "type": "string",
+          "enum": [
+            "DocumentInfoRecordDocType",
+            "DocumentInfoRecordDocNumber",
+            "DocumentInfoRecordDocVersion",
+            "DocumentInfoRecordDocPart",
+            "LogicalDocument",
+            "ArchiveDocumentID",
+            "LinkedSAPObjectKey",
+            "BusinessObjectTypeName",
+            "FileSize",
+            "FileName",
+            "MimeType",
+            "CheckoutUser",
+            "CheckoutUserFullName",
+            "CreatedByUser",
+            "CreatedByUserFullName",
+            "CreationDateTime",
+            "LastChangedByUser",
+            "LastChangedByUserFullName",
+            "ChangedDateTime",
+            "StorageCategory",
+            "ArchiveLinkRepository",
+            "SAPObjectType",
+            "SAPObjectNodeType",
+            "HarmonizedDocumentType",
+            "AttachmentDeletionIsAllowed",
+            "AttachmentRenameIsAllowed",
+            "URLToUploadAttachment",
+            "URLToReadAttachment",
+            "OneTimeValidTokenForAttachment"
+          ]
+        }
+      },
+      "A_DocumentInfoRecordAttchOrderByOptions": {
+        "type": "array",
+        "uniqueItems": true,
+        "items": {
+          "type": "string",
+          "enum": [
+            "DocumentInfoRecordDocType",
+            "DocumentInfoRecordDocType desc",
+            "DocumentInfoRecordDocNumber",
+            "DocumentInfoRecordDocNumber desc",
+            "DocumentInfoRecordDocVersion",
+            "DocumentInfoRecordDocVersion desc",
+            "DocumentInfoRecordDocPart",
+            "DocumentInfoRecordDocPart desc",
+            "DocumentInfoRecord",
+            "DocumentInfoRecord desc",
+            "DocumentDescription",
+            "DocumentDescription desc",
+            "ExternalDocumentStatus",
+            "ExternalDocumentStatus desc",
+            "DocumentStatusName",
+            "DocumentStatusName desc",
+            "DocInfoRecdIsMarkedForDeletion",
+            "DocInfoRecdIsMarkedForDeletion desc"
+          ]
+        }
+      },
+      "A_DocumentInfoRecordAttchSelectOptions": {
+        "type": "array",
+        "uniqueItems": true,
+        "items": {
+          "type": "string",
+          "enum": [
+            "DocumentInfoRecordDocType",
+            "DocumentInfoRecordDocNumber",
+            "DocumentInfoRecordDocVersion",
+            "DocumentInfoRecordDocPart",
+            "DocumentInfoRecord",
+            "DocumentDescription",
+            "ExternalDocumentStatus",
+            "DocumentStatusName",
+            "DocInfoRecdIsMarkedForDeletion",
+            "DocumentInfoRecordToAttachmentNavigation"
+          ]
+        }
+      },
+      "A_DocumentInfoRecordAttchExpandOptions": {
+        "type": "array",
+        "uniqueItems": true,
+        "items": {
+          "type": "string",
+          "enum": [
+            "DocumentInfoRecordToAttachmentNavigation"
+          ]
+        }
+      },
+      "DocumentInfoRecordToAttachmentNavigationOfA_DocumentInfoRecordAttchOrderByOptions": {
+        "type": "array",
+        "uniqueItems": true,
+        "items": {
+          "type": "string",
+          "enum": [
+            "FileSize",
+            "FileSize desc",
+            "FileName",
+            "FileName desc",
+            "MimeType",
+            "MimeType desc",
+            "CreatedByUser",
+            "CreatedByUser desc",
+            "CreationDateTime",
+            "CreationDateTime desc",
+            "LastChangedByUser",
+            "LastChangedByUser desc",
+            "ChangedDateTime",
+            "ChangedDateTime desc"
+          ]
+        }
+      },
+      "DocumentInfoRecordToAttachmentNavigationOfA_DocumentInfoRecordAttchSelectOptions": {
+        "type": "array",
+        "uniqueItems": true,
+        "items": {
+          "type": "string",
+          "enum": [
+            "DocumentInfoRecordDocType",
+            "DocumentInfoRecordDocNumber",
+            "DocumentInfoRecordDocVersion",
+            "DocumentInfoRecordDocPart",
+            "LogicalDocument",
+            "ArchiveDocumentID",
+            "LinkedSAPObjectKey",
+            "BusinessObjectTypeName",
+            "SemanticObject",
+            "WorkstationApplication",
+            "FileSize",
+            "FileName",
+            "DocumentURL",
+            "MimeType",
+            "Content",
+            "CreatedByUser",
+            "CreatedByUserFullName",
+            "CreationDateTime",
+            "BusinessObjectType",
+            "LastChangedByUser",
+            "LastChangedByUserFullName",
+            "ChangedDateTime",
+            "StorageCategory",
+            "ArchiveLinkRepository",
+            "SAPObjectType",
+            "SAPObjectNodeType",
+            "HarmonizedDocumentType",
+            "AttachmentDeletionIsAllowed",
+            "AttachmentRenameIsAllowed",
+            "Source",
+            "AttachmentContentHash"
+          ]
+        }
       }
     },
     "parameters": {
@@ -3480,6 +3424,87 @@
             "allpages",
             "none"
           ]
+        }
+      },
+      "AttachmentHarmonizedOperationSetByKeySelectOptions": {
+        "name": "$select",
+        "in": "query",
+        "description": "Select properties to be returned, see [Select](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=68)",
+        "explode": false,
+        "schema": {
+          "$ref": "#/components/schemas/AttachmentHarmonizedOperationSetByKeySelectOptions"
+        }
+      },
+      "AttachmentForSAPObjectNodeTypeSetByKeySelectOptions": {
+        "name": "$select",
+        "in": "query",
+        "description": "Select properties to be returned, see [Select](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=68)",
+        "explode": false,
+        "schema": {
+          "$ref": "#/components/schemas/AttachmentForSAPObjectNodeTypeSetByKeySelectOptions"
+        }
+      },
+      "A_DocumentInfoRecordAttchOrderByOptions": {
+        "name": "$orderby",
+        "in": "query",
+        "description": "Order items by property values, see [Sorting](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=65)",
+        "explode": false,
+        "schema": {
+          "$ref": "#/components/schemas/A_DocumentInfoRecordAttchOrderByOptions"
+        }
+      },
+      "A_DocumentInfoRecordAttchSelectOptions": {
+        "name": "$select",
+        "in": "query",
+        "description": "Select properties to be returned, see [Select](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=68)",
+        "explode": false,
+        "schema": {
+          "$ref": "#/components/schemas/A_DocumentInfoRecordAttchSelectOptions"
+        }
+      },
+      "A_DocumentInfoRecordAttchExpandOptions": {
+        "name": "$expand",
+        "in": "query",
+        "description": "Expand related entities, see [Expand](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=63)",
+        "explode": false,
+        "schema": {
+          "$ref": "#/components/schemas/A_DocumentInfoRecordAttchExpandOptions"
+        }
+      },
+      "A_DocumentInfoRecordAttchByKeySelectOptions": {
+        "name": "$select",
+        "in": "query",
+        "description": "Select properties to be returned, see [Select](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=68)",
+        "explode": false,
+        "schema": {
+          "$ref": "#/components/schemas/A_DocumentInfoRecordAttchSelectOptions"
+        }
+      },
+      "A_DocumentInfoRecordAttchByKeyExpandOptions": {
+        "name": "$expand",
+        "in": "query",
+        "description": "Expand related entities, see [Expand](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=63)",
+        "explode": false,
+        "schema": {
+          "$ref": "#/components/schemas/A_DocumentInfoRecordAttchExpandOptions"
+        }
+      },
+      "DocumentInfoRecordToAttachmentNavigationOfA_DocumentInfoRecordAttchOrderByOptions": {
+        "name": "$orderby",
+        "in": "query",
+        "description": "Order items by property values, see [Sorting](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=65)",
+        "explode": false,
+        "schema": {
+          "$ref": "#/components/schemas/DocumentInfoRecordToAttachmentNavigationOfA_DocumentInfoRecordAttchOrderByOptions"
+        }
+      },
+      "DocumentInfoRecordToAttachmentNavigationOfA_DocumentInfoRecordAttchSelectOptions": {
+        "name": "$select",
+        "in": "query",
+        "description": "Select properties to be returned, see [Select](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=68)",
+        "explode": false,
+        "schema": {
+          "$ref": "#/components/schemas/DocumentInfoRecordToAttachmentNavigationOfA_DocumentInfoRecordAttchSelectOptions"
         }
       }
     },
