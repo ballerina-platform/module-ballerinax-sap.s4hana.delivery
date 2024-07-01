@@ -24,7 +24,6 @@ description = 'Ballerina - SAP S/4HANA Delivery and Transporation APIs'
 subprojects {
     ext {
         packageOrg = "ballerinax"
-        ballerinaTomlFilePlaceHolder = new File("${project.rootDir}/build-config/resources/Ballerina.toml")
     }
     task updateDocumentationFiles
 }
