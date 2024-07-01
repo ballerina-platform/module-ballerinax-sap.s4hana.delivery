@@ -151,6 +151,7 @@
   "paths": {
     "/A_OutbDeliveryItemText": {
       "post": {
+        "operationId": "createA_OutbDeliveryItemText",
         "summary": "Creates outbound delivery item texts.",
         "description": "Creates outbound delivery item texts using the delivery document, the delivery document item, the text element and the text language.",
         "tags": [
@@ -234,6 +235,7 @@
         }
       ],
       "patch": {
+        "operationId": "patchA_OutbDeliveryItemText",
         "summary": "Updates outbound delivery item texts.",
         "description": "Updates outbound delivery item texts using the delivery document, the delivery document item, the text element and the text language.",
         "tags": [
@@ -266,6 +268,7 @@
         }
       },
       "delete": {
+        "operationId": "deleteA_OutbDeliveryItemText",
         "summary": "Deletes outbound delivery item texts.",
         "description": "Deletes outbound delivery item texts using the delivery document, the delivery document item, the text element and the text language.",
         "tags": [
@@ -283,6 +286,7 @@
     },
     "/A_OutbDeliveryHeaderText": {
       "post": {
+        "operationId": "createA_OutbDeliveryHeaderText",
         "summary": "Creates outbound delivery header texts.",
         "description": "Creates outbound delivery header texts using the delivery document, the text element and the text language.",
         "tags": [
@@ -356,6 +360,7 @@
         }
       ],
       "patch": {
+        "operationId": "patchA_OutbDeliveryHeaderText",
         "summary": "Updates outbound delivery header texts.",
         "description": "Updates outbound delivery header texts using the delivery document, the text element and the text language.",
         "tags": [
@@ -388,6 +393,7 @@
         }
       },
       "delete": {
+        "operationId": "deleteA_OutbDeliveryHeaderText",
         "summary": "Deletes outbound delivery header texts.",
         "description": "Deletes outbound delivery header texts using the delivery document, the text element and the text language.",
         "tags": [
@@ -405,6 +411,7 @@
     },
     "/A_HandlingUnitHeaderDelivery": {
       "post": {
+        "operationId": "createA_HandlingUnitHeaderDelivery",
         "summary": "Creates handling unit headers.",
         "description": "Creates handling unit headers using the delivery document.",
         "tags": [
@@ -446,6 +453,7 @@
     },
     "/A_HandlingUnitItemDelivery": {
       "post": {
+        "operationId": "createA_HandlingUnitItemDelivery",
         "summary": "Creates handling unit items.",
         "description": "Creates handling unit items using the delivery document, delivery document item and handling unit header.",
         "tags": [
@@ -487,6 +495,7 @@
     },
     "/A_OutbDeliveryAddress2": {
       "get": {
+        "operationId": "listA_OutbDeliveryAddress2s",
         "summary": "Reads outbound delivery partner addresses.",
         "description": "Reads all outbound delivery partner addresses. You can narrow down the result by specifying filter conditions.",
         "tags": [
@@ -576,6 +585,7 @@
         }
       ],
       "get": {
+        "operationId": "getA_OutbDeliveryAddress2",
         "summary": "Reads outbound delivery partner addresses.",
         "description": "Reads all outbound delivery partner addresses. You can narrow down the result by specifying filter conditions.",
         "tags": [
@@ -609,6 +619,7 @@
         }
       },
       "patch": {
+        "operationId": "patchA_OutbDeliveryAddress2",
         "summary": "Updates outbound delivery partner addresses.",
         "description": "Updates outbound delivery partner addresses using the delivery document and the partner function.",
         "tags": [
@@ -643,6 +654,7 @@
     },
     "/A_OutbDeliveryItem": {
       "get": {
+        "operationId": "listA_OutbDeliveryItems",
         "summary": "Reads outbound delivery items.",
         "description": "Reads all outbound delivery items. You can narrow down the result by specifying filter conditions.",
         "tags": [
@@ -738,6 +750,7 @@
         }
       ],
       "get": {
+        "operationId": "getA_OutbDeliveryItem",
         "summary": "Reads outbound delivery items.",
         "description": "Reads all outbound delivery items. You can narrow down the result by specifying filter conditions.",
         "tags": [
@@ -774,6 +787,7 @@
         }
       },
       "patch": {
+        "operationId": "patchA_OutbDeliveryItem",
         "summary": "Updates outbound delivery items.",
         "description": "Updates outbound delivery items using the delivery document and the delivery document item.",
         "tags": [
@@ -806,6 +820,7 @@
         }
       },
       "delete": {
+        "operationId": "deleteA_OutbDeliveryItem",
         "summary": "Deletes outbound delivery items.",
         "description": "Deletes outbound delivery items using the delivery document number and the delivery document item number.",
         "tags": [
@@ -845,6 +860,7 @@
         }
       ],
       "get": {
+        "operationId": "getSerialDeliveryItemOfA_OutbDeliveryItem",
         "summary": "Reads maintenance item object list headers of specific outbound delivery item.",
         "description": "Reads all maintenance item object list headers of a specific outbound delivery item.",
         "tags": [
@@ -906,6 +922,7 @@
         }
       ],
       "get": {
+        "operationId": "listDocumentFlowsOfA_OutbDeliveryItem",
         "summary": "Reads document flows of specific outbound delivery item.",
         "description": "Reads all document flows of a specific outbound delivery item.",
         "tags": [
@@ -987,6 +1004,7 @@
         }
       ],
       "get": {
+        "operationId": "listDeliveryDocumentItemTextsOfA_OutbDeliveryItem",
         "summary": "Reads texts of specific outbound delivery item.",
         "description": "Reads all texts of a specific outbound delivery item. You can narrow down the result by specifying filter conditions.",
         "tags": [
@@ -1044,6 +1062,7 @@
         }
       },
       "post": {
+        "operationId": "createDeliveryDocumentItemTextOfA_OutbDeliveryItem",
         "summary": "Creates outbound delivery item texts.",
         "description": "Creates outbound delivery item texts using the delivery document, the text element and the text language.",
         "tags": [
@@ -1086,6 +1105,7 @@
     },
     "/A_OutbDeliveryHeader": {
       "get": {
+        "operationId": "listA_OutbDeliveryHeaders",
         "summary": "Reads outbound delivery headers.",
         "description": "Reads all outbound delivery headers. You can narrow down the result by specifying filter conditions.",
         "tags": [
@@ -1157,6 +1177,7 @@
         }
       },
       "post": {
+        "operationId": "createA_OutbDeliveryHeader",
         "summary": "Creates outbound deliveries with reference to preceding document.",
         "description": "Creates outbound deliveries with reference to a sales order, a stock transport order, or a returns purchase order.",
         "tags": [
@@ -1210,6 +1231,7 @@
         }
       ],
       "get": {
+        "operationId": "getA_OutbDeliveryHeader",
         "summary": "Reads outbound delivery headers.",
         "description": "Reads all outbound delivery headers. You can narrow down the result by specifying filter conditions.",
         "tags": [
@@ -1246,6 +1268,7 @@
         }
       },
       "patch": {
+        "operationId": "patchA_OutbDeliveryHeader",
         "summary": "Updates outbound delivery headers.",
         "description": "Updates outbound delivery headers using the delivery document.",
         "tags": [
@@ -1278,6 +1301,7 @@
         }
       },
       "delete": {
+        "operationId": "deleteA_OutbDeliveryHeader",
         "summary": "Deletes outbound deliveries.",
         "description": "Deletes outbound deliveries using the delivery document number.",
         "tags": [
@@ -1307,6 +1331,7 @@
         }
       ],
       "get": {
+        "operationId": "listDeliveryDocumentTextsOfA_OutbDeliveryHeader",
         "summary": "Reads texts of specific outbound delivery header.",
         "description": "Reads all texts of a specific outbound delivery header. You can narrow down the result by specifying filter conditions.",
         "tags": [
@@ -1364,6 +1389,7 @@
         }
       },
       "post": {
+        "operationId": "createDeliveryDocumentTextOfA_OutbDeliveryHeader",
         "summary": "Creates outbound delivery header texts.",
         "description": "Creates outbound delivery header texts using the delivery document, the text element and the text language.",
         "tags": [
@@ -1418,6 +1444,7 @@
         }
       ],
       "get": {
+        "operationId": "listHandlingUnitHeaderDeliveriesOfA_OutbDeliveryHeader",
         "summary": "Reads handling units headers of specific outbound delivery header.",
         "description": "Reads all handling units headers of a specific outbound delivery header. You can narrow down the result by specifying filter conditions.",
         "tags": [
@@ -1495,6 +1522,7 @@
         }
       ],
       "get": {
+        "operationId": "listDeliveryDocumentPartnersOfA_OutbDeliveryHeader",
         "summary": "Reads partners of specific outbound delivery header.",
         "description": "Reads all partners of a specific outbound delivery header. You can narrow down the result by specifying filter conditions.",
         "tags": [
@@ -1569,6 +1597,7 @@
         }
       ],
       "get": {
+        "operationId": "listDeliveryDocumentItemsOfA_OutbDeliveryHeader",
         "summary": "Reads items of specific outbound delivery header.",
         "description": "Reads all items of a specific outbound delivery header. You can narrow down the result by specifying filter conditions.",
         "tags": [
@@ -1675,6 +1704,7 @@
         }
       ],
       "get": {
+        "operationId": "getA_OutbDeliveryDocFlow",
         "summary": "Reads outbound delivery document flows by key.",
         "description": "Reads outbound delivery document flows using the delivery document (PrecedingDocument), the delivery document item (PrecedingDocumentItem) and the subsequent document category Q.",
         "tags": [
@@ -1708,6 +1738,7 @@
         }
       },
       "patch": {
+        "operationId": "patchA_OutbDeliveryDocFlow",
         "summary": "Updates outbound delivery document flows.",
         "description": "Updates outbound delivery document flows using the delivery document (PrecedingDocument), the delivery document item (PrecedingDocumentItem) and the subsequent document category Q.",
         "tags": [
@@ -1755,6 +1786,7 @@
         }
       ],
       "get": {
+        "operationId": "listMaintenanceItemObjectsOfA_SerialNmbrDelivery",
         "summary": "Reads maintenance item object lists of specific outbound delivery maintenance item object list header.",
         "description": "Reads all maintenance item object lists of a specific outbound delivery maintenance item object list header including, for example, the serial numbers. You can narrow down the result by specifying filter conditions.",
         "tags": [
@@ -1836,6 +1868,7 @@
         }
       ],
       "get": {
+        "operationId": "getAddress2OfA_OutbDeliveryPartner",
         "summary": "Reads addresses of specific outbound delivery partner.",
         "description": "Reads all addresses of a specific outbound delivery partner. You can narrow down the result by specifying filter conditions.",
         "tags": [
@@ -1894,6 +1927,7 @@
         }
       ],
       "get": {
+        "operationId": "getAddressOfA_OutbDeliveryPartner",
         "summary": "Reads addresses of specific outbound delivery partner.",
         "description": "Reads all addresses of a specific outbound delivery partner. You can narrow down the result by specifying filter conditions.",
         "tags": [
@@ -1930,6 +1964,7 @@
     },
     "/DeleteAllHandlingUnitsFromDelivery": {
       "post": {
+        "operationId": "createDeleteAllHandlingUnitsFromDelivery",
         "summary": "Deletes all handling units from outbound delivery.",
         "description": "Deletes all handling units from outbound delivery.",
         "tags": [
@@ -1978,6 +2013,7 @@
     },
     "/CreateBatchSplitItem": {
       "post": {
+        "operationId": "createCreateBatchSplitItem",
         "summary": "Performs a batch split for the outbound delivery item.",
         "description": "Creates a batch split item and sets a value for the delivery quantity.",
         "tags": [
@@ -2087,6 +2123,7 @@
     },
     "/PickAndBatchSplitOneItem": {
       "post": {
+        "operationId": "createPickAndBatchSplitOneItem",
         "summary": "Performs batch split and sets picked quantity.",
         "description": "Performs a batch split for the specified delivery item and sets a value for the picked quantity.",
         "tags": [
@@ -2189,6 +2226,7 @@
     },
     "/AssignHandlingUnitToDelivery": {
       "post": {
+        "operationId": "createAssignHandlingUnitToDelivery",
         "summary": "Invoke action AssignHandlingUnitToDelivery",
         "tags": [
           "Outbound Delivery Headers"
@@ -2247,6 +2285,7 @@
     },
     "/SetPickingQuantityWithBaseQuantity": {
       "post": {
+        "operationId": "createSetPickingQuantityWithBaseQuantity",
         "summary": "Sets picked quantity in base unit of measure for  delivery item.",
         "description": "Sets the picked quantity in base unit of measure of the specified delivery item.",
         "tags": [
@@ -2338,6 +2377,7 @@
     },
     "/AddSerialNumberToDeliveryItem": {
       "post": {
+        "operationId": "createAddSerialNumberToDeliveryItem",
         "summary": "Adds serial number to outbound delivery item.",
         "description": "Adds a serial number to the specified outbound delivery item.",
         "tags": [
@@ -2415,6 +2455,7 @@
     },
     "/DeleteSerialNumberFromDeliveryItem": {
       "post": {
+        "operationId": "createDeleteSerialNumberFromDeliveryItem",
         "summary": "Deletes serial number from outbound delivery item.",
         "description": "Deletes the specified serial number from the outbound delivery item.",
         "tags": [
@@ -2492,6 +2533,7 @@
     },
     "/DeleteAllSerialNumbersFromDeliveryItem": {
       "post": {
+        "operationId": "createDeleteAllSerialNumbersFromDeliveryItem",
         "summary": "Deletes all serial numbers from outbound delivery item.",
         "description": "Deletes all serial numbers from the outbound delivery item.",
         "tags": [
@@ -2558,6 +2600,7 @@
     },
     "/PostGoodsIssue": {
       "post": {
+        "operationId": "createPostGoodsIssue",
         "summary": "Posts goods issue for outbound delivery.",
         "description": "Posts goods issue for the outbound delivery.",
         "tags": [
@@ -2613,6 +2656,7 @@
     },
     "/ReverseGoodsIssue": {
       "post": {
+        "operationId": "createReverseGoodsIssue",
         "summary": "Reverses goods issue for outbound delivery.",
         "description": "Reverses the goods issues for the outbound delivery.",
         "tags": [
@@ -2678,6 +2722,7 @@
     },
     "/ConfirmPickingAllItems": {
       "post": {
+        "operationId": "createConfirmPickingAllItems",
         "summary": "Confirms picked quantity of outbound delivery items.",
         "description": "Confirms the picked quantity of all outbound delivery items.",
         "tags": [
@@ -2733,6 +2778,7 @@
     },
     "/ConfirmPickingOneItem": {
       "post": {
+        "operationId": "createConfirmPickingOneItem",
         "summary": "Confirms picked quantity of outbound delivery item.",
         "description": "Confirms the picked quantity of the specified outbound delivery item.",
         "tags": [
@@ -2799,6 +2845,7 @@
     },
     "/PickAllItems": {
       "post": {
+        "operationId": "createPickAllItems",
         "summary": "Takes over delivery quantity as picked quantity for all outbound delivery items.",
         "description": "Takes over the delivery quantity as the picked quantity for all items of the outbound delivery.",
         "tags": [
@@ -2854,6 +2901,7 @@
     },
     "/PickOneItem": {
       "post": {
+        "operationId": "createPickOneItem",
         "summary": "Takes over delivery quantity as picked quantity for specified outbound delivery item.",
         "description": "Takes over the delivery quantity as the picked quantity for the specified outbound delivery item.",
         "tags": [
@@ -2920,6 +2968,7 @@
     },
     "/PickOneItemWithSalesQuantity": {
       "post": {
+        "operationId": "createPickOneItemWithSalesQuantity",
         "summary": "Sets picked quantity and delivery quantity for outbound delivery item.",
         "description": "Sets the same value for picked quantity and delivery quantity in sales unit of measure for the specified outbound delivery item.",
         "tags": [
@@ -3011,6 +3060,7 @@
     },
     "/PickOneItemWithBaseQuantity": {
       "post": {
+        "operationId": "createPickOneItemWithBaseQuantity",
         "summary": "Sets picked quantity and delivery quantity for outbound delivery item.",
         "description": "Sets the same value for picked quantity and delivery quantity in base unit of measure for the specified outbound delivery item.",
         "tags": [
@@ -3102,6 +3152,7 @@
     },
     "/$batch": {
       "post": {
+        "operationId": "performBatchOperation",
         "summary": "Send a group of requests",
         "description": "Group multiple requests into a single request payload, see [Batch Requests](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=152).\n\n*Please note that \"Try it out\" is not supported for this request.*",
         "tags": [
