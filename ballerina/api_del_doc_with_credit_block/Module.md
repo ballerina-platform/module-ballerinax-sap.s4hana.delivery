@@ -42,7 +42,7 @@ To use the `sap.s4hana.api_del_doc_with_credit_block` connector in your Ballerin
 Import the `sap.s4hana.api_del_doc_with_credit_block` module.
 
 ```ballerina
-import ballerinax/sap.s4hana.api_del_doc_with_credit_block as deldcwcb;
+import ballerinax/sap.s4hana.api_del_doc_with_credit_block as delDoc;
 ```
 
 ### Step 2: Instantiate a new connector
@@ -54,7 +54,7 @@ configurable string hostname = ?;
 configurable string username = ?;
 configurable string password = ?;
 
-deldcwcb:Client delDocClient = check new (
+delDoc:Client delDocClient = check new (
     hostname = hostname,
     config = {
         auth: {
@@ -70,7 +70,7 @@ deldcwcb:Client delDocClient = check new (
 Now, utilize the available connector operations.
 
 ```ballerina
-deldcwcb:Wrapper listcreditBlockedDeliveryDocs = check delDocClient->listA_CreditBlockedDeliveryDocs();
+delDoc:Wrapper listcreditBlockedDeliveryDocs = check delDocClient->listA_CreditBlockedDeliveryDocs();
 ```
 
 ### Step 4: Run the Ballerina application
