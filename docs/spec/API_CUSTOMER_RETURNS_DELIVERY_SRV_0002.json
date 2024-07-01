@@ -152,6 +152,7 @@
         }
       ],
       "get": {
+        "operationId": "getA_ReturnsDeliveryDocFlow",
         "summary": "Reads customer returns delivery document flows by key.",
         "description": "Reads customer returns delivery document flows using the delivery document (PrecedingDocument), the delivery document item (PrecedingDocumentItem) and the subsequent document category Q.",
         "tags": [
@@ -185,6 +186,7 @@
         }
       },
       "patch": {
+        "operationId": "patchA_ReturnsDeliveryDocFlow",
         "summary": "Updates customer returns delivery document flows.",
         "description": "Updates customer returns delivery document flows using the delivery document (PrecedingDocument), the delivery document item (PrecedingDocumentItem) and the subsequent document category Q.",
         "tags": [
@@ -219,6 +221,7 @@
     },
     "/A_ReturnsDeliveryHeader": {
       "get": {
+        "operationId": "listA_ReturnsDeliveryHeaders",
         "summary": "Reads customer returns delivery headers.",
         "description": "Reads all customer returns delivery headers. You can narrow down the result by specifying filter conditions.",
         "tags": [
@@ -290,6 +293,7 @@
         }
       },
       "post": {
+        "operationId": "createA_ReturnsDeliveryHeader",
         "summary": "Creates customer returns deliveries with reference to preceding document.",
         "description": "Creates customer returns deliveries with reference to a customer return.",
         "tags": [
@@ -343,6 +347,7 @@
         }
       ],
       "get": {
+        "operationId": "getA_ReturnsDeliveryHeader",
         "summary": "Reads customer returns delivery headers.",
         "description": "Reads all customer returns delivery headers. You can narrow down the result by specifying filter conditions.",
         "tags": [
@@ -379,6 +384,7 @@
         }
       },
       "patch": {
+        "operationId": "patchA_ReturnsDeliveryHeader",
         "summary": "Updates customer returns delivery headers.",
         "description": "Updates customer returns delivery headers using the delivery document.",
         "tags": [
@@ -411,6 +417,7 @@
         }
       },
       "delete": {
+        "operationId": "deleteA_ReturnsDeliveryHeader",
         "summary": "Deletes customer returns deliveries.",
         "description": "Deletes customer returns deliveries using the delivery document number.",
         "tags": [
@@ -440,6 +447,7 @@
         }
       ],
       "get": {
+        "operationId": "listDeliveryDocumentItemsOfA_ReturnsDeliveryHeader",
         "summary": "Reads items of specific customer returns delivery header.",
         "description": "Reads all items of a specific customer returns delivery header. You can narrow down the result by specifying filter conditions.",
         "tags": [
@@ -526,6 +534,7 @@
         }
       ],
       "get": {
+        "operationId": "listDeliveryDocumentPartnersOfA_ReturnsDeliveryHeader",
         "summary": "Reads partners of specific customer returns delivery header.",
         "description": "Reads all partners of a specific customer returns delivery header. You can narrow down the result by specifying filter conditions.",
         "tags": [
@@ -588,6 +597,7 @@
     },
     "/A_ReturnsDeliveryItem": {
       "get": {
+        "operationId": "listA_ReturnsDeliveryItems",
         "summary": "Reads customer returns delivery items.",
         "description": "Reads all customer returns delivery items. You can narrow down the result by specifying filter conditions.",
         "tags": [
@@ -683,6 +693,7 @@
         }
       ],
       "get": {
+        "operationId": "getA_ReturnsDeliveryItem",
         "summary": "Reads customer returns delivery items.",
         "description": "Reads all customer returns delivery items. You can narrow down the result by specifying filter conditions.",
         "tags": [
@@ -719,6 +730,7 @@
         }
       },
       "patch": {
+        "operationId": "patchA_ReturnsDeliveryItem",
         "summary": "Updates customer returns delivery items.",
         "description": "Updates customer returns delivery items using the delivery document and the delivery document item.",
         "tags": [
@@ -751,6 +763,7 @@
         }
       },
       "delete": {
+        "operationId": "deleteA_ReturnsDeliveryItem",
         "summary": "Deletes customer returns delivery items.",
         "description": "Deletes customer returns delivery items using the delivery document number and the delivery document item number.",
         "tags": [
@@ -790,6 +803,7 @@
         }
       ],
       "get": {
+        "operationId": "getSerialDeliveryItemOfA_ReturnsDeliveryItem",
         "summary": "Reads maintenance item object lists of specific customer returns delivery item.",
         "description": "Reads all maintenance item object lists of a specific customer returns delivery item.",
         "tags": [
@@ -851,6 +865,7 @@
         }
       ],
       "get": {
+        "operationId": "listDocumentFlowsOfA_ReturnsDeliveryItem",
         "summary": "Reads document flows of specific customer returns delivery item.",
         "description": "Reads all document flows of a specific customer returns delivery item.",
         "tags": [
@@ -932,6 +947,7 @@
         }
       ],
       "get": {
+        "operationId": "getAddressOfA_ReturnsDeliveryPartner",
         "summary": "Reads addresses of specific customer returns delivery partner.",
         "description": "Reads all addresses of a specific customer returns delivery partner. You can narrow down the result by specifying filter conditions.",
         "tags": [
@@ -981,6 +997,7 @@
         }
       ],
       "get": {
+        "operationId": "listMaintenanceItemObjectsOfA_ReturnsDeliverySrlNmbr",
         "summary": "Reads maintenance item objects of specific customer returns delivery maintenance item object list.",
         "description": "Reads all maintenance item objects of a specific customer returns delivery maintenance item object list including, for example, the serial numbers. You can narrow down the result by specifying filter conditions.",
         "tags": [
@@ -1040,6 +1057,7 @@
     },
     "/ReverseGoodsReceipt": {
       "post": {
+        "operationId": "createReverseGoodsReceipt",
         "summary": "Reverses goods receipt for customer returns delivery.",
         "description": "Reverses the goods receipt for the customer returns delivery.",
         "tags": [
@@ -1105,6 +1123,7 @@
     },
     "/PostGoodsReceipt": {
       "post": {
+        "operationId": "createPostGoodsReceipt",
         "summary": "Posts goods receipt for customer returns delivery.",
         "description": "Posts goods receipt for the customer returns delivery.",
         "tags": [
@@ -1170,6 +1189,7 @@
     },
     "/ConfirmPutawayAllItems": {
       "post": {
+        "operationId": "createConfirmPutawayAllItems",
         "summary": "Confirms putaway quantity of customer returns delivery items.",
         "description": "Confirms the putaway quantity of all customer returns delivery items.",
         "tags": [
@@ -1225,6 +1245,7 @@
     },
     "/ConfirmPutawayOneItem": {
       "post": {
+        "operationId": "createConfirmPutawayOneItem",
         "summary": "Confirms putaway quantity of customer returns delivery item.",
         "description": "Confirms the putaway quantity of the specified customer returns delivery item.",
         "tags": [
@@ -1291,6 +1312,7 @@
     },
     "/PutawayAllItems": {
       "post": {
+        "operationId": "createPutawayAllItems",
         "summary": "Takes over delivery quantity as putaway quantity for all customer returns delivery items.",
         "description": "Takes over the delivery quantity as the putaway quantity for all items of the customer returns delivery.",
         "tags": [
@@ -1346,6 +1368,7 @@
     },
     "/PutawayOneItem": {
       "post": {
+        "operationId": "createPutawayOneItem",
         "summary": "Takes over delivery quantity as putaway quantity for specified customer returns delivery item.",
         "description": "Takes over the delivery quantity as the putaway quantity for the specified customer returns delivery item.",
         "tags": [
@@ -1412,6 +1435,7 @@
     },
     "/CreateBatchSplitItem": {
       "post": {
+        "operationId": "createCreateBatchSplitItem",
         "summary": "Creates an additional batch split item for an customer returns delivery item.",
         "description": "Creates an additional batch split item for the specified customer returns delivery item and optionally sets the delivery quantity and batch-related fields.",
         "tags": [
@@ -1541,6 +1565,7 @@
     },
     "/SetPutawayQuantityWithBaseQuantity": {
       "post": {
+        "operationId": "createSetPutawayQuantityWithBaseQuantity",
         "summary": "Sets putaway quantity in base unit of measure for delivery item.",
         "description": "Sets the putaway quantity in base unit of measure of the specified delivery item.",
         "tags": [
@@ -1632,6 +1657,7 @@
     },
     "/PutawayOneItemWithBaseQuantity": {
       "post": {
+        "operationId": "createPutawayOneItemWithBaseQuantity",
         "summary": "Sets putaway quantity and delivery quantity for customer returns delivery item.",
         "description": "Sets the same value for putaway quantity and delivery quantity in base unit of measure for the specified customer returns delivery item.",
         "tags": [
@@ -1723,6 +1749,7 @@
     },
     "/PutawayOneItemWithSalesQuantity": {
       "post": {
+        "operationId": "createPutawayOneItemWithSalesQuantity",
         "summary": "Sets putaway quantity and delivery quantity for customer returns delivery item.",
         "description": "Sets the same value for putaway quantity and delivery quantity in sales unit of measure for the specified customer returns delivery item.",
         "tags": [
@@ -1814,6 +1841,7 @@
     },
     "/$batch": {
       "post": {
+        "operationId": "performBatchOperation",
         "summary": "Send a group of requests",
         "description": "Group multiple requests into a single request payload, see [Batch Requests](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=152).\n\n*Please note that \"Try it out\" is not supported for this request.*",
         "tags": [
