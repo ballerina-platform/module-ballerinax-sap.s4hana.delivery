@@ -70,7 +70,7 @@ delDoc:Client delDocClient = check new (
 Now, utilize the available connector operations.
 
 ```ballerina
-delDoc:Wrapper listcreditBlockedDeliveryDocs = check delDocClient->listA_CreditBlockedDeliveryDocs();
+delDoc:CollectionOfA_CreditBlockedDeliveryDocWrapper listcreditBlockedDeliveryDocs = check delDocClient->listA_CreditBlockedDeliveryDocs();
 ```
 
 ### Step 4: Run the Ballerina application
