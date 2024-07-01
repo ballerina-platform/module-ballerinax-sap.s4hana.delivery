@@ -8,7 +8,7 @@ on:
         description: Select Connector
         required: true
         options:
-          - delivery
+          - api_del_doc_with_credit_block
 
 jobs:
   call_workflow:

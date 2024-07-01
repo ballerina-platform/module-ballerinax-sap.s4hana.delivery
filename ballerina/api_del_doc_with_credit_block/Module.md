@@ -35,11 +35,11 @@ designed for large-scale enterprises by SAP SE.
 
 ## Quickstart
 
-To use the `sap.s4hana.delivery` connector in your Ballerina application, modify the `.bal` file as follows:
+To use the `sap.s4hana.api_del_doc_with_credit_block` connector in your Ballerina application, modify the `.bal` file as follows:
 
 ### Step 1: Import the module
 
-Import the `sap.s4hana.delivery` module.
+Import the `sap.s4hana.api_del_doc_with_credit_block` module.
 
 ```ballerina
 

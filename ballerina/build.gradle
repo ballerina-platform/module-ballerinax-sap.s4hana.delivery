@@ -84,7 +84,9 @@ task clean {
 }
 
 task build {
+    dependsOn(updateDocumentationFiles)
     build.dependsOn ':delivery-ballerina:delivery:build'
+    dependsOn(':procurement-ballerina:api_inforecord_process_srv:commitTomlFiles')
 }
 
 publishToMavenLocal.dependsOn build
