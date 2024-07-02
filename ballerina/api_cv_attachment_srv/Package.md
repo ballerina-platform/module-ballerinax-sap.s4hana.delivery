@@ -13,7 +13,7 @@ The `ballerinax/sap.s4hana.api_cv_attachment_srv` package offers APIs for seamle
 
    ![Display Scenarios](https://raw.githubusercontent.com/ballerina-platform/module-ballerinax-sap/main/docs/setup/3-1-display-scenarios.png)
 
-3. In the search bar, type `Sales Credit Management Integration` and select the corresponding scenario from the results.
+3. In the search bar, type `Freight Agreement Integration` and select the corresponding scenario from the results.
 
    ![Search Sales Order](https://raw.githubusercontent.com/ballerina-platform/module-ballerinax-sap/main/docs/setup/3-2-search-sales-order.png)
 
@@ -54,7 +54,7 @@ configurable string hostname = ?;
 configurable string username = ?;
 configurable string password = ?;
 
-delDoc:Client delDocClient = check new (
+cvAttach:Client cvAttachClient = check new (
     hostname = hostname,
     config = {
         auth: {
