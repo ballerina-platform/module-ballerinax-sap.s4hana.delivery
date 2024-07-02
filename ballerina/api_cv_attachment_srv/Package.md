@@ -3,7 +3,7 @@
 [S/4HANA](https://www.sap.com/india/products/erp/s4hana.html) is a robust enterprise resource planning (ERP) solution,
 designed for large-scale enterprises by SAP SE.
 
-The `ballerinax/sap.s4hana.api_del_doc_with_credit_block` package offers APIs for seamless integration with the [Delivery Document with Credit Block API v1.0.0](https://api.sap.com/api/API_DEL_DOC_WITH_CREDIT_BLOCK/overview). The service contains entities for credit blocked delivery document and reject reason. Once the delivery document has been checked, released, or rejected, a success message containing the document number is sent in the response.
+The `ballerinax/sap.s4hana.api_cv_attachment_srv` package offers APIs for seamless integration with the [Freight Agreement Attachments API v1.0.0](https://api.sap.com/api/API_CV_ATTACHMENT_SRV/overview). This service allows you to manage attachments and attachment URLs for business objects. You can perform operations such as create, read, rename, and deletion of attachments.
 
 ## Setup guide
 
@@ -35,14 +35,14 @@ The `ballerinax/sap.s4hana.api_del_doc_with_credit_block` package offers APIs fo
 
 ## Quickstart
 
-To use the `sap.s4hana.api_del_doc_with_credit_block` connector in your Ballerina application, modify the `.bal` file as follows:
+To use the `sap.s4hana.api_cv_attachment_srv` connector in your Ballerina application, modify the `.bal` file as follows:
 
 ### Step 1: Import the module
 
-Import the `sap.s4hana.api_del_doc_with_credit_block` module.
+Import the `sap.s4hana.api_cv_attachment_srv` module.
 
 ```ballerina
-import ballerinax/sap.s4hana.api_del_doc_with_credit_block as delDoc;
+import ballerinax/sap.s4hana.api_cv_attachment_srv as cvAttach;
 ```
 
 ### Step 2: Instantiate a new connector
@@ -70,7 +70,7 @@ delDoc:Client delDocClient = check new (
 Now, utilize the available connector operations.
 
 ```ballerina
-delDoc:CollectionOfA_CreditBlockedDeliveryDocWrapper listcreditBlockedDeliveryDocs = check delDocClient->listA_CreditBlockedDeliveryDocs();
+cvAttach: CollectionOfA_DocumentInfoRecordAttchWrapper listDocumentInfoRecord = check cvAttachClient->listA_DocumentInfoRecordAttches();
 ```
 
 ### Step 4: Run the Ballerina application
