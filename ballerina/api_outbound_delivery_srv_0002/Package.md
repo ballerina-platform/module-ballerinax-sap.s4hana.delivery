@@ -3,7 +3,7 @@
 [S/4HANA](https://www.sap.com/india/products/erp/s4hana.html) is a robust enterprise resource planning (ERP) solution,
 designed for large-scale enterprises by SAP SE.
 
-The `ballerinax/sap.s4hana.api_outbound_delivery_srv_0002` package offers APIs for seamless integration with the [Outbound Delivery API v1.0.0](https://api.sap.com/api/API_OUTBOUND_DELIVERY_SRV_0002/overview). This service enables you to create, read, update and delete outbound deliveries. It can be consumed in Fiori apps and on other user interfaces.
+The `ballerinax/sap.s4hana.api_outbound_delivery_srv_0002` package offers APIs for seamless integration with the [Outbound Delivery API v1.0.0](https://api.sap.com/api/API_OUTBOUND_DELIVERY_SRV_0002/overview). This service enables you to create, read, update and delete outbound deliveries.
 
 ## Setup guide
 
@@ -13,7 +13,7 @@ The `ballerinax/sap.s4hana.api_outbound_delivery_srv_0002` package offers APIs f
 
    ![Display Scenarios](https://raw.githubusercontent.com/ballerina-platform/module-ballerinax-sap/main/docs/setup/3-1-display-scenarios.png)
 
-3. In the search bar, type `Sales Credit Management Integration` and select the corresponding scenario from the results.
+3. In the search bar, type `Delivery Processing Integration` and select the corresponding scenario from the results.
 
    ![Search Sales Order](https://raw.githubusercontent.com/ballerina-platform/module-ballerinax-sap/main/docs/setup/3-2-search-sales-order.png)
 
@@ -42,7 +42,7 @@ To use the `sap.s4hana.api_outbound_delivery_srv_0002` connector in your Balleri
 Import the `sap.s4hana.api_outbound_delivery_srv_0002` module.
 
 ```ballerina
-import ballerinax/sap.s4hana.api_outbound_delivery_srv_0002 as outbdel;
+import ballerinax/sap.s4hana.api_outbound_delivery_srv_0002 as outbDel;
 ```
 
 ### Step 2: Instantiate a new connector
@@ -54,7 +54,7 @@ configurable string hostname = ?;
 configurable string username = ?;
 configurable string password = ?;
 
-outbdel:Client outbdelClient = check new (
+outbDel:Client outbDelClient = check new (
     hostname = hostname,
     config = {
         auth: {
@@ -70,7 +70,7 @@ outbdel:Client outbdelClient = check new (
 Now, utilize the available connector operations.
 
 ```ballerina
-outbdel:CollectionOfA_OutbDeliveryItemWrapper listOutbDeliveryItems = check outbdelClient->listA_OutbDeliveryItems();
+outbDel:CollectionOfA_OutbDeliveryItemWrapper listOutbDeliveryItems = check outbdDelClient->listA_OutbDeliveryItems();
 ```
 
 ### Step 4: Run the Ballerina application
