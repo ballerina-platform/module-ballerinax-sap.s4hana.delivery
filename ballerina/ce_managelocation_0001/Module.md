@@ -3,6 +3,7 @@
 [S/4HANA](https://www.sap.com/india/products/erp/s4hana.html) is a robust enterprise resource planning (ERP) solution,
 designed for large-scale enterprises by SAP SE.
 
+The `ballerinax/sap.s4hana.ce_managelocation_0001` package offers APIs for seamless integration with the [Location API v1.0.1](https://api.sap.com/api/CE_MANAGELOCATION_0001/overview).This service enables users to create, read, update, and delete locations through an API call.
 
 ## Setup guide
 
@@ -12,7 +13,7 @@ designed for large-scale enterprises by SAP SE.
 
    ![Display Scenarios](https://raw.githubusercontent.com/ballerina-platform/module-ballerinax-sap/main/docs/setup/3-1-display-scenarios.png)
 
-3. In the search bar, type `` and select the corresponding scenario from the results.
+3. In the search bar, type `Location Integration` and select the corresponding scenario from the results.
 
    ![Search Sales Order](https://raw.githubusercontent.com/ballerina-platform/module-ballerinax-sap/main/docs/setup/3-2-search-sales-order.png)
 
@@ -41,7 +42,7 @@ To use the `sap.s4hana.ce_managelocation_0001` connector in your Ballerina appli
 Import the `sap.s4hana.ce_managelocation_0001` module.
 
 ```ballerina
-
+import ballerinax/sap.s4hana.ce_managelocation_0001 as location;
 ```
 
 ### Step 2: Instantiate a new connector
@@ -53,7 +54,7 @@ configurable string hostname = ?;
 configurable string username = ?;
 configurable string password = ?;
 
-
+location:Client locationClient = check new (
     hostname = hostname,
     config = {
         auth: {
@@ -69,7 +70,7 @@ configurable string password = ?;
 Now, utilize the available connector operations.
 
 ```ballerina
-
+location:CollectionOfLocation listLocations = check locationClient->listLocations();
 ```
 
 ### Step 4: Run the Ballerina application
