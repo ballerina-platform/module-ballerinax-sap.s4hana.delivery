@@ -1,5 +1,5 @@
 {
-  "description": "The `ballerinax/sap.s4hana.api_outbound_delivery_srv_0002` package offers APIs for seamless integration with the [Outbound Delivery API v1.0.0](https://api.sap.com/api/API_OUTBOUND_DELIVERY_SRV_0002/overview). This service enables you to create, read, update and delete outbound deliveries.",
+  "description": "The `ballerinax/sap.s4hana.api_outbound_delivery_srv_0002` package offers APIs for seamless integration with the [Outbound Delivery API v2.1.0](https://api.sap.com/api/API_OUTBOUND_DELIVERY_SRV_0002/overview). This service enables you to create, read, update and delete outbound deliveries.",
   "communication-scenario": "Delivery Processing Integration",
   "import-statement": "import ballerinax/sap.s4hana.api_outbound_delivery_srv_0002 as outbDel;",
   "client-init": "outbDel:Client outbDelClient = check new (",
