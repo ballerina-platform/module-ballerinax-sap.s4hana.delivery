@@ -32,8 +32,11 @@ listener http:Listener ep0 = new (9090,
     }
 );
 
-service /sap/opu/odata/sap/API_CUSTOMER_RETURNS_DELIVERY_SRV\;v\=0002 on ep0 {
+// The ODATA Version postfix in service path fails for Mock Server Requests 
+// Issue - https://github.com/ballerina-platform/ballerina-library/issues/6675
+// service /sap/opu/odata/sap/API_CUSTOMER_RETURNS_DELIVERY_SRV\;v\=0002 on ep0 {
 
+service /sap/opu/odata/sap/API_CUSTOMER_RETURNS_DELIVERY_SRV on ep0 {
     resource function head .() returns http:Response {
         http:Response res = new;
         res.statusCode = 200;

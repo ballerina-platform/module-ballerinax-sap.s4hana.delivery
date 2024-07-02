@@ -71,6 +71,8 @@ function testListA_ReturnsDeliveryItem() returns error? {
 
 // Since creating a batch split item needs master data. This create response is meant to fail.
 
+@test:Config {
+}
 function testCreateBatchSplitItem() returns error? {
     CreatedDeliveryItem_1|error batchSplitItem = s4HanaClient->createCreateBatchSplitItem({},{
       DeliveryQuantityUnit:"12345",
