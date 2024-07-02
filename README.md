@@ -77,11 +77,12 @@ Execute the commands below to build from the source.
    ./gradlew clean :delivery-ballerina:<api_name>:build
    ```
 
-   |   API Name  |            Connector             |
-   | ----------- | -------------------------------- |
+   | API Name                      | Connector                                           |
+   | ----------------------------- | --------------------------------------------------- |
    | api_del_doc_with_credit_block | ballerinax/sap.s4hana.api_del_doc_with_credit_block |
    | api_customer_returns_delivery_srv_0002 | ballerinax/sap.s4hana.api_customer_returns_delivery_srv_0002 |
-   | ce_managelocation_0001 | ballerinax/sap.s4hana.ce_managelocation_0001|
+   | api_outbound_delivery_srv_0002 | ballerinax/sap.s4hana.api_outbound_delivery_srv_0002 |
+   | api_cv_attachment_srv         | ballerinax/sap.s4hana.api_cv_attachment_srv         |   | ce_managelocation_0001 | ballerinax/sap.s4hana.ce_managelocation_0001|
 
 
 5. To run tests against different environment:
