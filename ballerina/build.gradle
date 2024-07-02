@@ -87,6 +87,7 @@ task build {
     dependsOn(updateDocumentationFiles)
     dependsOn(':delivery-ballerina:api_del_doc_with_credit_block:commitTomlFiles')
     dependsOn(':delivery-ballerina:api_customer_returns_delivery_srv_0002:commitTomlFiles')
+    dependsOn(':delivery-ballerina:ce_managelocation_0001:commitTomlFiles')
 }
 
 publishToMavenLocal.dependsOn build

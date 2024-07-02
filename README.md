@@ -71,6 +71,7 @@ Execute the commands below to build from the source.
    | ----------- | -------------------------------- |
    | api_del_doc_with_credit_block | ballerinax/sap.s4hana.api_del_doc_with_credit_block |
    | api_customer_returns_delivery_srv_0002 | ballerinax/sap.s4hana.api_customer_returns_delivery_srv_0002 |
+   | ce_managelocation_0001 | ballerinax/sap.s4hana.ce_managelocation_0001|
 
 
 5. To run tests against different environment:
