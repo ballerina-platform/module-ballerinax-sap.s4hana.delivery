@@ -176,6 +176,7 @@ function sanitizeSameParameterNameAndSchemaName(string specPath) returns error? 
         }
 
         if reponseSchema == "" {
+            updatedPaths[key] = value;
             continue;
         }
 
@@ -548,7 +549,7 @@ function sanitizeResponseSchemaNames(string specPath) returns error? {
                 ResponseSchema schema = app.schema ?: {};
                 string schemaTitle = schema.title ?: "";
                 if schemaTitle == "Wrapper" {
-                    schema.title = key.substring(1, key.length()) + "Wrapper";
+                     schemaTitle = key.substring(1, key.length()) + "Wrapper";
                     schema.title = schemaTitle;
                 } else if schemaTitle.endsWith("Type") {
                     schemaTitle = schemaTitle.substring(0, schemaTitle.length() - 4);
