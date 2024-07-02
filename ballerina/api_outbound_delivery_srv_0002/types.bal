@@ -19,6 +19,10 @@ public type CreateA_OutbDeliveryPartner record {
     CreateA_OutbDeliveryAddress to_Address?;
 };
 
+public type SetPickingQuantityWithBaseQuantityWrapper record {
+    Collection\ of\ PickingReport d?;
+};
+
 # Represents the Queries record for the operation: listMaintenanceItemObjectsOfA_SerialNmbrDelivery
 public type ListMaintenanceItemObjectsOfA_SerialNmbrDeliveryQueries record {
     # Filter items by property values, see [Filtering](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=64)
@@ -27,6 +31,10 @@ public type ListMaintenanceItemObjectsOfA_SerialNmbrDeliveryQueries record {
     "allpages"|"none" \$inlinecount?;
     # Select properties to be returned, see [Select](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=68)
     MaintenanceItemObjectOfA_SerialNmbrDeliverySelectOptions \$select?;
+};
+
+public type PickAndBatchSplitOneItemWrapper record {
+    Collection\ of\ PickingReport d?;
 };
 
 public type AddressOfA_OutbDeliveryPartnerSelectOptions ("AdditionalStreetPrefixName"|"AdditionalStreetSuffixName"|"AddressID"|"AddressTimeZone"|"Building"|"BusinessPartnerName1"|"BusinessPartnerName2"|"BusinessPartnerName3"|"BusinessPartnerName4"|"CareOfName"|"CityCode"|"CityName"|"CitySearch"|"CompanyPostalCode"|"CorrespondenceLanguage"|"Country"|"County"|"DeliveryServiceNumber"|"DeliveryServiceTypeCode"|"District"|"FaxNumber"|"Floor"|"FormOfAddress"|"FullName"|"HomeCityName"|"HouseNumber"|"HouseNumberSupplementText"|"Nation"|"Person"|"PhoneNumber"|"POBox"|"POBoxDeviatingCityName"|"POBoxDeviatingCountry"|"POBoxDeviatingRegion"|"POBoxIsWithoutNumber"|"POBoxLobbyName"|"POBoxPostalCode"|"PostalCode"|"PrfrdCommMediumType"|"Region"|"RoomNumber"|"SearchTerm1"|"StreetName"|"StreetPrefixName"|"StreetSearch"|"StreetSuffixName"|"TaxJurisdiction"|"TransportZone")[];
@@ -278,10 +286,6 @@ public type ConnectionConfig record {|
     boolean validation = true;
 |};
 
-public type Wrapper record {
-    Collection\ of\ PickingReport d?;
-};
-
 public type CreateA_OutbDeliveryItem_to_DocumentFlow record {
     CreateA_OutbDeliveryDocFlow[] results?;
 };
@@ -300,6 +304,10 @@ public type CreateConfirmPickingAllItemsQueries record {
     # (Value needs to be enclosed in single quotes)
     @constraint:String {maxLength: 12, pattern: re `^'[^']*(''[^']*)*'$`}
     string DeliveryDocument;
+};
+
+public type ConfirmPickingOneItemWrapper record {
+    Collection\ of\ PickingReport d?;
 };
 
 public type HandlingUnitHeaderDeliveryOfA_OutbDeliveryHeaderExpandOptions ("to_HandlingUnitItemDelivery")[];
@@ -591,6 +599,10 @@ public type A_OutbDeliveryDocFlowByKeySelectOptions ("Deliveryversion"|"Precedin
 
 public type A_OutbDeliveryAddress2SelectOptions ("DeliveryDocument"|"PartnerFunction"|"DeliveryVersion"|"AdditionalStreetPrefixName"|"AddressID"|"AdditionalStreetSuffixName"|"AddressTimeZone"|"Building"|"BusinessPartnerName1"|"BusinessPartnerName2"|"BusinessPartnerName3"|"BusinessPartnerName4"|"PersonFamilyName"|"PersonGivenName"|"CareOfName"|"CityName"|"CompanyPostalCode"|"CorrespondenceLanguage"|"Country"|"County"|"DeliveryServiceNumber"|"DeliveryServiceTypeCode"|"District"|"EmailAddress"|"FaxNumber"|"FaxNumberExtension"|"Floor"|"FormOfAddress"|"HomeCityName"|"HouseNumber"|"HouseNumberSupplementText"|"MobilePhoneNumber"|"PhoneNumber"|"PhoneNumberExtension"|"POBox"|"POBoxDeviatingCityName"|"POBoxDeviatingCountry"|"POBoxDeviatingRegion"|"POBoxIsWithoutNumber"|"POBoxLobbyName"|"POBoxPostalCode"|"PostalCode"|"PrfrdCommMediumType"|"Region"|"RoomNumber"|"StreetName"|"StreetPrefixName"|"StreetSuffixName"|"TaxJurisdiction"|"TransportZone")[];
 
+public type PickOneItemWithBaseQuantityWrapper record {
+    Collection\ of\ PickingReport d?;
+};
+
 public type CreatedDeliveryItem_1 record {
     CreatedDeliveryItem_1_d d?;
 };
@@ -685,6 +697,10 @@ public type CreateReverseGoodsIssueQueries record {
 public type CollectionOfA_OutbDeliveryHeader record {
     count __count?;
     A_OutbDeliveryHeader[] results?;
+};
+
+public type ReverseGoodsIssueWrapper record {
+    Collection\ of\ Return d?;
 };
 
 # Represents the Queries record for the operation: getAddressOfA_OutbDeliveryPartner
@@ -787,8 +803,8 @@ public type CreateA_HandlingUnitHeaderDelivery_to_HandlingUnitItemDelivery recor
     CreateA_HandlingUnitItemDelivery[] results?;
 };
 
-public type Wrapper_1 record {
-    Collection\ of\ Return d?;
+public type PickAllItemsWrapper record {
+    Collection\ of\ PickingReport d?;
 };
 
 public type CollectionOfA_OutbDeliveryItemTextWrapper record {
@@ -893,6 +909,10 @@ public type CreateA_OutbDeliveryItem_to_DeliveryDocumentItemText record {
 
 public type DeliveryDocumentItemOfA_OutbDeliveryHeaderExpandOptions ("to_SerialDeliveryItem"|"to_DocumentFlow"|"to_HandlingUnitItemDelivery"|"to_DeliveryDocumentItemText")[];
 
+public type PickOneItemWithSalesQuantityWrapper record {
+    Collection\ of\ PickingReport d?;
+};
+
 # Provides settings related to HTTP/1.x protocol.
 public type ClientHttp1Settings record {|
     # Specifies whether to reuse a connection for multiple requests
@@ -933,6 +953,10 @@ public type CreateAssignHandlingUnitToDeliveryQueries record {
     # (Value needs to be enclosed in single quotes)
     @constraint:String {maxLength: 22, pattern: re `^'[^']*(''[^']*)*'$`}
     string HandlingUnitExternalId;
+};
+
+public type PostGoodsIssueWrapper record {
+    Collection\ of\ PickingReport d?;
 };
 
 # Represents the Queries record for the operation: getA_OutbDeliveryDocFlow
@@ -1269,6 +1293,10 @@ public type A_OutbDeliveryHeader_to_DeliveryDocumentPartner record {
     A_OutbDeliveryPartner[] results?;
 };
 
+public type ConfirmPickingAllItemsWrapper record {
+    Collection\ of\ PickingReport d?;
+};
+
 # Represents the Queries record for the operation: listDeliveryDocumentTextsOfA_OutbDeliveryHeader
 public type ListDeliveryDocumentTextsOfA_OutbDeliveryHeaderQueries record {
     # Filter items by property values, see [Filtering](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=64)
@@ -1326,6 +1354,10 @@ public type CollectionOfA_OutbDeliveryItemWrapper record {
 
 public type CreateA_OutbDeliveryHeader_to_HandlingUnitHeaderDelivery record {
     CreateA_HandlingUnitHeaderDelivery[] results?;
+};
+
+public type DeleteAllSerialNumbersFromDeliveryItemWrapper record {
+    Collection\ of\ PickingReport d?;
 };
 
 public type DeliveryDocumentItemTextOfA_OutbDeliveryItemSelectOptions ("DeliveryDocument"|"DeliveryDocumentItem"|"TextElement"|"Language"|"TextElementDescription"|"TextElementText"|"DeliveryLongTextIsFormatted")[];
@@ -1493,6 +1525,10 @@ public type A_SerialNmbrDelivery record {
     A_SerialNmbrDelivery_to_MaintenanceItemObject to_MaintenanceItemObject?;
 };
 
+public type AddSerialNumberToDeliveryItemWrapper record {
+    Collection\ of\ PickingReport d?;
+};
+
 public type Address2OfA_OutbDeliveryPartnerSelectOptions ("DeliveryDocument"|"PartnerFunction"|"DeliveryVersion"|"AdditionalStreetPrefixName"|"AddressID"|"AdditionalStreetSuffixName"|"AddressTimeZone"|"Building"|"BusinessPartnerName1"|"BusinessPartnerName2"|"BusinessPartnerName3"|"BusinessPartnerName4"|"PersonFamilyName"|"PersonGivenName"|"CareOfName"|"CityName"|"CompanyPostalCode"|"CorrespondenceLanguage"|"Country"|"County"|"DeliveryServiceNumber"|"DeliveryServiceTypeCode"|"District"|"EmailAddress"|"FaxNumber"|"FaxNumberExtension"|"Floor"|"FormOfAddress"|"HomeCityName"|"HouseNumber"|"HouseNumberSupplementText"|"MobilePhoneNumber"|"PhoneNumber"|"PhoneNumberExtension"|"POBox"|"POBoxDeviatingCityName"|"POBoxDeviatingCountry"|"POBoxDeviatingRegion"|"POBoxIsWithoutNumber"|"POBoxLobbyName"|"POBoxPostalCode"|"PostalCode"|"PrfrdCommMediumType"|"Region"|"RoomNumber"|"StreetName"|"StreetPrefixName"|"StreetSuffixName"|"TaxJurisdiction"|"TransportZone")[];
 
 # Represents the Queries record for the operation: listA_OutbDeliveryHeaders
@@ -1517,6 +1553,10 @@ public type ListA_OutbDeliveryHeadersQueries record {
 
 public type UpdateA_OutbDeliveryItemText record {
     string TextElementText?;
+};
+
+public type PickOneItemWrapper record {
+    Collection\ of\ PickingReport d?;
 };
 
 public type HandlingUnitHeaderDeliveryOfA_OutbDeliveryHeaderSelectOptions ("CreatedByUser"|"CreationDate"|"CreationTime"|"DeliveryDocument"|"GrossVolume"|"GrossWeight"|"HandlingUnitBaseUnitOfMeasure"|"HandlingUnitContentDescription"|"HandlingUnitExternalId"|"HandlingUnitExternalIdType"|"HandlingUnitHeight"|"HandlingUnitInternalId"|"HandlingUnitInternalStatus"|"HandlingUnitLength"|"HandlingUnitLowerLevelRefer"|"HandlingUnitMaxVolume"|"HandlingUnitMaxWeight"|"HandlingUnitNetVolume"|"HandlingUnitSecondExternalId"|"HandlingUnitTareVolume"|"HandlingUnitTareVolumeUnit"|"HandlingUnitTareWeight"|"HandlingUnitTareWeightUnit"|"HandlingUnitUoMDimension"|"HandlingUnitWidth"|"LastChangeDate"|"LastChangedByUser"|"LastChangeTime"|"NetWeight"|"PackagingMaterial"|"PackagingMaterialCategory"|"PackagingMaterialGroup"|"PackagingMaterialType"|"PackingInstructionNumber"|"ShippingPoint"|"VolumeUnit"|"WeightUnit"|"to_HandlingUnitItemDelivery")[];
@@ -1589,6 +1629,10 @@ public type CreatePickOneItemQueries record {
 
 public type Modified\ A_OutbDeliveryHeaderType record {
     UpdateA_OutbDeliveryHeader d?;
+};
+
+public type DeleteSerialNumberFromDeliveryItemWrapper record {
+    Collection\ of\ PickingReport d?;
 };
 
 public type A_OutbDeliveryAddress2Wrapper record {

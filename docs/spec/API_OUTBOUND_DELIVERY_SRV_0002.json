@@ -2195,7 +2195,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "title": "Wrapper",
+                  "title": "PickAndBatchSplitOneItemWrapper",
                   "type": "object",
                   "properties": {
                     "d": {
@@ -2346,7 +2346,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "title": "Wrapper",
+                  "title": "SetPickingQuantityWithBaseQuantityWrapper",
                   "type": "object",
                   "properties": {
                     "d": {
@@ -2424,7 +2424,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "title": "Wrapper",
+                  "title": "AddSerialNumberToDeliveryItemWrapper",
                   "type": "object",
                   "properties": {
                     "d": {
@@ -2502,7 +2502,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "title": "Wrapper",
+                  "title": "DeleteSerialNumberFromDeliveryItemWrapper",
                   "type": "object",
                   "properties": {
                     "d": {
@@ -2569,7 +2569,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "title": "Wrapper",
+                  "title": "DeleteAllSerialNumbersFromDeliveryItemWrapper",
                   "type": "object",
                   "properties": {
                     "d": {
@@ -2625,7 +2625,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "title": "Wrapper",
+                  "title": "PostGoodsIssueWrapper",
                   "type": "object",
                   "properties": {
                     "d": {
@@ -2691,7 +2691,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "title": "Wrapper",
+                  "title": "ReverseGoodsIssueWrapper",
                   "type": "object",
                   "properties": {
                     "d": {
@@ -2747,7 +2747,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "title": "Wrapper",
+                  "title": "ConfirmPickingAllItemsWrapper",
                   "type": "object",
                   "properties": {
                     "d": {
@@ -2814,7 +2814,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "title": "Wrapper",
+                  "title": "ConfirmPickingOneItemWrapper",
                   "type": "object",
                   "properties": {
                     "d": {
@@ -2870,7 +2870,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "title": "Wrapper",
+                  "title": "PickAllItemsWrapper",
                   "type": "object",
                   "properties": {
                     "d": {
@@ -2937,7 +2937,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "title": "Wrapper",
+                  "title": "PickOneItemWrapper",
                   "type": "object",
                   "properties": {
                     "d": {
@@ -3029,7 +3029,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "title": "Wrapper",
+                  "title": "PickOneItemWithSalesQuantityWrapper",
                   "type": "object",
                   "properties": {
                     "d": {
@@ -3121,7 +3121,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "title": "Wrapper",
+                  "title": "PickOneItemWithBaseQuantityWrapper",
                   "type": "object",
                   "properties": {
                     "d": {

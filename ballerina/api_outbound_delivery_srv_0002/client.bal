@@ -112,7 +112,7 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + queries - Queries to be sent with the request 
     # + return - Success 
-    remote isolated function createAddSerialNumberToDeliveryItem(map<string|string[]> headers = {}, *CreateAddSerialNumberToDeliveryItemQueries queries) returns Wrapper|error {
+    remote isolated function createAddSerialNumberToDeliveryItem(map<string|string[]> headers = {}, *CreateAddSerialNumberToDeliveryItemQueries queries) returns AddSerialNumberToDeliveryItemWrapper|error {
         string resourcePath = string `/AddSerialNumberToDeliveryItem`;
         resourcePath = resourcePath + check getPathForQueryParam(queries);
         http:Request request = new;
@@ -136,7 +136,7 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + queries - Queries to be sent with the request 
     # + return - Success 
-    remote isolated function createConfirmPickingAllItems(map<string|string[]> headers = {}, *CreateConfirmPickingAllItemsQueries queries) returns Wrapper|error {
+    remote isolated function createConfirmPickingAllItems(map<string|string[]> headers = {}, *CreateConfirmPickingAllItemsQueries queries) returns ConfirmPickingAllItemsWrapper|error {
         string resourcePath = string `/ConfirmPickingAllItems`;
         resourcePath = resourcePath + check getPathForQueryParam(queries);
         http:Request request = new;
@@ -148,7 +148,7 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + queries - Queries to be sent with the request 
     # + return - Success 
-    remote isolated function createConfirmPickingOneItem(map<string|string[]> headers = {}, *CreateConfirmPickingOneItemQueries queries) returns Wrapper|error {
+    remote isolated function createConfirmPickingOneItem(map<string|string[]> headers = {}, *CreateConfirmPickingOneItemQueries queries) returns ConfirmPickingOneItemWrapper|error {
         string resourcePath = string `/ConfirmPickingOneItem`;
         resourcePath = resourcePath + check getPathForQueryParam(queries);
         http:Request request = new;
@@ -184,7 +184,7 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + queries - Queries to be sent with the request 
     # + return - Success 
-    remote isolated function createDeleteAllSerialNumbersFromDeliveryItem(map<string|string[]> headers = {}, *CreateDeleteAllSerialNumbersFromDeliveryItemQueries queries) returns Wrapper|error {
+    remote isolated function createDeleteAllSerialNumbersFromDeliveryItem(map<string|string[]> headers = {}, *CreateDeleteAllSerialNumbersFromDeliveryItemQueries queries) returns DeleteAllSerialNumbersFromDeliveryItemWrapper|error {
         string resourcePath = string `/DeleteAllSerialNumbersFromDeliveryItem`;
         resourcePath = resourcePath + check getPathForQueryParam(queries);
         http:Request request = new;
@@ -196,7 +196,7 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + queries - Queries to be sent with the request 
     # + return - Success 
-    remote isolated function createDeleteSerialNumberFromDeliveryItem(map<string|string[]> headers = {}, *CreateDeleteSerialNumberFromDeliveryItemQueries queries) returns Wrapper|error {
+    remote isolated function createDeleteSerialNumberFromDeliveryItem(map<string|string[]> headers = {}, *CreateDeleteSerialNumberFromDeliveryItemQueries queries) returns DeleteSerialNumberFromDeliveryItemWrapper|error {
         string resourcePath = string `/DeleteSerialNumberFromDeliveryItem`;
         resourcePath = resourcePath + check getPathForQueryParam(queries);
         http:Request request = new;
@@ -237,7 +237,7 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + queries - Queries to be sent with the request 
     # + return - Success 
-    remote isolated function createPickAllItems(map<string|string[]> headers = {}, *CreatePickAllItemsQueries queries) returns Wrapper|error {
+    remote isolated function createPickAllItems(map<string|string[]> headers = {}, *CreatePickAllItemsQueries queries) returns PickAllItemsWrapper|error {
         string resourcePath = string `/PickAllItems`;
         resourcePath = resourcePath + check getPathForQueryParam(queries);
         http:Request request = new;
@@ -249,7 +249,7 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + queries - Queries to be sent with the request 
     # + return - Success 
-    remote isolated function createPickAndBatchSplitOneItem(map<string|string[]> headers = {}, *CreatePickAndBatchSplitOneItemQueries queries) returns Wrapper|error {
+    remote isolated function createPickAndBatchSplitOneItem(map<string|string[]> headers = {}, *CreatePickAndBatchSplitOneItemQueries queries) returns PickAndBatchSplitOneItemWrapper|error {
         string resourcePath = string `/PickAndBatchSplitOneItem`;
         resourcePath = resourcePath + check getPathForQueryParam(queries);
         http:Request request = new;
@@ -261,7 +261,7 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + queries - Queries to be sent with the request 
     # + return - Success 
-    remote isolated function createPickOneItem(map<string|string[]> headers = {}, *CreatePickOneItemQueries queries) returns Wrapper|error {
+    remote isolated function createPickOneItem(map<string|string[]> headers = {}, *CreatePickOneItemQueries queries) returns PickOneItemWrapper|error {
         string resourcePath = string `/PickOneItem`;
         resourcePath = resourcePath + check getPathForQueryParam(queries);
         http:Request request = new;
@@ -273,7 +273,7 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + queries - Queries to be sent with the request 
     # + return - Success 
-    remote isolated function createPickOneItemWithBaseQuantity(map<string|string[]> headers = {}, *CreatePickOneItemWithBaseQuantityQueries queries) returns Wrapper|error {
+    remote isolated function createPickOneItemWithBaseQuantity(map<string|string[]> headers = {}, *CreatePickOneItemWithBaseQuantityQueries queries) returns PickOneItemWithBaseQuantityWrapper|error {
         string resourcePath = string `/PickOneItemWithBaseQuantity`;
         resourcePath = resourcePath + check getPathForQueryParam(queries);
         http:Request request = new;
@@ -285,7 +285,7 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + queries - Queries to be sent with the request 
     # + return - Success 
-    remote isolated function createPickOneItemWithSalesQuantity(map<string|string[]> headers = {}, *CreatePickOneItemWithSalesQuantityQueries queries) returns Wrapper|error {
+    remote isolated function createPickOneItemWithSalesQuantity(map<string|string[]> headers = {}, *CreatePickOneItemWithSalesQuantityQueries queries) returns PickOneItemWithSalesQuantityWrapper|error {
         string resourcePath = string `/PickOneItemWithSalesQuantity`;
         resourcePath = resourcePath + check getPathForQueryParam(queries);
         http:Request request = new;
@@ -297,7 +297,7 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + queries - Queries to be sent with the request 
     # + return - Success 
-    remote isolated function createPostGoodsIssue(map<string|string[]> headers = {}, *CreatePostGoodsIssueQueries queries) returns Wrapper|error {
+    remote isolated function createPostGoodsIssue(map<string|string[]> headers = {}, *CreatePostGoodsIssueQueries queries) returns PostGoodsIssueWrapper|error {
         string resourcePath = string `/PostGoodsIssue`;
         resourcePath = resourcePath + check getPathForQueryParam(queries);
         http:Request request = new;
@@ -309,7 +309,7 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + queries - Queries to be sent with the request 
     # + return - Success 
-    remote isolated function createReverseGoodsIssue(map<string|string[]> headers = {}, *CreateReverseGoodsIssueQueries queries) returns Wrapper_1|error {
+    remote isolated function createReverseGoodsIssue(map<string|string[]> headers = {}, *CreateReverseGoodsIssueQueries queries) returns ReverseGoodsIssueWrapper|error {
         string resourcePath = string `/ReverseGoodsIssue`;
         resourcePath = resourcePath + check getPathForQueryParam(queries);
         http:Request request = new;
@@ -321,7 +321,7 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + queries - Queries to be sent with the request 
     # + return - Success 
-    remote isolated function createSetPickingQuantityWithBaseQuantity(map<string|string[]> headers = {}, *CreateSetPickingQuantityWithBaseQuantityQueries queries) returns Wrapper|error {
+    remote isolated function createSetPickingQuantityWithBaseQuantity(map<string|string[]> headers = {}, *CreateSetPickingQuantityWithBaseQuantityQueries queries) returns SetPickingQuantityWithBaseQuantityWrapper|error {
         string resourcePath = string `/SetPickingQuantityWithBaseQuantity`;
         resourcePath = resourcePath + check getPathForQueryParam(queries);
         http:Request request = new;

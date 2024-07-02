@@ -61,5 +61,4 @@ service /sap/opu/odata/sap/API_OUTBOUND_DELIVERY_SRV on ep0 {
         res.statusCode = 500;
         return res;
     }
-
 }

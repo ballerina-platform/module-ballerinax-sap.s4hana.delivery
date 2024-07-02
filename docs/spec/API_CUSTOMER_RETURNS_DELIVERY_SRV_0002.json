@@ -1092,7 +1092,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "title": "Wrapper",
+                  "title": "ReverseGoodsReceiptWrapper",
                   "type": "object",
                   "properties": {
                     "d": {
@@ -1158,7 +1158,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "title": "Wrapper",
+                  "title": "PostGoodsReceiptWrapper",
                   "type": "object",
                   "properties": {
                     "d": {
@@ -1214,7 +1214,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "title": "Wrapper",
+                  "title": "ConfirmPutawayAllItemsWrapper",
                   "type": "object",
                   "properties": {
                     "d": {
@@ -1281,7 +1281,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "title": "Wrapper",
+                  "title": "ConfirmPutawayOneItemWrapper",
                   "type": "object",
                   "properties": {
                     "d": {
@@ -1337,7 +1337,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "title": "Wrapper",
+                  "title": "PutawayAllItemsWrapper",
                   "type": "object",
                   "properties": {
                     "d": {
@@ -1404,7 +1404,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "title": "Wrapper",
+                  "title": "PutawayOneItemWrapper",
                   "type": "object",
                   "properties": {
                     "d": {
@@ -1626,7 +1626,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "title": "Wrapper",
+                  "title": "SetPutawayQuantityWithBaseQuantityWrapper",
                   "type": "object",
                   "properties": {
                     "d": {
@@ -1718,7 +1718,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "title": "Wrapper",
+                  "title": "PutawayOneItemWithBaseQuantityWrapper",
                   "type": "object",
                   "properties": {
                     "d": {
@@ -1810,7 +1810,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "title": "Wrapper",
+                  "title": "PutawayOneItemWithSalesQuantityWrapper",
                   "type": "object",
                   "properties": {
                     "d": {

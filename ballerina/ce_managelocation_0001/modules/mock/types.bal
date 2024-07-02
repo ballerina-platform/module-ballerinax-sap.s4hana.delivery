@@ -18,7 +18,6 @@
 // under the License.
 
 import ballerina/constraint;
-import ballerina/http;
 
 public type CreateLocation record {
     # Internal Location Number (Customer, Supplier, or Plant)
@@ -55,14 +54,6 @@ public type CreateLocation record {
     CreateLocationAddress? _LocationAddressTP?;
     CreateLocationText[] _LocationTextTP?;
 };
-
-public type LocationTextSelectOptions ("LocationUUID"|"Language"|"LocationDescription"|"LocalLastChangeDateTime"|"SAP__Messages")[];
-
-public type OkAnydata record {|
-    *http:Ok;
-    anydata body;
-    map<string|string[]> headers;
-|};
 
 public type CreateLocationAddress record {
     @constraint:String {maxLength: 10}
@@ -112,13 +103,6 @@ public type CreateSAP__Message record {
 
 public type LocationOrderByOptions ("LocationUUID"|"LocationUUID desc"|"Location"|"Location desc"|"LocationType"|"LocationType desc"|"LocationAdditionalUUID"|"LocationAdditionalUUID desc"|"LocationTimeZone"|"LocationTimeZone desc"|"GlobalLocationNumber"|"GlobalLocationNumber desc"|"LocationDUNSNumber"|"LocationDUNSNumber desc"|"LocationUNCode"|"LocationUNCode desc"|"LocationIATACode"|"LocationIATACode desc"|"GeoCoordinatesLongitudeValue"|"GeoCoordinatesLongitudeValue desc"|"GeoCoordinatesLatitudeValue"|"GeoCoordinatesLatitudeValue desc"|"GeoCoordsValidityEndDateTime"|"GeoCoordsValidityEndDateTime desc"|"GeoCoordsAreManuallyChanged"|"GeoCoordsAreManuallyChanged desc"|"CreationDateTime"|"CreationDateTime desc"|"CreatedByUser"|"CreatedByUser desc"|"ChangedDateTime"|"ChangedDateTime desc"|"LocalLastChangeDateTime"|"LocalLastChangeDateTime desc"|"LastChangedByUser"|"LastChangedByUser desc"|"LocationIsTemporary"|"LocationIsTemporary desc"|"IsBusinessPurposeCompleted"|"IsBusinessPurposeCompleted desc"|"AddressID"|"AddressID desc"|"SAP__Messages"|"SAP__Messages desc")[];
 
-public type CollectionOfLocationText record {
-    count \@odata\.count?;
-    LocationText[] value?;
-};
-
-public type LocationTextOrderByOptions ("LocationUUID"|"LocationUUID desc"|"Language"|"Language desc"|"LocationDescription"|"LocationDescription desc"|"LocalLastChangeDateTime"|"LocalLastChangeDateTime desc"|"SAP__Messages"|"SAP__Messages desc")[];
-
 public type LocationSelectOptions ("LocationUUID"|"Location"|"LocationType"|"LocationAdditionalUUID"|"LocationTimeZone"|"GlobalLocationNumber"|"LocationDUNSNumber"|"LocationUNCode"|"LocationIATACode"|"GeoCoordinatesLongitudeValue"|"GeoCoordinatesLatitudeValue"|"GeoCoordsValidityEndDateTime"|"GeoCoordsAreManuallyChanged"|"CreationDateTime"|"CreatedByUser"|"ChangedDateTime"|"LocalLastChangeDateTime"|"LastChangedByUser"|"LocationIsTemporary"|"IsBusinessPurposeCompleted"|"AddressID"|"SAP__Messages")[];
 
 public type SAP__Message record {
@@ -144,8 +128,6 @@ public type LocationText record {
     SAP__Message[] SAP__Messages?;
     Location _LocationTP?;
 };
-
-public type LocationTextExpandOptions ("*"|"_LocationTP")[];
 
 public type LocationAddress record {
     # Internal Location Number (Customer, Supplier, or Plant)

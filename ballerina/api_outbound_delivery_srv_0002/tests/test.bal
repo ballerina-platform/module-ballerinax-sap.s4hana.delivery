@@ -66,7 +66,7 @@ function initializeClientsForS4HanaServer() returns error? {
 }
 function testlistA_OutbDeliveryItems() returns error? {
     CollectionOfA_OutbDeliveryItemWrapper listOutbDeliveryItems = check s4HanaClient->listA_OutbDeliveryItems();
-    test:assertTrue(listOutbDeliveryItems.d?.results !is (), "The purchasing info record is expected to be non-empty.");
+    test:assertTrue(listOutbDeliveryItems.d?.results !is (), "This is expected to be non-empty.");
 }
 
 // Since creating a purchasing info record needs master data. This create response is meant to fail.
@@ -79,7 +79,7 @@ function testOutbDeliveryItemText() returns error? {
         TextElement: "12",
         Language: "12"
     });
-    test:assertTrue(creatingoutbdeliveryitemText is error, "The purchasing info record response expected to be 500");
+    test:assertTrue(creatingoutbdeliveryitemText is error, "The response expected to be 500");
     error e = <error>creatingoutbdeliveryitemText;
     test:assertEquals(e.detail()["statusCode"], 500, "Expected 500 status code");
 }

@@ -64,29 +64,6 @@ service /sap/opu/odata/sap/API_DEL_DOC_WITH_CREDIT_BLOCK on ep0 {
         };
     }
 
-    # Reads all rejection reasons.
-    #
-    # + \$top - Show only the first n items, see [Paging - Top](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=66)
-    # + \$skip - Skip the first n items, see [Paging - Skip](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=65)
-    # + \$filter - Filter items by property values, see [Filtering](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=64)
-    # + \$inlinecount - Include count of items, see [Inlinecount](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=67)
-    # + \$orderby - Order items by property values, see [Sorting](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=65)
-    # + \$select - Select properties to be returned, see [Select](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=68)
-    # + return - returns can be any of following types 
-    # http:Ok (Retrieved entities)
-    # http:Response (Error)
-    resource function get A_SalesDocumentRjcnReason(int? \$top, int? \$skip, string? \$filter, "allpages"|"none"? \$inlinecount, A_SalesDocumentRjcnReasonOrderByOptions? \$orderby, A_SalesDocumentRjcnReasonSelectOptions? \$select) returns CollectionOfA_SalesDocumentRjcnReasonWrapper|http:Response {
-        return {
-            d: {
-                results: [
-                    {
-                        "SalesDocumentRjcnReason": "12345"
-                    }
-                ]
-            }
-        };
-    }
-
     # Checks the credit status of a specific delivery document.
     #
     # + DeliveryDocument - Value needs to be enclosed in single quotes
@@ -95,39 +72,6 @@ service /sap/opu/odata/sap/API_DEL_DOC_WITH_CREDIT_BLOCK on ep0 {
     # http:Ok (Success)
     # http:Response (Error)
     resource function post CheckCreditBlock(string DeliveryDocument, string SDDocumentCategory) returns OkReturnMessage_1|http:Response {
-        http:Response res = new;
-        res.statusCode = 500;
-        return res;
-    }
-
-    # Rejects a specific credit blocked delivery document.
-    #
-    # + DeliveryDocument - Value needs to be enclosed in single quotes
-    # + SalesDocumentRjcnReason - Value needs to be enclosed in single quotes
-    # + SDDocumentCategory - Value needs to be enclosed in single quotes
-    # + return - returns can be any of following types 
-    # http:Ok (Success)
-    # http:Response (Error)
-    resource function post RejectCreditBlock(string DeliveryDocument, string SalesDocumentRjcnReason, string SDDocumentCategory) returns OkReturnMessage_2|http:Response {
-        http:Response res = new;
-        res.statusCode = 500;
-        return res;
-    }
-
-    # Releases a specific delivery document from the credit block.
-    #
-    # + SDDocumentCategory - Value needs to be enclosed in single quotes
-    # + DeliveryDocument - Value needs to be enclosed in single quotes
-    # + return - returns can be any of following types 
-    # http:Ok (Success)
-    # http:Response (Error)
-    resource function post ReleaseCreditBlock(string SDDocumentCategory, string DeliveryDocument) returns OkReturnMessage_3|http:Response {
-        http:Response res = new;
-        res.statusCode = 500;
-        return res;
-    }
-
-    resource function post \$batch(http:Request request) returns AcceptedAnydata|http:Response {
         http:Response res = new;
         res.statusCode = 500;
         return res;

@@ -26,7 +26,6 @@ configurable string hostname = isTestOnLiveServer ? os:getEnv("HOST_NAME") : "lo
 configurable string username = isTestOnLiveServer ? os:getEnv("USERNAME") : "admin";
 configurable string password = isTestOnLiveServer ? os:getEnv("PASSWORD") : "admin";
 
-// boolean isBalBuild = os:getEnv("IS_BAL_BUILD") == "true";
 boolean isBalBuild = true;
 string certPathPostFix = isBalBuild ? "../" : "/home/ballerina/ballerina/";
 

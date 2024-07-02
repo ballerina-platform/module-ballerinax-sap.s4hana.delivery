@@ -76,7 +76,7 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + queries - Queries to be sent with the request 
     # + return - Success 
-    remote isolated function createConfirmPutawayAllItems(map<string|string[]> headers = {}, *CreateConfirmPutawayAllItemsQueries queries) returns Wrapper_1|error {
+    remote isolated function createConfirmPutawayAllItems(map<string|string[]> headers = {}, *CreateConfirmPutawayAllItemsQueries queries) returns ConfirmPutawayAllItemsWrapper|error {
         string resourcePath = string `/ConfirmPutawayAllItems`;
         resourcePath = resourcePath + check getPathForQueryParam(queries);
         http:Request request = new;
@@ -88,7 +88,7 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + queries - Queries to be sent with the request 
     # + return - Success 
-    remote isolated function createConfirmPutawayOneItem(map<string|string[]> headers = {}, *CreateConfirmPutawayOneItemQueries queries) returns Wrapper_1|error {
+    remote isolated function createConfirmPutawayOneItem(map<string|string[]> headers = {}, *CreateConfirmPutawayOneItemQueries queries) returns ConfirmPutawayOneItemWrapper|error {
         string resourcePath = string `/ConfirmPutawayOneItem`;
         resourcePath = resourcePath + check getPathForQueryParam(queries);
         http:Request request = new;
@@ -112,7 +112,7 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + queries - Queries to be sent with the request 
     # + return - Success 
-    remote isolated function createPostGoodsReceipt(map<string|string[]> headers = {}, *CreatePostGoodsReceiptQueries queries) returns Wrapper_1|error {
+    remote isolated function createPostGoodsReceipt(map<string|string[]> headers = {}, *CreatePostGoodsReceiptQueries queries) returns PostGoodsReceiptWrapper|error {
         string resourcePath = string `/PostGoodsReceipt`;
         resourcePath = resourcePath + check getPathForQueryParam(queries);
         http:Request request = new;
@@ -124,7 +124,7 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + queries - Queries to be sent with the request 
     # + return - Success 
-    remote isolated function createPutawayAllItems(map<string|string[]> headers = {}, *CreatePutawayAllItemsQueries queries) returns Wrapper_1|error {
+    remote isolated function createPutawayAllItems(map<string|string[]> headers = {}, *CreatePutawayAllItemsQueries queries) returns PutawayAllItemsWrapper|error {
         string resourcePath = string `/PutawayAllItems`;
         resourcePath = resourcePath + check getPathForQueryParam(queries);
         http:Request request = new;
@@ -136,7 +136,7 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + queries - Queries to be sent with the request 
     # + return - Success 
-    remote isolated function createPutawayOneItem(map<string|string[]> headers = {}, *CreatePutawayOneItemQueries queries) returns Wrapper_1|error {
+    remote isolated function createPutawayOneItem(map<string|string[]> headers = {}, *CreatePutawayOneItemQueries queries) returns PutawayOneItemWrapper|error {
         string resourcePath = string `/PutawayOneItem`;
         resourcePath = resourcePath + check getPathForQueryParam(queries);
         http:Request request = new;
@@ -148,7 +148,7 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + queries - Queries to be sent with the request 
     # + return - Success 
-    remote isolated function createPutawayOneItemWithBaseQuantity(map<string|string[]> headers = {}, *CreatePutawayOneItemWithBaseQuantityQueries queries) returns Wrapper_1|error {
+    remote isolated function createPutawayOneItemWithBaseQuantity(map<string|string[]> headers = {}, *CreatePutawayOneItemWithBaseQuantityQueries queries) returns PutawayOneItemWithBaseQuantityWrapper|error {
         string resourcePath = string `/PutawayOneItemWithBaseQuantity`;
         resourcePath = resourcePath + check getPathForQueryParam(queries);
         http:Request request = new;
@@ -160,7 +160,7 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + queries - Queries to be sent with the request 
     # + return - Success 
-    remote isolated function createPutawayOneItemWithSalesQuantity(map<string|string[]> headers = {}, *CreatePutawayOneItemWithSalesQuantityQueries queries) returns Wrapper_1|error {
+    remote isolated function createPutawayOneItemWithSalesQuantity(map<string|string[]> headers = {}, *CreatePutawayOneItemWithSalesQuantityQueries queries) returns PutawayOneItemWithSalesQuantityWrapper|error {
         string resourcePath = string `/PutawayOneItemWithSalesQuantity`;
         resourcePath = resourcePath + check getPathForQueryParam(queries);
         http:Request request = new;
@@ -172,7 +172,7 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + queries - Queries to be sent with the request 
     # + return - Success 
-    remote isolated function createReverseGoodsReceipt(map<string|string[]> headers = {}, *CreateReverseGoodsReceiptQueries queries) returns Wrapper|error {
+    remote isolated function createReverseGoodsReceipt(map<string|string[]> headers = {}, *CreateReverseGoodsReceiptQueries queries) returns ReverseGoodsReceiptWrapper|error {
         string resourcePath = string `/ReverseGoodsReceipt`;
         resourcePath = resourcePath + check getPathForQueryParam(queries);
         http:Request request = new;
@@ -184,7 +184,7 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + queries - Queries to be sent with the request 
     # + return - Success 
-    remote isolated function createSetPutawayQuantityWithBaseQuantity(map<string|string[]> headers = {}, *CreateSetPutawayQuantityWithBaseQuantityQueries queries) returns Wrapper_1|error {
+    remote isolated function createSetPutawayQuantityWithBaseQuantity(map<string|string[]> headers = {}, *CreateSetPutawayQuantityWithBaseQuantityQueries queries) returns SetPutawayQuantityWithBaseQuantityWrapper|error {
         string resourcePath = string `/SetPutawayQuantityWithBaseQuantity`;
         resourcePath = resourcePath + check getPathForQueryParam(queries);
         http:Request request = new;

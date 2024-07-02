@@ -75,8 +75,8 @@ function testListLocations() returns error? {
 function testCreateLocation() returns error? {
     Location|error checkLocation = s4HanaClient->createLocation(
         {LocationUUID: ""},
-        {LocationId:"123456"
-        });
+        {LocationId: "123456"}
+        );
     test:assertTrue(checkLocation is error, "The check location response expected to be 500");
     error e = <error>checkLocation;
     test:assertEquals(e.detail()["statusCode"], 500, "Expected 500 status code");
