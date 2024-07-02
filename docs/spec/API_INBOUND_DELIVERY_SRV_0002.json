@@ -158,6 +158,7 @@
         }
       ],
       "get": {
+        "operationId": "getA_InbDeliveryDocFlow",
         "summary": "Reads inbound delivery document flows by key.",
         "description": "Reads inbound delivery document flows using the delivery document (PrecedingDocument), the delivery document item (PrecedingDocumentItem) and the subsequent document category Q.",
         "tags": [
@@ -191,6 +192,7 @@
         }
       },
       "patch": {
+        "operationId": "patchA_InbDeliveryDocFlow",
         "summary": "Updates inbound delivery document flows.",
         "description": "Updates inbound delivery document flows using the delivery document (PrecedingDocument), the delivery document item (PrecedingDocumentItem) and the subsequent document category Q.",
         "tags": [
@@ -225,6 +227,7 @@
     },
     "/A_InbDeliveryHeader": {
       "get": {
+        "operationId": "listA_InbDeliveryHeaders",
         "summary": "Reads inbound delivery headers.",
         "description": "Reads all inbound delivery headers. You can narrow down the result by specifying filter conditions.",
         "tags": [
@@ -296,6 +299,7 @@
         }
       },
       "post": {
+        "operationId": "createA_InbDeliveryHeader",
         "summary": "Creates inbound deliveries with reference to preceding document.",
         "description": "Creates inbound deliveries with reference to a purchase order.",
         "tags": [
@@ -349,6 +353,7 @@
         }
       ],
       "get": {
+        "operationId": "getA_InbDeliveryHeader",
         "summary": "Reads inbound delivery headers.",
         "description": "Reads all inbound delivery headers. You can narrow down the result by specifying filter conditions.",
         "tags": [
@@ -385,6 +390,7 @@
         }
       },
       "patch": {
+        "operationId": "patchA_InbDeliveryHeader",
         "summary": "Updates inbound delivery headers.",
         "description": "Updates inbound delivery headers using the delivery document.",
         "tags": [
@@ -417,6 +423,7 @@
         }
       },
       "delete": {
+        "operationId": "deleteA_InbDeliveryHeader",
         "summary": "Deletes inbound deliveries.",
         "description": "Deletes inbound deliveries using the delivery document number.",
         "tags": [
@@ -446,6 +453,7 @@
         }
       ],
       "get": {
+        "operationId": "listDeliveryDocumentTextsOfA_InbDeliveryHeader",
         "summary": "Reads texts of specific inbound delivery header.",
         "description": "Reads all texts of a specific inbound delivery header. You can narrow down the result by specifying filter conditions.",
         "tags": [
@@ -517,6 +525,7 @@
         }
       ],
       "get": {
+        "operationId": "listDeliveryDocumentItemsOfA_InbDeliveryHeader",
         "summary": "Reads items of specific inbound delivery header.",
         "description": "Reads all items of a specific inbound delivery header. You can narrow down the result by specifying filter conditions.",
         "tags": [
@@ -603,6 +612,7 @@
         }
       ],
       "get": {
+        "operationId": "listDeliveryDocumentPartnersOfA_InbDeliveryHeader",
         "summary": "Reads partners of specific inbound delivery header.",
         "description": "Reads all partners of a specific inbound delivery header. You can narrow down the result by specifying filter conditions.",
         "tags": [
@@ -668,6 +678,7 @@
     },
     "/A_InbDeliveryItem": {
       "get": {
+        "operationId": "listA_InbDeliveryItems",
         "summary": "Reads inbound delivery items.",
         "description": "Reads all inbound delivery items. You can narrow down the result by specifying filter conditions.",
         "tags": [
@@ -763,6 +774,7 @@
         }
       ],
       "get": {
+        "operationId": "getA_InbDeliveryItem",
         "summary": "Reads inbound delivery items.",
         "description": "Reads all inbound delivery items. You can narrow down the result by specifying filter conditions.",
         "tags": [
@@ -799,6 +811,7 @@
         }
       },
       "patch": {
+        "operationId": "patchA_InbDeliveryItem",
         "summary": "Updates inbound delivery items.",
         "description": "Updates inbound delivery items using the delivery document and the delivery document item.",
         "tags": [
@@ -831,6 +844,7 @@
         }
       },
       "delete": {
+        "operationId": "deleteA_InbDeliveryItem",
         "summary": "Deletes inbound delivery items.",
         "description": "Deletes inbound delivery items using the delivery document number and the delivery document item number.",
         "tags": [
@@ -870,6 +884,7 @@
         }
       ],
       "get": {
+        "operationId": "getSerialDeliveryItemOfA_InbDeliveryItem",
         "summary": "Reads maintenance item object lists of specific inbound delivery item.",
         "description": "Reads all maintenance item object lists of a specific inbound delivery item.",
         "tags": [
@@ -931,6 +946,7 @@
         }
       ],
       "get": {
+        "operationId": "listDocumentFlowsOfA_InbDeliveryItem",
         "summary": "Reads document flows of specific inbound delivery item.",
         "description": "Reads all document flows of a specific inbound delivery item.",
         "tags": [
@@ -1015,6 +1031,7 @@
         }
       ],
       "get": {
+        "operationId": "listDeliveryDocumentItemTextsOfA_InbDeliveryItem",
         "summary": "Reads texts of specific inbound delivery item.",
         "description": "Reads all texts of a specific inbound delivery item. You can narrow down the result by specifying filter conditions.",
         "tags": [
@@ -1096,6 +1113,7 @@
         }
       ],
       "get": {
+        "operationId": "getAddressOfA_InbDeliveryPartner",
         "summary": "Reads addresses of specific inbound delivery partner.",
         "description": "Reads all addresses of a specific inbound delivery partner. You can narrow down the result by specifying filter conditions.",
         "tags": [
@@ -1145,6 +1163,7 @@
         }
       ],
       "get": {
+        "operationId": "listMaintenanceItemObjectsOfA_InbDeliverySerialNmbr",
         "summary": "Reads maintenance item objects of specific inbound delivery maintenance item object list.",
         "description": "Reads all maintenance item objects of a specific inbound delivery maintenance item object list including, for example, the serial numbers. You can narrow down the result by specifying filter conditions.",
         "tags": [
@@ -1204,6 +1223,7 @@
     },
     "/ConfirmPutawayAllItems": {
       "post": {
+        "operationId": "createConfirmPutawayAllItems",
         "summary": "Confirms putaway quantity of inbound delivery items.",
         "description": "Confirms the putaway quantity of all inbound delivery items.",
         "tags": [
@@ -1259,6 +1279,7 @@
     },
     "/ConfirmPutawayOneItem": {
       "post": {
+        "operationId": "createConfirmPutawayOneItem",
         "summary": "Confirms putaway quantity of inbound delivery item.",
         "description": "Confirms the putaway quantity of the specified inbound delivery item.",
         "tags": [
@@ -1325,6 +1346,7 @@
     },
     "/PostGoodsReceipt": {
       "post": {
+        "operationId": "createPostGoodsReceipt",
         "summary": "Posts goods receipt for inbound delivery.",
         "description": "Posts goods receipt for the inbound delivery.",
         "tags": [
@@ -1390,6 +1412,7 @@
     },
     "/PutawayAllItems": {
       "post": {
+        "operationId": "createPutawayAllItems",
         "summary": "Takes over delivery quantity as putaway quantity for all inbound delivery items.",
         "description": "Takes over the delivery quantity as the putaway quantity for all items of the inbound delivery.",
         "tags": [
@@ -1445,6 +1468,7 @@
     },
     "/PutawayOneItem": {
       "post": {
+        "operationId": "createPutawayOneItem",
         "summary": "Takes over delivery quantity as putaway quantity for specified inbound delivery item.",
         "description": "Takes over the delivery quantity as the putaway quantity for the specified inbound delivery item.",
         "tags": [
@@ -1511,6 +1535,7 @@
     },
     "/ReverseGoodsReceipt": {
       "post": {
+        "operationId": "createReverseGoodsReceipt",
         "summary": "Reverses goods receipt for inbound delivery.",
         "description": "Reverses the goods receipt for the inbound delivery.",
         "tags": [
@@ -1576,6 +1601,7 @@
     },
     "/CreateBatchSplitItem": {
       "post": {
+        "operationId": "createCreateBatchSplitItem",
         "summary": "Creates an additional batch split item for an inbound delivery item.",
         "description": "Creates an additional batch split item for the specified inbound delivery item and optionally sets the delivery quantity and batch-related fields.",
         "tags": [
@@ -1716,6 +1742,7 @@
     },
     "/AddSerialNumberToDeliveryItem": {
       "post": {
+        "operationId": "createAddSerialNumberToDeliveryItem",
         "summary": "Adds serial number to inbound delivery item.",
         "description": "Adds a serial number to the specified inbound delivery item.",
         "tags": [
@@ -1793,6 +1820,7 @@
     },
     "/DeleteAllSerialNumbersFromDeliveryItem": {
       "post": {
+        "operationId": "createDeleteAllSerialNumbersFromDeliveryItem",
         "summary": "Deletes all serial numbers from inbound delivery item.",
         "description": "Deletes all serial numbers from the inbound delivery item.",
         "tags": [
@@ -1859,6 +1887,7 @@
     },
     "/DeleteSerialNumberFromDeliveryItem": {
       "post": {
+        "operationId": "createDeleteSerialNumberFromDeliveryItem",
         "summary": "Deletes serial number from inbound delivery item.",
         "description": "Deletes the specified serial number from the inbound delivery item.",
         "tags": [
@@ -1936,6 +1965,7 @@
     },
     "/SetPutawayQuantityWithBaseQuantity": {
       "post": {
+        "operationId": "createSetPutawayQuantityWithBaseQuantity",
         "summary": "Sets putaway quantity in base unit of measure for delivery item.",
         "description": "Sets the putaway quantity in base unit of measure of the specified delivery item.",
         "tags": [
@@ -2027,6 +2057,7 @@
     },
     "/PutawayOneItemWithBaseQuantity": {
       "post": {
+        "operationId": "createPutawayOneItemWithBaseQuantity",
         "summary": "Sets putaway quantity and delivery quantity for inbound delivery item.",
         "description": "Sets the same value for putaway quantity and delivery quantity in base unit of measure for the specified inbound delivery item.",
         "tags": [
@@ -2118,6 +2149,7 @@
     },
     "/PutawayOneItemWithSalesQuantity": {
       "post": {
+        "operationId": "createPutawayOneItemWithSalesQuantity",
         "summary": "Sets putaway quantity and delivery quantity for inbound delivery item.",
         "description": "Sets the same value for putaway quantity and delivery quantity in sales unit of measure for the specified inbound delivery item.",
         "tags": [
@@ -2209,6 +2241,7 @@
     },
     "/$batch": {
       "post": {
+        "operationId": "performBatchOperation",
         "summary": "Send a group of requests",
         "description": "Group multiple requests into a single request payload, see [Batch Requests](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=152).\n\n*Please note that \"Try it out\" is not supported for this request.*",
         "tags": [
