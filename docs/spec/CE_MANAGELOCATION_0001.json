@@ -105,6 +105,7 @@
   "paths": {
     "/Location": {
       "get": {
+        "operationId": "listLocations",
         "summary": "Get entities from Location",
         "tags": [
           "Manage Location"
@@ -166,6 +167,7 @@
         }
       },
       "post": {
+        "operationId": "createLocation",
         "summary": "Add new entity to Location",
         "tags": [
           "Manage Location"
@@ -213,6 +215,7 @@
         }
       ],
       "get": {
+        "operationId": "getLocation",
         "summary": "Get entity from Location by key",
         "tags": [
           "Manage Location"
@@ -242,6 +245,7 @@
         }
       },
       "patch": {
+        "operationId": "patchLocation",
         "summary": "Update entity in Location",
         "tags": [
           "Manage Location"
@@ -267,6 +271,7 @@
         }
       },
       "delete": {
+        "operationId": "deleteLocation",
         "summary": "Delete entity from Location",
         "tags": [
           "Manage Location"
@@ -283,6 +288,7 @@
     },
     "/Location/{LocationUUID}/SAP__self.ToglMnlGeoCoordinatesMaint": {
       "post": {
+        "operationId": "toglMnlGeoCoordinatesMaint",
         "summary": "Invoke action ToglMnlGeoCoordinatesMaint",
         "tags": [
           "Manage Location"
@@ -332,6 +338,7 @@
         }
       ],
       "get": {
+        "operationId": "getLocationAddressTPOfLocation",
         "summary": "Get related _LocationAddressTP",
         "tags": [
           "Manage Location",
@@ -377,6 +384,7 @@
         }
       ],
       "get": {
+        "operationId": "listLocationTextTPsOfLocation",
         "summary": "Get entities from related _LocationTextTP",
         "tags": [
           "Manage Location",
@@ -439,6 +447,7 @@
         }
       },
       "post": {
+        "operationId": "createLocationTextTPOfLocation",
         "summary": "Add new entity to related _LocationTextTP",
         "tags": [
           "Manage Location",
@@ -474,6 +483,7 @@
     },
     "/LocationAddress": {
       "get": {
+        "operationId": "listLocationAddresses",
         "summary": "Get entities from LocationAddress",
         "tags": [
           "Location Address"
@@ -570,6 +580,7 @@
         }
       ],
       "get": {
+        "operationId": "getLocationAddress",
         "summary": "Get entity from LocationAddress by key",
         "tags": [
           "Location Address"
@@ -599,6 +610,7 @@
         }
       },
       "patch": {
+        "operationId": "patchLocationAddress",
         "summary": "Update entity in LocationAddress",
         "tags": [
           "Location Address"
@@ -659,6 +671,7 @@
         }
       ],
       "get": {
+        "operationId": "getLocationTPOfLocationAddress",
         "summary": "Get related _LocationTP",
         "tags": [
           "Location Address",
@@ -691,6 +704,7 @@
     },
     "/LocationText": {
       "get": {
+        "operationId": "listLocationTexts",
         "summary": "Get entities from LocationText",
         "tags": [
           "Location Text"
@@ -777,6 +791,7 @@
         }
       ],
       "get": {
+        "operationId": "getLocationText",
         "summary": "Get entity from LocationText by key",
         "tags": [
           "Location Text"
@@ -806,6 +821,7 @@
         }
       },
       "patch": {
+        "operationId": "patchLocationText",
         "summary": "Update entity in LocationText",
         "tags": [
           "Location Text"
@@ -831,6 +847,7 @@
         }
       },
       "delete": {
+        "operationId": "deleteLocationText",
         "summary": "Delete entity from LocationText",
         "tags": [
           "Location Text"
@@ -870,6 +887,7 @@
         }
       ],
       "get": {
+        "operationId": "getLocationTPOfLocationText",
         "summary": "Get related _LocationTP",
         "tags": [
           "Location Text",
@@ -902,6 +920,7 @@
     },
     "/$batch": {
       "post": {
+        "operationId": "performBatchOperation",
         "summary": "Send a group of requests",
         "description": "Group multiple requests into a single request payload, see [Batch Requests](http://docs.oasis-open.org/odata/odata/v4.01/odata-v4.01-part1-protocol.html#sec_BatchRequests).\n\n*Please note that \"Try it out\" is not supported for this request.*",
         "tags": [
