@@ -19,7 +19,7 @@ This repository encompasses all Ballerina packages pertaining to the S/4HANA tra
 
 4.The `ballerinax/sap.s4hana.api_cv_attachment_srv` package offers APIs for seamless integration with the  [Freight Agreement Attachments API v1.0.0](https://api.sap.com/api/API_CV_ATTACHMENT_SRV/overview). This service allows users to manage attachments and attachment URLs for business objects. 
 
-5.The ballerinax/sap.s4hana.api_outbound_delivery_srv_0002 package offers APIs for seamless integration with the  [Outbound Delivery API v1.0.0](https://api.sap.com/api/API_OUTBOUND_DELIVERY_SRV_0002/overview). This service enables users to create, read, update and delete outbound deliveries.
+5.The ballerinax/sap.s4hana.api_outbound_delivery_srv_0002 package offers APIs for seamless integration with the  [Outbound Delivery API v2.1.0](https://api.sap.com/api/API_OUTBOUND_DELIVERY_SRV_0002/overview). This service enables users to create, read, update and delete outbound deliveries.
 
 
 ## Issues and projects
