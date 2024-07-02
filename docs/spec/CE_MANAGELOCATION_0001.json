@@ -128,118 +128,13 @@
             "$ref": "#/components/parameters/count"
           },
           {
-            "name": "$orderby",
-            "in": "query",
-            "description": "Order items by property values, see [Sorting](http://docs.oasis-open.org/odata/odata/v4.01/odata-v4.01-part1-protocol.html#sec_SystemQueryOptionorderby)",
-            "explode": false,
-            "schema": {
-              "type": "array",
-              "uniqueItems": true,
-              "items": {
-                "type": "string",
-                "enum": [
-                  "LocationUUID",
-                  "LocationUUID desc",
-                  "Location",
-                  "Location desc",
-                  "LocationType",
-                  "LocationType desc",
-                  "LocationAdditionalUUID",
-                  "LocationAdditionalUUID desc",
-                  "LocationTimeZone",
-                  "LocationTimeZone desc",
-                  "GlobalLocationNumber",
-                  "GlobalLocationNumber desc",
-                  "LocationDUNSNumber",
-                  "LocationDUNSNumber desc",
-                  "LocationUNCode",
-                  "LocationUNCode desc",
-                  "LocationIATACode",
-                  "LocationIATACode desc",
-                  "GeoCoordinatesLongitudeValue",
-                  "GeoCoordinatesLongitudeValue desc",
-                  "GeoCoordinatesLatitudeValue",
-                  "GeoCoordinatesLatitudeValue desc",
-                  "GeoCoordsValidityEndDateTime",
-                  "GeoCoordsValidityEndDateTime desc",
-                  "GeoCoordsAreManuallyChanged",
-                  "GeoCoordsAreManuallyChanged desc",
-                  "CreationDateTime",
-                  "CreationDateTime desc",
-                  "CreatedByUser",
-                  "CreatedByUser desc",
-                  "ChangedDateTime",
-                  "ChangedDateTime desc",
-                  "LocalLastChangeDateTime",
-                  "LocalLastChangeDateTime desc",
-                  "LastChangedByUser",
-                  "LastChangedByUser desc",
-                  "LocationIsTemporary",
-                  "LocationIsTemporary desc",
-                  "IsBusinessPurposeCompleted",
-                  "IsBusinessPurposeCompleted desc",
-                  "AddressID",
-                  "AddressID desc",
-                  "SAP__Messages",
-                  "SAP__Messages desc"
-                ]
-              }
-            }
+            "$ref": "#/components/parameters/LocationOrderByOptions"
           },
           {
-            "name": "$select",
-            "in": "query",
-            "description": "Select properties to be returned, see [Select](http://docs.oasis-open.org/odata/odata/v4.01/odata-v4.01-part1-protocol.html#sec_SystemQueryOptionselect)",
-            "explode": false,
-            "schema": {
-              "type": "array",
-              "uniqueItems": true,
-              "items": {
-                "type": "string",
-                "enum": [
-                  "LocationUUID",
-                  "Location",
-                  "LocationType",
-                  "LocationAdditionalUUID",
-                  "LocationTimeZone",
-                  "GlobalLocationNumber",
-                  "LocationDUNSNumber",
-                  "LocationUNCode",
-                  "LocationIATACode",
-                  "GeoCoordinatesLongitudeValue",
-                  "GeoCoordinatesLatitudeValue",
-                  "GeoCoordsValidityEndDateTime",
-                  "GeoCoordsAreManuallyChanged",
-                  "CreationDateTime",
-                  "CreatedByUser",
-                  "ChangedDateTime",
-                  "LocalLastChangeDateTime",
-                  "LastChangedByUser",
-                  "LocationIsTemporary",
-                  "IsBusinessPurposeCompleted",
-                  "AddressID",
-                  "SAP__Messages"
-                ]
-              }
-            }
+            "$ref": "#/components/parameters/LocationSelectOptions"
           },
           {
-            "name": "$expand",
-            "in": "query",
-            "description": "Expand related entities, see [Expand](http://docs.oasis-open.org/odata/odata/v4.01/odata-v4.01-part1-protocol.html#sec_SystemQueryOptionexpand)",
-            "explode": false,
-            "schema": {
-              "type": "array",
-              "uniqueItems": true,
-              "items": {
-                "type": "string",
-                "enum": [
-                  "*",
-                  "_LocationAddressTP",
-                  "_LocationTextTP"
-                ]
-              }
-            }
+            "$ref": "#/components/parameters/LocationExpandOptions"
           }
         ],
         "responses": {
@@ -248,7 +143,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "title": "Collection of Location_Type",
+                  "title": "CollectionOfLocation",
                   "type": "object",
                   "properties": {
                     "@odata.count": {
@@ -257,7 +152,7 @@
                     "value": {
                       "type": "array",
                       "items": {
-                        "$ref": "#/components/schemas/com.sap.gateway.srvd_a2x.api_managelocation.v0001.Location_Type"
+                        "$ref": "#/components/schemas/Location"
                       }
                     }
                   }
@@ -281,7 +176,7 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/com.sap.gateway.srvd_a2x.api_managelocation.v0001.Location_Type-create"
+                "$ref": "#/components/schemas/CreateLocation"
               }
             }
           }
@@ -292,7 +187,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/com.sap.gateway.srvd_a2x.api_managelocation.v0001.Location_Type"
+                  "$ref": "#/components/schemas/Location"
                 }
               }
             }
@@ -324,59 +219,10 @@
         ],
         "parameters": [
           {
-            "name": "$select",
-            "in": "query",
-            "description": "Select properties to be returned, see [Select](http://docs.oasis-open.org/odata/odata/v4.01/odata-v4.01-part1-protocol.html#sec_SystemQueryOptionselect)",
-            "explode": false,
-            "schema": {
-              "type": "array",
-              "uniqueItems": true,
-              "items": {
-                "type": "string",
-                "enum": [
-                  "LocationUUID",
-                  "Location",
-                  "LocationType",
-                  "LocationAdditionalUUID",
-                  "LocationTimeZone",
-                  "GlobalLocationNumber",
-                  "LocationDUNSNumber",
-                  "LocationUNCode",
-                  "LocationIATACode",
-                  "GeoCoordinatesLongitudeValue",
-                  "GeoCoordinatesLatitudeValue",
-                  "GeoCoordsValidityEndDateTime",
-                  "GeoCoordsAreManuallyChanged",
-                  "CreationDateTime",
-                  "CreatedByUser",
-                  "ChangedDateTime",
-                  "LocalLastChangeDateTime",
-                  "LastChangedByUser",
-                  "LocationIsTemporary",
-                  "IsBusinessPurposeCompleted",
-                  "AddressID",
-                  "SAP__Messages"
-                ]
-              }
-            }
+            "$ref": "#/components/parameters/LocationByKeySelectOptions"
           },
           {
-            "name": "$expand",
-            "in": "query",
-            "description": "Expand related entities, see [Expand](http://docs.oasis-open.org/odata/odata/v4.01/odata-v4.01-part1-protocol.html#sec_SystemQueryOptionexpand)",
-            "explode": false,
-            "schema": {
-              "type": "array",
-              "uniqueItems": true,
-              "items": {
-                "type": "string",
-                "enum": [
-                  "*",
-                  "_LocationAddressTP",
-                  "_LocationTextTP"
-                ]
-              }
-            }
+            "$ref": "#/components/parameters/LocationByKeyExpandOptions"
           }
         ],
         "responses": {
@@ -385,7 +231,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/com.sap.gateway.srvd_a2x.api_managelocation.v0001.Location_Type"
+                  "$ref": "#/components/schemas/Location"
                 }
               }
             }
@@ -406,7 +252,7 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/com.sap.gateway.srvd_a2x.api_managelocation.v0001.Location_Type-update"
+                "$ref": "#/components/schemas/UpdateLocation"
               }
             }
           }
@@ -460,7 +306,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/com.sap.gateway.srvd_a2x.api_managelocation.v0001.Location_Type"
+                  "$ref": "#/components/schemas/Location"
                 }
               }
             }
@@ -493,50 +339,10 @@
         ],
         "parameters": [
           {
-            "name": "$select",
-            "in": "query",
-            "description": "Select properties to be returned, see [Select](http://docs.oasis-open.org/odata/odata/v4.01/odata-v4.01-part1-protocol.html#sec_SystemQueryOptionselect)",
-            "explode": false,
-            "schema": {
-              "type": "array",
-              "uniqueItems": true,
-              "items": {
-                "type": "string",
-                "enum": [
-                  "LocationUUID",
-                  "AddressPersonID",
-                  "AddressRepresentationCode",
-                  "AddressID",
-                  "AddressTimeZone",
-                  "CityName",
-                  "PostalCode",
-                  "StreetName",
-                  "HouseNumber",
-                  "Country",
-                  "Region",
-                  "SearchTerm1",
-                  "SearchTerm2",
-                  "SAP__Messages"
-                ]
-              }
-            }
+            "$ref": "#/components/parameters/LocationAddressTPOfLocationSelectOptions"
           },
           {
-            "name": "$expand",
-            "in": "query",
-            "description": "Expand related entities, see [Expand](http://docs.oasis-open.org/odata/odata/v4.01/odata-v4.01-part1-protocol.html#sec_SystemQueryOptionexpand)",
-            "explode": false,
-            "schema": {
-              "type": "array",
-              "uniqueItems": true,
-              "items": {
-                "type": "string",
-                "enum": [
-                  "*",
-                  "_LocationTP"
-                ]
-              }
-            }
+            "$ref": "#/components/parameters/LocationAddressTPOfLocationExpandOptions"
           }
         ],
         "responses": {
@@ -545,7 +351,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/com.sap.gateway.srvd_a2x.api_managelocation.v0001.LocationAddress_Type"
+                  "$ref": "#/components/schemas/LocationAddress"
                 }
               }
             }
@@ -595,66 +401,13 @@
             "$ref": "#/components/parameters/count"
           },
           {
-            "name": "$orderby",
-            "in": "query",
-            "description": "Order items by property values, see [Sorting](http://docs.oasis-open.org/odata/odata/v4.01/odata-v4.01-part1-protocol.html#sec_SystemQueryOptionorderby)",
-            "explode": false,
-            "schema": {
-              "type": "array",
-              "uniqueItems": true,
-              "items": {
-                "type": "string",
-                "enum": [
-                  "LocationUUID",
-                  "LocationUUID desc",
-                  "Language",
-                  "Language desc",
-                  "LocationDescription",
-                  "LocationDescription desc",
-                  "LocalLastChangeDateTime",
-                  "LocalLastChangeDateTime desc",
-                  "SAP__Messages",
-                  "SAP__Messages desc"
-                ]
-              }
-            }
+            "$ref": "#/components/parameters/LocationTextTPOfLocationOrderByOptions"
           },
           {
-            "name": "$select",
-            "in": "query",
-            "description": "Select properties to be returned, see [Select](http://docs.oasis-open.org/odata/odata/v4.01/odata-v4.01-part1-protocol.html#sec_SystemQueryOptionselect)",
-            "explode": false,
-            "schema": {
-              "type": "array",
-              "uniqueItems": true,
-              "items": {
-                "type": "string",
-                "enum": [
-                  "LocationUUID",
-                  "Language",
-                  "LocationDescription",
-                  "LocalLastChangeDateTime",
-                  "SAP__Messages"
-                ]
-              }
-            }
+            "$ref": "#/components/parameters/LocationTextTPOfLocationSelectOptions"
           },
           {
-            "name": "$expand",
-            "in": "query",
-            "description": "Expand related entities, see [Expand](http://docs.oasis-open.org/odata/odata/v4.01/odata-v4.01-part1-protocol.html#sec_SystemQueryOptionexpand)",
-            "explode": false,
-            "schema": {
-              "type": "array",
-              "uniqueItems": true,
-              "items": {
-                "type": "string",
-                "enum": [
-                  "*",
-                  "_LocationTP"
-                ]
-              }
-            }
+            "$ref": "#/components/parameters/LocationTextTPOfLocationExpandOptions"
           }
         ],
         "responses": {
@@ -663,7 +416,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "title": "Collection of LocationText_Type",
+                  "title": "CollectionOfLocationText",
                   "type": "object",
                   "properties": {
                     "@odata.count": {
@@ -672,7 +425,7 @@
                     "value": {
                       "type": "array",
                       "items": {
-                        "$ref": "#/components/schemas/com.sap.gateway.srvd_a2x.api_managelocation.v0001.LocationText_Type"
+                        "$ref": "#/components/schemas/LocationText"
                       }
                     }
                   }
@@ -697,7 +450,7 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/com.sap.gateway.srvd_a2x.api_managelocation.v0001.LocationText_Type-create"
+                "$ref": "#/components/schemas/CreateLocationText"
               }
             }
           }
@@ -708,7 +461,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/com.sap.gateway.srvd_a2x.api_managelocation.v0001.LocationText_Type"
+                  "$ref": "#/components/schemas/LocationText"
                 }
               }
             }
@@ -744,93 +497,13 @@
             "$ref": "#/components/parameters/count"
           },
           {
-            "name": "$orderby",
-            "in": "query",
-            "description": "Order items by property values, see [Sorting](http://docs.oasis-open.org/odata/odata/v4.01/odata-v4.01-part1-protocol.html#sec_SystemQueryOptionorderby)",
-            "explode": false,
-            "schema": {
-              "type": "array",
-              "uniqueItems": true,
-              "items": {
-                "type": "string",
-                "enum": [
-                  "LocationUUID",
-                  "LocationUUID desc",
-                  "AddressPersonID",
-                  "AddressPersonID desc",
-                  "AddressRepresentationCode",
-                  "AddressRepresentationCode desc",
-                  "AddressID",
-                  "AddressID desc",
-                  "AddressTimeZone",
-                  "AddressTimeZone desc",
-                  "CityName",
-                  "CityName desc",
-                  "PostalCode",
-                  "PostalCode desc",
-                  "StreetName",
-                  "StreetName desc",
-                  "HouseNumber",
-                  "HouseNumber desc",
-                  "Country",
-                  "Country desc",
-                  "Region",
-                  "Region desc",
-                  "SearchTerm1",
-                  "SearchTerm1 desc",
-                  "SearchTerm2",
-                  "SearchTerm2 desc",
-                  "SAP__Messages",
-                  "SAP__Messages desc"
-                ]
-              }
-            }
+            "$ref": "#/components/parameters/LocationAddressOrderByOptions"
           },
           {
-            "name": "$select",
-            "in": "query",
-            "description": "Select properties to be returned, see [Select](http://docs.oasis-open.org/odata/odata/v4.01/odata-v4.01-part1-protocol.html#sec_SystemQueryOptionselect)",
-            "explode": false,
-            "schema": {
-              "type": "array",
-              "uniqueItems": true,
-              "items": {
-                "type": "string",
-                "enum": [
-                  "LocationUUID",
-                  "AddressPersonID",
-                  "AddressRepresentationCode",
-                  "AddressID",
-                  "AddressTimeZone",
-                  "CityName",
-                  "PostalCode",
-                  "StreetName",
-                  "HouseNumber",
-                  "Country",
-                  "Region",
-                  "SearchTerm1",
-                  "SearchTerm2",
-                  "SAP__Messages"
-                ]
-              }
-            }
+            "$ref": "#/components/parameters/LocationAddressSelectOptions"
           },
           {
-            "name": "$expand",
-            "in": "query",
-            "description": "Expand related entities, see [Expand](http://docs.oasis-open.org/odata/odata/v4.01/odata-v4.01-part1-protocol.html#sec_SystemQueryOptionexpand)",
-            "explode": false,
-            "schema": {
-              "type": "array",
-              "uniqueItems": true,
-              "items": {
-                "type": "string",
-                "enum": [
-                  "*",
-                  "_LocationTP"
-                ]
-              }
-            }
+            "$ref": "#/components/parameters/LocationAddressExpandOptions"
           }
         ],
         "responses": {
@@ -839,7 +512,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "title": "Collection of LocationAddress_Type",
+                  "title": "CollectionOfLocationAddress",
                   "type": "object",
                   "properties": {
                     "@odata.count": {
@@ -848,7 +521,7 @@
                     "value": {
                       "type": "array",
                       "items": {
-                        "$ref": "#/components/schemas/com.sap.gateway.srvd_a2x.api_managelocation.v0001.LocationAddress_Type"
+                        "$ref": "#/components/schemas/LocationAddress"
                       }
                     }
                   }
@@ -903,50 +576,10 @@
         ],
         "parameters": [
           {
-            "name": "$select",
-            "in": "query",
-            "description": "Select properties to be returned, see [Select](http://docs.oasis-open.org/odata/odata/v4.01/odata-v4.01-part1-protocol.html#sec_SystemQueryOptionselect)",
-            "explode": false,
-            "schema": {
-              "type": "array",
-              "uniqueItems": true,
-              "items": {
-                "type": "string",
-                "enum": [
-                  "LocationUUID",
-                  "AddressPersonID",
-                  "AddressRepresentationCode",
-                  "AddressID",
-                  "AddressTimeZone",
-                  "CityName",
-                  "PostalCode",
-                  "StreetName",
-                  "HouseNumber",
-                  "Country",
-                  "Region",
-                  "SearchTerm1",
-                  "SearchTerm2",
-                  "SAP__Messages"
-                ]
-              }
-            }
+            "$ref": "#/components/parameters/LocationAddressByKeySelectOptions"
           },
           {
-            "name": "$expand",
-            "in": "query",
-            "description": "Expand related entities, see [Expand](http://docs.oasis-open.org/odata/odata/v4.01/odata-v4.01-part1-protocol.html#sec_SystemQueryOptionexpand)",
-            "explode": false,
-            "schema": {
-              "type": "array",
-              "uniqueItems": true,
-              "items": {
-                "type": "string",
-                "enum": [
-                  "*",
-                  "_LocationTP"
-                ]
-              }
-            }
+            "$ref": "#/components/parameters/LocationAddressByKeyExpandOptions"
           }
         ],
         "responses": {
@@ -955,7 +588,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/com.sap.gateway.srvd_a2x.api_managelocation.v0001.LocationAddress_Type"
+                  "$ref": "#/components/schemas/LocationAddress"
                 }
               }
             }
@@ -976,7 +609,7 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/com.sap.gateway.srvd_a2x.api_managelocation.v0001.LocationAddress_Type-update"
+                "$ref": "#/components/schemas/UpdateLocationAddress"
               }
             }
           }
@@ -1033,59 +666,10 @@
         ],
         "parameters": [
           {
-            "name": "$select",
-            "in": "query",
-            "description": "Select properties to be returned, see [Select](http://docs.oasis-open.org/odata/odata/v4.01/odata-v4.01-part1-protocol.html#sec_SystemQueryOptionselect)",
-            "explode": false,
-            "schema": {
-              "type": "array",
-              "uniqueItems": true,
-              "items": {
-                "type": "string",
-                "enum": [
-                  "LocationUUID",
-                  "Location",
-                  "LocationType",
-                  "LocationAdditionalUUID",
-                  "LocationTimeZone",
-                  "GlobalLocationNumber",
-                  "LocationDUNSNumber",
-                  "LocationUNCode",
-                  "LocationIATACode",
-                  "GeoCoordinatesLongitudeValue",
-                  "GeoCoordinatesLatitudeValue",
-                  "GeoCoordsValidityEndDateTime",
-                  "GeoCoordsAreManuallyChanged",
-                  "CreationDateTime",
-                  "CreatedByUser",
-                  "ChangedDateTime",
-                  "LocalLastChangeDateTime",
-                  "LastChangedByUser",
-                  "LocationIsTemporary",
-                  "IsBusinessPurposeCompleted",
-                  "AddressID",
-                  "SAP__Messages"
-                ]
-              }
-            }
+            "$ref": "#/components/parameters/LocationTPOfLocationAddressSelectOptions"
           },
           {
-            "name": "$expand",
-            "in": "query",
-            "description": "Expand related entities, see [Expand](http://docs.oasis-open.org/odata/odata/v4.01/odata-v4.01-part1-protocol.html#sec_SystemQueryOptionexpand)",
-            "explode": false,
-            "schema": {
-              "type": "array",
-              "uniqueItems": true,
-              "items": {
-                "type": "string",
-                "enum": [
-                  "*",
-                  "_LocationAddressTP",
-                  "_LocationTextTP"
-                ]
-              }
-            }
+            "$ref": "#/components/parameters/LocationTPOfLocationAddressExpandOptions"
           }
         ],
         "responses": {
@@ -1094,7 +678,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/com.sap.gateway.srvd_a2x.api_managelocation.v0001.Location_Type"
+                  "$ref": "#/components/schemas/Location"
                 }
               }
             }
@@ -1130,66 +714,13 @@
             "$ref": "#/components/parameters/count"
           },
           {
-            "name": "$orderby",
-            "in": "query",
-            "description": "Order items by property values, see [Sorting](http://docs.oasis-open.org/odata/odata/v4.01/odata-v4.01-part1-protocol.html#sec_SystemQueryOptionorderby)",
-            "explode": false,
-            "schema": {
-              "type": "array",
-              "uniqueItems": true,
-              "items": {
-                "type": "string",
-                "enum": [
-                  "LocationUUID",
-                  "LocationUUID desc",
-                  "Language",
-                  "Language desc",
-                  "LocationDescription",
-                  "LocationDescription desc",
-                  "LocalLastChangeDateTime",
-                  "LocalLastChangeDateTime desc",
-                  "SAP__Messages",
-                  "SAP__Messages desc"
-                ]
-              }
-            }
+            "$ref": "#/components/parameters/LocationTextOrderByOptions"
           },
           {
-            "name": "$select",
-            "in": "query",
-            "description": "Select properties to be returned, see [Select](http://docs.oasis-open.org/odata/odata/v4.01/odata-v4.01-part1-protocol.html#sec_SystemQueryOptionselect)",
-            "explode": false,
-            "schema": {
-              "type": "array",
-              "uniqueItems": true,
-              "items": {
-                "type": "string",
-                "enum": [
-                  "LocationUUID",
-                  "Language",
-                  "LocationDescription",
-                  "LocalLastChangeDateTime",
-                  "SAP__Messages"
-                ]
-              }
-            }
+            "$ref": "#/components/parameters/LocationTextSelectOptions"
           },
           {
-            "name": "$expand",
-            "in": "query",
-            "description": "Expand related entities, see [Expand](http://docs.oasis-open.org/odata/odata/v4.01/odata-v4.01-part1-protocol.html#sec_SystemQueryOptionexpand)",
-            "explode": false,
-            "schema": {
-              "type": "array",
-              "uniqueItems": true,
-              "items": {
-                "type": "string",
-                "enum": [
-                  "*",
-                  "_LocationTP"
-                ]
-              }
-            }
+            "$ref": "#/components/parameters/LocationTextExpandOptions"
           }
         ],
         "responses": {
@@ -1198,7 +729,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "title": "Collection of LocationText_Type",
+                  "title": "CollectionOfLocationText",
                   "type": "object",
                   "properties": {
                     "@odata.count": {
@@ -1207,7 +738,7 @@
                     "value": {
                       "type": "array",
                       "items": {
-                        "$ref": "#/components/schemas/com.sap.gateway.srvd_a2x.api_managelocation.v0001.LocationText_Type"
+                        "$ref": "#/components/schemas/LocationText"
                       }
                     }
                   }
@@ -1252,41 +783,10 @@
         ],
         "parameters": [
           {
-            "name": "$select",
-            "in": "query",
-            "description": "Select properties to be returned, see [Select](http://docs.oasis-open.org/odata/odata/v4.01/odata-v4.01-part1-protocol.html#sec_SystemQueryOptionselect)",
-            "explode": false,
-            "schema": {
-              "type": "array",
-              "uniqueItems": true,
-              "items": {
-                "type": "string",
-                "enum": [
-                  "LocationUUID",
-                  "Language",
-                  "LocationDescription",
-                  "LocalLastChangeDateTime",
-                  "SAP__Messages"
-                ]
-              }
-            }
+            "$ref": "#/components/parameters/LocationTextByKeySelectOptions"
           },
           {
-            "name": "$expand",
-            "in": "query",
-            "description": "Expand related entities, see [Expand](http://docs.oasis-open.org/odata/odata/v4.01/odata-v4.01-part1-protocol.html#sec_SystemQueryOptionexpand)",
-            "explode": false,
-            "schema": {
-              "type": "array",
-              "uniqueItems": true,
-              "items": {
-                "type": "string",
-                "enum": [
-                  "*",
-                  "_LocationTP"
-                ]
-              }
-            }
+            "$ref": "#/components/parameters/LocationTextByKeyExpandOptions"
           }
         ],
         "responses": {
@@ -1295,7 +795,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/com.sap.gateway.srvd_a2x.api_managelocation.v0001.LocationText_Type"
+                  "$ref": "#/components/schemas/LocationText"
                 }
               }
             }
@@ -1316,7 +816,7 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/com.sap.gateway.srvd_a2x.api_managelocation.v0001.LocationText_Type-update"
+                "$ref": "#/components/schemas/UpdateLocationText"
               }
             }
           }
@@ -1377,59 +877,10 @@
         ],
         "parameters": [
           {
-            "name": "$select",
-            "in": "query",
-            "description": "Select properties to be returned, see [Select](http://docs.oasis-open.org/odata/odata/v4.01/odata-v4.01-part1-protocol.html#sec_SystemQueryOptionselect)",
-            "explode": false,
-            "schema": {
-              "type": "array",
-              "uniqueItems": true,
-              "items": {
-                "type": "string",
-                "enum": [
-                  "LocationUUID",
-                  "Location",
-                  "LocationType",
-                  "LocationAdditionalUUID",
-                  "LocationTimeZone",
-                  "GlobalLocationNumber",
-                  "LocationDUNSNumber",
-                  "LocationUNCode",
-                  "LocationIATACode",
-                  "GeoCoordinatesLongitudeValue",
-                  "GeoCoordinatesLatitudeValue",
-                  "GeoCoordsValidityEndDateTime",
-                  "GeoCoordsAreManuallyChanged",
-                  "CreationDateTime",
-                  "CreatedByUser",
-                  "ChangedDateTime",
-                  "LocalLastChangeDateTime",
-                  "LastChangedByUser",
-                  "LocationIsTemporary",
-                  "IsBusinessPurposeCompleted",
-                  "AddressID",
-                  "SAP__Messages"
-                ]
-              }
-            }
+            "$ref": "#/components/parameters/LocationTPOfLocationTextSelectOptions"
           },
           {
-            "name": "$expand",
-            "in": "query",
-            "description": "Expand related entities, see [Expand](http://docs.oasis-open.org/odata/odata/v4.01/odata-v4.01-part1-protocol.html#sec_SystemQueryOptionexpand)",
-            "explode": false,
-            "schema": {
-              "type": "array",
-              "uniqueItems": true,
-              "items": {
-                "type": "string",
-                "enum": [
-                  "*",
-                  "_LocationAddressTP",
-                  "_LocationTextTP"
-                ]
-              }
-            }
+            "$ref": "#/components/parameters/LocationTPOfLocationTextExpandOptions"
           }
         ],
         "responses": {
@@ -1438,7 +889,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/com.sap.gateway.srvd_a2x.api_managelocation.v0001.Location_Type"
+                  "$ref": "#/components/schemas/Location"
                 }
               }
             }
@@ -1489,7 +940,7 @@
   },
   "components": {
     "schemas": {
-      "com.sap.gateway.srvd_a2x.api_managelocation.v0001.Location_Type": {
+      "Location": {
         "type": "object",
         "properties": {
           "LocationUUID": {
@@ -1639,27 +1090,27 @@
           "SAP__Messages": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/com.sap.gateway.srvd_a2x.api_managelocation.v0001.SAP__Message"
+              "$ref": "#/components/schemas/SAP__Message"
             }
           },
           "_LocationAddressTP": {
             "nullable": true,
             "allOf": [
               {
-                "$ref": "#/components/schemas/com.sap.gateway.srvd_a2x.api_managelocation.v0001.LocationAddress_Type"
+                "$ref": "#/components/schemas/LocationAddress"
               }
             ]
           },
           "_LocationTextTP": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/com.sap.gateway.srvd_a2x.api_managelocation.v0001.LocationText_Type"
+              "$ref": "#/components/schemas/LocationText"
             }
           }
         },
         "title": "Manage Location"
       },
-      "com.sap.gateway.srvd_a2x.api_managelocation.v0001.Location_Type-create": {
+      "CreateLocation": {
         "type": "object",
         "properties": {
           "LocationUUID": {
@@ -1763,21 +1214,21 @@
           "SAP__Messages": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/com.sap.gateway.srvd_a2x.api_managelocation.v0001.SAP__Message-create"
+              "$ref": "#/components/schemas/CreateSAP__Message"
             }
           },
           "_LocationAddressTP": {
             "nullable": true,
             "allOf": [
               {
-                "$ref": "#/components/schemas/com.sap.gateway.srvd_a2x.api_managelocation.v0001.LocationAddress_Type-create"
+                "$ref": "#/components/schemas/CreateLocationAddress"
               }
             ]
           },
           "_LocationTextTP": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/com.sap.gateway.srvd_a2x.api_managelocation.v0001.LocationText_Type-create"
+              "$ref": "#/components/schemas/CreateLocationText"
             }
           }
         },
@@ -1786,7 +1237,7 @@
         ],
         "title": "Manage Location (for create)"
       },
-      "com.sap.gateway.srvd_a2x.api_managelocation.v0001.Location_Type-update": {
+      "UpdateLocation": {
         "type": "object",
         "properties": {
           "LocationTimeZone": {
@@ -1861,13 +1312,13 @@
           "SAP__Messages": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/com.sap.gateway.srvd_a2x.api_managelocation.v0001.SAP__Message-update"
+              "$ref": "#/components/schemas/UpdateSAP__Message"
             }
           }
         },
         "title": "Manage Location (for update)"
       },
-      "com.sap.gateway.srvd_a2x.api_managelocation.v0001.LocationText_Type": {
+      "LocationText": {
         "type": "object",
         "properties": {
           "LocationUUID": {
@@ -1899,16 +1350,16 @@
           "SAP__Messages": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/com.sap.gateway.srvd_a2x.api_managelocation.v0001.SAP__Message"
+              "$ref": "#/components/schemas/SAP__Message"
             }
           },
           "_LocationTP": {
-            "$ref": "#/components/schemas/com.sap.gateway.srvd_a2x.api_managelocation.v0001.Location_Type"
+            "$ref": "#/components/schemas/Location"
           }
         },
         "title": "Location Text"
       },
-      "com.sap.gateway.srvd_a2x.api_managelocation.v0001.LocationText_Type-create": {
+      "CreateLocationText": {
         "type": "object",
         "properties": {
           "Language": {
@@ -1925,11 +1376,11 @@
           "SAP__Messages": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/com.sap.gateway.srvd_a2x.api_managelocation.v0001.SAP__Message-create"
+              "$ref": "#/components/schemas/CreateSAP__Message"
             }
           },
           "_LocationTP": {
-            "$ref": "#/components/schemas/com.sap.gateway.srvd_a2x.api_managelocation.v0001.Location_Type-create"
+            "$ref": "#/components/schemas/CreateLocation"
           }
         },
         "required": [
@@ -1937,7 +1388,7 @@
         ],
         "title": "Location Text (for create)"
       },
-      "com.sap.gateway.srvd_a2x.api_managelocation.v0001.LocationText_Type-update": {
+      "UpdateLocationText": {
         "type": "object",
         "properties": {
           "LocationDescription": {
@@ -1949,13 +1400,13 @@
           "SAP__Messages": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/com.sap.gateway.srvd_a2x.api_managelocation.v0001.SAP__Message-update"
+              "$ref": "#/components/schemas/UpdateSAP__Message"
             }
           }
         },
         "title": "Location Text (for update)"
       },
-      "com.sap.gateway.srvd_a2x.api_managelocation.v0001.LocationAddress_Type": {
+      "LocationAddress": {
         "type": "object",
         "properties": {
           "LocationUUID": {
@@ -2032,16 +1483,16 @@
           "SAP__Messages": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/com.sap.gateway.srvd_a2x.api_managelocation.v0001.SAP__Message"
+              "$ref": "#/components/schemas/SAP__Message"
             }
           },
           "_LocationTP": {
-            "$ref": "#/components/schemas/com.sap.gateway.srvd_a2x.api_managelocation.v0001.Location_Type"
+            "$ref": "#/components/schemas/Location"
           }
         },
         "title": "Location Address"
       },
-      "com.sap.gateway.srvd_a2x.api_managelocation.v0001.LocationAddress_Type-create": {
+      "CreateLocationAddress": {
         "type": "object",
         "properties": {
           "AddressPersonID": {
@@ -2111,11 +1562,11 @@
           "SAP__Messages": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/com.sap.gateway.srvd_a2x.api_managelocation.v0001.SAP__Message-create"
+              "$ref": "#/components/schemas/CreateSAP__Message"
             }
           },
           "_LocationTP": {
-            "$ref": "#/components/schemas/com.sap.gateway.srvd_a2x.api_managelocation.v0001.Location_Type-create"
+            "$ref": "#/components/schemas/CreateLocation"
           }
         },
         "required": [
@@ -2124,7 +1575,7 @@
         ],
         "title": "Location Address (for create)"
       },
-      "com.sap.gateway.srvd_a2x.api_managelocation.v0001.LocationAddress_Type-update": {
+      "UpdateLocationAddress": {
         "type": "object",
         "properties": {
           "AddressTimeZone": {
@@ -2178,13 +1629,13 @@
           "SAP__Messages": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/com.sap.gateway.srvd_a2x.api_managelocation.v0001.SAP__Message-update"
+              "$ref": "#/components/schemas/UpdateSAP__Message"
             }
           }
         },
         "title": "Location Address (for update)"
       },
-      "com.sap.gateway.srvd_a2x.api_managelocation.v0001.SAP__Message": {
+      "SAP__Message": {
         "type": "object",
         "properties": {
           "code": {
@@ -2217,7 +1668,7 @@
         },
         "title": "SAP__Message"
       },
-      "com.sap.gateway.srvd_a2x.api_managelocation.v0001.SAP__Message-create": {
+      "CreateSAP__Message": {
         "type": "object",
         "properties": {
           "code": {
@@ -2250,7 +1701,7 @@
         },
         "title": "SAP__Message (for create)"
       },
-      "com.sap.gateway.srvd_a2x.api_managelocation.v0001.SAP__Message-update": {
+      "UpdateSAP__Message": {
         "type": "object",
         "properties": {
           "code": {
@@ -2344,6 +1795,381 @@
             }
           }
         }
+      },
+      "LocationOrderByOptions": {
+        "type": "array",
+        "uniqueItems": true,
+        "items": {
+          "type": "string",
+          "enum": [
+            "LocationUUID",
+            "LocationUUID desc",
+            "Location",
+            "Location desc",
+            "LocationType",
+            "LocationType desc",
+            "LocationAdditionalUUID",
+            "LocationAdditionalUUID desc",
+            "LocationTimeZone",
+            "LocationTimeZone desc",
+            "GlobalLocationNumber",
+            "GlobalLocationNumber desc",
+            "LocationDUNSNumber",
+            "LocationDUNSNumber desc",
+            "LocationUNCode",
+            "LocationUNCode desc",
+            "LocationIATACode",
+            "LocationIATACode desc",
+            "GeoCoordinatesLongitudeValue",
+            "GeoCoordinatesLongitudeValue desc",
+            "GeoCoordinatesLatitudeValue",
+            "GeoCoordinatesLatitudeValue desc",
+            "GeoCoordsValidityEndDateTime",
+            "GeoCoordsValidityEndDateTime desc",
+            "GeoCoordsAreManuallyChanged",
+            "GeoCoordsAreManuallyChanged desc",
+            "CreationDateTime",
+            "CreationDateTime desc",
+            "CreatedByUser",
+            "CreatedByUser desc",
+            "ChangedDateTime",
+            "ChangedDateTime desc",
+            "LocalLastChangeDateTime",
+            "LocalLastChangeDateTime desc",
+            "LastChangedByUser",
+            "LastChangedByUser desc",
+            "LocationIsTemporary",
+            "LocationIsTemporary desc",
+            "IsBusinessPurposeCompleted",
+            "IsBusinessPurposeCompleted desc",
+            "AddressID",
+            "AddressID desc",
+            "SAP__Messages",
+            "SAP__Messages desc"
+          ]
+        }
+      },
+      "LocationSelectOptions": {
+        "type": "array",
+        "uniqueItems": true,
+        "items": {
+          "type": "string",
+          "enum": [
+            "LocationUUID",
+            "Location",
+            "LocationType",
+            "LocationAdditionalUUID",
+            "LocationTimeZone",
+            "GlobalLocationNumber",
+            "LocationDUNSNumber",
+            "LocationUNCode",
+            "LocationIATACode",
+            "GeoCoordinatesLongitudeValue",
+            "GeoCoordinatesLatitudeValue",
+            "GeoCoordsValidityEndDateTime",
+            "GeoCoordsAreManuallyChanged",
+            "CreationDateTime",
+            "CreatedByUser",
+            "ChangedDateTime",
+            "LocalLastChangeDateTime",
+            "LastChangedByUser",
+            "LocationIsTemporary",
+            "IsBusinessPurposeCompleted",
+            "AddressID",
+            "SAP__Messages"
+          ]
+        }
+      },
+      "LocationExpandOptions": {
+        "type": "array",
+        "uniqueItems": true,
+        "items": {
+          "type": "string",
+          "enum": [
+            "*",
+            "_LocationAddressTP",
+            "_LocationTextTP"
+          ]
+        }
+      },
+      "LocationAddressTPOfLocationSelectOptions": {
+        "type": "array",
+        "uniqueItems": true,
+        "items": {
+          "type": "string",
+          "enum": [
+            "LocationUUID",
+            "AddressPersonID",
+            "AddressRepresentationCode",
+            "AddressID",
+            "AddressTimeZone",
+            "CityName",
+            "PostalCode",
+            "StreetName",
+            "HouseNumber",
+            "Country",
+            "Region",
+            "SearchTerm1",
+            "SearchTerm2",
+            "SAP__Messages"
+          ]
+        }
+      },
+      "LocationAddressTPOfLocationExpandOptions": {
+        "type": "array",
+        "uniqueItems": true,
+        "items": {
+          "type": "string",
+          "enum": [
+            "*",
+            "_LocationTP"
+          ]
+        }
+      },
+      "LocationTextTPOfLocationOrderByOptions": {
+        "type": "array",
+        "uniqueItems": true,
+        "items": {
+          "type": "string",
+          "enum": [
+            "LocationUUID",
+            "LocationUUID desc",
+            "Language",
+            "Language desc",
+            "LocationDescription",
+            "LocationDescription desc",
+            "LocalLastChangeDateTime",
+            "LocalLastChangeDateTime desc",
+            "SAP__Messages",
+            "SAP__Messages desc"
+          ]
+        }
+      },
+      "LocationTextTPOfLocationSelectOptions": {
+        "type": "array",
+        "uniqueItems": true,
+        "items": {
+          "type": "string",
+          "enum": [
+            "LocationUUID",
+            "Language",
+            "LocationDescription",
+            "LocalLastChangeDateTime",
+            "SAP__Messages"
+          ]
+        }
+      },
+      "LocationTextTPOfLocationExpandOptions": {
+        "type": "array",
+        "uniqueItems": true,
+        "items": {
+          "type": "string",
+          "enum": [
+            "*",
+            "_LocationTP"
+          ]
+        }
+      },
+      "LocationAddressOrderByOptions": {
+        "type": "array",
+        "uniqueItems": true,
+        "items": {
+          "type": "string",
+          "enum": [
+            "LocationUUID",
+            "LocationUUID desc",
+            "AddressPersonID",
+            "AddressPersonID desc",
+            "AddressRepresentationCode",
+            "AddressRepresentationCode desc",
+            "AddressID",
+            "AddressID desc",
+            "AddressTimeZone",
+            "AddressTimeZone desc",
+            "CityName",
+            "CityName desc",
+            "PostalCode",
+            "PostalCode desc",
+            "StreetName",
+            "StreetName desc",
+            "HouseNumber",
+            "HouseNumber desc",
+            "Country",
+            "Country desc",
+            "Region",
+            "Region desc",
+            "SearchTerm1",
+            "SearchTerm1 desc",
+            "SearchTerm2",
+            "SearchTerm2 desc",
+            "SAP__Messages",
+            "SAP__Messages desc"
+          ]
+        }
+      },
+      "LocationAddressSelectOptions": {
+        "type": "array",
+        "uniqueItems": true,
+        "items": {
+          "type": "string",
+          "enum": [
+            "LocationUUID",
+            "AddressPersonID",
+            "AddressRepresentationCode",
+            "AddressID",
+            "AddressTimeZone",
+            "CityName",
+            "PostalCode",
+            "StreetName",
+            "HouseNumber",
+            "Country",
+            "Region",
+            "SearchTerm1",
+            "SearchTerm2",
+            "SAP__Messages"
+          ]
+        }
+      },
+      "LocationAddressExpandOptions": {
+        "type": "array",
+        "uniqueItems": true,
+        "items": {
+          "type": "string",
+          "enum": [
+            "*",
+            "_LocationTP"
+          ]
+        }
+      },
+      "LocationTPOfLocationAddressSelectOptions": {
+        "type": "array",
+        "uniqueItems": true,
+        "items": {
+          "type": "string",
+          "enum": [
+            "LocationUUID",
+            "Location",
+            "LocationType",
+            "LocationAdditionalUUID",
+            "LocationTimeZone",
+            "GlobalLocationNumber",
+            "LocationDUNSNumber",
+            "LocationUNCode",
+            "LocationIATACode",
+            "GeoCoordinatesLongitudeValue",
+            "GeoCoordinatesLatitudeValue",
+            "GeoCoordsValidityEndDateTime",
+            "GeoCoordsAreManuallyChanged",
+            "CreationDateTime",
+            "CreatedByUser",
+            "ChangedDateTime",
+            "LocalLastChangeDateTime",
+            "LastChangedByUser",
+            "LocationIsTemporary",
+            "IsBusinessPurposeCompleted",
+            "AddressID",
+            "SAP__Messages"
+          ]
+        }
+      },
+      "LocationTPOfLocationAddressExpandOptions": {
+        "type": "array",
+        "uniqueItems": true,
+        "items": {
+          "type": "string",
+          "enum": [
+            "*",
+            "_LocationAddressTP",
+            "_LocationTextTP"
+          ]
+        }
+      },
+      "LocationTextOrderByOptions": {
+        "type": "array",
+        "uniqueItems": true,
+        "items": {
+          "type": "string",
+          "enum": [
+            "LocationUUID",
+            "LocationUUID desc",
+            "Language",
+            "Language desc",
+            "LocationDescription",
+            "LocationDescription desc",
+            "LocalLastChangeDateTime",
+            "LocalLastChangeDateTime desc",
+            "SAP__Messages",
+            "SAP__Messages desc"
+          ]
+        }
+      },
+      "LocationTextSelectOptions": {
+        "type": "array",
+        "uniqueItems": true,
+        "items": {
+          "type": "string",
+          "enum": [
+            "LocationUUID",
+            "Language",
+            "LocationDescription",
+            "LocalLastChangeDateTime",
+            "SAP__Messages"
+          ]
+        }
+      },
+      "LocationTextExpandOptions": {
+        "type": "array",
+        "uniqueItems": true,
+        "items": {
+          "type": "string",
+          "enum": [
+            "*",
+            "_LocationTP"
+          ]
+        }
+      },
+      "LocationTPOfLocationTextSelectOptions": {
+        "type": "array",
+        "uniqueItems": true,
+        "items": {
+          "type": "string",
+          "enum": [
+            "LocationUUID",
+            "Location",
+            "LocationType",
+            "LocationAdditionalUUID",
+            "LocationTimeZone",
+            "GlobalLocationNumber",
+            "LocationDUNSNumber",
+            "LocationUNCode",
+            "LocationIATACode",
+            "GeoCoordinatesLongitudeValue",
+            "GeoCoordinatesLatitudeValue",
+            "GeoCoordsValidityEndDateTime",
+            "GeoCoordsAreManuallyChanged",
+            "CreationDateTime",
+            "CreatedByUser",
+            "ChangedDateTime",
+            "LocalLastChangeDateTime",
+            "LastChangedByUser",
+            "LocationIsTemporary",
+            "IsBusinessPurposeCompleted",
+            "AddressID",
+            "SAP__Messages"
+          ]
+        }
+      },
+      "LocationTPOfLocationTextExpandOptions": {
+        "type": "array",
+        "uniqueItems": true,
+        "items": {
+          "type": "string",
+          "enum": [
+            "*",
+            "_LocationAddressTP",
+            "_LocationTextTP"
+          ]
+        }
       }
     },
     "parameters": {
@@ -2380,6 +2206,222 @@
         "description": "Search items by search phrases, see [Searching](http://docs.oasis-open.org/odata/odata/v4.01/odata-v4.01-part1-protocol.html#sec_SystemQueryOptionsearch)",
         "schema": {
           "type": "string"
+        }
+      },
+      "LocationOrderByOptions": {
+        "name": "$orderby",
+        "in": "query",
+        "description": "Order items by property values, see [Sorting](http://docs.oasis-open.org/odata/odata/v4.01/odata-v4.01-part1-protocol.html#sec_SystemQueryOptionorderby)",
+        "explode": false,
+        "schema": {
+          "$ref": "#/components/schemas/LocationOrderByOptions"
+        }
+      },
+      "LocationSelectOptions": {
+        "name": "$select",
+        "in": "query",
+        "description": "Select properties to be returned, see [Select](http://docs.oasis-open.org/odata/odata/v4.01/odata-v4.01-part1-protocol.html#sec_SystemQueryOptionselect)",
+        "explode": false,
+        "schema": {
+          "$ref": "#/components/schemas/LocationSelectOptions"
+        }
+      },
+      "LocationExpandOptions": {
+        "name": "$expand",
+        "in": "query",
+        "description": "Expand related entities, see [Expand](http://docs.oasis-open.org/odata/odata/v4.01/odata-v4.01-part1-protocol.html#sec_SystemQueryOptionexpand)",
+        "explode": false,
+        "schema": {
+          "$ref": "#/components/schemas/LocationExpandOptions"
+        }
+      },
+      "LocationByKeySelectOptions": {
+        "name": "$select",
+        "in": "query",
+        "description": "Select properties to be returned, see [Select](http://docs.oasis-open.org/odata/odata/v4.01/odata-v4.01-part1-protocol.html#sec_SystemQueryOptionselect)",
+        "explode": false,
+        "schema": {
+          "$ref": "#/components/schemas/LocationSelectOptions"
+        }
+      },
+      "LocationByKeyExpandOptions": {
+        "name": "$expand",
+        "in": "query",
+        "description": "Expand related entities, see [Expand](http://docs.oasis-open.org/odata/odata/v4.01/odata-v4.01-part1-protocol.html#sec_SystemQueryOptionexpand)",
+        "explode": false,
+        "schema": {
+          "$ref": "#/components/schemas/LocationExpandOptions"
+        }
+      },
+      "LocationAddressTPOfLocationSelectOptions": {
+        "name": "$select",
+        "in": "query",
+        "description": "Select properties to be returned, see [Select](http://docs.oasis-open.org/odata/odata/v4.01/odata-v4.01-part1-protocol.html#sec_SystemQueryOptionselect)",
+        "explode": false,
+        "schema": {
+          "$ref": "#/components/schemas/LocationAddressTPOfLocationSelectOptions"
+        }
+      },
+      "LocationAddressTPOfLocationExpandOptions": {
+        "name": "$expand",
+        "in": "query",
+        "description": "Expand related entities, see [Expand](http://docs.oasis-open.org/odata/odata/v4.01/odata-v4.01-part1-protocol.html#sec_SystemQueryOptionexpand)",
+        "explode": false,
+        "schema": {
+          "$ref": "#/components/schemas/LocationAddressTPOfLocationExpandOptions"
+        }
+      },
+      "LocationTextTPOfLocationOrderByOptions": {
+        "name": "$orderby",
+        "in": "query",
+        "description": "Order items by property values, see [Sorting](http://docs.oasis-open.org/odata/odata/v4.01/odata-v4.01-part1-protocol.html#sec_SystemQueryOptionorderby)",
+        "explode": false,
+        "schema": {
+          "$ref": "#/components/schemas/LocationTextTPOfLocationOrderByOptions"
+        }
+      },
+      "LocationTextTPOfLocationSelectOptions": {
+        "name": "$select",
+        "in": "query",
+        "description": "Select properties to be returned, see [Select](http://docs.oasis-open.org/odata/odata/v4.01/odata-v4.01-part1-protocol.html#sec_SystemQueryOptionselect)",
+        "explode": false,
+        "schema": {
+          "$ref": "#/components/schemas/LocationTextTPOfLocationSelectOptions"
+        }
+      },
+      "LocationTextTPOfLocationExpandOptions": {
+        "name": "$expand",
+        "in": "query",
+        "description": "Expand related entities, see [Expand](http://docs.oasis-open.org/odata/odata/v4.01/odata-v4.01-part1-protocol.html#sec_SystemQueryOptionexpand)",
+        "explode": false,
+        "schema": {
+          "$ref": "#/components/schemas/LocationTextTPOfLocationExpandOptions"
+        }
+      },
+      "LocationAddressOrderByOptions": {
+        "name": "$orderby",
+        "in": "query",
+        "description": "Order items by property values, see [Sorting](http://docs.oasis-open.org/odata/odata/v4.01/odata-v4.01-part1-protocol.html#sec_SystemQueryOptionorderby)",
+        "explode": false,
+        "schema": {
+          "$ref": "#/components/schemas/LocationAddressOrderByOptions"
+        }
+      },
+      "LocationAddressSelectOptions": {
+        "name": "$select",
+        "in": "query",
+        "description": "Select properties to be returned, see [Select](http://docs.oasis-open.org/odata/odata/v4.01/odata-v4.01-part1-protocol.html#sec_SystemQueryOptionselect)",
+        "explode": false,
+        "schema": {
+          "$ref": "#/components/schemas/LocationAddressSelectOptions"
+        }
+      },
+      "LocationAddressExpandOptions": {
+        "name": "$expand",
+        "in": "query",
+        "description": "Expand related entities, see [Expand](http://docs.oasis-open.org/odata/odata/v4.01/odata-v4.01-part1-protocol.html#sec_SystemQueryOptionexpand)",
+        "explode": false,
+        "schema": {
+          "$ref": "#/components/schemas/LocationAddressExpandOptions"
+        }
+      },
+      "LocationAddressByKeySelectOptions": {
+        "name": "$select",
+        "in": "query",
+        "description": "Select properties to be returned, see [Select](http://docs.oasis-open.org/odata/odata/v4.01/odata-v4.01-part1-protocol.html#sec_SystemQueryOptionselect)",
+        "explode": false,
+        "schema": {
+          "$ref": "#/components/schemas/LocationAddressSelectOptions"
+        }
+      },
+      "LocationAddressByKeyExpandOptions": {
+        "name": "$expand",
+        "in": "query",
+        "description": "Expand related entities, see [Expand](http://docs.oasis-open.org/odata/odata/v4.01/odata-v4.01-part1-protocol.html#sec_SystemQueryOptionexpand)",
+        "explode": false,
+        "schema": {
+          "$ref": "#/components/schemas/LocationAddressExpandOptions"
+        }
+      },
+      "LocationTPOfLocationAddressSelectOptions": {
+        "name": "$select",
+        "in": "query",
+        "description": "Select properties to be returned, see [Select](http://docs.oasis-open.org/odata/odata/v4.01/odata-v4.01-part1-protocol.html#sec_SystemQueryOptionselect)",
+        "explode": false,
+        "schema": {
+          "$ref": "#/components/schemas/LocationTPOfLocationAddressSelectOptions"
+        }
+      },
+      "LocationTPOfLocationAddressExpandOptions": {
+        "name": "$expand",
+        "in": "query",
+        "description": "Expand related entities, see [Expand](http://docs.oasis-open.org/odata/odata/v4.01/odata-v4.01-part1-protocol.html#sec_SystemQueryOptionexpand)",
+        "explode": false,
+        "schema": {
+          "$ref": "#/components/schemas/LocationTPOfLocationAddressExpandOptions"
+        }
+      },
+      "LocationTextOrderByOptions": {
+        "name": "$orderby",
+        "in": "query",
+        "description": "Order items by property values, see [Sorting](http://docs.oasis-open.org/odata/odata/v4.01/odata-v4.01-part1-protocol.html#sec_SystemQueryOptionorderby)",
+        "explode": false,
+        "schema": {
+          "$ref": "#/components/schemas/LocationTextOrderByOptions"
+        }
+      },
+      "LocationTextSelectOptions": {
+        "name": "$select",
+        "in": "query",
+        "description": "Select properties to be returned, see [Select](http://docs.oasis-open.org/odata/odata/v4.01/odata-v4.01-part1-protocol.html#sec_SystemQueryOptionselect)",
+        "explode": false,
+        "schema": {
+          "$ref": "#/components/schemas/LocationTextSelectOptions"
+        }
+      },
+      "LocationTextExpandOptions": {
+        "name": "$expand",
+        "in": "query",
+        "description": "Expand related entities, see [Expand](http://docs.oasis-open.org/odata/odata/v4.01/odata-v4.01-part1-protocol.html#sec_SystemQueryOptionexpand)",
+        "explode": false,
+        "schema": {
+          "$ref": "#/components/schemas/LocationTextExpandOptions"
+        }
+      },
+      "LocationTextByKeySelectOptions": {
+        "name": "$select",
+        "in": "query",
+        "description": "Select properties to be returned, see [Select](http://docs.oasis-open.org/odata/odata/v4.01/odata-v4.01-part1-protocol.html#sec_SystemQueryOptionselect)",
+        "explode": false,
+        "schema": {
+          "$ref": "#/components/schemas/LocationTextSelectOptions"
+        }
+      },
+      "LocationTextByKeyExpandOptions": {
+        "name": "$expand",
+        "in": "query",
+        "description": "Expand related entities, see [Expand](http://docs.oasis-open.org/odata/odata/v4.01/odata-v4.01-part1-protocol.html#sec_SystemQueryOptionexpand)",
+        "explode": false,
+        "schema": {
+          "$ref": "#/components/schemas/LocationTextExpandOptions"
+        }
+      },
+      "LocationTPOfLocationTextSelectOptions": {
+        "name": "$select",
+        "in": "query",
+        "description": "Select properties to be returned, see [Select](http://docs.oasis-open.org/odata/odata/v4.01/odata-v4.01-part1-protocol.html#sec_SystemQueryOptionselect)",
+        "explode": false,
+        "schema": {
+          "$ref": "#/components/schemas/LocationTPOfLocationTextSelectOptions"
+        }
+      },
+      "LocationTPOfLocationTextExpandOptions": {
+        "name": "$expand",
+        "in": "query",
+        "description": "Expand related entities, see [Expand](http://docs.oasis-open.org/odata/odata/v4.01/odata-v4.01-part1-protocol.html#sec_SystemQueryOptionexpand)",
+        "explode": false,
+        "schema": {
+          "$ref": "#/components/schemas/LocationTPOfLocationTextExpandOptions"
         }
       }
     },
