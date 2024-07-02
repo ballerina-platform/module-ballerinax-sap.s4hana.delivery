@@ -1,5 +1,5 @@
 {
-  "description": "The `ballerinax/sap.s4hana.api_customer_returns_delivery_srv_0002` package offers APIs for seamless integration with the [Customer Returns Delivery API v2.1.0](https://api.sap.com/api/API_CUSTOMER_RETURNS_DELIVERY_SRV_0002/overview). This synchronous inbound service enables you to read, create, update, and delete customer returns deliveries. It can be consumed in Fiori apps and on other user interfaces.",
+  "description": "The `ballerinax/sap.s4hana.api_customer_returns_delivery_srv_0002` package offers APIs for seamless integration with the [Customer Returns Delivery API v2.1.0](https://api.sap.com/api/API_CUSTOMER_RETURNS_DELIVERY_SRV_0002/overview). This service enables users to read, create, update, and delete customer returns deliveries.",
   "communication-scenario": "Delivery Processing Integration",
   "import-statement": "import ballerinax/sap.s4hana.api_customer_returns_delivery_srv_0002 as returnDel;",
   "client-init": "returnDel:Client returnDelClient = check new (",
