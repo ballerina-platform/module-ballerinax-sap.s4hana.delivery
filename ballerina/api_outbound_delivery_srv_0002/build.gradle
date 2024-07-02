@@ -22,7 +22,7 @@ plugins {
     id 'io.ballerina.plugin'
 }
 
-description = 'Ballerina - SAP S/4HANA Inbound Delivery API'
+description = 'Ballerina - SAP S/4HANA Outbound Delivery API'
 
 def packageName = "sap.s4hana.api_outbound_delivery_srv_0002"
 def moduleVersion = project.api_outbound_delivery_srv_0002Version.replace("-SNAPSHOT", "")
