@@ -9,6 +9,7 @@ on:
         required: true
         options:
           - api_del_doc_with_credit_block
+          - api_customer_returns_delivery_srv_0002
 
 jobs:
   call_workflow:
