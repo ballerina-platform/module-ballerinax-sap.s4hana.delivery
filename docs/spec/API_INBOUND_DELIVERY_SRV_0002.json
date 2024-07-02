@@ -165,29 +165,7 @@
         ],
         "parameters": [
           {
-            "name": "$select",
-            "in": "query",
-            "description": "Select properties to be returned, see [Select](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=68)",
-            "explode": false,
-            "schema": {
-              "type": "array",
-              "uniqueItems": true,
-              "items": {
-                "type": "string",
-                "enum": [
-                  "DeliveryVersion",
-                  "PrecedingDocument",
-                  "PrecedingDocumentCategory",
-                  "PrecedingDocumentItem",
-                  "QuantityInBaseUnit",
-                  "SDFulfillmentCalculationRule",
-                  "SubsequentDocument",
-                  "SubsequentDocumentCategory",
-                  "SubsequentDocumentItem",
-                  "TransferOrderInWrhsMgmtIsConfd"
-                ]
-              }
-            }
+            "$ref": "#/components/parameters/A_InbDeliveryDocFlowByKeySelectOptions"
           }
         ],
         "responses": {
@@ -196,11 +174,11 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "title": "A_InbDeliveryDocFlowType",
+                  "title": "A_InbDeliveryDocFlowWrapper",
                   "type": "object",
                   "properties": {
                     "d": {
-                      "$ref": "#/components/schemas/API_INBOUND_DELIVERY_SRV.A_InbDeliveryDocFlowType"
+                      "$ref": "#/components/schemas/A_InbDeliveryDocFlow"
                     }
                   }
                 }
@@ -228,7 +206,7 @@
                 "type": "object",
                 "properties": {
                   "d": {
-                    "$ref": "#/components/schemas/API_INBOUND_DELIVERY_SRV.A_InbDeliveryDocFlowType-update"
+                    "$ref": "#/components/schemas/UpdateA_InbDeliveryDocFlow"
                   }
                 }
               }
@@ -274,376 +252,13 @@
             "$ref": "#/components/parameters/count"
           },
           {
-            "name": "$orderby",
-            "in": "query",
-            "description": "Order items by property values, see [Sorting](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=65)",
-            "explode": false,
-            "schema": {
-              "type": "array",
-              "uniqueItems": true,
-              "items": {
-                "type": "string",
-                "enum": [
-                  "ReceivingLocationTimeZone",
-                  "ReceivingLocationTimeZone desc",
-                  "ActualDeliveryRoute",
-                  "ActualDeliveryRoute desc",
-                  "ActualGoodsMovementDate",
-                  "ActualGoodsMovementDate desc",
-                  "ActualGoodsMovementTime",
-                  "ActualGoodsMovementTime desc",
-                  "BillingDocumentDate",
-                  "BillingDocumentDate desc",
-                  "BillOfLading",
-                  "BillOfLading desc",
-                  "CompleteDeliveryIsDefined",
-                  "CompleteDeliveryIsDefined desc",
-                  "ConfirmationTime",
-                  "ConfirmationTime desc",
-                  "CreatedByUser",
-                  "CreatedByUser desc",
-                  "CreationDate",
-                  "CreationDate desc",
-                  "CreationTime",
-                  "CreationTime desc",
-                  "CustomerGroup",
-                  "CustomerGroup desc",
-                  "DeliveryBlockReason",
-                  "DeliveryBlockReason desc",
-                  "DeliveryDate",
-                  "DeliveryDate desc",
-                  "DeliveryDocument",
-                  "DeliveryDocument desc",
-                  "DeliveryDocumentBySupplier",
-                  "DeliveryDocumentBySupplier desc",
-                  "DeliveryDocumentType",
-                  "DeliveryDocumentType desc",
-                  "DeliveryIsInPlant",
-                  "DeliveryIsInPlant desc",
-                  "DeliveryPriority",
-                  "DeliveryPriority desc",
-                  "DeliveryTime",
-                  "DeliveryTime desc",
-                  "DeliveryVersion",
-                  "DeliveryVersion desc",
-                  "DepreciationPercentage",
-                  "DepreciationPercentage desc",
-                  "DistrStatusByDecentralizedWrhs",
-                  "DistrStatusByDecentralizedWrhs desc",
-                  "DocumentDate",
-                  "DocumentDate desc",
-                  "ExternalIdentificationType",
-                  "ExternalIdentificationType desc",
-                  "ExternalTransportSystem",
-                  "ExternalTransportSystem desc",
-                  "FactoryCalendarByCustomer",
-                  "FactoryCalendarByCustomer desc",
-                  "GoodsIssueOrReceiptSlipNumber",
-                  "GoodsIssueOrReceiptSlipNumber desc",
-                  "GoodsIssueTime",
-                  "GoodsIssueTime desc",
-                  "HandlingUnitInStock",
-                  "HandlingUnitInStock desc",
-                  "HdrGeneralIncompletionStatus",
-                  "HdrGeneralIncompletionStatus desc",
-                  "HdrGoodsMvtIncompletionStatus",
-                  "HdrGoodsMvtIncompletionStatus desc",
-                  "HeaderBillgIncompletionStatus",
-                  "HeaderBillgIncompletionStatus desc",
-                  "HeaderBillingBlockReason",
-                  "HeaderBillingBlockReason desc",
-                  "HeaderDelivIncompletionStatus",
-                  "HeaderDelivIncompletionStatus desc",
-                  "HeaderGrossWeight",
-                  "HeaderGrossWeight desc",
-                  "HeaderNetWeight",
-                  "HeaderNetWeight desc",
-                  "HeaderPackingIncompletionSts",
-                  "HeaderPackingIncompletionSts desc",
-                  "HeaderPickgIncompletionStatus",
-                  "HeaderPickgIncompletionStatus desc",
-                  "HeaderVolume",
-                  "HeaderVolume desc",
-                  "HeaderVolumeUnit",
-                  "HeaderVolumeUnit desc",
-                  "HeaderWeightUnit",
-                  "HeaderWeightUnit desc",
-                  "IncotermsClassification",
-                  "IncotermsClassification desc",
-                  "IncotermsTransferLocation",
-                  "IncotermsTransferLocation desc",
-                  "IntercompanyBillingDate",
-                  "IntercompanyBillingDate desc",
-                  "InternalFinancialDocument",
-                  "InternalFinancialDocument desc",
-                  "IsDeliveryForSingleWarehouse",
-                  "IsDeliveryForSingleWarehouse desc",
-                  "IsExportDelivery",
-                  "IsExportDelivery desc",
-                  "LastChangeDate",
-                  "LastChangeDate desc",
-                  "LastChangedByUser",
-                  "LastChangedByUser desc",
-                  "LoadingDate",
-                  "LoadingDate desc",
-                  "LoadingPoint",
-                  "LoadingPoint desc",
-                  "LoadingTime",
-                  "LoadingTime desc",
-                  "MeansOfTransport",
-                  "MeansOfTransport desc",
-                  "MeansOfTransportRefMaterial",
-                  "MeansOfTransportRefMaterial desc",
-                  "MeansOfTransportType",
-                  "MeansOfTransportType desc",
-                  "OrderCombinationIsAllowed",
-                  "OrderCombinationIsAllowed desc",
-                  "OrderID",
-                  "OrderID desc",
-                  "OverallDelivConfStatus",
-                  "OverallDelivConfStatus desc",
-                  "OverallDelivReltdBillgStatus",
-                  "OverallDelivReltdBillgStatus desc",
-                  "OverallGoodsMovementStatus",
-                  "OverallGoodsMovementStatus desc",
-                  "OverallIntcoBillingStatus",
-                  "OverallIntcoBillingStatus desc",
-                  "OverallPackingStatus",
-                  "OverallPackingStatus desc",
-                  "OverallPickingConfStatus",
-                  "OverallPickingConfStatus desc",
-                  "OverallPickingStatus",
-                  "OverallPickingStatus desc",
-                  "OverallProofOfDeliveryStatus",
-                  "OverallProofOfDeliveryStatus desc",
-                  "OverallSDProcessStatus",
-                  "OverallSDProcessStatus desc",
-                  "OverallWarehouseActivityStatus",
-                  "OverallWarehouseActivityStatus desc",
-                  "OvrlItmDelivIncompletionSts",
-                  "OvrlItmDelivIncompletionSts desc",
-                  "OvrlItmGdsMvtIncompletionSts",
-                  "OvrlItmGdsMvtIncompletionSts desc",
-                  "OvrlItmGeneralIncompletionSts",
-                  "OvrlItmGeneralIncompletionSts desc",
-                  "OvrlItmPackingIncompletionSts",
-                  "OvrlItmPackingIncompletionSts desc",
-                  "OvrlItmPickingIncompletionSts",
-                  "OvrlItmPickingIncompletionSts desc",
-                  "PaymentGuaranteeProcedure",
-                  "PaymentGuaranteeProcedure desc",
-                  "PickedItemsLocation",
-                  "PickedItemsLocation desc",
-                  "PickingDate",
-                  "PickingDate desc",
-                  "PickingTime",
-                  "PickingTime desc",
-                  "PlannedGoodsIssueDate",
-                  "PlannedGoodsIssueDate desc",
-                  "ProofOfDeliveryDate",
-                  "ProofOfDeliveryDate desc",
-                  "ProposedDeliveryRoute",
-                  "ProposedDeliveryRoute desc",
-                  "ReceivingPlant",
-                  "ReceivingPlant desc",
-                  "RouteSchedule",
-                  "RouteSchedule desc",
-                  "SalesDistrict",
-                  "SalesDistrict desc",
-                  "SalesOffice",
-                  "SalesOffice desc",
-                  "SalesOrganization",
-                  "SalesOrganization desc",
-                  "SDDocumentCategory",
-                  "SDDocumentCategory desc",
-                  "ShipmentBlockReason",
-                  "ShipmentBlockReason desc",
-                  "ShippingCondition",
-                  "ShippingCondition desc",
-                  "ShippingPoint",
-                  "ShippingPoint desc",
-                  "ShippingType",
-                  "ShippingType desc",
-                  "ShipToParty",
-                  "ShipToParty desc",
-                  "SoldToParty",
-                  "SoldToParty desc",
-                  "SpecialProcessingCode",
-                  "SpecialProcessingCode desc",
-                  "StatisticsCurrency",
-                  "StatisticsCurrency desc",
-                  "Supplier",
-                  "Supplier desc",
-                  "TotalBlockStatus",
-                  "TotalBlockStatus desc",
-                  "TotalCreditCheckStatus",
-                  "TotalCreditCheckStatus desc",
-                  "TotalNumberOfPackage",
-                  "TotalNumberOfPackage desc",
-                  "TransactionCurrency",
-                  "TransactionCurrency desc",
-                  "TransportationGroup",
-                  "TransportationGroup desc",
-                  "TransportationPlanningDate",
-                  "TransportationPlanningDate desc",
-                  "TransportationPlanningStatus",
-                  "TransportationPlanningStatus desc",
-                  "TransportationPlanningTime",
-                  "TransportationPlanningTime desc",
-                  "UnloadingPointName",
-                  "UnloadingPointName desc",
-                  "Warehouse",
-                  "Warehouse desc",
-                  "WarehouseGate",
-                  "WarehouseGate desc",
-                  "WarehouseStagingArea",
-                  "WarehouseStagingArea desc"
-                ]
-              }
-            }
+            "$ref": "#/components/parameters/A_InbDeliveryHeaderOrderByOptions"
           },
           {
-            "name": "$select",
-            "in": "query",
-            "description": "Select properties to be returned, see [Select](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=68)",
-            "explode": false,
-            "schema": {
-              "type": "array",
-              "uniqueItems": true,
-              "items": {
-                "type": "string",
-                "enum": [
-                  "ReceivingLocationTimeZone",
-                  "ActualDeliveryRoute",
-                  "ActualGoodsMovementDate",
-                  "ActualGoodsMovementTime",
-                  "BillingDocumentDate",
-                  "BillOfLading",
-                  "CompleteDeliveryIsDefined",
-                  "ConfirmationTime",
-                  "CreatedByUser",
-                  "CreationDate",
-                  "CreationTime",
-                  "CustomerGroup",
-                  "DeliveryBlockReason",
-                  "DeliveryDate",
-                  "DeliveryDocument",
-                  "DeliveryDocumentBySupplier",
-                  "DeliveryDocumentType",
-                  "DeliveryIsInPlant",
-                  "DeliveryPriority",
-                  "DeliveryTime",
-                  "DeliveryVersion",
-                  "DepreciationPercentage",
-                  "DistrStatusByDecentralizedWrhs",
-                  "DocumentDate",
-                  "ExternalIdentificationType",
-                  "ExternalTransportSystem",
-                  "FactoryCalendarByCustomer",
-                  "GoodsIssueOrReceiptSlipNumber",
-                  "GoodsIssueTime",
-                  "HandlingUnitInStock",
-                  "HdrGeneralIncompletionStatus",
-                  "HdrGoodsMvtIncompletionStatus",
-                  "HeaderBillgIncompletionStatus",
-                  "HeaderBillingBlockReason",
-                  "HeaderDelivIncompletionStatus",
-                  "HeaderGrossWeight",
-                  "HeaderNetWeight",
-                  "HeaderPackingIncompletionSts",
-                  "HeaderPickgIncompletionStatus",
-                  "HeaderVolume",
-                  "HeaderVolumeUnit",
-                  "HeaderWeightUnit",
-                  "IncotermsClassification",
-                  "IncotermsTransferLocation",
-                  "IntercompanyBillingDate",
-                  "InternalFinancialDocument",
-                  "IsDeliveryForSingleWarehouse",
-                  "IsExportDelivery",
-                  "LastChangeDate",
-                  "LastChangedByUser",
-                  "LoadingDate",
-                  "LoadingPoint",
-                  "LoadingTime",
-                  "MeansOfTransport",
-                  "MeansOfTransportRefMaterial",
-                  "MeansOfTransportType",
-                  "OrderCombinationIsAllowed",
-                  "OrderID",
-                  "OverallDelivConfStatus",
-                  "OverallDelivReltdBillgStatus",
-                  "OverallGoodsMovementStatus",
-                  "OverallIntcoBillingStatus",
-                  "OverallPackingStatus",
-                  "OverallPickingConfStatus",
-                  "OverallPickingStatus",
-                  "OverallProofOfDeliveryStatus",
-                  "OverallSDProcessStatus",
-                  "OverallWarehouseActivityStatus",
-                  "OvrlItmDelivIncompletionSts",
-                  "OvrlItmGdsMvtIncompletionSts",
-                  "OvrlItmGeneralIncompletionSts",
-                  "OvrlItmPackingIncompletionSts",
-                  "OvrlItmPickingIncompletionSts",
-                  "PaymentGuaranteeProcedure",
-                  "PickedItemsLocation",
-                  "PickingDate",
-                  "PickingTime",
-                  "PlannedGoodsIssueDate",
-                  "ProofOfDeliveryDate",
-                  "ProposedDeliveryRoute",
-                  "ReceivingPlant",
-                  "RouteSchedule",
-                  "SalesDistrict",
-                  "SalesOffice",
-                  "SalesOrganization",
-                  "SDDocumentCategory",
-                  "ShipmentBlockReason",
-                  "ShippingCondition",
-                  "ShippingPoint",
-                  "ShippingType",
-                  "ShipToParty",
-                  "SoldToParty",
-                  "SpecialProcessingCode",
-                  "StatisticsCurrency",
-                  "Supplier",
-                  "TotalBlockStatus",
-                  "TotalCreditCheckStatus",
-                  "TotalNumberOfPackage",
-                  "TransactionCurrency",
-                  "TransportationGroup",
-                  "TransportationPlanningDate",
-                  "TransportationPlanningStatus",
-                  "TransportationPlanningTime",
-                  "UnloadingPointName",
-                  "Warehouse",
-                  "WarehouseGate",
-                  "WarehouseStagingArea",
-                  "to_DeliveryDocumentText",
-                  "to_DeliveryDocumentItem",
-                  "to_DeliveryDocumentPartner"
-                ]
-              }
-            }
+            "$ref": "#/components/parameters/A_InbDeliveryHeaderSelectOptions"
           },
           {
-            "name": "$expand",
-            "in": "query",
-            "description": "Expand related entities, see [Expand](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=63)",
-            "explode": false,
-            "schema": {
-              "type": "array",
-              "uniqueItems": true,
-              "items": {
-                "type": "string",
-                "enum": [
-                  "to_DeliveryDocumentText",
-                  "to_DeliveryDocumentItem",
-                  "to_DeliveryDocumentPartner"
-                ]
-              }
-            }
+            "$ref": "#/components/parameters/A_InbDeliveryHeaderExpandOptions"
           }
         ],
         "responses": {
@@ -652,11 +267,11 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "title": "Wrapper",
+                  "title": "CollectionOfA_InbDeliveryHeaderWrapper",
                   "type": "object",
                   "properties": {
                     "d": {
-                      "title": "Collection of A_InbDeliveryHeaderType",
+                      "title": "CollectionOfA_InbDeliveryHeader",
                       "type": "object",
                       "properties": {
                         "__count": {
@@ -665,7 +280,7 @@
                         "results": {
                           "type": "array",
                           "items": {
-                            "$ref": "#/components/schemas/API_INBOUND_DELIVERY_SRV.A_InbDeliveryHeaderType"
+                            "$ref": "#/components/schemas/A_InbDeliveryHeader"
                           }
                         }
                       }
@@ -692,7 +307,7 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/API_INBOUND_DELIVERY_SRV.A_InbDeliveryHeaderType-create"
+                "$ref": "#/components/schemas/CreateA_InbDeliveryHeader"
               }
             }
           }
@@ -703,11 +318,11 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "title": "A_InbDeliveryHeaderType",
+                  "title": "A_InbDeliveryHeaderWrapper",
                   "type": "object",
                   "properties": {
                     "d": {
-                      "$ref": "#/components/schemas/API_INBOUND_DELIVERY_SRV.A_InbDeliveryHeaderType"
+                      "$ref": "#/components/schemas/A_InbDeliveryHeader"
                     }
                   }
                 }
@@ -741,147 +356,10 @@
         ],
         "parameters": [
           {
-            "name": "$select",
-            "in": "query",
-            "description": "Select properties to be returned, see [Select](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=68)",
-            "explode": false,
-            "schema": {
-              "type": "array",
-              "uniqueItems": true,
-              "items": {
-                "type": "string",
-                "enum": [
-                  "ReceivingLocationTimeZone",
-                  "ActualDeliveryRoute",
-                  "ActualGoodsMovementDate",
-                  "ActualGoodsMovementTime",
-                  "BillingDocumentDate",
-                  "BillOfLading",
-                  "CompleteDeliveryIsDefined",
-                  "ConfirmationTime",
-                  "CreatedByUser",
-                  "CreationDate",
-                  "CreationTime",
-                  "CustomerGroup",
-                  "DeliveryBlockReason",
-                  "DeliveryDate",
-                  "DeliveryDocument",
-                  "DeliveryDocumentBySupplier",
-                  "DeliveryDocumentType",
-                  "DeliveryIsInPlant",
-                  "DeliveryPriority",
-                  "DeliveryTime",
-                  "DeliveryVersion",
-                  "DepreciationPercentage",
-                  "DistrStatusByDecentralizedWrhs",
-                  "DocumentDate",
-                  "ExternalIdentificationType",
-                  "ExternalTransportSystem",
-                  "FactoryCalendarByCustomer",
-                  "GoodsIssueOrReceiptSlipNumber",
-                  "GoodsIssueTime",
-                  "HandlingUnitInStock",
-                  "HdrGeneralIncompletionStatus",
-                  "HdrGoodsMvtIncompletionStatus",
-                  "HeaderBillgIncompletionStatus",
-                  "HeaderBillingBlockReason",
-                  "HeaderDelivIncompletionStatus",
-                  "HeaderGrossWeight",
-                  "HeaderNetWeight",
-                  "HeaderPackingIncompletionSts",
-                  "HeaderPickgIncompletionStatus",
-                  "HeaderVolume",
-                  "HeaderVolumeUnit",
-                  "HeaderWeightUnit",
-                  "IncotermsClassification",
-                  "IncotermsTransferLocation",
-                  "IntercompanyBillingDate",
-                  "InternalFinancialDocument",
-                  "IsDeliveryForSingleWarehouse",
-                  "IsExportDelivery",
-                  "LastChangeDate",
-                  "LastChangedByUser",
-                  "LoadingDate",
-                  "LoadingPoint",
-                  "LoadingTime",
-                  "MeansOfTransport",
-                  "MeansOfTransportRefMaterial",
-                  "MeansOfTransportType",
-                  "OrderCombinationIsAllowed",
-                  "OrderID",
-                  "OverallDelivConfStatus",
-                  "OverallDelivReltdBillgStatus",
-                  "OverallGoodsMovementStatus",
-                  "OverallIntcoBillingStatus",
-                  "OverallPackingStatus",
-                  "OverallPickingConfStatus",
-                  "OverallPickingStatus",
-                  "OverallProofOfDeliveryStatus",
-                  "OverallSDProcessStatus",
-                  "OverallWarehouseActivityStatus",
-                  "OvrlItmDelivIncompletionSts",
-                  "OvrlItmGdsMvtIncompletionSts",
-                  "OvrlItmGeneralIncompletionSts",
-                  "OvrlItmPackingIncompletionSts",
-                  "OvrlItmPickingIncompletionSts",
-                  "PaymentGuaranteeProcedure",
-                  "PickedItemsLocation",
-                  "PickingDate",
-                  "PickingTime",
-                  "PlannedGoodsIssueDate",
-                  "ProofOfDeliveryDate",
-                  "ProposedDeliveryRoute",
-                  "ReceivingPlant",
-                  "RouteSchedule",
-                  "SalesDistrict",
-                  "SalesOffice",
-                  "SalesOrganization",
-                  "SDDocumentCategory",
-                  "ShipmentBlockReason",
-                  "ShippingCondition",
-                  "ShippingPoint",
-                  "ShippingType",
-                  "ShipToParty",
-                  "SoldToParty",
-                  "SpecialProcessingCode",
-                  "StatisticsCurrency",
-                  "Supplier",
-                  "TotalBlockStatus",
-                  "TotalCreditCheckStatus",
-                  "TotalNumberOfPackage",
-                  "TransactionCurrency",
-                  "TransportationGroup",
-                  "TransportationPlanningDate",
-                  "TransportationPlanningStatus",
-                  "TransportationPlanningTime",
-                  "UnloadingPointName",
-                  "Warehouse",
-                  "WarehouseGate",
-                  "WarehouseStagingArea",
-                  "to_DeliveryDocumentText",
-                  "to_DeliveryDocumentItem",
-                  "to_DeliveryDocumentPartner"
-                ]
-              }
-            }
+            "$ref": "#/components/parameters/A_InbDeliveryHeaderByKeySelectOptions"
           },
           {
-            "name": "$expand",
-            "in": "query",
-            "description": "Expand related entities, see [Expand](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=63)",
-            "explode": false,
-            "schema": {
-              "type": "array",
-              "uniqueItems": true,
-              "items": {
-                "type": "string",
-                "enum": [
-                  "to_DeliveryDocumentText",
-                  "to_DeliveryDocumentItem",
-                  "to_DeliveryDocumentPartner"
-                ]
-              }
-            }
+            "$ref": "#/components/parameters/A_InbDeliveryHeaderByKeyExpandOptions"
           }
         ],
         "responses": {
@@ -890,11 +368,11 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "title": "A_InbDeliveryHeaderType",
+                  "title": "A_InbDeliveryHeaderWrapper",
                   "type": "object",
                   "properties": {
                     "d": {
-                      "$ref": "#/components/schemas/API_INBOUND_DELIVERY_SRV.A_InbDeliveryHeaderType"
+                      "$ref": "#/components/schemas/A_InbDeliveryHeader"
                     }
                   }
                 }
@@ -922,7 +400,7 @@
                 "type": "object",
                 "properties": {
                   "d": {
-                    "$ref": "#/components/schemas/API_INBOUND_DELIVERY_SRV.A_InbDeliveryHeaderType-update"
+                    "$ref": "#/components/schemas/UpdateA_InbDeliveryHeader"
                   }
                 }
               }
@@ -987,25 +465,7 @@
             "$ref": "#/components/parameters/count"
           },
           {
-            "name": "$select",
-            "in": "query",
-            "description": "Select properties to be returned, see [Select](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=68)",
-            "explode": false,
-            "schema": {
-              "type": "array",
-              "uniqueItems": true,
-              "items": {
-                "type": "string",
-                "enum": [
-                  "DeliveryDocument",
-                  "TextElement",
-                  "Language",
-                  "TextElementDescription",
-                  "TextElementText",
-                  "DeliveryLongTextIsFormatted"
-                ]
-              }
-            }
+            "$ref": "#/components/parameters/DeliveryDocumentTextOfA_InbDeliveryHeaderSelectOptions"
           }
         ],
         "responses": {
@@ -1014,11 +474,11 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "title": "Wrapper",
+                  "title": "CollectionOfA_InbDeliveryHeaderTextWrapper",
                   "type": "object",
                   "properties": {
                     "d": {
-                      "title": "Collection of A_InbDeliveryHeaderTextType",
+                      "title": "CollectionOfA_InbDeliveryHeaderText",
                       "type": "object",
                       "properties": {
                         "__count": {
@@ -1027,7 +487,7 @@
                         "results": {
                           "type": "array",
                           "items": {
-                            "$ref": "#/components/schemas/API_INBOUND_DELIVERY_SRV.A_InbDeliveryHeaderTextType"
+                            "$ref": "#/components/schemas/A_InbDeliveryHeaderText"
                           }
                         }
                       }
@@ -1085,457 +545,13 @@
             "$ref": "#/components/parameters/count"
           },
           {
-            "name": "$orderby",
-            "in": "query",
-            "description": "Order items by property values, see [Sorting](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=65)",
-            "explode": false,
-            "schema": {
-              "type": "array",
-              "uniqueItems": true,
-              "items": {
-                "type": "string",
-                "enum": [
-                  "ActualDeliveredQtyInBaseUnit",
-                  "ActualDeliveredQtyInBaseUnit desc",
-                  "ActualDeliveryQuantity",
-                  "ActualDeliveryQuantity desc",
-                  "AdditionalCustomerGroup1",
-                  "AdditionalCustomerGroup1 desc",
-                  "AdditionalCustomerGroup2",
-                  "AdditionalCustomerGroup2 desc",
-                  "AdditionalCustomerGroup3",
-                  "AdditionalCustomerGroup3 desc",
-                  "AdditionalCustomerGroup4",
-                  "AdditionalCustomerGroup4 desc",
-                  "AdditionalCustomerGroup5",
-                  "AdditionalCustomerGroup5 desc",
-                  "AdditionalMaterialGroup1",
-                  "AdditionalMaterialGroup1 desc",
-                  "AdditionalMaterialGroup2",
-                  "AdditionalMaterialGroup2 desc",
-                  "AdditionalMaterialGroup3",
-                  "AdditionalMaterialGroup3 desc",
-                  "AdditionalMaterialGroup4",
-                  "AdditionalMaterialGroup4 desc",
-                  "AdditionalMaterialGroup5",
-                  "AdditionalMaterialGroup5 desc",
-                  "AlternateProductNumber",
-                  "AlternateProductNumber desc",
-                  "BaseUnit",
-                  "BaseUnit desc",
-                  "Batch",
-                  "Batch desc",
-                  "BatchBySupplier",
-                  "BatchBySupplier desc",
-                  "BatchClassification",
-                  "BatchClassification desc",
-                  "BOMExplosion",
-                  "BOMExplosion desc",
-                  "BusinessArea",
-                  "BusinessArea desc",
-                  "ConsumptionPosting",
-                  "ConsumptionPosting desc",
-                  "ControllingArea",
-                  "ControllingArea desc",
-                  "CostCenter",
-                  "CostCenter desc",
-                  "CreatedByUser",
-                  "CreatedByUser desc",
-                  "CreationDate",
-                  "CreationDate desc",
-                  "CreationTime",
-                  "CreationTime desc",
-                  "CustEngineeringChgStatus",
-                  "CustEngineeringChgStatus desc",
-                  "DeliveryDocument",
-                  "DeliveryDocument desc",
-                  "DeliveryDocumentItem",
-                  "DeliveryDocumentItem desc",
-                  "DeliveryDocumentItemCategory",
-                  "DeliveryDocumentItemCategory desc",
-                  "DeliveryDocumentItemText",
-                  "DeliveryDocumentItemText desc",
-                  "DeliveryGroup",
-                  "DeliveryGroup desc",
-                  "DeliveryQuantityUnit",
-                  "DeliveryQuantityUnit desc",
-                  "DeliveryRelatedBillingStatus",
-                  "DeliveryRelatedBillingStatus desc",
-                  "DeliveryToBaseQuantityDnmntr",
-                  "DeliveryToBaseQuantityDnmntr desc",
-                  "DeliveryToBaseQuantityNmrtr",
-                  "DeliveryToBaseQuantityNmrtr desc",
-                  "DepartmentClassificationByCust",
-                  "DepartmentClassificationByCust desc",
-                  "DistributionChannel",
-                  "DistributionChannel desc",
-                  "Division",
-                  "Division desc",
-                  "FixedShipgProcgDurationInDays",
-                  "FixedShipgProcgDurationInDays desc",
-                  "GLAccount",
-                  "GLAccount desc",
-                  "GoodsMovementReasonCode",
-                  "GoodsMovementReasonCode desc",
-                  "GoodsMovementStatus",
-                  "GoodsMovementStatus desc",
-                  "GoodsMovementType",
-                  "GoodsMovementType desc",
-                  "HigherLevelItem",
-                  "HigherLevelItem desc",
-                  "InspectionLot",
-                  "InspectionLot desc",
-                  "InspectionPartialLot",
-                  "InspectionPartialLot desc",
-                  "IntercompanyBillingStatus",
-                  "IntercompanyBillingStatus desc",
-                  "InternationalArticleNumber",
-                  "InternationalArticleNumber desc",
-                  "InventorySpecialStockType",
-                  "InventorySpecialStockType desc",
-                  "InventoryValuationType",
-                  "InventoryValuationType desc",
-                  "IsCompletelyDelivered",
-                  "IsCompletelyDelivered desc",
-                  "IsNotGoodsMovementsRelevant",
-                  "IsNotGoodsMovementsRelevant desc",
-                  "IsSeparateValuation",
-                  "IsSeparateValuation desc",
-                  "IssgOrRcvgBatch",
-                  "IssgOrRcvgBatch desc",
-                  "IssgOrRcvgMaterial",
-                  "IssgOrRcvgMaterial desc",
-                  "IssgOrRcvgSpclStockInd",
-                  "IssgOrRcvgSpclStockInd desc",
-                  "IssgOrRcvgStockCategory",
-                  "IssgOrRcvgStockCategory desc",
-                  "IssgOrRcvgValuationType",
-                  "IssgOrRcvgValuationType desc",
-                  "IssuingOrReceivingPlant",
-                  "IssuingOrReceivingPlant desc",
-                  "IssuingOrReceivingStorageLoc",
-                  "IssuingOrReceivingStorageLoc desc",
-                  "ItemBillingBlockReason",
-                  "ItemBillingBlockReason desc",
-                  "ItemBillingIncompletionStatus",
-                  "ItemBillingIncompletionStatus desc",
-                  "ItemDeliveryIncompletionStatus",
-                  "ItemDeliveryIncompletionStatus desc",
-                  "ItemGdsMvtIncompletionSts",
-                  "ItemGdsMvtIncompletionSts desc",
-                  "ItemGeneralIncompletionStatus",
-                  "ItemGeneralIncompletionStatus desc",
-                  "ItemGrossWeight",
-                  "ItemGrossWeight desc",
-                  "ItemIsBillingRelevant",
-                  "ItemIsBillingRelevant desc",
-                  "ItemNetWeight",
-                  "ItemNetWeight desc",
-                  "ItemPackingIncompletionStatus",
-                  "ItemPackingIncompletionStatus desc",
-                  "ItemPickingIncompletionStatus",
-                  "ItemPickingIncompletionStatus desc",
-                  "ItemVolume",
-                  "ItemVolume desc",
-                  "ItemVolumeUnit",
-                  "ItemVolumeUnit desc",
-                  "ItemWeightUnit",
-                  "ItemWeightUnit desc",
-                  "LastChangeDate",
-                  "LastChangeDate desc",
-                  "LoadingGroup",
-                  "LoadingGroup desc",
-                  "ManufactureDate",
-                  "ManufactureDate desc",
-                  "Material",
-                  "Material desc",
-                  "MaterialByCustomer",
-                  "MaterialByCustomer desc",
-                  "MaterialFreightGroup",
-                  "MaterialFreightGroup desc",
-                  "MaterialGroup",
-                  "MaterialGroup desc",
-                  "MaterialIsBatchManaged",
-                  "MaterialIsBatchManaged desc",
-                  "MaterialIsIntBatchManaged",
-                  "MaterialIsIntBatchManaged desc",
-                  "NumberOfSerialNumbers",
-                  "NumberOfSerialNumbers desc",
-                  "OrderID",
-                  "OrderID desc",
-                  "OrderItem",
-                  "OrderItem desc",
-                  "OriginalDeliveryQuantity",
-                  "OriginalDeliveryQuantity desc",
-                  "OriginallyRequestedMaterial",
-                  "OriginallyRequestedMaterial desc",
-                  "OverdelivTolrtdLmtRatioInPct",
-                  "OverdelivTolrtdLmtRatioInPct desc",
-                  "PackingStatus",
-                  "PackingStatus desc",
-                  "PartialDeliveryIsAllowed",
-                  "PartialDeliveryIsAllowed desc",
-                  "PaymentGuaranteeForm",
-                  "PaymentGuaranteeForm desc",
-                  "PickingConfirmationStatus",
-                  "PickingConfirmationStatus desc",
-                  "PickingControl",
-                  "PickingControl desc",
-                  "PickingStatus",
-                  "PickingStatus desc",
-                  "Plant",
-                  "Plant desc",
-                  "PrimaryPostingSwitch",
-                  "PrimaryPostingSwitch desc",
-                  "ProductAvailabilityDate",
-                  "ProductAvailabilityDate desc",
-                  "ProductAvailabilityTime",
-                  "ProductAvailabilityTime desc",
-                  "ProductConfiguration",
-                  "ProductConfiguration desc",
-                  "ProductHierarchyNode",
-                  "ProductHierarchyNode desc",
-                  "ProfitabilitySegment",
-                  "ProfitabilitySegment desc",
-                  "ProfitCenter",
-                  "ProfitCenter desc",
-                  "ProofOfDeliveryRelevanceCode",
-                  "ProofOfDeliveryRelevanceCode desc",
-                  "ProofOfDeliveryStatus",
-                  "ProofOfDeliveryStatus desc",
-                  "QuantityIsFixed",
-                  "QuantityIsFixed desc",
-                  "ReceivingPoint",
-                  "ReceivingPoint desc",
-                  "ReferenceDocumentLogicalSystem",
-                  "ReferenceDocumentLogicalSystem desc",
-                  "ReferenceSDDocument",
-                  "ReferenceSDDocument desc",
-                  "ReferenceSDDocumentCategory",
-                  "ReferenceSDDocumentCategory desc",
-                  "ReferenceSDDocumentItem",
-                  "ReferenceSDDocumentItem desc",
-                  "DeliveryDocumentItemBySupplier",
-                  "DeliveryDocumentItemBySupplier desc",
-                  "RetailPromotion",
-                  "RetailPromotion desc",
-                  "SalesDocumentItemType",
-                  "SalesDocumentItemType desc",
-                  "SalesGroup",
-                  "SalesGroup desc",
-                  "SalesOffice",
-                  "SalesOffice desc",
-                  "SDDocumentCategory",
-                  "SDDocumentCategory desc",
-                  "SDProcessStatus",
-                  "SDProcessStatus desc",
-                  "ShelfLifeExpirationDate",
-                  "ShelfLifeExpirationDate desc",
-                  "StatisticsDate",
-                  "StatisticsDate desc",
-                  "StockType",
-                  "StockType desc",
-                  "StorageBin",
-                  "StorageBin desc",
-                  "StorageLocation",
-                  "StorageLocation desc",
-                  "StorageType",
-                  "StorageType desc",
-                  "SubsequentMovementType",
-                  "SubsequentMovementType desc",
-                  "TransportationGroup",
-                  "TransportationGroup desc",
-                  "UnderdelivTolrtdLmtRatioInPct",
-                  "UnderdelivTolrtdLmtRatioInPct desc",
-                  "UnlimitedOverdeliveryIsAllowed",
-                  "UnlimitedOverdeliveryIsAllowed desc",
-                  "VarblShipgProcgDurationInDays",
-                  "VarblShipgProcgDurationInDays desc",
-                  "Warehouse",
-                  "Warehouse desc",
-                  "WarehouseActivityStatus",
-                  "WarehouseActivityStatus desc",
-                  "WarehouseStagingArea",
-                  "WarehouseStagingArea desc",
-                  "DeliveryVersion",
-                  "DeliveryVersion desc",
-                  "WarehouseStockCategory",
-                  "WarehouseStockCategory desc",
-                  "WarehouseStorageBin",
-                  "WarehouseStorageBin desc"
-                ]
-              }
-            }
+            "$ref": "#/components/parameters/DeliveryDocumentItemOfA_InbDeliveryHeaderOrderByOptions"
           },
           {
-            "name": "$select",
-            "in": "query",
-            "description": "Select properties to be returned, see [Select](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=68)",
-            "explode": false,
-            "schema": {
-              "type": "array",
-              "uniqueItems": true,
-              "items": {
-                "type": "string",
-                "enum": [
-                  "ActualDeliveredQtyInBaseUnit",
-                  "ActualDeliveryQuantity",
-                  "AdditionalCustomerGroup1",
-                  "AdditionalCustomerGroup2",
-                  "AdditionalCustomerGroup3",
-                  "AdditionalCustomerGroup4",
-                  "AdditionalCustomerGroup5",
-                  "AdditionalMaterialGroup1",
-                  "AdditionalMaterialGroup2",
-                  "AdditionalMaterialGroup3",
-                  "AdditionalMaterialGroup4",
-                  "AdditionalMaterialGroup5",
-                  "AlternateProductNumber",
-                  "BaseUnit",
-                  "Batch",
-                  "BatchBySupplier",
-                  "BatchClassification",
-                  "BOMExplosion",
-                  "BusinessArea",
-                  "ConsumptionPosting",
-                  "ControllingArea",
-                  "CostCenter",
-                  "CreatedByUser",
-                  "CreationDate",
-                  "CreationTime",
-                  "CustEngineeringChgStatus",
-                  "DeliveryDocument",
-                  "DeliveryDocumentItem",
-                  "DeliveryDocumentItemCategory",
-                  "DeliveryDocumentItemText",
-                  "DeliveryGroup",
-                  "DeliveryQuantityUnit",
-                  "DeliveryRelatedBillingStatus",
-                  "DeliveryToBaseQuantityDnmntr",
-                  "DeliveryToBaseQuantityNmrtr",
-                  "DepartmentClassificationByCust",
-                  "DistributionChannel",
-                  "Division",
-                  "FixedShipgProcgDurationInDays",
-                  "GLAccount",
-                  "GoodsMovementReasonCode",
-                  "GoodsMovementStatus",
-                  "GoodsMovementType",
-                  "HigherLevelItem",
-                  "InspectionLot",
-                  "InspectionPartialLot",
-                  "IntercompanyBillingStatus",
-                  "InternationalArticleNumber",
-                  "InventorySpecialStockType",
-                  "InventoryValuationType",
-                  "IsCompletelyDelivered",
-                  "IsNotGoodsMovementsRelevant",
-                  "IsSeparateValuation",
-                  "IssgOrRcvgBatch",
-                  "IssgOrRcvgMaterial",
-                  "IssgOrRcvgSpclStockInd",
-                  "IssgOrRcvgStockCategory",
-                  "IssgOrRcvgValuationType",
-                  "IssuingOrReceivingPlant",
-                  "IssuingOrReceivingStorageLoc",
-                  "ItemBillingBlockReason",
-                  "ItemBillingIncompletionStatus",
-                  "ItemDeliveryIncompletionStatus",
-                  "ItemGdsMvtIncompletionSts",
-                  "ItemGeneralIncompletionStatus",
-                  "ItemGrossWeight",
-                  "ItemIsBillingRelevant",
-                  "ItemNetWeight",
-                  "ItemPackingIncompletionStatus",
-                  "ItemPickingIncompletionStatus",
-                  "ItemVolume",
-                  "ItemVolumeUnit",
-                  "ItemWeightUnit",
-                  "LastChangeDate",
-                  "LoadingGroup",
-                  "ManufactureDate",
-                  "Material",
-                  "MaterialByCustomer",
-                  "MaterialFreightGroup",
-                  "MaterialGroup",
-                  "MaterialIsBatchManaged",
-                  "MaterialIsIntBatchManaged",
-                  "NumberOfSerialNumbers",
-                  "OrderID",
-                  "OrderItem",
-                  "OriginalDeliveryQuantity",
-                  "OriginallyRequestedMaterial",
-                  "OverdelivTolrtdLmtRatioInPct",
-                  "PackingStatus",
-                  "PartialDeliveryIsAllowed",
-                  "PaymentGuaranteeForm",
-                  "PickingConfirmationStatus",
-                  "PickingControl",
-                  "PickingStatus",
-                  "Plant",
-                  "PrimaryPostingSwitch",
-                  "ProductAvailabilityDate",
-                  "ProductAvailabilityTime",
-                  "ProductConfiguration",
-                  "ProductHierarchyNode",
-                  "ProfitabilitySegment",
-                  "ProfitCenter",
-                  "ProofOfDeliveryRelevanceCode",
-                  "ProofOfDeliveryStatus",
-                  "QuantityIsFixed",
-                  "ReceivingPoint",
-                  "ReferenceDocumentLogicalSystem",
-                  "ReferenceSDDocument",
-                  "ReferenceSDDocumentCategory",
-                  "ReferenceSDDocumentItem",
-                  "DeliveryDocumentItemBySupplier",
-                  "RetailPromotion",
-                  "SalesDocumentItemType",
-                  "SalesGroup",
-                  "SalesOffice",
-                  "SDDocumentCategory",
-                  "SDProcessStatus",
-                  "ShelfLifeExpirationDate",
-                  "StatisticsDate",
-                  "StockType",
-                  "StorageBin",
-                  "StorageLocation",
-                  "StorageType",
-                  "SubsequentMovementType",
-                  "TransportationGroup",
-                  "UnderdelivTolrtdLmtRatioInPct",
-                  "UnlimitedOverdeliveryIsAllowed",
-                  "VarblShipgProcgDurationInDays",
-                  "Warehouse",
-                  "WarehouseActivityStatus",
-                  "WarehouseStagingArea",
-                  "DeliveryVersion",
-                  "WarehouseStockCategory",
-                  "WarehouseStorageBin",
-                  "to_SerialDeliveryItem",
-                  "to_DocumentFlow",
-                  "to_DeliveryDocumentItemText"
-                ]
-              }
-            }
+            "$ref": "#/components/parameters/DeliveryDocumentItemOfA_InbDeliveryHeaderSelectOptions"
           },
           {
-            "name": "$expand",
-            "in": "query",
-            "description": "Expand related entities, see [Expand](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=63)",
-            "explode": false,
-            "schema": {
-              "type": "array",
-              "uniqueItems": true,
-              "items": {
-                "type": "string",
-                "enum": [
-                  "to_SerialDeliveryItem",
-                  "to_DocumentFlow",
-                  "to_DeliveryDocumentItemText"
-                ]
-              }
-            }
+            "$ref": "#/components/parameters/DeliveryDocumentItemOfA_InbDeliveryHeaderExpandOptions"
           }
         ],
         "responses": {
@@ -1544,11 +560,11 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "title": "Wrapper",
+                  "title": "CollectionOfA_InbDeliveryItemWrapper",
                   "type": "object",
                   "properties": {
                     "d": {
-                      "title": "Collection of A_InbDeliveryItemType",
+                      "title": "CollectionOfA_InbDeliveryItem",
                       "type": "object",
                       "properties": {
                         "__count": {
@@ -1557,7 +573,7 @@
                         "results": {
                           "type": "array",
                           "items": {
-                            "$ref": "#/components/schemas/API_INBOUND_DELIVERY_SRV.A_InbDeliveryItemType"
+                            "$ref": "#/components/schemas/A_InbDeliveryItem"
                           }
                         }
                       }
@@ -1606,75 +622,13 @@
             "$ref": "#/components/parameters/count"
           },
           {
-            "name": "$orderby",
-            "in": "query",
-            "description": "Order items by property values, see [Sorting](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=65)",
-            "explode": false,
-            "schema": {
-              "type": "array",
-              "uniqueItems": true,
-              "items": {
-                "type": "string",
-                "enum": [
-                  "AddressID",
-                  "AddressID desc",
-                  "ContactPerson",
-                  "ContactPerson desc",
-                  "Customer",
-                  "Customer desc",
-                  "PartnerFunction",
-                  "PartnerFunction desc",
-                  "Personnel",
-                  "Personnel desc",
-                  "SDDocument",
-                  "SDDocument desc",
-                  "SDDocumentItem",
-                  "SDDocumentItem desc",
-                  "Supplier",
-                  "Supplier desc"
-                ]
-              }
-            }
+            "$ref": "#/components/parameters/DeliveryDocumentPartnerOfA_InbDeliveryHeaderOrderByOptions"
           },
           {
-            "name": "$select",
-            "in": "query",
-            "description": "Select properties to be returned, see [Select](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=68)",
-            "explode": false,
-            "schema": {
-              "type": "array",
-              "uniqueItems": true,
-              "items": {
-                "type": "string",
-                "enum": [
-                  "AddressID",
-                  "ContactPerson",
-                  "Customer",
-                  "PartnerFunction",
-                  "Personnel",
-                  "SDDocument",
-                  "SDDocumentItem",
-                  "Supplier",
-                  "to_Address"
-                ]
-              }
-            }
+            "$ref": "#/components/parameters/DeliveryDocumentPartnerOfA_InbDeliveryHeaderSelectOptions"
           },
           {
-            "name": "$expand",
-            "in": "query",
-            "description": "Expand related entities, see [Expand](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=63)",
-            "explode": false,
-            "schema": {
-              "type": "array",
-              "uniqueItems": true,
-              "items": {
-                "type": "string",
-                "enum": [
-                  "to_Address"
-                ]
-              }
-            }
+            "$ref": "#/components/parameters/DeliveryDocumentPartnerOfA_InbDeliveryHeaderExpandOptions"
           }
         ],
         "responses": {
@@ -1683,11 +637,11 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "title": "Wrapper",
+                  "title": "CollectionOfA_InbDeliveryPartnerWrapper",
                   "type": "object",
                   "properties": {
                     "d": {
-                      "title": "Collection of A_InbDeliveryPartnerType",
+                      "title": "CollectionOfA_InbDeliveryPartner",
                       "type": "object",
                       "properties": {
                         "__count": {
@@ -1696,7 +650,7 @@
                         "results": {
                           "type": "array",
                           "items": {
-                            "$ref": "#/components/schemas/API_INBOUND_DELIVERY_SRV.A_InbDeliveryPartnerType"
+                            "$ref": "#/components/schemas/A_InbDeliveryPartner"
                           }
                         }
                       }
@@ -1741,457 +695,13 @@
             "$ref": "#/components/parameters/count"
           },
           {
-            "name": "$orderby",
-            "in": "query",
-            "description": "Order items by property values, see [Sorting](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=65)",
-            "explode": false,
-            "schema": {
-              "type": "array",
-              "uniqueItems": true,
-              "items": {
-                "type": "string",
-                "enum": [
-                  "ActualDeliveredQtyInBaseUnit",
-                  "ActualDeliveredQtyInBaseUnit desc",
-                  "ActualDeliveryQuantity",
-                  "ActualDeliveryQuantity desc",
-                  "AdditionalCustomerGroup1",
-                  "AdditionalCustomerGroup1 desc",
-                  "AdditionalCustomerGroup2",
-                  "AdditionalCustomerGroup2 desc",
-                  "AdditionalCustomerGroup3",
-                  "AdditionalCustomerGroup3 desc",
-                  "AdditionalCustomerGroup4",
-                  "AdditionalCustomerGroup4 desc",
-                  "AdditionalCustomerGroup5",
-                  "AdditionalCustomerGroup5 desc",
-                  "AdditionalMaterialGroup1",
-                  "AdditionalMaterialGroup1 desc",
-                  "AdditionalMaterialGroup2",
-                  "AdditionalMaterialGroup2 desc",
-                  "AdditionalMaterialGroup3",
-                  "AdditionalMaterialGroup3 desc",
-                  "AdditionalMaterialGroup4",
-                  "AdditionalMaterialGroup4 desc",
-                  "AdditionalMaterialGroup5",
-                  "AdditionalMaterialGroup5 desc",
-                  "AlternateProductNumber",
-                  "AlternateProductNumber desc",
-                  "BaseUnit",
-                  "BaseUnit desc",
-                  "Batch",
-                  "Batch desc",
-                  "BatchBySupplier",
-                  "BatchBySupplier desc",
-                  "BatchClassification",
-                  "BatchClassification desc",
-                  "BOMExplosion",
-                  "BOMExplosion desc",
-                  "BusinessArea",
-                  "BusinessArea desc",
-                  "ConsumptionPosting",
-                  "ConsumptionPosting desc",
-                  "ControllingArea",
-                  "ControllingArea desc",
-                  "CostCenter",
-                  "CostCenter desc",
-                  "CreatedByUser",
-                  "CreatedByUser desc",
-                  "CreationDate",
-                  "CreationDate desc",
-                  "CreationTime",
-                  "CreationTime desc",
-                  "CustEngineeringChgStatus",
-                  "CustEngineeringChgStatus desc",
-                  "DeliveryDocument",
-                  "DeliveryDocument desc",
-                  "DeliveryDocumentItem",
-                  "DeliveryDocumentItem desc",
-                  "DeliveryDocumentItemCategory",
-                  "DeliveryDocumentItemCategory desc",
-                  "DeliveryDocumentItemText",
-                  "DeliveryDocumentItemText desc",
-                  "DeliveryGroup",
-                  "DeliveryGroup desc",
-                  "DeliveryQuantityUnit",
-                  "DeliveryQuantityUnit desc",
-                  "DeliveryRelatedBillingStatus",
-                  "DeliveryRelatedBillingStatus desc",
-                  "DeliveryToBaseQuantityDnmntr",
-                  "DeliveryToBaseQuantityDnmntr desc",
-                  "DeliveryToBaseQuantityNmrtr",
-                  "DeliveryToBaseQuantityNmrtr desc",
-                  "DepartmentClassificationByCust",
-                  "DepartmentClassificationByCust desc",
-                  "DistributionChannel",
-                  "DistributionChannel desc",
-                  "Division",
-                  "Division desc",
-                  "FixedShipgProcgDurationInDays",
-                  "FixedShipgProcgDurationInDays desc",
-                  "GLAccount",
-                  "GLAccount desc",
-                  "GoodsMovementReasonCode",
-                  "GoodsMovementReasonCode desc",
-                  "GoodsMovementStatus",
-                  "GoodsMovementStatus desc",
-                  "GoodsMovementType",
-                  "GoodsMovementType desc",
-                  "HigherLevelItem",
-                  "HigherLevelItem desc",
-                  "InspectionLot",
-                  "InspectionLot desc",
-                  "InspectionPartialLot",
-                  "InspectionPartialLot desc",
-                  "IntercompanyBillingStatus",
-                  "IntercompanyBillingStatus desc",
-                  "InternationalArticleNumber",
-                  "InternationalArticleNumber desc",
-                  "InventorySpecialStockType",
-                  "InventorySpecialStockType desc",
-                  "InventoryValuationType",
-                  "InventoryValuationType desc",
-                  "IsCompletelyDelivered",
-                  "IsCompletelyDelivered desc",
-                  "IsNotGoodsMovementsRelevant",
-                  "IsNotGoodsMovementsRelevant desc",
-                  "IsSeparateValuation",
-                  "IsSeparateValuation desc",
-                  "IssgOrRcvgBatch",
-                  "IssgOrRcvgBatch desc",
-                  "IssgOrRcvgMaterial",
-                  "IssgOrRcvgMaterial desc",
-                  "IssgOrRcvgSpclStockInd",
-                  "IssgOrRcvgSpclStockInd desc",
-                  "IssgOrRcvgStockCategory",
-                  "IssgOrRcvgStockCategory desc",
-                  "IssgOrRcvgValuationType",
-                  "IssgOrRcvgValuationType desc",
-                  "IssuingOrReceivingPlant",
-                  "IssuingOrReceivingPlant desc",
-                  "IssuingOrReceivingStorageLoc",
-                  "IssuingOrReceivingStorageLoc desc",
-                  "ItemBillingBlockReason",
-                  "ItemBillingBlockReason desc",
-                  "ItemBillingIncompletionStatus",
-                  "ItemBillingIncompletionStatus desc",
-                  "ItemDeliveryIncompletionStatus",
-                  "ItemDeliveryIncompletionStatus desc",
-                  "ItemGdsMvtIncompletionSts",
-                  "ItemGdsMvtIncompletionSts desc",
-                  "ItemGeneralIncompletionStatus",
-                  "ItemGeneralIncompletionStatus desc",
-                  "ItemGrossWeight",
-                  "ItemGrossWeight desc",
-                  "ItemIsBillingRelevant",
-                  "ItemIsBillingRelevant desc",
-                  "ItemNetWeight",
-                  "ItemNetWeight desc",
-                  "ItemPackingIncompletionStatus",
-                  "ItemPackingIncompletionStatus desc",
-                  "ItemPickingIncompletionStatus",
-                  "ItemPickingIncompletionStatus desc",
-                  "ItemVolume",
-                  "ItemVolume desc",
-                  "ItemVolumeUnit",
-                  "ItemVolumeUnit desc",
-                  "ItemWeightUnit",
-                  "ItemWeightUnit desc",
-                  "LastChangeDate",
-                  "LastChangeDate desc",
-                  "LoadingGroup",
-                  "LoadingGroup desc",
-                  "ManufactureDate",
-                  "ManufactureDate desc",
-                  "Material",
-                  "Material desc",
-                  "MaterialByCustomer",
-                  "MaterialByCustomer desc",
-                  "MaterialFreightGroup",
-                  "MaterialFreightGroup desc",
-                  "MaterialGroup",
-                  "MaterialGroup desc",
-                  "MaterialIsBatchManaged",
-                  "MaterialIsBatchManaged desc",
-                  "MaterialIsIntBatchManaged",
-                  "MaterialIsIntBatchManaged desc",
-                  "NumberOfSerialNumbers",
-                  "NumberOfSerialNumbers desc",
-                  "OrderID",
-                  "OrderID desc",
-                  "OrderItem",
-                  "OrderItem desc",
-                  "OriginalDeliveryQuantity",
-                  "OriginalDeliveryQuantity desc",
-                  "OriginallyRequestedMaterial",
-                  "OriginallyRequestedMaterial desc",
-                  "OverdelivTolrtdLmtRatioInPct",
-                  "OverdelivTolrtdLmtRatioInPct desc",
-                  "PackingStatus",
-                  "PackingStatus desc",
-                  "PartialDeliveryIsAllowed",
-                  "PartialDeliveryIsAllowed desc",
-                  "PaymentGuaranteeForm",
-                  "PaymentGuaranteeForm desc",
-                  "PickingConfirmationStatus",
-                  "PickingConfirmationStatus desc",
-                  "PickingControl",
-                  "PickingControl desc",
-                  "PickingStatus",
-                  "PickingStatus desc",
-                  "Plant",
-                  "Plant desc",
-                  "PrimaryPostingSwitch",
-                  "PrimaryPostingSwitch desc",
-                  "ProductAvailabilityDate",
-                  "ProductAvailabilityDate desc",
-                  "ProductAvailabilityTime",
-                  "ProductAvailabilityTime desc",
-                  "ProductConfiguration",
-                  "ProductConfiguration desc",
-                  "ProductHierarchyNode",
-                  "ProductHierarchyNode desc",
-                  "ProfitabilitySegment",
-                  "ProfitabilitySegment desc",
-                  "ProfitCenter",
-                  "ProfitCenter desc",
-                  "ProofOfDeliveryRelevanceCode",
-                  "ProofOfDeliveryRelevanceCode desc",
-                  "ProofOfDeliveryStatus",
-                  "ProofOfDeliveryStatus desc",
-                  "QuantityIsFixed",
-                  "QuantityIsFixed desc",
-                  "ReceivingPoint",
-                  "ReceivingPoint desc",
-                  "ReferenceDocumentLogicalSystem",
-                  "ReferenceDocumentLogicalSystem desc",
-                  "ReferenceSDDocument",
-                  "ReferenceSDDocument desc",
-                  "ReferenceSDDocumentCategory",
-                  "ReferenceSDDocumentCategory desc",
-                  "ReferenceSDDocumentItem",
-                  "ReferenceSDDocumentItem desc",
-                  "DeliveryDocumentItemBySupplier",
-                  "DeliveryDocumentItemBySupplier desc",
-                  "RetailPromotion",
-                  "RetailPromotion desc",
-                  "SalesDocumentItemType",
-                  "SalesDocumentItemType desc",
-                  "SalesGroup",
-                  "SalesGroup desc",
-                  "SalesOffice",
-                  "SalesOffice desc",
-                  "SDDocumentCategory",
-                  "SDDocumentCategory desc",
-                  "SDProcessStatus",
-                  "SDProcessStatus desc",
-                  "ShelfLifeExpirationDate",
-                  "ShelfLifeExpirationDate desc",
-                  "StatisticsDate",
-                  "StatisticsDate desc",
-                  "StockType",
-                  "StockType desc",
-                  "StorageBin",
-                  "StorageBin desc",
-                  "StorageLocation",
-                  "StorageLocation desc",
-                  "StorageType",
-                  "StorageType desc",
-                  "SubsequentMovementType",
-                  "SubsequentMovementType desc",
-                  "TransportationGroup",
-                  "TransportationGroup desc",
-                  "UnderdelivTolrtdLmtRatioInPct",
-                  "UnderdelivTolrtdLmtRatioInPct desc",
-                  "UnlimitedOverdeliveryIsAllowed",
-                  "UnlimitedOverdeliveryIsAllowed desc",
-                  "VarblShipgProcgDurationInDays",
-                  "VarblShipgProcgDurationInDays desc",
-                  "Warehouse",
-                  "Warehouse desc",
-                  "WarehouseActivityStatus",
-                  "WarehouseActivityStatus desc",
-                  "WarehouseStagingArea",
-                  "WarehouseStagingArea desc",
-                  "DeliveryVersion",
-                  "DeliveryVersion desc",
-                  "WarehouseStockCategory",
-                  "WarehouseStockCategory desc",
-                  "WarehouseStorageBin",
-                  "WarehouseStorageBin desc"
-                ]
-              }
-            }
+            "$ref": "#/components/parameters/A_InbDeliveryItemOrderByOptions"
           },
           {
-            "name": "$select",
-            "in": "query",
-            "description": "Select properties to be returned, see [Select](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=68)",
-            "explode": false,
-            "schema": {
-              "type": "array",
-              "uniqueItems": true,
-              "items": {
-                "type": "string",
-                "enum": [
-                  "ActualDeliveredQtyInBaseUnit",
-                  "ActualDeliveryQuantity",
-                  "AdditionalCustomerGroup1",
-                  "AdditionalCustomerGroup2",
-                  "AdditionalCustomerGroup3",
-                  "AdditionalCustomerGroup4",
-                  "AdditionalCustomerGroup5",
-                  "AdditionalMaterialGroup1",
-                  "AdditionalMaterialGroup2",
-                  "AdditionalMaterialGroup3",
-                  "AdditionalMaterialGroup4",
-                  "AdditionalMaterialGroup5",
-                  "AlternateProductNumber",
-                  "BaseUnit",
-                  "Batch",
-                  "BatchBySupplier",
-                  "BatchClassification",
-                  "BOMExplosion",
-                  "BusinessArea",
-                  "ConsumptionPosting",
-                  "ControllingArea",
-                  "CostCenter",
-                  "CreatedByUser",
-                  "CreationDate",
-                  "CreationTime",
-                  "CustEngineeringChgStatus",
-                  "DeliveryDocument",
-                  "DeliveryDocumentItem",
-                  "DeliveryDocumentItemCategory",
-                  "DeliveryDocumentItemText",
-                  "DeliveryGroup",
-                  "DeliveryQuantityUnit",
-                  "DeliveryRelatedBillingStatus",
-                  "DeliveryToBaseQuantityDnmntr",
-                  "DeliveryToBaseQuantityNmrtr",
-                  "DepartmentClassificationByCust",
-                  "DistributionChannel",
-                  "Division",
-                  "FixedShipgProcgDurationInDays",
-                  "GLAccount",
-                  "GoodsMovementReasonCode",
-                  "GoodsMovementStatus",
-                  "GoodsMovementType",
-                  "HigherLevelItem",
-                  "InspectionLot",
-                  "InspectionPartialLot",
-                  "IntercompanyBillingStatus",
-                  "InternationalArticleNumber",
-                  "InventorySpecialStockType",
-                  "InventoryValuationType",
-                  "IsCompletelyDelivered",
-                  "IsNotGoodsMovementsRelevant",
-                  "IsSeparateValuation",
-                  "IssgOrRcvgBatch",
-                  "IssgOrRcvgMaterial",
-                  "IssgOrRcvgSpclStockInd",
-                  "IssgOrRcvgStockCategory",
-                  "IssgOrRcvgValuationType",
-                  "IssuingOrReceivingPlant",
-                  "IssuingOrReceivingStorageLoc",
-                  "ItemBillingBlockReason",
-                  "ItemBillingIncompletionStatus",
-                  "ItemDeliveryIncompletionStatus",
-                  "ItemGdsMvtIncompletionSts",
-                  "ItemGeneralIncompletionStatus",
-                  "ItemGrossWeight",
-                  "ItemIsBillingRelevant",
-                  "ItemNetWeight",
-                  "ItemPackingIncompletionStatus",
-                  "ItemPickingIncompletionStatus",
-                  "ItemVolume",
-                  "ItemVolumeUnit",
-                  "ItemWeightUnit",
-                  "LastChangeDate",
-                  "LoadingGroup",
-                  "ManufactureDate",
-                  "Material",
-                  "MaterialByCustomer",
-                  "MaterialFreightGroup",
-                  "MaterialGroup",
-                  "MaterialIsBatchManaged",
-                  "MaterialIsIntBatchManaged",
-                  "NumberOfSerialNumbers",
-                  "OrderID",
-                  "OrderItem",
-                  "OriginalDeliveryQuantity",
-                  "OriginallyRequestedMaterial",
-                  "OverdelivTolrtdLmtRatioInPct",
-                  "PackingStatus",
-                  "PartialDeliveryIsAllowed",
-                  "PaymentGuaranteeForm",
-                  "PickingConfirmationStatus",
-                  "PickingControl",
-                  "PickingStatus",
-                  "Plant",
-                  "PrimaryPostingSwitch",
-                  "ProductAvailabilityDate",
-                  "ProductAvailabilityTime",
-                  "ProductConfiguration",
-                  "ProductHierarchyNode",
-                  "ProfitabilitySegment",
-                  "ProfitCenter",
-                  "ProofOfDeliveryRelevanceCode",
-                  "ProofOfDeliveryStatus",
-                  "QuantityIsFixed",
-                  "ReceivingPoint",
-                  "ReferenceDocumentLogicalSystem",
-                  "ReferenceSDDocument",
-                  "ReferenceSDDocumentCategory",
-                  "ReferenceSDDocumentItem",
-                  "DeliveryDocumentItemBySupplier",
-                  "RetailPromotion",
-                  "SalesDocumentItemType",
-                  "SalesGroup",
-                  "SalesOffice",
-                  "SDDocumentCategory",
-                  "SDProcessStatus",
-                  "ShelfLifeExpirationDate",
-                  "StatisticsDate",
-                  "StockType",
-                  "StorageBin",
-                  "StorageLocation",
-                  "StorageType",
-                  "SubsequentMovementType",
-                  "TransportationGroup",
-                  "UnderdelivTolrtdLmtRatioInPct",
-                  "UnlimitedOverdeliveryIsAllowed",
-                  "VarblShipgProcgDurationInDays",
-                  "Warehouse",
-                  "WarehouseActivityStatus",
-                  "WarehouseStagingArea",
-                  "DeliveryVersion",
-                  "WarehouseStockCategory",
-                  "WarehouseStorageBin",
-                  "to_SerialDeliveryItem",
-                  "to_DocumentFlow",
-                  "to_DeliveryDocumentItemText"
-                ]
-              }
-            }
+            "$ref": "#/components/parameters/A_InbDeliveryItemSelectOptions"
           },
           {
-            "name": "$expand",
-            "in": "query",
-            "description": "Expand related entities, see [Expand](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=63)",
-            "explode": false,
-            "schema": {
-              "type": "array",
-              "uniqueItems": true,
-              "items": {
-                "type": "string",
-                "enum": [
-                  "to_SerialDeliveryItem",
-                  "to_DocumentFlow",
-                  "to_DeliveryDocumentItemText"
-                ]
-              }
-            }
+            "$ref": "#/components/parameters/A_InbDeliveryItemExpandOptions"
           }
         ],
         "responses": {
@@ -2200,11 +710,11 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "title": "Wrapper",
+                  "title": "CollectionOfA_InbDeliveryItemWrapper",
                   "type": "object",
                   "properties": {
                     "d": {
-                      "title": "Collection of A_InbDeliveryItemType",
+                      "title": "CollectionOfA_InbDeliveryItem",
                       "type": "object",
                       "properties": {
                         "__count": {
@@ -2213,7 +723,7 @@
                         "results": {
                           "type": "array",
                           "items": {
-                            "$ref": "#/components/schemas/API_INBOUND_DELIVERY_SRV.A_InbDeliveryItemType"
+                            "$ref": "#/components/schemas/A_InbDeliveryItem"
                           }
                         }
                       }
@@ -2260,174 +770,10 @@
         ],
         "parameters": [
           {
-            "name": "$select",
-            "in": "query",
-            "description": "Select properties to be returned, see [Select](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=68)",
-            "explode": false,
-            "schema": {
-              "type": "array",
-              "uniqueItems": true,
-              "items": {
-                "type": "string",
-                "enum": [
-                  "ActualDeliveredQtyInBaseUnit",
-                  "ActualDeliveryQuantity",
-                  "AdditionalCustomerGroup1",
-                  "AdditionalCustomerGroup2",
-                  "AdditionalCustomerGroup3",
-                  "AdditionalCustomerGroup4",
-                  "AdditionalCustomerGroup5",
-                  "AdditionalMaterialGroup1",
-                  "AdditionalMaterialGroup2",
-                  "AdditionalMaterialGroup3",
-                  "AdditionalMaterialGroup4",
-                  "AdditionalMaterialGroup5",
-                  "AlternateProductNumber",
-                  "BaseUnit",
-                  "Batch",
-                  "BatchBySupplier",
-                  "BatchClassification",
-                  "BOMExplosion",
-                  "BusinessArea",
-                  "ConsumptionPosting",
-                  "ControllingArea",
-                  "CostCenter",
-                  "CreatedByUser",
-                  "CreationDate",
-                  "CreationTime",
-                  "CustEngineeringChgStatus",
-                  "DeliveryDocument",
-                  "DeliveryDocumentItem",
-                  "DeliveryDocumentItemCategory",
-                  "DeliveryDocumentItemText",
-                  "DeliveryGroup",
-                  "DeliveryQuantityUnit",
-                  "DeliveryRelatedBillingStatus",
-                  "DeliveryToBaseQuantityDnmntr",
-                  "DeliveryToBaseQuantityNmrtr",
-                  "DepartmentClassificationByCust",
-                  "DistributionChannel",
-                  "Division",
-                  "FixedShipgProcgDurationInDays",
-                  "GLAccount",
-                  "GoodsMovementReasonCode",
-                  "GoodsMovementStatus",
-                  "GoodsMovementType",
-                  "HigherLevelItem",
-                  "InspectionLot",
-                  "InspectionPartialLot",
-                  "IntercompanyBillingStatus",
-                  "InternationalArticleNumber",
-                  "InventorySpecialStockType",
-                  "InventoryValuationType",
-                  "IsCompletelyDelivered",
-                  "IsNotGoodsMovementsRelevant",
-                  "IsSeparateValuation",
-                  "IssgOrRcvgBatch",
-                  "IssgOrRcvgMaterial",
-                  "IssgOrRcvgSpclStockInd",
-                  "IssgOrRcvgStockCategory",
-                  "IssgOrRcvgValuationType",
-                  "IssuingOrReceivingPlant",
-                  "IssuingOrReceivingStorageLoc",
-                  "ItemBillingBlockReason",
-                  "ItemBillingIncompletionStatus",
-                  "ItemDeliveryIncompletionStatus",
-                  "ItemGdsMvtIncompletionSts",
-                  "ItemGeneralIncompletionStatus",
-                  "ItemGrossWeight",
-                  "ItemIsBillingRelevant",
-                  "ItemNetWeight",
-                  "ItemPackingIncompletionStatus",
-                  "ItemPickingIncompletionStatus",
-                  "ItemVolume",
-                  "ItemVolumeUnit",
-                  "ItemWeightUnit",
-                  "LastChangeDate",
-                  "LoadingGroup",
-                  "ManufactureDate",
-                  "Material",
-                  "MaterialByCustomer",
-                  "MaterialFreightGroup",
-                  "MaterialGroup",
-                  "MaterialIsBatchManaged",
-                  "MaterialIsIntBatchManaged",
-                  "NumberOfSerialNumbers",
-                  "OrderID",
-                  "OrderItem",
-                  "OriginalDeliveryQuantity",
-                  "OriginallyRequestedMaterial",
-                  "OverdelivTolrtdLmtRatioInPct",
-                  "PackingStatus",
-                  "PartialDeliveryIsAllowed",
-                  "PaymentGuaranteeForm",
-                  "PickingConfirmationStatus",
-                  "PickingControl",
-                  "PickingStatus",
-                  "Plant",
-                  "PrimaryPostingSwitch",
-                  "ProductAvailabilityDate",
-                  "ProductAvailabilityTime",
-                  "ProductConfiguration",
-                  "ProductHierarchyNode",
-                  "ProfitabilitySegment",
-                  "ProfitCenter",
-                  "ProofOfDeliveryRelevanceCode",
-                  "ProofOfDeliveryStatus",
-                  "QuantityIsFixed",
-                  "ReceivingPoint",
-                  "ReferenceDocumentLogicalSystem",
-                  "ReferenceSDDocument",
-                  "ReferenceSDDocumentCategory",
-                  "ReferenceSDDocumentItem",
-                  "DeliveryDocumentItemBySupplier",
-                  "RetailPromotion",
-                  "SalesDocumentItemType",
-                  "SalesGroup",
-                  "SalesOffice",
-                  "SDDocumentCategory",
-                  "SDProcessStatus",
-                  "ShelfLifeExpirationDate",
-                  "StatisticsDate",
-                  "StockType",
-                  "StorageBin",
-                  "StorageLocation",
-                  "StorageType",
-                  "SubsequentMovementType",
-                  "TransportationGroup",
-                  "UnderdelivTolrtdLmtRatioInPct",
-                  "UnlimitedOverdeliveryIsAllowed",
-                  "VarblShipgProcgDurationInDays",
-                  "Warehouse",
-                  "WarehouseActivityStatus",
-                  "WarehouseStagingArea",
-                  "DeliveryVersion",
-                  "WarehouseStockCategory",
-                  "WarehouseStorageBin",
-                  "to_SerialDeliveryItem",
-                  "to_DocumentFlow",
-                  "to_DeliveryDocumentItemText"
-                ]
-              }
-            }
+            "$ref": "#/components/parameters/A_InbDeliveryItemByKeySelectOptions"
           },
           {
-            "name": "$expand",
-            "in": "query",
-            "description": "Expand related entities, see [Expand](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=63)",
-            "explode": false,
-            "schema": {
-              "type": "array",
-              "uniqueItems": true,
-              "items": {
-                "type": "string",
-                "enum": [
-                  "to_SerialDeliveryItem",
-                  "to_DocumentFlow",
-                  "to_DeliveryDocumentItemText"
-                ]
-              }
-            }
+            "$ref": "#/components/parameters/A_InbDeliveryItemByKeyExpandOptions"
           }
         ],
         "responses": {
@@ -2436,11 +782,11 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "title": "A_InbDeliveryItemType",
+                  "title": "A_InbDeliveryItemWrapper",
                   "type": "object",
                   "properties": {
                     "d": {
-                      "$ref": "#/components/schemas/API_INBOUND_DELIVERY_SRV.A_InbDeliveryItemType"
+                      "$ref": "#/components/schemas/A_InbDeliveryItem"
                     }
                   }
                 }
@@ -2468,7 +814,7 @@
                 "type": "object",
                 "properties": {
                   "d": {
-                    "$ref": "#/components/schemas/API_INBOUND_DELIVERY_SRV.A_InbDeliveryItemType-update"
+                    "$ref": "#/components/schemas/UpdateA_InbDeliveryItem"
                   }
                 }
               }
@@ -2532,41 +878,10 @@
         ],
         "parameters": [
           {
-            "name": "$select",
-            "in": "query",
-            "description": "Select properties to be returned, see [Select](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=68)",
-            "explode": false,
-            "schema": {
-              "type": "array",
-              "uniqueItems": true,
-              "items": {
-                "type": "string",
-                "enum": [
-                  "DeliveryDate",
-                  "DeliveryDocument",
-                  "DeliveryDocumentItem",
-                  "MaintenanceItemObjectList",
-                  "SDDocumentCategory",
-                  "to_MaintenanceItemObject"
-                ]
-              }
-            }
+            "$ref": "#/components/parameters/SerialDeliveryItemOfA_InbDeliveryItemSelectOptions"
           },
           {
-            "name": "$expand",
-            "in": "query",
-            "description": "Expand related entities, see [Expand](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=63)",
-            "explode": false,
-            "schema": {
-              "type": "array",
-              "uniqueItems": true,
-              "items": {
-                "type": "string",
-                "enum": [
-                  "to_MaintenanceItemObject"
-                ]
-              }
-            }
+            "$ref": "#/components/parameters/SerialDeliveryItemOfA_InbDeliveryItemExpandOptions"
           }
         ],
         "responses": {
@@ -2575,11 +890,11 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "title": "A_InbDeliverySerialNmbrType",
+                  "title": "A_InbDeliverySerialNmbrWrapper",
                   "type": "object",
                   "properties": {
                     "d": {
-                      "$ref": "#/components/schemas/API_INBOUND_DELIVERY_SRV.A_InbDeliverySerialNmbrType"
+                      "$ref": "#/components/schemas/A_InbDeliverySerialNmbr"
                     }
                   }
                 }
@@ -2635,62 +950,10 @@
             "$ref": "#/components/parameters/count"
           },
           {
-            "name": "$orderby",
-            "in": "query",
-            "description": "Order items by property values, see [Sorting](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=65)",
-            "explode": false,
-            "schema": {
-              "type": "array",
-              "uniqueItems": true,
-              "items": {
-                "type": "string",
-                "enum": [
-                  "PrecedingDocument",
-                  "PrecedingDocument desc",
-                  "PrecedingDocumentCategory",
-                  "PrecedingDocumentCategory desc",
-                  "PrecedingDocumentItem",
-                  "PrecedingDocumentItem desc",
-                  "QuantityInBaseUnit",
-                  "QuantityInBaseUnit desc",
-                  "SDFulfillmentCalculationRule",
-                  "SDFulfillmentCalculationRule desc",
-                  "SubsequentDocument",
-                  "SubsequentDocument desc",
-                  "SubsequentDocumentCategory",
-                  "SubsequentDocumentCategory desc",
-                  "SubsequentDocumentItem",
-                  "SubsequentDocumentItem desc",
-                  "TransferOrderInWrhsMgmtIsConfd",
-                  "TransferOrderInWrhsMgmtIsConfd desc"
-                ]
-              }
-            }
+            "$ref": "#/components/parameters/DocumentFlowOfA_InbDeliveryItemOrderByOptions"
           },
           {
-            "name": "$select",
-            "in": "query",
-            "description": "Select properties to be returned, see [Select](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=68)",
-            "explode": false,
-            "schema": {
-              "type": "array",
-              "uniqueItems": true,
-              "items": {
-                "type": "string",
-                "enum": [
-                  "DeliveryVersion",
-                  "PrecedingDocument",
-                  "PrecedingDocumentCategory",
-                  "PrecedingDocumentItem",
-                  "QuantityInBaseUnit",
-                  "SDFulfillmentCalculationRule",
-                  "SubsequentDocument",
-                  "SubsequentDocumentCategory",
-                  "SubsequentDocumentItem",
-                  "TransferOrderInWrhsMgmtIsConfd"
-                ]
-              }
-            }
+            "$ref": "#/components/parameters/DocumentFlowOfA_InbDeliveryItemSelectOptions"
           }
         ],
         "responses": {
@@ -2699,11 +962,11 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "title": "Wrapper",
+                  "title": "CollectionOfA_InbDeliveryDocFlowWrapper",
                   "type": "object",
                   "properties": {
                     "d": {
-                      "title": "Collection of A_InbDeliveryDocFlowType",
+                      "title": "CollectionOfA_InbDeliveryDocFlow",
                       "type": "object",
                       "properties": {
                         "__count": {
@@ -2712,7 +975,7 @@
                         "results": {
                           "type": "array",
                           "items": {
-                            "$ref": "#/components/schemas/API_INBOUND_DELIVERY_SRV.A_InbDeliveryDocFlowType"
+                            "$ref": "#/components/schemas/A_InbDeliveryDocFlow"
                           }
                         }
                       }
@@ -2771,26 +1034,7 @@
             "$ref": "#/components/parameters/count"
           },
           {
-            "name": "$select",
-            "in": "query",
-            "description": "Select properties to be returned, see [Select](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=68)",
-            "explode": false,
-            "schema": {
-              "type": "array",
-              "uniqueItems": true,
-              "items": {
-                "type": "string",
-                "enum": [
-                  "DeliveryDocument",
-                  "DeliveryDocumentItem",
-                  "TextElement",
-                  "Language",
-                  "TextElementDescription",
-                  "TextElementText",
-                  "DeliveryLongTextIsFormatted"
-                ]
-              }
-            }
+            "$ref": "#/components/parameters/DeliveryDocumentItemTextOfA_InbDeliveryItemSelectOptions"
           }
         ],
         "responses": {
@@ -2799,11 +1043,11 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "title": "Wrapper",
+                  "title": "CollectionOfA_InbDeliveryItemTextWrapper",
                   "type": "object",
                   "properties": {
                     "d": {
-                      "title": "Collection of A_InbDeliveryItemTextType",
+                      "title": "CollectionOfA_InbDeliveryItemText",
                       "type": "object",
                       "properties": {
                         "__count": {
@@ -2812,7 +1056,7 @@
                         "results": {
                           "type": "array",
                           "items": {
-                            "$ref": "#/components/schemas/API_INBOUND_DELIVERY_SRV.A_InbDeliveryItemTextType"
+                            "$ref": "#/components/schemas/A_InbDeliveryItemText"
                           }
                         }
                       }
@@ -2860,67 +1104,7 @@
         ],
         "parameters": [
           {
-            "name": "$select",
-            "in": "query",
-            "description": "Select properties to be returned, see [Select](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=68)",
-            "explode": false,
-            "schema": {
-              "type": "array",
-              "uniqueItems": true,
-              "items": {
-                "type": "string",
-                "enum": [
-                  "AddressID",
-                  "AdditionalStreetPrefixName",
-                  "AdditionalStreetSuffixName",
-                  "AddressTimeZone",
-                  "Building",
-                  "BusinessPartnerName1",
-                  "BusinessPartnerName2",
-                  "BusinessPartnerName3",
-                  "BusinessPartnerName4",
-                  "CareOfName",
-                  "CityCode",
-                  "CityName",
-                  "CitySearch",
-                  "CompanyPostalCode",
-                  "CorrespondenceLanguage",
-                  "Country",
-                  "County",
-                  "DeliveryServiceNumber",
-                  "DeliveryServiceTypeCode",
-                  "District",
-                  "FaxNumber",
-                  "Floor",
-                  "FormOfAddress",
-                  "FullName",
-                  "HomeCityName",
-                  "HouseNumber",
-                  "HouseNumberSupplementText",
-                  "Nation",
-                  "Person",
-                  "PhoneNumber",
-                  "POBox",
-                  "POBoxDeviatingCityName",
-                  "POBoxDeviatingCountry",
-                  "POBoxDeviatingRegion",
-                  "POBoxIsWithoutNumber",
-                  "POBoxLobbyName",
-                  "POBoxPostalCode",
-                  "PostalCode",
-                  "PrfrdCommMediumType",
-                  "Region",
-                  "RoomNumber",
-                  "SearchTerm1",
-                  "StreetName",
-                  "StreetPrefixName",
-                  "StreetSearch",
-                  "StreetSuffixName",
-                  "TaxJurisdiction",
-                  "TransportZone"
-                ]
-              }
-            }
+            "$ref": "#/components/parameters/AddressOfA_InbDeliveryPartnerSelectOptions"
           }
         ],
         "responses": {
@@ -2929,11 +1113,11 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "title": "A_InbDeliveryAddressType",
+                  "title": "A_InbDeliveryAddressWrapper",
                   "type": "object",
                   "properties": {
                     "d": {
-                      "$ref": "#/components/schemas/API_INBOUND_DELIVERY_SRV.A_InbDeliveryAddressType"
+                      "$ref": "#/components/schemas/A_InbDeliveryAddress"
                     }
                   }
                 }
@@ -2980,29 +1164,7 @@
             "$ref": "#/components/parameters/count"
           },
           {
-            "name": "$select",
-            "in": "query",
-            "description": "Select properties to be returned, see [Select](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=68)",
-            "explode": false,
-            "schema": {
-              "type": "array",
-              "uniqueItems": true,
-              "items": {
-                "type": "string",
-                "enum": [
-                  "Assembly",
-                  "Equipment",
-                  "FunctionalLocation",
-                  "MaintenanceItemObject",
-                  "MaintenanceItemObjectList",
-                  "MaintenanceNotification",
-                  "MaintObjectLocAcctAssgmtNmbr",
-                  "Material",
-                  "SerialNumber",
-                  "ManufacturerSerialNumber"
-                ]
-              }
-            }
+            "$ref": "#/components/parameters/MaintenanceItemObjectOfA_InbDeliverySerialNmbrSelectOptions"
           }
         ],
         "responses": {
@@ -3011,11 +1173,11 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "title": "Wrapper",
+                  "title": "CollectionOfA_MaintenanceItemObjListWrapper",
                   "type": "object",
                   "properties": {
                     "d": {
-                      "title": "Collection of A_MaintenanceItemObjListType",
+                      "title": "CollectionOfA_MaintenanceItemObjList",
                       "type": "object",
                       "properties": {
                         "__count": {
@@ -3024,7 +1186,7 @@
                         "results": {
                           "type": "array",
                           "items": {
-                            "$ref": "#/components/schemas/API_INBOUND_DELIVERY_SRV.A_MaintenanceItemObjListType"
+                            "$ref": "#/components/schemas/A_MaintenanceItemObjList"
                           }
                         }
                       }
@@ -3066,7 +1228,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "title": "Wrapper",
+                  "title": "ConfirmPutawayAllItemsWrapper",
                   "type": "object",
                   "properties": {
                     "d": {
@@ -3079,7 +1241,7 @@
                         "results": {
                           "type": "array",
                           "items": {
-                            "$ref": "#/components/schemas/API_INBOUND_DELIVERY_SRV.PutawayReport"
+                            "$ref": "#/components/schemas/PutawayReport"
                           }
                         }
                       }
@@ -3132,7 +1294,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "title": "Wrapper",
+                  "title": "ConfirmPutawayOneItemWrapper",
                   "type": "object",
                   "properties": {
                     "d": {
@@ -3145,7 +1307,7 @@
                         "results": {
                           "type": "array",
                           "items": {
-                            "$ref": "#/components/schemas/API_INBOUND_DELIVERY_SRV.PutawayReport"
+                            "$ref": "#/components/schemas/PutawayReport"
                           }
                         }
                       }
@@ -3197,7 +1359,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "title": "Wrapper",
+                  "title": "PostGoodsReceiptWrapper",
                   "type": "object",
                   "properties": {
                     "d": {
@@ -3210,7 +1372,7 @@
                         "results": {
                           "type": "array",
                           "items": {
-                            "$ref": "#/components/schemas/API_INBOUND_DELIVERY_SRV.PutawayReport"
+                            "$ref": "#/components/schemas/PutawayReport"
                           }
                         }
                       }
@@ -3252,7 +1414,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "title": "Wrapper",
+                  "title": "PutawayAllItemsWrapper",
                   "type": "object",
                   "properties": {
                     "d": {
@@ -3265,7 +1427,7 @@
                         "results": {
                           "type": "array",
                           "items": {
-                            "$ref": "#/components/schemas/API_INBOUND_DELIVERY_SRV.PutawayReport"
+                            "$ref": "#/components/schemas/PutawayReport"
                           }
                         }
                       }
@@ -3318,7 +1480,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "title": "Wrapper",
+                  "title": "PutawayOneItemWrapper",
                   "type": "object",
                   "properties": {
                     "d": {
@@ -3331,7 +1493,7 @@
                         "results": {
                           "type": "array",
                           "items": {
-                            "$ref": "#/components/schemas/API_INBOUND_DELIVERY_SRV.PutawayReport"
+                            "$ref": "#/components/schemas/PutawayReport"
                           }
                         }
                       }
@@ -3383,7 +1545,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "title": "Wrapper",
+                  "title": "ReverseGoodsReceiptWrapper",
                   "type": "object",
                   "properties": {
                     "d": {
@@ -3396,7 +1558,7 @@
                         "results": {
                           "type": "array",
                           "items": {
-                            "$ref": "#/components/schemas/API_INBOUND_DELIVERY_SRV.DeliveryMessage"
+                            "$ref": "#/components/schemas/DeliveryMessage"
                           }
                         }
                       }
@@ -3537,7 +1699,7 @@
                       "type": "object",
                       "properties": {
                         "CreateBatchSplitItem": {
-                          "$ref": "#/components/schemas/API_INBOUND_DELIVERY_SRV.CreatedDeliveryItem"
+                          "$ref": "#/components/schemas/CreatedDeliveryItem"
                         }
                       }
                     }
@@ -3600,7 +1762,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "title": "Wrapper",
+                  "title": "AddSerialNumberToDeliveryItemWrapper",
                   "type": "object",
                   "properties": {
                     "d": {
@@ -3613,7 +1775,7 @@
                         "results": {
                           "type": "array",
                           "items": {
-                            "$ref": "#/components/schemas/API_INBOUND_DELIVERY_SRV.PutawayReport"
+                            "$ref": "#/components/schemas/PutawayReport"
                           }
                         }
                       }
@@ -3666,7 +1828,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "title": "Wrapper",
+                  "title": "DeleteAllSerialNumbersFromDeliveryItemWrapper",
                   "type": "object",
                   "properties": {
                     "d": {
@@ -3679,7 +1841,7 @@
                         "results": {
                           "type": "array",
                           "items": {
-                            "$ref": "#/components/schemas/API_INBOUND_DELIVERY_SRV.PutawayReport"
+                            "$ref": "#/components/schemas/PutawayReport"
                           }
                         }
                       }
@@ -3743,7 +1905,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "title": "Wrapper",
+                  "title": "DeleteSerialNumberFromDeliveryItemWrapper",
                   "type": "object",
                   "properties": {
                     "d": {
@@ -3756,7 +1918,7 @@
                         "results": {
                           "type": "array",
                           "items": {
-                            "$ref": "#/components/schemas/API_INBOUND_DELIVERY_SRV.PutawayReport"
+                            "$ref": "#/components/schemas/PutawayReport"
                           }
                         }
                       }
@@ -3834,7 +1996,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "title": "Wrapper",
+                  "title": "SetPutawayQuantityWithBaseQuantityWrapper",
                   "type": "object",
                   "properties": {
                     "d": {
@@ -3847,7 +2009,7 @@
                         "results": {
                           "type": "array",
                           "items": {
-                            "$ref": "#/components/schemas/API_INBOUND_DELIVERY_SRV.PutawayReport"
+                            "$ref": "#/components/schemas/PutawayReport"
                           }
                         }
                       }
@@ -3925,7 +2087,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "title": "Wrapper",
+                  "title": "PutawayOneItemWithBaseQuantityWrapper",
                   "type": "object",
                   "properties": {
                     "d": {
@@ -3938,7 +2100,7 @@
                         "results": {
                           "type": "array",
                           "items": {
-                            "$ref": "#/components/schemas/API_INBOUND_DELIVERY_SRV.PutawayReport"
+                            "$ref": "#/components/schemas/PutawayReport"
                           }
                         }
                       }
@@ -4016,7 +2178,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "title": "Wrapper",
+                  "title": "PutawayOneItemWithSalesQuantityWrapper",
                   "type": "object",
                   "properties": {
                     "d": {
@@ -4029,7 +2191,7 @@
                         "results": {
                           "type": "array",
                           "items": {
-                            "$ref": "#/components/schemas/API_INBOUND_DELIVERY_SRV.PutawayReport"
+                            "$ref": "#/components/schemas/PutawayReport"
                           }
                         }
                       }
@@ -4085,7 +2247,7 @@
   },
   "components": {
     "schemas": {
-      "API_INBOUND_DELIVERY_SRV.A_MaintenanceItemObjListType": {
+      "A_MaintenanceItemObjList": {
         "type": "object",
         "properties": {
           "Assembly": {
@@ -4142,7 +2304,7 @@
         },
         "title": "Inbound Delivery Maintenance Item Object Lists"
       },
-      "API_INBOUND_DELIVERY_SRV.A_MaintenanceItemObjListType-create": {
+      "CreateA_MaintenanceItemObjList": {
         "type": "object",
         "properties": {
           "SerialNumber": {
@@ -4153,11 +2315,11 @@
         },
         "title": "Inbound Delivery Maintenance Item Object Lists (for create)"
       },
-      "API_INBOUND_DELIVERY_SRV.A_MaintenanceItemObjListType-update": {
+      "UpdateA_MaintenanceItemObjList": {
         "type": "object",
         "title": "Inbound Delivery Maintenance Item Object Lists (for update)"
       },
-      "API_INBOUND_DELIVERY_SRV.A_InbDeliveryDocFlowType": {
+      "A_InbDeliveryDocFlow": {
         "type": "object",
         "properties": {
           "DeliveryVersion": {
@@ -4225,7 +2387,7 @@
         },
         "title": "Inbound Delivery Document Flows"
       },
-      "API_INBOUND_DELIVERY_SRV.A_InbDeliveryDocFlowType-create": {
+      "CreateA_InbDeliveryDocFlow": {
         "type": "object",
         "properties": {
           "QuantityInBaseUnit": {
@@ -4243,7 +2405,7 @@
         },
         "title": "Inbound Delivery Document Flows (for create)"
       },
-      "API_INBOUND_DELIVERY_SRV.A_InbDeliveryDocFlowType-update": {
+      "UpdateA_InbDeliveryDocFlow": {
         "type": "object",
         "properties": {
           "QuantityInBaseUnit": {
@@ -4261,7 +2423,7 @@
         },
         "title": "Inbound Delivery Document Flows (for update)"
       },
-      "API_INBOUND_DELIVERY_SRV.A_InbDeliveryHeaderType": {
+      "A_InbDeliveryHeader": {
         "type": "object",
         "properties": {
           "ReceivingLocationTimeZone": {
@@ -4936,7 +3098,7 @@
               "results": {
                 "type": "array",
                 "items": {
-                  "$ref": "#/components/schemas/API_INBOUND_DELIVERY_SRV.A_InbDeliveryHeaderTextType"
+                  "$ref": "#/components/schemas/A_InbDeliveryHeaderText"
                 }
               }
             }
@@ -4947,7 +3109,7 @@
               "results": {
                 "type": "array",
                 "items": {
-                  "$ref": "#/components/schemas/API_INBOUND_DELIVERY_SRV.A_InbDeliveryItemType"
+                  "$ref": "#/components/schemas/A_InbDeliveryItem"
                 }
               }
             }
@@ -4958,7 +3120,7 @@
               "results": {
                 "type": "array",
                 "items": {
-                  "$ref": "#/components/schemas/API_INBOUND_DELIVERY_SRV.A_InbDeliveryPartnerType"
+                  "$ref": "#/components/schemas/A_InbDeliveryPartner"
                 }
               }
             }
@@ -4966,7 +3128,7 @@
         },
         "title": "Inbound Delivery Headers"
       },
-      "API_INBOUND_DELIVERY_SRV.A_InbDeliveryHeaderType-create": {
+      "CreateA_InbDeliveryHeader": {
         "type": "object",
         "properties": {
           "ActualGoodsMovementDate": {
@@ -5029,7 +3191,7 @@
               "results": {
                 "type": "array",
                 "items": {
-                  "$ref": "#/components/schemas/API_INBOUND_DELIVERY_SRV.A_InbDeliveryHeaderTextType-create"
+                  "$ref": "#/components/schemas/CreateA_InbDeliveryHeaderText"
                 }
               }
             }
@@ -5040,7 +3202,7 @@
               "results": {
                 "type": "array",
                 "items": {
-                  "$ref": "#/components/schemas/API_INBOUND_DELIVERY_SRV.A_InbDeliveryItemType-create"
+                  "$ref": "#/components/schemas/CreateA_InbDeliveryItem"
                 }
               }
             }
@@ -5051,7 +3213,7 @@
               "results": {
                 "type": "array",
                 "items": {
-                  "$ref": "#/components/schemas/API_INBOUND_DELIVERY_SRV.A_InbDeliveryPartnerType-create"
+                  "$ref": "#/components/schemas/CreateA_InbDeliveryPartner"
                 }
               }
             }
@@ -5059,7 +3221,7 @@
         },
         "title": "Inbound Delivery Headers (for create)"
       },
-      "API_INBOUND_DELIVERY_SRV.A_InbDeliveryHeaderType-update": {
+      "UpdateA_InbDeliveryHeader": {
         "type": "object",
         "properties": {
           "ActualGoodsMovementDate": {
@@ -5101,7 +3263,7 @@
         },
         "title": "Inbound Delivery Headers (for update)"
       },
-      "API_INBOUND_DELIVERY_SRV.A_InbDeliveryItemType": {
+      "A_InbDeliveryItem": {
         "type": "object",
         "properties": {
           "ActualDeliveredQtyInBaseUnit": {
@@ -5978,7 +4140,7 @@
             "nullable": true,
             "allOf": [
               {
-                "$ref": "#/components/schemas/API_INBOUND_DELIVERY_SRV.A_InbDeliverySerialNmbrType"
+                "$ref": "#/components/schemas/A_InbDeliverySerialNmbr"
               }
             ]
           },
@@ -5988,7 +4150,7 @@
               "results": {
                 "type": "array",
                 "items": {
-                  "$ref": "#/components/schemas/API_INBOUND_DELIVERY_SRV.A_InbDeliveryDocFlowType"
+                  "$ref": "#/components/schemas/A_InbDeliveryDocFlow"
                 }
               }
             }
@@ -5999,7 +4161,7 @@
               "results": {
                 "type": "array",
                 "items": {
-                  "$ref": "#/components/schemas/API_INBOUND_DELIVERY_SRV.A_InbDeliveryItemTextType"
+                  "$ref": "#/components/schemas/A_InbDeliveryItemText"
                 }
               }
             }
@@ -6007,7 +4169,7 @@
         },
         "title": "Inbound Delivery Items"
       },
-      "API_INBOUND_DELIVERY_SRV.A_InbDeliveryItemType-create": {
+      "CreateA_InbDeliveryItem": {
         "type": "object",
         "properties": {
           "ActualDeliveryQuantity": {
@@ -6085,7 +4247,7 @@
             "nullable": true,
             "allOf": [
               {
-                "$ref": "#/components/schemas/API_INBOUND_DELIVERY_SRV.A_InbDeliverySerialNmbrType-create"
+                "$ref": "#/components/schemas/CreateA_InbDeliverySerialNmbr"
               }
             ]
           },
@@ -6095,7 +4257,7 @@
               "results": {
                 "type": "array",
                 "items": {
-                  "$ref": "#/components/schemas/API_INBOUND_DELIVERY_SRV.A_InbDeliveryDocFlowType-create"
+                  "$ref": "#/components/schemas/CreateA_InbDeliveryDocFlow"
                 }
               }
             }
@@ -6106,7 +4268,7 @@
               "results": {
                 "type": "array",
                 "items": {
-                  "$ref": "#/components/schemas/API_INBOUND_DELIVERY_SRV.A_InbDeliveryItemTextType-create"
+                  "$ref": "#/components/schemas/CreateA_InbDeliveryItemText"
                 }
               }
             }
@@ -6117,7 +4279,7 @@
         ],
         "title": "Inbound Delivery Items (for create)"
       },
-      "API_INBOUND_DELIVERY_SRV.A_InbDeliveryItemType-update": {
+      "UpdateA_InbDeliveryItem": {
         "type": "object",
         "properties": {
           "ActualDeliveryQuantity": {
@@ -6159,7 +4321,7 @@
         },
         "title": "Inbound Delivery Items (for update)"
       },
-      "API_INBOUND_DELIVERY_SRV.A_InbDeliveryPartnerType": {
+      "A_InbDeliveryPartner": {
         "type": "object",
         "properties": {
           "AddressID": {
@@ -6203,25 +4365,25 @@
             "title": "Supplier"
           },
           "to_Address": {
-            "$ref": "#/components/schemas/API_INBOUND_DELIVERY_SRV.A_InbDeliveryAddressType"
+            "$ref": "#/components/schemas/A_InbDeliveryAddress"
           }
         },
         "title": "Inbound Delivery Partners"
       },
-      "API_INBOUND_DELIVERY_SRV.A_InbDeliveryPartnerType-create": {
+      "CreateA_InbDeliveryPartner": {
         "type": "object",
         "properties": {
           "to_Address": {
-            "$ref": "#/components/schemas/API_INBOUND_DELIVERY_SRV.A_InbDeliveryAddressType-create"
+            "$ref": "#/components/schemas/CreateA_InbDeliveryAddress"
           }
         },
         "title": "Inbound Delivery Partners (for create)"
       },
-      "API_INBOUND_DELIVERY_SRV.A_InbDeliveryPartnerType-update": {
+      "UpdateA_InbDeliveryPartner": {
         "type": "object",
         "title": "Inbound Delivery Partners (for update)"
       },
-      "API_INBOUND_DELIVERY_SRV.A_InbDeliverySerialNmbrType": {
+      "A_InbDeliverySerialNmbr": {
         "type": "object",
         "properties": {
           "DeliveryDate": {
@@ -6256,7 +4418,7 @@
               "results": {
                 "type": "array",
                 "items": {
-                  "$ref": "#/components/schemas/API_INBOUND_DELIVERY_SRV.A_MaintenanceItemObjListType"
+                  "$ref": "#/components/schemas/A_MaintenanceItemObjList"
                 }
               }
             }
@@ -6264,7 +4426,7 @@
         },
         "title": "Inbound Delivery Maintenance Item Object List Headers"
       },
-      "API_INBOUND_DELIVERY_SRV.A_InbDeliverySerialNmbrType-create": {
+      "CreateA_InbDeliverySerialNmbr": {
         "type": "object",
         "properties": {
           "to_MaintenanceItemObject": {
@@ -6273,7 +4435,7 @@
               "results": {
                 "type": "array",
                 "items": {
-                  "$ref": "#/components/schemas/API_INBOUND_DELIVERY_SRV.A_MaintenanceItemObjListType-create"
+                  "$ref": "#/components/schemas/CreateA_MaintenanceItemObjList"
                 }
               }
             }
@@ -6281,11 +4443,11 @@
         },
         "title": "Inbound Delivery Maintenance Item Object List Headers (for create)"
       },
-      "API_INBOUND_DELIVERY_SRV.A_InbDeliverySerialNmbrType-update": {
+      "UpdateA_InbDeliverySerialNmbr": {
         "type": "object",
         "title": "Inbound Delivery Maintenance Item Object List Headers (for update)"
       },
-      "API_INBOUND_DELIVERY_SRV.A_InbDeliveryAddressType": {
+      "A_InbDeliveryAddress": {
         "type": "object",
         "properties": {
           "AddressID": {
@@ -6530,15 +4692,15 @@
         },
         "title": "Inbound Delivery Partner Addresses"
       },
-      "API_INBOUND_DELIVERY_SRV.A_InbDeliveryAddressType-create": {
+      "CreateA_InbDeliveryAddress": {
         "type": "object",
         "title": "Inbound Delivery Partner Addresses (for create)"
       },
-      "API_INBOUND_DELIVERY_SRV.A_InbDeliveryAddressType-update": {
+      "UpdateA_InbDeliveryAddress": {
         "type": "object",
         "title": "Inbound Delivery Partner Addresses (for update)"
       },
-      "API_INBOUND_DELIVERY_SRV.A_InbDeliveryHeaderTextType": {
+      "A_InbDeliveryHeaderText": {
         "type": "object",
         "properties": {
           "DeliveryDocument": {
@@ -6571,15 +4733,15 @@
         },
         "title": "Inbound Delivery Texts"
       },
-      "API_INBOUND_DELIVERY_SRV.A_InbDeliveryHeaderTextType-create": {
+      "CreateA_InbDeliveryHeaderText": {
         "type": "object",
         "title": "Inbound Delivery Texts (for create)"
       },
-      "API_INBOUND_DELIVERY_SRV.A_InbDeliveryHeaderTextType-update": {
+      "UpdateA_InbDeliveryHeaderText": {
         "type": "object",
         "title": "Inbound Delivery Texts (for update)"
       },
-      "API_INBOUND_DELIVERY_SRV.A_InbDeliveryItemTextType": {
+      "A_InbDeliveryItemText": {
         "type": "object",
         "properties": {
           "DeliveryDocument": {
@@ -6617,15 +4779,15 @@
         },
         "title": "Inbound Delivery Item Texts"
       },
-      "API_INBOUND_DELIVERY_SRV.A_InbDeliveryItemTextType-create": {
+      "CreateA_InbDeliveryItemText": {
         "type": "object",
         "title": "Inbound Delivery Item Texts (for create)"
       },
-      "API_INBOUND_DELIVERY_SRV.A_InbDeliveryItemTextType-update": {
+      "UpdateA_InbDeliveryItemText": {
         "type": "object",
         "title": "Inbound Delivery Item Texts (for update)"
       },
-      "API_INBOUND_DELIVERY_SRV.DeliveryMessage": {
+      "DeliveryMessage": {
         "type": "object",
         "properties": {
           "CollectiveProcessing": {
@@ -6709,15 +4871,15 @@
         },
         "title": "DeliveryMessage"
       },
-      "API_INBOUND_DELIVERY_SRV.DeliveryMessage-create": {
+      "CreateDeliveryMessage": {
         "type": "object",
         "title": "DeliveryMessage (for create)"
       },
-      "API_INBOUND_DELIVERY_SRV.DeliveryMessage-update": {
+      "UpdateDeliveryMessage": {
         "type": "object",
         "title": "DeliveryMessage (for update)"
       },
-      "API_INBOUND_DELIVERY_SRV.PutawayReport": {
+      "PutawayReport": {
         "type": "object",
         "properties": {
           "SystemMessageIdentification": {
@@ -6813,15 +4975,15 @@
         },
         "title": "PutawayReport"
       },
-      "API_INBOUND_DELIVERY_SRV.PutawayReport-create": {
+      "CreatePutawayReport": {
         "type": "object",
         "title": "PutawayReport (for create)"
       },
-      "API_INBOUND_DELIVERY_SRV.PutawayReport-update": {
+      "UpdatePutawayReport": {
         "type": "object",
         "title": "PutawayReport (for update)"
       },
-      "API_INBOUND_DELIVERY_SRV.CreatedDeliveryItem": {
+      "CreatedDeliveryItem": {
         "type": "object",
         "properties": {
           "DeliveryDocument": {
@@ -6835,11 +4997,11 @@
         },
         "title": "CreatedDeliveryItem"
       },
-      "API_INBOUND_DELIVERY_SRV.CreatedDeliveryItem-create": {
+      "CreateCreatedDeliveryItem": {
         "type": "object",
         "title": "CreatedDeliveryItem (for create)"
       },
-      "API_INBOUND_DELIVERY_SRV.CreatedDeliveryItem-update": {
+      "UpdateCreatedDeliveryItem": {
         "type": "object",
         "title": "CreatedDeliveryItem (for update)"
       },
@@ -6885,6 +5047,1480 @@
             }
           }
         }
+      },
+      "A_InbDeliveryDocFlowByKeySelectOptions": {
+        "type": "array",
+        "uniqueItems": true,
+        "items": {
+          "type": "string",
+          "enum": [
+            "DeliveryVersion",
+            "PrecedingDocument",
+            "PrecedingDocumentCategory",
+            "PrecedingDocumentItem",
+            "QuantityInBaseUnit",
+            "SDFulfillmentCalculationRule",
+            "SubsequentDocument",
+            "SubsequentDocumentCategory",
+            "SubsequentDocumentItem",
+            "TransferOrderInWrhsMgmtIsConfd"
+          ]
+        }
+      },
+      "A_InbDeliveryHeaderOrderByOptions": {
+        "type": "array",
+        "uniqueItems": true,
+        "items": {
+          "type": "string",
+          "enum": [
+            "ReceivingLocationTimeZone",
+            "ReceivingLocationTimeZone desc",
+            "ActualDeliveryRoute",
+            "ActualDeliveryRoute desc",
+            "ActualGoodsMovementDate",
+            "ActualGoodsMovementDate desc",
+            "ActualGoodsMovementTime",
+            "ActualGoodsMovementTime desc",
+            "BillingDocumentDate",
+            "BillingDocumentDate desc",
+            "BillOfLading",
+            "BillOfLading desc",
+            "CompleteDeliveryIsDefined",
+            "CompleteDeliveryIsDefined desc",
+            "ConfirmationTime",
+            "ConfirmationTime desc",
+            "CreatedByUser",
+            "CreatedByUser desc",
+            "CreationDate",
+            "CreationDate desc",
+            "CreationTime",
+            "CreationTime desc",
+            "CustomerGroup",
+            "CustomerGroup desc",
+            "DeliveryBlockReason",
+            "DeliveryBlockReason desc",
+            "DeliveryDate",
+            "DeliveryDate desc",
+            "DeliveryDocument",
+            "DeliveryDocument desc",
+            "DeliveryDocumentBySupplier",
+            "DeliveryDocumentBySupplier desc",
+            "DeliveryDocumentType",
+            "DeliveryDocumentType desc",
+            "DeliveryIsInPlant",
+            "DeliveryIsInPlant desc",
+            "DeliveryPriority",
+            "DeliveryPriority desc",
+            "DeliveryTime",
+            "DeliveryTime desc",
+            "DeliveryVersion",
+            "DeliveryVersion desc",
+            "DepreciationPercentage",
+            "DepreciationPercentage desc",
+            "DistrStatusByDecentralizedWrhs",
+            "DistrStatusByDecentralizedWrhs desc",
+            "DocumentDate",
+            "DocumentDate desc",
+            "ExternalIdentificationType",
+            "ExternalIdentificationType desc",
+            "ExternalTransportSystem",
+            "ExternalTransportSystem desc",
+            "FactoryCalendarByCustomer",
+            "FactoryCalendarByCustomer desc",
+            "GoodsIssueOrReceiptSlipNumber",
+            "GoodsIssueOrReceiptSlipNumber desc",
+            "GoodsIssueTime",
+            "GoodsIssueTime desc",
+            "HandlingUnitInStock",
+            "HandlingUnitInStock desc",
+            "HdrGeneralIncompletionStatus",
+            "HdrGeneralIncompletionStatus desc",
+            "HdrGoodsMvtIncompletionStatus",
+            "HdrGoodsMvtIncompletionStatus desc",
+            "HeaderBillgIncompletionStatus",
+            "HeaderBillgIncompletionStatus desc",
+            "HeaderBillingBlockReason",
+            "HeaderBillingBlockReason desc",
+            "HeaderDelivIncompletionStatus",
+            "HeaderDelivIncompletionStatus desc",
+            "HeaderGrossWeight",
+            "HeaderGrossWeight desc",
+            "HeaderNetWeight",
+            "HeaderNetWeight desc",
+            "HeaderPackingIncompletionSts",
+            "HeaderPackingIncompletionSts desc",
+            "HeaderPickgIncompletionStatus",
+            "HeaderPickgIncompletionStatus desc",
+            "HeaderVolume",
+            "HeaderVolume desc",
+            "HeaderVolumeUnit",
+            "HeaderVolumeUnit desc",
+            "HeaderWeightUnit",
+            "HeaderWeightUnit desc",
+            "IncotermsClassification",
+            "IncotermsClassification desc",
+            "IncotermsTransferLocation",
+            "IncotermsTransferLocation desc",
+            "IntercompanyBillingDate",
+            "IntercompanyBillingDate desc",
+            "InternalFinancialDocument",
+            "InternalFinancialDocument desc",
+            "IsDeliveryForSingleWarehouse",
+            "IsDeliveryForSingleWarehouse desc",
+            "IsExportDelivery",
+            "IsExportDelivery desc",
+            "LastChangeDate",
+            "LastChangeDate desc",
+            "LastChangedByUser",
+            "LastChangedByUser desc",
+            "LoadingDate",
+            "LoadingDate desc",
+            "LoadingPoint",
+            "LoadingPoint desc",
+            "LoadingTime",
+            "LoadingTime desc",
+            "MeansOfTransport",
+            "MeansOfTransport desc",
+            "MeansOfTransportRefMaterial",
+            "MeansOfTransportRefMaterial desc",
+            "MeansOfTransportType",
+            "MeansOfTransportType desc",
+            "OrderCombinationIsAllowed",
+            "OrderCombinationIsAllowed desc",
+            "OrderID",
+            "OrderID desc",
+            "OverallDelivConfStatus",
+            "OverallDelivConfStatus desc",
+            "OverallDelivReltdBillgStatus",
+            "OverallDelivReltdBillgStatus desc",
+            "OverallGoodsMovementStatus",
+            "OverallGoodsMovementStatus desc",
+            "OverallIntcoBillingStatus",
+            "OverallIntcoBillingStatus desc",
+            "OverallPackingStatus",
+            "OverallPackingStatus desc",
+            "OverallPickingConfStatus",
+            "OverallPickingConfStatus desc",
+            "OverallPickingStatus",
+            "OverallPickingStatus desc",
+            "OverallProofOfDeliveryStatus",
+            "OverallProofOfDeliveryStatus desc",
+            "OverallSDProcessStatus",
+            "OverallSDProcessStatus desc",
+            "OverallWarehouseActivityStatus",
+            "OverallWarehouseActivityStatus desc",
+            "OvrlItmDelivIncompletionSts",
+            "OvrlItmDelivIncompletionSts desc",
+            "OvrlItmGdsMvtIncompletionSts",
+            "OvrlItmGdsMvtIncompletionSts desc",
+            "OvrlItmGeneralIncompletionSts",
+            "OvrlItmGeneralIncompletionSts desc",
+            "OvrlItmPackingIncompletionSts",
+            "OvrlItmPackingIncompletionSts desc",
+            "OvrlItmPickingIncompletionSts",
+            "OvrlItmPickingIncompletionSts desc",
+            "PaymentGuaranteeProcedure",
+            "PaymentGuaranteeProcedure desc",
+            "PickedItemsLocation",
+            "PickedItemsLocation desc",
+            "PickingDate",
+            "PickingDate desc",
+            "PickingTime",
+            "PickingTime desc",
+            "PlannedGoodsIssueDate",
+            "PlannedGoodsIssueDate desc",
+            "ProofOfDeliveryDate",
+            "ProofOfDeliveryDate desc",
+            "ProposedDeliveryRoute",
+            "ProposedDeliveryRoute desc",
+            "ReceivingPlant",
+            "ReceivingPlant desc",
+            "RouteSchedule",
+            "RouteSchedule desc",
+            "SalesDistrict",
+            "SalesDistrict desc",
+            "SalesOffice",
+            "SalesOffice desc",
+            "SalesOrganization",
+            "SalesOrganization desc",
+            "SDDocumentCategory",
+            "SDDocumentCategory desc",
+            "ShipmentBlockReason",
+            "ShipmentBlockReason desc",
+            "ShippingCondition",
+            "ShippingCondition desc",
+            "ShippingPoint",
+            "ShippingPoint desc",
+            "ShippingType",
+            "ShippingType desc",
+            "ShipToParty",
+            "ShipToParty desc",
+            "SoldToParty",
+            "SoldToParty desc",
+            "SpecialProcessingCode",
+            "SpecialProcessingCode desc",
+            "StatisticsCurrency",
+            "StatisticsCurrency desc",
+            "Supplier",
+            "Supplier desc",
+            "TotalBlockStatus",
+            "TotalBlockStatus desc",
+            "TotalCreditCheckStatus",
+            "TotalCreditCheckStatus desc",
+            "TotalNumberOfPackage",
+            "TotalNumberOfPackage desc",
+            "TransactionCurrency",
+            "TransactionCurrency desc",
+            "TransportationGroup",
+            "TransportationGroup desc",
+            "TransportationPlanningDate",
+            "TransportationPlanningDate desc",
+            "TransportationPlanningStatus",
+            "TransportationPlanningStatus desc",
+            "TransportationPlanningTime",
+            "TransportationPlanningTime desc",
+            "UnloadingPointName",
+            "UnloadingPointName desc",
+            "Warehouse",
+            "Warehouse desc",
+            "WarehouseGate",
+            "WarehouseGate desc",
+            "WarehouseStagingArea",
+            "WarehouseStagingArea desc"
+          ]
+        }
+      },
+      "A_InbDeliveryHeaderSelectOptions": {
+        "type": "array",
+        "uniqueItems": true,
+        "items": {
+          "type": "string",
+          "enum": [
+            "ReceivingLocationTimeZone",
+            "ActualDeliveryRoute",
+            "ActualGoodsMovementDate",
+            "ActualGoodsMovementTime",
+            "BillingDocumentDate",
+            "BillOfLading",
+            "CompleteDeliveryIsDefined",
+            "ConfirmationTime",
+            "CreatedByUser",
+            "CreationDate",
+            "CreationTime",
+            "CustomerGroup",
+            "DeliveryBlockReason",
+            "DeliveryDate",
+            "DeliveryDocument",
+            "DeliveryDocumentBySupplier",
+            "DeliveryDocumentType",
+            "DeliveryIsInPlant",
+            "DeliveryPriority",
+            "DeliveryTime",
+            "DeliveryVersion",
+            "DepreciationPercentage",
+            "DistrStatusByDecentralizedWrhs",
+            "DocumentDate",
+            "ExternalIdentificationType",
+            "ExternalTransportSystem",
+            "FactoryCalendarByCustomer",
+            "GoodsIssueOrReceiptSlipNumber",
+            "GoodsIssueTime",
+            "HandlingUnitInStock",
+            "HdrGeneralIncompletionStatus",
+            "HdrGoodsMvtIncompletionStatus",
+            "HeaderBillgIncompletionStatus",
+            "HeaderBillingBlockReason",
+            "HeaderDelivIncompletionStatus",
+            "HeaderGrossWeight",
+            "HeaderNetWeight",
+            "HeaderPackingIncompletionSts",
+            "HeaderPickgIncompletionStatus",
+            "HeaderVolume",
+            "HeaderVolumeUnit",
+            "HeaderWeightUnit",
+            "IncotermsClassification",
+            "IncotermsTransferLocation",
+            "IntercompanyBillingDate",
+            "InternalFinancialDocument",
+            "IsDeliveryForSingleWarehouse",
+            "IsExportDelivery",
+            "LastChangeDate",
+            "LastChangedByUser",
+            "LoadingDate",
+            "LoadingPoint",
+            "LoadingTime",
+            "MeansOfTransport",
+            "MeansOfTransportRefMaterial",
+            "MeansOfTransportType",
+            "OrderCombinationIsAllowed",
+            "OrderID",
+            "OverallDelivConfStatus",
+            "OverallDelivReltdBillgStatus",
+            "OverallGoodsMovementStatus",
+            "OverallIntcoBillingStatus",
+            "OverallPackingStatus",
+            "OverallPickingConfStatus",
+            "OverallPickingStatus",
+            "OverallProofOfDeliveryStatus",
+            "OverallSDProcessStatus",
+            "OverallWarehouseActivityStatus",
+            "OvrlItmDelivIncompletionSts",
+            "OvrlItmGdsMvtIncompletionSts",
+            "OvrlItmGeneralIncompletionSts",
+            "OvrlItmPackingIncompletionSts",
+            "OvrlItmPickingIncompletionSts",
+            "PaymentGuaranteeProcedure",
+            "PickedItemsLocation",
+            "PickingDate",
+            "PickingTime",
+            "PlannedGoodsIssueDate",
+            "ProofOfDeliveryDate",
+            "ProposedDeliveryRoute",
+            "ReceivingPlant",
+            "RouteSchedule",
+            "SalesDistrict",
+            "SalesOffice",
+            "SalesOrganization",
+            "SDDocumentCategory",
+            "ShipmentBlockReason",
+            "ShippingCondition",
+            "ShippingPoint",
+            "ShippingType",
+            "ShipToParty",
+            "SoldToParty",
+            "SpecialProcessingCode",
+            "StatisticsCurrency",
+            "Supplier",
+            "TotalBlockStatus",
+            "TotalCreditCheckStatus",
+            "TotalNumberOfPackage",
+            "TransactionCurrency",
+            "TransportationGroup",
+            "TransportationPlanningDate",
+            "TransportationPlanningStatus",
+            "TransportationPlanningTime",
+            "UnloadingPointName",
+            "Warehouse",
+            "WarehouseGate",
+            "WarehouseStagingArea",
+            "to_DeliveryDocumentText",
+            "to_DeliveryDocumentItem",
+            "to_DeliveryDocumentPartner"
+          ]
+        }
+      },
+      "A_InbDeliveryHeaderExpandOptions": {
+        "type": "array",
+        "uniqueItems": true,
+        "items": {
+          "type": "string",
+          "enum": [
+            "to_DeliveryDocumentText",
+            "to_DeliveryDocumentItem",
+            "to_DeliveryDocumentPartner"
+          ]
+        }
+      },
+      "DeliveryDocumentTextOfA_InbDeliveryHeaderSelectOptions": {
+        "type": "array",
+        "uniqueItems": true,
+        "items": {
+          "type": "string",
+          "enum": [
+            "DeliveryDocument",
+            "TextElement",
+            "Language",
+            "TextElementDescription",
+            "TextElementText",
+            "DeliveryLongTextIsFormatted"
+          ]
+        }
+      },
+      "DeliveryDocumentItemOfA_InbDeliveryHeaderOrderByOptions": {
+        "type": "array",
+        "uniqueItems": true,
+        "items": {
+          "type": "string",
+          "enum": [
+            "ActualDeliveredQtyInBaseUnit",
+            "ActualDeliveredQtyInBaseUnit desc",
+            "ActualDeliveryQuantity",
+            "ActualDeliveryQuantity desc",
+            "AdditionalCustomerGroup1",
+            "AdditionalCustomerGroup1 desc",
+            "AdditionalCustomerGroup2",
+            "AdditionalCustomerGroup2 desc",
+            "AdditionalCustomerGroup3",
+            "AdditionalCustomerGroup3 desc",
+            "AdditionalCustomerGroup4",
+            "AdditionalCustomerGroup4 desc",
+            "AdditionalCustomerGroup5",
+            "AdditionalCustomerGroup5 desc",
+            "AdditionalMaterialGroup1",
+            "AdditionalMaterialGroup1 desc",
+            "AdditionalMaterialGroup2",
+            "AdditionalMaterialGroup2 desc",
+            "AdditionalMaterialGroup3",
+            "AdditionalMaterialGroup3 desc",
+            "AdditionalMaterialGroup4",
+            "AdditionalMaterialGroup4 desc",
+            "AdditionalMaterialGroup5",
+            "AdditionalMaterialGroup5 desc",
+            "AlternateProductNumber",
+            "AlternateProductNumber desc",
+            "BaseUnit",
+            "BaseUnit desc",
+            "Batch",
+            "Batch desc",
+            "BatchBySupplier",
+            "BatchBySupplier desc",
+            "BatchClassification",
+            "BatchClassification desc",
+            "BOMExplosion",
+            "BOMExplosion desc",
+            "BusinessArea",
+            "BusinessArea desc",
+            "ConsumptionPosting",
+            "ConsumptionPosting desc",
+            "ControllingArea",
+            "ControllingArea desc",
+            "CostCenter",
+            "CostCenter desc",
+            "CreatedByUser",
+            "CreatedByUser desc",
+            "CreationDate",
+            "CreationDate desc",
+            "CreationTime",
+            "CreationTime desc",
+            "CustEngineeringChgStatus",
+            "CustEngineeringChgStatus desc",
+            "DeliveryDocument",
+            "DeliveryDocument desc",
+            "DeliveryDocumentItem",
+            "DeliveryDocumentItem desc",
+            "DeliveryDocumentItemCategory",
+            "DeliveryDocumentItemCategory desc",
+            "DeliveryDocumentItemText",
+            "DeliveryDocumentItemText desc",
+            "DeliveryGroup",
+            "DeliveryGroup desc",
+            "DeliveryQuantityUnit",
+            "DeliveryQuantityUnit desc",
+            "DeliveryRelatedBillingStatus",
+            "DeliveryRelatedBillingStatus desc",
+            "DeliveryToBaseQuantityDnmntr",
+            "DeliveryToBaseQuantityDnmntr desc",
+            "DeliveryToBaseQuantityNmrtr",
+            "DeliveryToBaseQuantityNmrtr desc",
+            "DepartmentClassificationByCust",
+            "DepartmentClassificationByCust desc",
+            "DistributionChannel",
+            "DistributionChannel desc",
+            "Division",
+            "Division desc",
+            "FixedShipgProcgDurationInDays",
+            "FixedShipgProcgDurationInDays desc",
+            "GLAccount",
+            "GLAccount desc",
+            "GoodsMovementReasonCode",
+            "GoodsMovementReasonCode desc",
+            "GoodsMovementStatus",
+            "GoodsMovementStatus desc",
+            "GoodsMovementType",
+            "GoodsMovementType desc",
+            "HigherLevelItem",
+            "HigherLevelItem desc",
+            "InspectionLot",
+            "InspectionLot desc",
+            "InspectionPartialLot",
+            "InspectionPartialLot desc",
+            "IntercompanyBillingStatus",
+            "IntercompanyBillingStatus desc",
+            "InternationalArticleNumber",
+            "InternationalArticleNumber desc",
+            "InventorySpecialStockType",
+            "InventorySpecialStockType desc",
+            "InventoryValuationType",
+            "InventoryValuationType desc",
+            "IsCompletelyDelivered",
+            "IsCompletelyDelivered desc",
+            "IsNotGoodsMovementsRelevant",
+            "IsNotGoodsMovementsRelevant desc",
+            "IsSeparateValuation",
+            "IsSeparateValuation desc",
+            "IssgOrRcvgBatch",
+            "IssgOrRcvgBatch desc",
+            "IssgOrRcvgMaterial",
+            "IssgOrRcvgMaterial desc",
+            "IssgOrRcvgSpclStockInd",
+            "IssgOrRcvgSpclStockInd desc",
+            "IssgOrRcvgStockCategory",
+            "IssgOrRcvgStockCategory desc",
+            "IssgOrRcvgValuationType",
+            "IssgOrRcvgValuationType desc",
+            "IssuingOrReceivingPlant",
+            "IssuingOrReceivingPlant desc",
+            "IssuingOrReceivingStorageLoc",
+            "IssuingOrReceivingStorageLoc desc",
+            "ItemBillingBlockReason",
+            "ItemBillingBlockReason desc",
+            "ItemBillingIncompletionStatus",
+            "ItemBillingIncompletionStatus desc",
+            "ItemDeliveryIncompletionStatus",
+            "ItemDeliveryIncompletionStatus desc",
+            "ItemGdsMvtIncompletionSts",
+            "ItemGdsMvtIncompletionSts desc",
+            "ItemGeneralIncompletionStatus",
+            "ItemGeneralIncompletionStatus desc",
+            "ItemGrossWeight",
+            "ItemGrossWeight desc",
+            "ItemIsBillingRelevant",
+            "ItemIsBillingRelevant desc",
+            "ItemNetWeight",
+            "ItemNetWeight desc",
+            "ItemPackingIncompletionStatus",
+            "ItemPackingIncompletionStatus desc",
+            "ItemPickingIncompletionStatus",
+            "ItemPickingIncompletionStatus desc",
+            "ItemVolume",
+            "ItemVolume desc",
+            "ItemVolumeUnit",
+            "ItemVolumeUnit desc",
+            "ItemWeightUnit",
+            "ItemWeightUnit desc",
+            "LastChangeDate",
+            "LastChangeDate desc",
+            "LoadingGroup",
+            "LoadingGroup desc",
+            "ManufactureDate",
+            "ManufactureDate desc",
+            "Material",
+            "Material desc",
+            "MaterialByCustomer",
+            "MaterialByCustomer desc",
+            "MaterialFreightGroup",
+            "MaterialFreightGroup desc",
+            "MaterialGroup",
+            "MaterialGroup desc",
+            "MaterialIsBatchManaged",
+            "MaterialIsBatchManaged desc",
+            "MaterialIsIntBatchManaged",
+            "MaterialIsIntBatchManaged desc",
+            "NumberOfSerialNumbers",
+            "NumberOfSerialNumbers desc",
+            "OrderID",
+            "OrderID desc",
+            "OrderItem",
+            "OrderItem desc",
+            "OriginalDeliveryQuantity",
+            "OriginalDeliveryQuantity desc",
+            "OriginallyRequestedMaterial",
+            "OriginallyRequestedMaterial desc",
+            "OverdelivTolrtdLmtRatioInPct",
+            "OverdelivTolrtdLmtRatioInPct desc",
+            "PackingStatus",
+            "PackingStatus desc",
+            "PartialDeliveryIsAllowed",
+            "PartialDeliveryIsAllowed desc",
+            "PaymentGuaranteeForm",
+            "PaymentGuaranteeForm desc",
+            "PickingConfirmationStatus",
+            "PickingConfirmationStatus desc",
+            "PickingControl",
+            "PickingControl desc",
+            "PickingStatus",
+            "PickingStatus desc",
+            "Plant",
+            "Plant desc",
+            "PrimaryPostingSwitch",
+            "PrimaryPostingSwitch desc",
+            "ProductAvailabilityDate",
+            "ProductAvailabilityDate desc",
+            "ProductAvailabilityTime",
+            "ProductAvailabilityTime desc",
+            "ProductConfiguration",
+            "ProductConfiguration desc",
+            "ProductHierarchyNode",
+            "ProductHierarchyNode desc",
+            "ProfitabilitySegment",
+            "ProfitabilitySegment desc",
+            "ProfitCenter",
+            "ProfitCenter desc",
+            "ProofOfDeliveryRelevanceCode",
+            "ProofOfDeliveryRelevanceCode desc",
+            "ProofOfDeliveryStatus",
+            "ProofOfDeliveryStatus desc",
+            "QuantityIsFixed",
+            "QuantityIsFixed desc",
+            "ReceivingPoint",
+            "ReceivingPoint desc",
+            "ReferenceDocumentLogicalSystem",
+            "ReferenceDocumentLogicalSystem desc",
+            "ReferenceSDDocument",
+            "ReferenceSDDocument desc",
+            "ReferenceSDDocumentCategory",
+            "ReferenceSDDocumentCategory desc",
+            "ReferenceSDDocumentItem",
+            "ReferenceSDDocumentItem desc",
+            "DeliveryDocumentItemBySupplier",
+            "DeliveryDocumentItemBySupplier desc",
+            "RetailPromotion",
+            "RetailPromotion desc",
+            "SalesDocumentItemType",
+            "SalesDocumentItemType desc",
+            "SalesGroup",
+            "SalesGroup desc",
+            "SalesOffice",
+            "SalesOffice desc",
+            "SDDocumentCategory",
+            "SDDocumentCategory desc",
+            "SDProcessStatus",
+            "SDProcessStatus desc",
+            "ShelfLifeExpirationDate",
+            "ShelfLifeExpirationDate desc",
+            "StatisticsDate",
+            "StatisticsDate desc",
+            "StockType",
+            "StockType desc",
+            "StorageBin",
+            "StorageBin desc",
+            "StorageLocation",
+            "StorageLocation desc",
+            "StorageType",
+            "StorageType desc",
+            "SubsequentMovementType",
+            "SubsequentMovementType desc",
+            "TransportationGroup",
+            "TransportationGroup desc",
+            "UnderdelivTolrtdLmtRatioInPct",
+            "UnderdelivTolrtdLmtRatioInPct desc",
+            "UnlimitedOverdeliveryIsAllowed",
+            "UnlimitedOverdeliveryIsAllowed desc",
+            "VarblShipgProcgDurationInDays",
+            "VarblShipgProcgDurationInDays desc",
+            "Warehouse",
+            "Warehouse desc",
+            "WarehouseActivityStatus",
+            "WarehouseActivityStatus desc",
+            "WarehouseStagingArea",
+            "WarehouseStagingArea desc",
+            "DeliveryVersion",
+            "DeliveryVersion desc",
+            "WarehouseStockCategory",
+            "WarehouseStockCategory desc",
+            "WarehouseStorageBin",
+            "WarehouseStorageBin desc"
+          ]
+        }
+      },
+      "DeliveryDocumentItemOfA_InbDeliveryHeaderSelectOptions": {
+        "type": "array",
+        "uniqueItems": true,
+        "items": {
+          "type": "string",
+          "enum": [
+            "ActualDeliveredQtyInBaseUnit",
+            "ActualDeliveryQuantity",
+            "AdditionalCustomerGroup1",
+            "AdditionalCustomerGroup2",
+            "AdditionalCustomerGroup3",
+            "AdditionalCustomerGroup4",
+            "AdditionalCustomerGroup5",
+            "AdditionalMaterialGroup1",
+            "AdditionalMaterialGroup2",
+            "AdditionalMaterialGroup3",
+            "AdditionalMaterialGroup4",
+            "AdditionalMaterialGroup5",
+            "AlternateProductNumber",
+            "BaseUnit",
+            "Batch",
+            "BatchBySupplier",
+            "BatchClassification",
+            "BOMExplosion",
+            "BusinessArea",
+            "ConsumptionPosting",
+            "ControllingArea",
+            "CostCenter",
+            "CreatedByUser",
+            "CreationDate",
+            "CreationTime",
+            "CustEngineeringChgStatus",
+            "DeliveryDocument",
+            "DeliveryDocumentItem",
+            "DeliveryDocumentItemCategory",
+            "DeliveryDocumentItemText",
+            "DeliveryGroup",
+            "DeliveryQuantityUnit",
+            "DeliveryRelatedBillingStatus",
+            "DeliveryToBaseQuantityDnmntr",
+            "DeliveryToBaseQuantityNmrtr",
+            "DepartmentClassificationByCust",
+            "DistributionChannel",
+            "Division",
+            "FixedShipgProcgDurationInDays",
+            "GLAccount",
+            "GoodsMovementReasonCode",
+            "GoodsMovementStatus",
+            "GoodsMovementType",
+            "HigherLevelItem",
+            "InspectionLot",
+            "InspectionPartialLot",
+            "IntercompanyBillingStatus",
+            "InternationalArticleNumber",
+            "InventorySpecialStockType",
+            "InventoryValuationType",
+            "IsCompletelyDelivered",
+            "IsNotGoodsMovementsRelevant",
+            "IsSeparateValuation",
+            "IssgOrRcvgBatch",
+            "IssgOrRcvgMaterial",
+            "IssgOrRcvgSpclStockInd",
+            "IssgOrRcvgStockCategory",
+            "IssgOrRcvgValuationType",
+            "IssuingOrReceivingPlant",
+            "IssuingOrReceivingStorageLoc",
+            "ItemBillingBlockReason",
+            "ItemBillingIncompletionStatus",
+            "ItemDeliveryIncompletionStatus",
+            "ItemGdsMvtIncompletionSts",
+            "ItemGeneralIncompletionStatus",
+            "ItemGrossWeight",
+            "ItemIsBillingRelevant",
+            "ItemNetWeight",
+            "ItemPackingIncompletionStatus",
+            "ItemPickingIncompletionStatus",
+            "ItemVolume",
+            "ItemVolumeUnit",
+            "ItemWeightUnit",
+            "LastChangeDate",
+            "LoadingGroup",
+            "ManufactureDate",
+            "Material",
+            "MaterialByCustomer",
+            "MaterialFreightGroup",
+            "MaterialGroup",
+            "MaterialIsBatchManaged",
+            "MaterialIsIntBatchManaged",
+            "NumberOfSerialNumbers",
+            "OrderID",
+            "OrderItem",
+            "OriginalDeliveryQuantity",
+            "OriginallyRequestedMaterial",
+            "OverdelivTolrtdLmtRatioInPct",
+            "PackingStatus",
+            "PartialDeliveryIsAllowed",
+            "PaymentGuaranteeForm",
+            "PickingConfirmationStatus",
+            "PickingControl",
+            "PickingStatus",
+            "Plant",
+            "PrimaryPostingSwitch",
+            "ProductAvailabilityDate",
+            "ProductAvailabilityTime",
+            "ProductConfiguration",
+            "ProductHierarchyNode",
+            "ProfitabilitySegment",
+            "ProfitCenter",
+            "ProofOfDeliveryRelevanceCode",
+            "ProofOfDeliveryStatus",
+            "QuantityIsFixed",
+            "ReceivingPoint",
+            "ReferenceDocumentLogicalSystem",
+            "ReferenceSDDocument",
+            "ReferenceSDDocumentCategory",
+            "ReferenceSDDocumentItem",
+            "DeliveryDocumentItemBySupplier",
+            "RetailPromotion",
+            "SalesDocumentItemType",
+            "SalesGroup",
+            "SalesOffice",
+            "SDDocumentCategory",
+            "SDProcessStatus",
+            "ShelfLifeExpirationDate",
+            "StatisticsDate",
+            "StockType",
+            "StorageBin",
+            "StorageLocation",
+            "StorageType",
+            "SubsequentMovementType",
+            "TransportationGroup",
+            "UnderdelivTolrtdLmtRatioInPct",
+            "UnlimitedOverdeliveryIsAllowed",
+            "VarblShipgProcgDurationInDays",
+            "Warehouse",
+            "WarehouseActivityStatus",
+            "WarehouseStagingArea",
+            "DeliveryVersion",
+            "WarehouseStockCategory",
+            "WarehouseStorageBin",
+            "to_SerialDeliveryItem",
+            "to_DocumentFlow",
+            "to_DeliveryDocumentItemText"
+          ]
+        }
+      },
+      "DeliveryDocumentItemOfA_InbDeliveryHeaderExpandOptions": {
+        "type": "array",
+        "uniqueItems": true,
+        "items": {
+          "type": "string",
+          "enum": [
+            "to_SerialDeliveryItem",
+            "to_DocumentFlow",
+            "to_DeliveryDocumentItemText"
+          ]
+        }
+      },
+      "DeliveryDocumentPartnerOfA_InbDeliveryHeaderOrderByOptions": {
+        "type": "array",
+        "uniqueItems": true,
+        "items": {
+          "type": "string",
+          "enum": [
+            "AddressID",
+            "AddressID desc",
+            "ContactPerson",
+            "ContactPerson desc",
+            "Customer",
+            "Customer desc",
+            "PartnerFunction",
+            "PartnerFunction desc",
+            "Personnel",
+            "Personnel desc",
+            "SDDocument",
+            "SDDocument desc",
+            "SDDocumentItem",
+            "SDDocumentItem desc",
+            "Supplier",
+            "Supplier desc"
+          ]
+        }
+      },
+      "DeliveryDocumentPartnerOfA_InbDeliveryHeaderSelectOptions": {
+        "type": "array",
+        "uniqueItems": true,
+        "items": {
+          "type": "string",
+          "enum": [
+            "AddressID",
+            "ContactPerson",
+            "Customer",
+            "PartnerFunction",
+            "Personnel",
+            "SDDocument",
+            "SDDocumentItem",
+            "Supplier",
+            "to_Address"
+          ]
+        }
+      },
+      "DeliveryDocumentPartnerOfA_InbDeliveryHeaderExpandOptions": {
+        "type": "array",
+        "uniqueItems": true,
+        "items": {
+          "type": "string",
+          "enum": [
+            "to_Address"
+          ]
+        }
+      },
+      "A_InbDeliveryItemOrderByOptions": {
+        "type": "array",
+        "uniqueItems": true,
+        "items": {
+          "type": "string",
+          "enum": [
+            "ActualDeliveredQtyInBaseUnit",
+            "ActualDeliveredQtyInBaseUnit desc",
+            "ActualDeliveryQuantity",
+            "ActualDeliveryQuantity desc",
+            "AdditionalCustomerGroup1",
+            "AdditionalCustomerGroup1 desc",
+            "AdditionalCustomerGroup2",
+            "AdditionalCustomerGroup2 desc",
+            "AdditionalCustomerGroup3",
+            "AdditionalCustomerGroup3 desc",
+            "AdditionalCustomerGroup4",
+            "AdditionalCustomerGroup4 desc",
+            "AdditionalCustomerGroup5",
+            "AdditionalCustomerGroup5 desc",
+            "AdditionalMaterialGroup1",
+            "AdditionalMaterialGroup1 desc",
+            "AdditionalMaterialGroup2",
+            "AdditionalMaterialGroup2 desc",
+            "AdditionalMaterialGroup3",
+            "AdditionalMaterialGroup3 desc",
+            "AdditionalMaterialGroup4",
+            "AdditionalMaterialGroup4 desc",
+            "AdditionalMaterialGroup5",
+            "AdditionalMaterialGroup5 desc",
+            "AlternateProductNumber",
+            "AlternateProductNumber desc",
+            "BaseUnit",
+            "BaseUnit desc",
+            "Batch",
+            "Batch desc",
+            "BatchBySupplier",
+            "BatchBySupplier desc",
+            "BatchClassification",
+            "BatchClassification desc",
+            "BOMExplosion",
+            "BOMExplosion desc",
+            "BusinessArea",
+            "BusinessArea desc",
+            "ConsumptionPosting",
+            "ConsumptionPosting desc",
+            "ControllingArea",
+            "ControllingArea desc",
+            "CostCenter",
+            "CostCenter desc",
+            "CreatedByUser",
+            "CreatedByUser desc",
+            "CreationDate",
+            "CreationDate desc",
+            "CreationTime",
+            "CreationTime desc",
+            "CustEngineeringChgStatus",
+            "CustEngineeringChgStatus desc",
+            "DeliveryDocument",
+            "DeliveryDocument desc",
+            "DeliveryDocumentItem",
+            "DeliveryDocumentItem desc",
+            "DeliveryDocumentItemCategory",
+            "DeliveryDocumentItemCategory desc",
+            "DeliveryDocumentItemText",
+            "DeliveryDocumentItemText desc",
+            "DeliveryGroup",
+            "DeliveryGroup desc",
+            "DeliveryQuantityUnit",
+            "DeliveryQuantityUnit desc",
+            "DeliveryRelatedBillingStatus",
+            "DeliveryRelatedBillingStatus desc",
+            "DeliveryToBaseQuantityDnmntr",
+            "DeliveryToBaseQuantityDnmntr desc",
+            "DeliveryToBaseQuantityNmrtr",
+            "DeliveryToBaseQuantityNmrtr desc",
+            "DepartmentClassificationByCust",
+            "DepartmentClassificationByCust desc",
+            "DistributionChannel",
+            "DistributionChannel desc",
+            "Division",
+            "Division desc",
+            "FixedShipgProcgDurationInDays",
+            "FixedShipgProcgDurationInDays desc",
+            "GLAccount",
+            "GLAccount desc",
+            "GoodsMovementReasonCode",
+            "GoodsMovementReasonCode desc",
+            "GoodsMovementStatus",
+            "GoodsMovementStatus desc",
+            "GoodsMovementType",
+            "GoodsMovementType desc",
+            "HigherLevelItem",
+            "HigherLevelItem desc",
+            "InspectionLot",
+            "InspectionLot desc",
+            "InspectionPartialLot",
+            "InspectionPartialLot desc",
+            "IntercompanyBillingStatus",
+            "IntercompanyBillingStatus desc",
+            "InternationalArticleNumber",
+            "InternationalArticleNumber desc",
+            "InventorySpecialStockType",
+            "InventorySpecialStockType desc",
+            "InventoryValuationType",
+            "InventoryValuationType desc",
+            "IsCompletelyDelivered",
+            "IsCompletelyDelivered desc",
+            "IsNotGoodsMovementsRelevant",
+            "IsNotGoodsMovementsRelevant desc",
+            "IsSeparateValuation",
+            "IsSeparateValuation desc",
+            "IssgOrRcvgBatch",
+            "IssgOrRcvgBatch desc",
+            "IssgOrRcvgMaterial",
+            "IssgOrRcvgMaterial desc",
+            "IssgOrRcvgSpclStockInd",
+            "IssgOrRcvgSpclStockInd desc",
+            "IssgOrRcvgStockCategory",
+            "IssgOrRcvgStockCategory desc",
+            "IssgOrRcvgValuationType",
+            "IssgOrRcvgValuationType desc",
+            "IssuingOrReceivingPlant",
+            "IssuingOrReceivingPlant desc",
+            "IssuingOrReceivingStorageLoc",
+            "IssuingOrReceivingStorageLoc desc",
+            "ItemBillingBlockReason",
+            "ItemBillingBlockReason desc",
+            "ItemBillingIncompletionStatus",
+            "ItemBillingIncompletionStatus desc",
+            "ItemDeliveryIncompletionStatus",
+            "ItemDeliveryIncompletionStatus desc",
+            "ItemGdsMvtIncompletionSts",
+            "ItemGdsMvtIncompletionSts desc",
+            "ItemGeneralIncompletionStatus",
+            "ItemGeneralIncompletionStatus desc",
+            "ItemGrossWeight",
+            "ItemGrossWeight desc",
+            "ItemIsBillingRelevant",
+            "ItemIsBillingRelevant desc",
+            "ItemNetWeight",
+            "ItemNetWeight desc",
+            "ItemPackingIncompletionStatus",
+            "ItemPackingIncompletionStatus desc",
+            "ItemPickingIncompletionStatus",
+            "ItemPickingIncompletionStatus desc",
+            "ItemVolume",
+            "ItemVolume desc",
+            "ItemVolumeUnit",
+            "ItemVolumeUnit desc",
+            "ItemWeightUnit",
+            "ItemWeightUnit desc",
+            "LastChangeDate",
+            "LastChangeDate desc",
+            "LoadingGroup",
+            "LoadingGroup desc",
+            "ManufactureDate",
+            "ManufactureDate desc",
+            "Material",
+            "Material desc",
+            "MaterialByCustomer",
+            "MaterialByCustomer desc",
+            "MaterialFreightGroup",
+            "MaterialFreightGroup desc",
+            "MaterialGroup",
+            "MaterialGroup desc",
+            "MaterialIsBatchManaged",
+            "MaterialIsBatchManaged desc",
+            "MaterialIsIntBatchManaged",
+            "MaterialIsIntBatchManaged desc",
+            "NumberOfSerialNumbers",
+            "NumberOfSerialNumbers desc",
+            "OrderID",
+            "OrderID desc",
+            "OrderItem",
+            "OrderItem desc",
+            "OriginalDeliveryQuantity",
+            "OriginalDeliveryQuantity desc",
+            "OriginallyRequestedMaterial",
+            "OriginallyRequestedMaterial desc",
+            "OverdelivTolrtdLmtRatioInPct",
+            "OverdelivTolrtdLmtRatioInPct desc",
+            "PackingStatus",
+            "PackingStatus desc",
+            "PartialDeliveryIsAllowed",
+            "PartialDeliveryIsAllowed desc",
+            "PaymentGuaranteeForm",
+            "PaymentGuaranteeForm desc",
+            "PickingConfirmationStatus",
+            "PickingConfirmationStatus desc",
+            "PickingControl",
+            "PickingControl desc",
+            "PickingStatus",
+            "PickingStatus desc",
+            "Plant",
+            "Plant desc",
+            "PrimaryPostingSwitch",
+            "PrimaryPostingSwitch desc",
+            "ProductAvailabilityDate",
+            "ProductAvailabilityDate desc",
+            "ProductAvailabilityTime",
+            "ProductAvailabilityTime desc",
+            "ProductConfiguration",
+            "ProductConfiguration desc",
+            "ProductHierarchyNode",
+            "ProductHierarchyNode desc",
+            "ProfitabilitySegment",
+            "ProfitabilitySegment desc",
+            "ProfitCenter",
+            "ProfitCenter desc",
+            "ProofOfDeliveryRelevanceCode",
+            "ProofOfDeliveryRelevanceCode desc",
+            "ProofOfDeliveryStatus",
+            "ProofOfDeliveryStatus desc",
+            "QuantityIsFixed",
+            "QuantityIsFixed desc",
+            "ReceivingPoint",
+            "ReceivingPoint desc",
+            "ReferenceDocumentLogicalSystem",
+            "ReferenceDocumentLogicalSystem desc",
+            "ReferenceSDDocument",
+            "ReferenceSDDocument desc",
+            "ReferenceSDDocumentCategory",
+            "ReferenceSDDocumentCategory desc",
+            "ReferenceSDDocumentItem",
+            "ReferenceSDDocumentItem desc",
+            "DeliveryDocumentItemBySupplier",
+            "DeliveryDocumentItemBySupplier desc",
+            "RetailPromotion",
+            "RetailPromotion desc",
+            "SalesDocumentItemType",
+            "SalesDocumentItemType desc",
+            "SalesGroup",
+            "SalesGroup desc",
+            "SalesOffice",
+            "SalesOffice desc",
+            "SDDocumentCategory",
+            "SDDocumentCategory desc",
+            "SDProcessStatus",
+            "SDProcessStatus desc",
+            "ShelfLifeExpirationDate",
+            "ShelfLifeExpirationDate desc",
+            "StatisticsDate",
+            "StatisticsDate desc",
+            "StockType",
+            "StockType desc",
+            "StorageBin",
+            "StorageBin desc",
+            "StorageLocation",
+            "StorageLocation desc",
+            "StorageType",
+            "StorageType desc",
+            "SubsequentMovementType",
+            "SubsequentMovementType desc",
+            "TransportationGroup",
+            "TransportationGroup desc",
+            "UnderdelivTolrtdLmtRatioInPct",
+            "UnderdelivTolrtdLmtRatioInPct desc",
+            "UnlimitedOverdeliveryIsAllowed",
+            "UnlimitedOverdeliveryIsAllowed desc",
+            "VarblShipgProcgDurationInDays",
+            "VarblShipgProcgDurationInDays desc",
+            "Warehouse",
+            "Warehouse desc",
+            "WarehouseActivityStatus",
+            "WarehouseActivityStatus desc",
+            "WarehouseStagingArea",
+            "WarehouseStagingArea desc",
+            "DeliveryVersion",
+            "DeliveryVersion desc",
+            "WarehouseStockCategory",
+            "WarehouseStockCategory desc",
+            "WarehouseStorageBin",
+            "WarehouseStorageBin desc"
+          ]
+        }
+      },
+      "A_InbDeliveryItemSelectOptions": {
+        "type": "array",
+        "uniqueItems": true,
+        "items": {
+          "type": "string",
+          "enum": [
+            "ActualDeliveredQtyInBaseUnit",
+            "ActualDeliveryQuantity",
+            "AdditionalCustomerGroup1",
+            "AdditionalCustomerGroup2",
+            "AdditionalCustomerGroup3",
+            "AdditionalCustomerGroup4",
+            "AdditionalCustomerGroup5",
+            "AdditionalMaterialGroup1",
+            "AdditionalMaterialGroup2",
+            "AdditionalMaterialGroup3",
+            "AdditionalMaterialGroup4",
+            "AdditionalMaterialGroup5",
+            "AlternateProductNumber",
+            "BaseUnit",
+            "Batch",
+            "BatchBySupplier",
+            "BatchClassification",
+            "BOMExplosion",
+            "BusinessArea",
+            "ConsumptionPosting",
+            "ControllingArea",
+            "CostCenter",
+            "CreatedByUser",
+            "CreationDate",
+            "CreationTime",
+            "CustEngineeringChgStatus",
+            "DeliveryDocument",
+            "DeliveryDocumentItem",
+            "DeliveryDocumentItemCategory",
+            "DeliveryDocumentItemText",
+            "DeliveryGroup",
+            "DeliveryQuantityUnit",
+            "DeliveryRelatedBillingStatus",
+            "DeliveryToBaseQuantityDnmntr",
+            "DeliveryToBaseQuantityNmrtr",
+            "DepartmentClassificationByCust",
+            "DistributionChannel",
+            "Division",
+            "FixedShipgProcgDurationInDays",
+            "GLAccount",
+            "GoodsMovementReasonCode",
+            "GoodsMovementStatus",
+            "GoodsMovementType",
+            "HigherLevelItem",
+            "InspectionLot",
+            "InspectionPartialLot",
+            "IntercompanyBillingStatus",
+            "InternationalArticleNumber",
+            "InventorySpecialStockType",
+            "InventoryValuationType",
+            "IsCompletelyDelivered",
+            "IsNotGoodsMovementsRelevant",
+            "IsSeparateValuation",
+            "IssgOrRcvgBatch",
+            "IssgOrRcvgMaterial",
+            "IssgOrRcvgSpclStockInd",
+            "IssgOrRcvgStockCategory",
+            "IssgOrRcvgValuationType",
+            "IssuingOrReceivingPlant",
+            "IssuingOrReceivingStorageLoc",
+            "ItemBillingBlockReason",
+            "ItemBillingIncompletionStatus",
+            "ItemDeliveryIncompletionStatus",
+            "ItemGdsMvtIncompletionSts",
+            "ItemGeneralIncompletionStatus",
+            "ItemGrossWeight",
+            "ItemIsBillingRelevant",
+            "ItemNetWeight",
+            "ItemPackingIncompletionStatus",
+            "ItemPickingIncompletionStatus",
+            "ItemVolume",
+            "ItemVolumeUnit",
+            "ItemWeightUnit",
+            "LastChangeDate",
+            "LoadingGroup",
+            "ManufactureDate",
+            "Material",
+            "MaterialByCustomer",
+            "MaterialFreightGroup",
+            "MaterialGroup",
+            "MaterialIsBatchManaged",
+            "MaterialIsIntBatchManaged",
+            "NumberOfSerialNumbers",
+            "OrderID",
+            "OrderItem",
+            "OriginalDeliveryQuantity",
+            "OriginallyRequestedMaterial",
+            "OverdelivTolrtdLmtRatioInPct",
+            "PackingStatus",
+            "PartialDeliveryIsAllowed",
+            "PaymentGuaranteeForm",
+            "PickingConfirmationStatus",
+            "PickingControl",
+            "PickingStatus",
+            "Plant",
+            "PrimaryPostingSwitch",
+            "ProductAvailabilityDate",
+            "ProductAvailabilityTime",
+            "ProductConfiguration",
+            "ProductHierarchyNode",
+            "ProfitabilitySegment",
+            "ProfitCenter",
+            "ProofOfDeliveryRelevanceCode",
+            "ProofOfDeliveryStatus",
+            "QuantityIsFixed",
+            "ReceivingPoint",
+            "ReferenceDocumentLogicalSystem",
+            "ReferenceSDDocument",
+            "ReferenceSDDocumentCategory",
+            "ReferenceSDDocumentItem",
+            "DeliveryDocumentItemBySupplier",
+            "RetailPromotion",
+            "SalesDocumentItemType",
+            "SalesGroup",
+            "SalesOffice",
+            "SDDocumentCategory",
+            "SDProcessStatus",
+            "ShelfLifeExpirationDate",
+            "StatisticsDate",
+            "StockType",
+            "StorageBin",
+            "StorageLocation",
+            "StorageType",
+            "SubsequentMovementType",
+            "TransportationGroup",
+            "UnderdelivTolrtdLmtRatioInPct",
+            "UnlimitedOverdeliveryIsAllowed",
+            "VarblShipgProcgDurationInDays",
+            "Warehouse",
+            "WarehouseActivityStatus",
+            "WarehouseStagingArea",
+            "DeliveryVersion",
+            "WarehouseStockCategory",
+            "WarehouseStorageBin",
+            "to_SerialDeliveryItem",
+            "to_DocumentFlow",
+            "to_DeliveryDocumentItemText"
+          ]
+        }
+      },
+      "A_InbDeliveryItemExpandOptions": {
+        "type": "array",
+        "uniqueItems": true,
+        "items": {
+          "type": "string",
+          "enum": [
+            "to_SerialDeliveryItem",
+            "to_DocumentFlow",
+            "to_DeliveryDocumentItemText"
+          ]
+        }
+      },
+      "SerialDeliveryItemOfA_InbDeliveryItemSelectOptions": {
+        "type": "array",
+        "uniqueItems": true,
+        "items": {
+          "type": "string",
+          "enum": [
+            "DeliveryDate",
+            "DeliveryDocument",
+            "DeliveryDocumentItem",
+            "MaintenanceItemObjectList",
+            "SDDocumentCategory",
+            "to_MaintenanceItemObject"
+          ]
+        }
+      },
+      "SerialDeliveryItemOfA_InbDeliveryItemExpandOptions": {
+        "type": "array",
+        "uniqueItems": true,
+        "items": {
+          "type": "string",
+          "enum": [
+            "to_MaintenanceItemObject"
+          ]
+        }
+      },
+      "DocumentFlowOfA_InbDeliveryItemOrderByOptions": {
+        "type": "array",
+        "uniqueItems": true,
+        "items": {
+          "type": "string",
+          "enum": [
+            "PrecedingDocument",
+            "PrecedingDocument desc",
+            "PrecedingDocumentCategory",
+            "PrecedingDocumentCategory desc",
+            "PrecedingDocumentItem",
+            "PrecedingDocumentItem desc",
+            "QuantityInBaseUnit",
+            "QuantityInBaseUnit desc",
+            "SDFulfillmentCalculationRule",
+            "SDFulfillmentCalculationRule desc",
+            "SubsequentDocument",
+            "SubsequentDocument desc",
+            "SubsequentDocumentCategory",
+            "SubsequentDocumentCategory desc",
+            "SubsequentDocumentItem",
+            "SubsequentDocumentItem desc",
+            "TransferOrderInWrhsMgmtIsConfd",
+            "TransferOrderInWrhsMgmtIsConfd desc"
+          ]
+        }
+      },
+      "DocumentFlowOfA_InbDeliveryItemSelectOptions": {
+        "type": "array",
+        "uniqueItems": true,
+        "items": {
+          "type": "string",
+          "enum": [
+            "DeliveryVersion",
+            "PrecedingDocument",
+            "PrecedingDocumentCategory",
+            "PrecedingDocumentItem",
+            "QuantityInBaseUnit",
+            "SDFulfillmentCalculationRule",
+            "SubsequentDocument",
+            "SubsequentDocumentCategory",
+            "SubsequentDocumentItem",
+            "TransferOrderInWrhsMgmtIsConfd"
+          ]
+        }
+      },
+      "DeliveryDocumentItemTextOfA_InbDeliveryItemSelectOptions": {
+        "type": "array",
+        "uniqueItems": true,
+        "items": {
+          "type": "string",
+          "enum": [
+            "DeliveryDocument",
+            "DeliveryDocumentItem",
+            "TextElement",
+            "Language",
+            "TextElementDescription",
+            "TextElementText",
+            "DeliveryLongTextIsFormatted"
+          ]
+        }
+      },
+      "AddressOfA_InbDeliveryPartnerSelectOptions": {
+        "type": "array",
+        "uniqueItems": true,
+        "items": {
+          "type": "string",
+          "enum": [
+            "AddressID",
+            "AdditionalStreetPrefixName",
+            "AdditionalStreetSuffixName",
+            "AddressTimeZone",
+            "Building",
+            "BusinessPartnerName1",
+            "BusinessPartnerName2",
+            "BusinessPartnerName3",
+            "BusinessPartnerName4",
+            "CareOfName",
+            "CityCode",
+            "CityName",
+            "CitySearch",
+            "CompanyPostalCode",
+            "CorrespondenceLanguage",
+            "Country",
+            "County",
+            "DeliveryServiceNumber",
+            "DeliveryServiceTypeCode",
+            "District",
+            "FaxNumber",
+            "Floor",
+            "FormOfAddress",
+            "FullName",
+            "HomeCityName",
+            "HouseNumber",
+            "HouseNumberSupplementText",
+            "Nation",
+            "Person",
+            "PhoneNumber",
+            "POBox",
+            "POBoxDeviatingCityName",
+            "POBoxDeviatingCountry",
+            "POBoxDeviatingRegion",
+            "POBoxIsWithoutNumber",
+            "POBoxLobbyName",
+            "POBoxPostalCode",
+            "PostalCode",
+            "PrfrdCommMediumType",
+            "Region",
+            "RoomNumber",
+            "SearchTerm1",
+            "StreetName",
+            "StreetPrefixName",
+            "StreetSearch",
+            "StreetSuffixName",
+            "TaxJurisdiction",
+            "TransportZone"
+          ]
+        }
+      },
+      "MaintenanceItemObjectOfA_InbDeliverySerialNmbrSelectOptions": {
+        "type": "array",
+        "uniqueItems": true,
+        "items": {
+          "type": "string",
+          "enum": [
+            "Assembly",
+            "Equipment",
+            "FunctionalLocation",
+            "MaintenanceItemObject",
+            "MaintenanceItemObjectList",
+            "MaintenanceNotification",
+            "MaintObjectLocAcctAssgmtNmbr",
+            "Material",
+            "SerialNumber",
+            "ManufacturerSerialNumber"
+          ]
+        }
       }
     },
     "parameters": {
@@ -6925,6 +6561,231 @@
         "description": "Search items by search phrases, see [Searching](https://wiki.scn.sap.com/wiki/display/EmTech/SAP+Annotations+for+OData+Version+2.0#SAPAnnotationsforODataVersion2.0-Query_Option_searchQueryOptionsearch)",
         "schema": {
           "type": "string"
+        }
+      },
+      "A_InbDeliveryDocFlowByKeySelectOptions": {
+        "name": "$select",
+        "in": "query",
+        "description": "Select properties to be returned, see [Select](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=68)",
+        "explode": false,
+        "schema": {
+          "$ref": "#/components/schemas/A_InbDeliveryDocFlowByKeySelectOptions"
+        }
+      },
+      "A_InbDeliveryHeaderOrderByOptions": {
+        "name": "$orderby",
+        "in": "query",
+        "description": "Order items by property values, see [Sorting](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=65)",
+        "explode": false,
+        "schema": {
+          "$ref": "#/components/schemas/A_InbDeliveryHeaderOrderByOptions"
+        }
+      },
+      "A_InbDeliveryHeaderSelectOptions": {
+        "name": "$select",
+        "in": "query",
+        "description": "Select properties to be returned, see [Select](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=68)",
+        "explode": false,
+        "schema": {
+          "$ref": "#/components/schemas/A_InbDeliveryHeaderSelectOptions"
+        }
+      },
+      "A_InbDeliveryHeaderExpandOptions": {
+        "name": "$expand",
+        "in": "query",
+        "description": "Expand related entities, see [Expand](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=63)",
+        "explode": false,
+        "schema": {
+          "$ref": "#/components/schemas/A_InbDeliveryHeaderExpandOptions"
+        }
+      },
+      "A_InbDeliveryHeaderByKeySelectOptions": {
+        "name": "$select",
+        "in": "query",
+        "description": "Select properties to be returned, see [Select](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=68)",
+        "explode": false,
+        "schema": {
+          "$ref": "#/components/schemas/A_InbDeliveryHeaderSelectOptions"
+        }
+      },
+      "A_InbDeliveryHeaderByKeyExpandOptions": {
+        "name": "$expand",
+        "in": "query",
+        "description": "Expand related entities, see [Expand](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=63)",
+        "explode": false,
+        "schema": {
+          "$ref": "#/components/schemas/A_InbDeliveryHeaderExpandOptions"
+        }
+      },
+      "DeliveryDocumentTextOfA_InbDeliveryHeaderSelectOptions": {
+        "name": "$select",
+        "in": "query",
+        "description": "Select properties to be returned, see [Select](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=68)",
+        "explode": false,
+        "schema": {
+          "$ref": "#/components/schemas/DeliveryDocumentTextOfA_InbDeliveryHeaderSelectOptions"
+        }
+      },
+      "DeliveryDocumentItemOfA_InbDeliveryHeaderOrderByOptions": {
+        "name": "$orderby",
+        "in": "query",
+        "description": "Order items by property values, see [Sorting](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=65)",
+        "explode": false,
+        "schema": {
+          "$ref": "#/components/schemas/DeliveryDocumentItemOfA_InbDeliveryHeaderOrderByOptions"
+        }
+      },
+      "DeliveryDocumentItemOfA_InbDeliveryHeaderSelectOptions": {
+        "name": "$select",
+        "in": "query",
+        "description": "Select properties to be returned, see [Select](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=68)",
+        "explode": false,
+        "schema": {
+          "$ref": "#/components/schemas/DeliveryDocumentItemOfA_InbDeliveryHeaderSelectOptions"
+        }
+      },
+      "DeliveryDocumentItemOfA_InbDeliveryHeaderExpandOptions": {
+        "name": "$expand",
+        "in": "query",
+        "description": "Expand related entities, see [Expand](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=63)",
+        "explode": false,
+        "schema": {
+          "$ref": "#/components/schemas/DeliveryDocumentItemOfA_InbDeliveryHeaderExpandOptions"
+        }
+      },
+      "DeliveryDocumentPartnerOfA_InbDeliveryHeaderOrderByOptions": {
+        "name": "$orderby",
+        "in": "query",
+        "description": "Order items by property values, see [Sorting](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=65)",
+        "explode": false,
+        "schema": {
+          "$ref": "#/components/schemas/DeliveryDocumentPartnerOfA_InbDeliveryHeaderOrderByOptions"
+        }
+      },
+      "DeliveryDocumentPartnerOfA_InbDeliveryHeaderSelectOptions": {
+        "name": "$select",
+        "in": "query",
+        "description": "Select properties to be returned, see [Select](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=68)",
+        "explode": false,
+        "schema": {
+          "$ref": "#/components/schemas/DeliveryDocumentPartnerOfA_InbDeliveryHeaderSelectOptions"
+        }
+      },
+      "DeliveryDocumentPartnerOfA_InbDeliveryHeaderExpandOptions": {
+        "name": "$expand",
+        "in": "query",
+        "description": "Expand related entities, see [Expand](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=63)",
+        "explode": false,
+        "schema": {
+          "$ref": "#/components/schemas/DeliveryDocumentPartnerOfA_InbDeliveryHeaderExpandOptions"
+        }
+      },
+      "A_InbDeliveryItemOrderByOptions": {
+        "name": "$orderby",
+        "in": "query",
+        "description": "Order items by property values, see [Sorting](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=65)",
+        "explode": false,
+        "schema": {
+          "$ref": "#/components/schemas/A_InbDeliveryItemOrderByOptions"
+        }
+      },
+      "A_InbDeliveryItemSelectOptions": {
+        "name": "$select",
+        "in": "query",
+        "description": "Select properties to be returned, see [Select](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=68)",
+        "explode": false,
+        "schema": {
+          "$ref": "#/components/schemas/A_InbDeliveryItemSelectOptions"
+        }
+      },
+      "A_InbDeliveryItemExpandOptions": {
+        "name": "$expand",
+        "in": "query",
+        "description": "Expand related entities, see [Expand](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=63)",
+        "explode": false,
+        "schema": {
+          "$ref": "#/components/schemas/A_InbDeliveryItemExpandOptions"
+        }
+      },
+      "A_InbDeliveryItemByKeySelectOptions": {
+        "name": "$select",
+        "in": "query",
+        "description": "Select properties to be returned, see [Select](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=68)",
+        "explode": false,
+        "schema": {
+          "$ref": "#/components/schemas/A_InbDeliveryItemSelectOptions"
+        }
+      },
+      "A_InbDeliveryItemByKeyExpandOptions": {
+        "name": "$expand",
+        "in": "query",
+        "description": "Expand related entities, see [Expand](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=63)",
+        "explode": false,
+        "schema": {
+          "$ref": "#/components/schemas/A_InbDeliveryItemExpandOptions"
+        }
+      },
+      "SerialDeliveryItemOfA_InbDeliveryItemSelectOptions": {
+        "name": "$select",
+        "in": "query",
+        "description": "Select properties to be returned, see [Select](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=68)",
+        "explode": false,
+        "schema": {
+          "$ref": "#/components/schemas/SerialDeliveryItemOfA_InbDeliveryItemSelectOptions"
+        }
+      },
+      "SerialDeliveryItemOfA_InbDeliveryItemExpandOptions": {
+        "name": "$expand",
+        "in": "query",
+        "description": "Expand related entities, see [Expand](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=63)",
+        "explode": false,
+        "schema": {
+          "$ref": "#/components/schemas/SerialDeliveryItemOfA_InbDeliveryItemExpandOptions"
+        }
+      },
+      "DocumentFlowOfA_InbDeliveryItemOrderByOptions": {
+        "name": "$orderby",
+        "in": "query",
+        "description": "Order items by property values, see [Sorting](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=65)",
+        "explode": false,
+        "schema": {
+          "$ref": "#/components/schemas/DocumentFlowOfA_InbDeliveryItemOrderByOptions"
+        }
+      },
+      "DocumentFlowOfA_InbDeliveryItemSelectOptions": {
+        "name": "$select",
+        "in": "query",
+        "description": "Select properties to be returned, see [Select](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=68)",
+        "explode": false,
+        "schema": {
+          "$ref": "#/components/schemas/DocumentFlowOfA_InbDeliveryItemSelectOptions"
+        }
+      },
+      "DeliveryDocumentItemTextOfA_InbDeliveryItemSelectOptions": {
+        "name": "$select",
+        "in": "query",
+        "description": "Select properties to be returned, see [Select](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=68)",
+        "explode": false,
+        "schema": {
+          "$ref": "#/components/schemas/DeliveryDocumentItemTextOfA_InbDeliveryItemSelectOptions"
+        }
+      },
+      "AddressOfA_InbDeliveryPartnerSelectOptions": {
+        "name": "$select",
+        "in": "query",
+        "description": "Select properties to be returned, see [Select](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=68)",
+        "explode": false,
+        "schema": {
+          "$ref": "#/components/schemas/AddressOfA_InbDeliveryPartnerSelectOptions"
+        }
+      },
+      "MaintenanceItemObjectOfA_InbDeliverySerialNmbrSelectOptions": {
+        "name": "$select",
+        "in": "query",
+        "description": "Select properties to be returned, see [Select](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=68)",
+        "explode": false,
+        "schema": {
+          "$ref": "#/components/schemas/MaintenanceItemObjectOfA_InbDeliverySerialNmbrSelectOptions"
         }
       }
     },
