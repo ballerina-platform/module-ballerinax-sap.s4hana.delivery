@@ -27,7 +27,7 @@ description = 'Ballerina - SAP S/4HANA Manage Location API'
 def packageName = "sap.s4hana.ce_managelocation_0001"
 def moduleVersion = project.ce_managelocation_0001Version.replace("-SNAPSHOT", "")
 def ballerinaTomlFile = file("${project.projectDir}/Ballerina.toml")
-def ballerinaTomlFilePlaceHolder = new File("${project.rootDir}/build-config/resources/BallerinaDelivery.toml")
+def ballerinaTomlFilePlaceHolder = new File("${project.rootDir}/build-config/resources/BallerinaTransportation.toml")
 
 ballerina {
     packageOrganization = project.ext.packageOrg

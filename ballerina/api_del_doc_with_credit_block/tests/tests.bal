@@ -73,10 +73,10 @@ function testListA_CreditBlockedDeliveryDocs() returns error? {
 @test:Config {
 }
 function testCreateCheckCreditBlock() returns error? {
-    ReturnMessage_1|error checkCreditBlock = s4HanaClient->createCheckCreditBlock({},{
-        DeliveryDocument:"123456",
-        SDDocumentCategory:"123456"
-        });
+    ReturnMessage_1|error checkCreditBlock = s4HanaClient->createCheckCreditBlock({}, {
+        DeliveryDocument: "123456",
+        SDDocumentCategory: "123456"
+    });
     test:assertTrue(checkCreditBlock is error, "The check credit block response expected to be 500");
     error e = <error>checkCreditBlock;
     test:assertEquals(e.detail()["statusCode"], 500, "Expected 500 status code");

@@ -74,13 +74,13 @@ function testListA_ReturnsDeliveryItem() returns error? {
 @test:Config {
 }
 function testCreateBatchSplitItem() returns error? {
-    CreatedDeliveryItem_1|error batchSplitItem = s4HanaClient->createCreateBatchSplitItem({},{
-      DeliveryQuantityUnit:"12345",
-      ActualDeliveryQuantity:"12345",
-      Batch:"12345",
-      DeliveryDocument:"12345",
-      DeliveryDocumentItem:"12345"
-        });
+    CreatedDeliveryItem_1|error batchSplitItem = s4HanaClient->createCreateBatchSplitItem({}, {
+        DeliveryQuantityUnit: "12345",
+        ActualDeliveryQuantity: "12345",
+        Batch: "12345",
+        DeliveryDocument: "12345",
+        DeliveryDocumentItem: "12345"
+    });
     test:assertTrue(batchSplitItem is error, "The check credit block response expected to be 500");
     error e = <error>batchSplitItem;
     test:assertEquals(e.detail()["statusCode"], 500, "Expected 500 status code");

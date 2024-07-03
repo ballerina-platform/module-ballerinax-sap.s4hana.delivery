@@ -18,7 +18,7 @@ listener http:Listener ep0 = new (9090,
 
 service /sap/opu/odata/sap/API_CV_ATTACHMENT_SRV on ep0 {
 
-     resource function head .() returns http:Response {
+    resource function head .() returns http:Response {
         http:Response res = new;
         res.statusCode = 200;
         res.setHeader("X-CSRF-TOKEN", "SAP-InfoRecord-Process");
@@ -38,7 +38,7 @@ service /sap/opu/odata/sap/API_CV_ATTACHMENT_SRV on ep0 {
     # http:Ok (Retrieved entities)
     # http:Response (Error)
     resource function get A_DocumentInfoRecordAttch(int? \$top, int? \$skip, string? \$filter, "allpages"|"none"? \$inlinecount, A_DocumentInfoRecordAttchOrderByOptions? \$orderby, A_DocumentInfoRecordAttchSelectOptions? \$select, A_DocumentInfoRecordAttchExpandOptions? \$expand) returns CollectionOfA_DocumentInfoRecordAttchWrapper|http:Response {
-         return {
+        return {
             d: {
                 results: [
                     {

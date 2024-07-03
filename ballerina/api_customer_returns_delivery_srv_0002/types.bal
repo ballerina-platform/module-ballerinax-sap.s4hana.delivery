@@ -27,25 +27,9 @@ public type UpdateA_ReturnsDeliveryItem record {
     string? ShelfLifeExpirationDate?;
 };
 
-public type CreatedDeliveryItem_1_d record {
-    CreatedDeliveryItem CreateBatchSplitItem?;
+public type PostGoodsReceiptWrapper record {
+    Collection\ of\ PutawayReport d?;
 };
-
-public type CreateA_ReturnsDeliveryItem record {
-    string? ActualDeliveryQuantity?;
-    string? Batch?;
-    @constraint:String {maxLength: 10}
-    string DeliveryDocument;
-    string? DeliveryQuantityUnit?;
-    string? ManufactureDate?;
-    string? ReferenceSDDocument?;
-    string? ReferenceSDDocumentItem?;
-    string? ShelfLifeExpirationDate?;
-    CreateA_ReturnsDeliverySrlNmbr? to_SerialDeliveryItem?;
-    CreateA_ReturnsDeliveryItem_to_DocumentFlow to_DocumentFlow?;
-};
-
-public type MaintenanceItemObjectOfA_ReturnsDeliverySrlNmbrSelectOptions ("Assembly"|"Equipment"|"FunctionalLocation"|"MaintenanceItemObject"|"MaintenanceItemObjectList"|"MaintenanceNotification"|"MaintObjectLocAcctAssgmtNmbr"|"Material"|"SerialNumber")[];
 
 public type A_ReturnsDeliveryDocFlow record {
     string? DeliveryVersion?;
@@ -61,33 +45,6 @@ public type A_ReturnsDeliveryDocFlow record {
     @constraint:String {maxLength: 4}
     string SubsequentDocumentCategory?;
     boolean? TransferOrderInWrhsMgmtIsConfd?;
-};
-
-# Represents the Queries record for the operation: createCreateBatchSplitItem
-public type CreateCreateBatchSplitItemQueries record {
-    # Value needs to be enclosed in single quotes
-    @constraint:String {maxLength: 12, pattern: re `^'[^']*(''[^']*)*'$`}
-    string DeliveryDocument;
-    # Value needs to be enclosed in single quotes
-    @constraint:String {maxLength: 8, pattern: re `^'[^']*(''[^']*)*'$`}
-    string DeliveryDocumentItem;
-    # Value needs to be enclosed in single quotes
-    @constraint:String {maxLength: 12, pattern: re `^'[^']*(''[^']*)*'$`}
-    string Batch;
-    # Time Stamp  
-    # (Value needs to be enclosed in single quotes and prefixed with `datetime`, e.g. `datetime'2017-12-31T00:00'`)
-    string? ManufactureDate?;
-    # Value needs to be suffixed with `M`
-    @constraint:String {pattern: re `^[-]?[0-9]+(\.[0-9]+)?[mM]$`}
-    string ActualDeliveryQuantity;
-    # Time Stamp  
-    # (Value needs to be enclosed in single quotes and prefixed with `datetime`, e.g. `datetime'2017-12-31T00:00'`)
-    string? ShelfLifeExpirationDate?;
-    # Value needs to be suffixed with `M`
-    string? PickQuantityInSalesUOM?;
-    # Value needs to be enclosed in single quotes
-    @constraint:String {maxLength: 5, pattern: re `^'[^']*(''[^']*)*'$`}
-    string DeliveryQuantityUnit;
 };
 
 public type CreateA_ReturnsDeliveryHeader record {
@@ -146,41 +103,13 @@ public type DeliveryMessage record {
 
 public type DocumentFlowOfA_ReturnsDeliveryItemSelectOptions ("DeliveryVersion"|"PrecedingDocument"|"PrecedingDocumentCategory"|"PrecedingDocumentItem"|"Subsequentdocument"|"QuantityInBaseUnit"|"SubsequentDocumentItem"|"SDFulfillmentCalculationRule"|"SubsequentDocumentCategory"|"TransferOrderInWrhsMgmtIsConfd")[];
 
-# Represents the Queries record for the operation: createPutawayOneItemWithBaseQuantity
-public type CreatePutawayOneItemWithBaseQuantityQueries record {
-    # Delivery  
-    # (Value needs to be enclosed in single quotes)
-    @constraint:String {maxLength: 12, pattern: re `^'[^']*(''[^']*)*'$`}
-    string DeliveryDocument;
-    # Item  
-    # (Value needs to be enclosed in single quotes)
-    @constraint:String {maxLength: 8, pattern: re `^'[^']*(''[^']*)*'$`}
-    string DeliveryDocumentItem;
-    # Qty (stckp.unt)  
-    # (Value needs to be suffixed with `M`)
-    @constraint:String {pattern: re `^[-]?[0-9]+(\.[0-9]+)?[mM]$`}
-    string ActualDeliveredQtyInBaseUnit;
-    # Base Unit  
-    # (Value needs to be enclosed in single quotes)
-    @constraint:String {maxLength: 5, pattern: re `^'[^']*(''[^']*)*'$`}
-    string BaseUnit;
-};
-
-# Represents the Queries record for the operation: listDeliveryDocumentPartnersOfA_ReturnsDeliveryHeader
-public type ListDeliveryDocumentPartnersOfA_ReturnsDeliveryHeaderQueries record {
-    # Filter items by property values, see [Filtering](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=64)
-    string \$filter?;
-    # Expand related entities, see [Expand](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=63)
-    DeliveryDocumentPartnerOfA_ReturnsDeliveryHeaderExpandOptions \$expand?;
-    # Include count of items, see [Inlinecount](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=67)
-    "allpages"|"none" \$inlinecount?;
-    # Select properties to be returned, see [Select](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=68)
-    DeliveryDocumentPartnerOfA_ReturnsDeliveryHeaderSelectOptions \$select?;
-};
-
 public type CreateA_ReturnsDeliveryMaintObj record {
     @constraint:String {maxLength: 18}
     string SerialNumber?;
+};
+
+public type ConfirmPutawayOneItemWrapper record {
+    Collection\ of\ PutawayReport d?;
 };
 
 public type A_ReturnsDeliveryHeaderWrapper record {
@@ -191,39 +120,8 @@ public type CollectionOfA_ReturnsDeliveryPartnerWrapper record {
     CollectionOfA_ReturnsDeliveryPartner d?;
 };
 
-public type CollectionOfA_ReturnsDeliveryDocFlow record {
-    count __count?;
-    A_ReturnsDeliveryDocFlow[] results?;
-};
-
-public type A_ReturnsDeliveryDocFlowWrapper record {
-    A_ReturnsDeliveryDocFlow d?;
-};
-
 public type A_ReturnsDeliverySrlNmbrWrapper record {
     A_ReturnsDeliverySrlNmbr d?;
-};
-
-public type A_ReturnsDeliveryPartner record {
-    @constraint:String {maxLength: 10}
-    string AddressID?;
-    string BusinessPartnerAddressUUID?;
-    string RefBusinessPartnerAddressUUID?;
-    @constraint:String {maxLength: 10}
-    string ContactPerson?;
-    @constraint:String {maxLength: 10}
-    string Customer?;
-    @constraint:String {maxLength: 2}
-    string PartnerFunction?;
-    @constraint:String {maxLength: 8}
-    string Personnel?;
-    @constraint:String {maxLength: 10}
-    string SDDocument?;
-    @constraint:String {maxLength: 6}
-    string SDDocumentItem?;
-    @constraint:String {maxLength: 10}
-    string Supplier?;
-    A_ReturnsDeliveryAddress to_Address?;
 };
 
 public type CollectionOfA_ReturnsDeliveryItem record {
@@ -232,6 +130,10 @@ public type CollectionOfA_ReturnsDeliveryItem record {
 };
 
 public type A_ReturnsDeliveryHeaderOrderByOptions ("ActualDeliveryRoute"|"ActualDeliveryRoute desc"|"ActualGoodsMovementDate"|"ActualGoodsMovementDate desc"|"ActualGoodsMovementTime"|"ActualGoodsMovementTime desc"|"BillingDocumentDate"|"BillingDocumentDate desc"|"BillOfLading"|"BillOfLading desc"|"CompleteDeliveryIsDefined"|"CompleteDeliveryIsDefined desc"|"ConfirmationTime"|"ConfirmationTime desc"|"CreatedByUser"|"CreatedByUser desc"|"CreationDate"|"CreationDate desc"|"CreationTime"|"CreationTime desc"|"CustomerGroup"|"CustomerGroup desc"|"DeliveryBlockReason"|"DeliveryBlockReason desc"|"DeliveryDate"|"DeliveryDate desc"|"DeliveryDocument"|"DeliveryDocument desc"|"DeliveryDocumentBySupplier"|"DeliveryDocumentBySupplier desc"|"DeliveryDocumentType"|"DeliveryDocumentType desc"|"DeliveryIsInPlant"|"DeliveryIsInPlant desc"|"DeliveryPriority"|"DeliveryPriority desc"|"DeliveryTime"|"DeliveryTime desc"|"DeliveryVersion"|"DeliveryVersion desc"|"DepreciationPercentage"|"DepreciationPercentage desc"|"DistrStatusByDecentralizedWrhs"|"DistrStatusByDecentralizedWrhs desc"|"DocumentDate"|"DocumentDate desc"|"ExternalIdentificationType"|"ExternalIdentificationType desc"|"ExternalTransportSystem"|"ExternalTransportSystem desc"|"FactoryCalendarByCustomer"|"FactoryCalendarByCustomer desc"|"GoodsIssueOrReceiptSlipNumber"|"GoodsIssueOrReceiptSlipNumber desc"|"GoodsIssueTime"|"GoodsIssueTime desc"|"HandlingUnitInStock"|"HandlingUnitInStock desc"|"HdrGeneralIncompletionStatus"|"HdrGeneralIncompletionStatus desc"|"HdrGoodsMvtIncompletionStatus"|"HdrGoodsMvtIncompletionStatus desc"|"HeaderBillgIncompletionStatus"|"HeaderBillgIncompletionStatus desc"|"HeaderBillingBlockReason"|"HeaderBillingBlockReason desc"|"HeaderDelivIncompletionStatus"|"HeaderDelivIncompletionStatus desc"|"HeaderGrossWeight"|"HeaderGrossWeight desc"|"HeaderNetWeight"|"HeaderNetWeight desc"|"HeaderPackingIncompletionSts"|"HeaderPackingIncompletionSts desc"|"HeaderPickgIncompletionStatus"|"HeaderPickgIncompletionStatus desc"|"HeaderVolume"|"HeaderVolume desc"|"HeaderVolumeUnit"|"HeaderVolumeUnit desc"|"HeaderWeightUnit"|"HeaderWeightUnit desc"|"IncotermsClassification"|"IncotermsClassification desc"|"IncotermsTransferLocation"|"IncotermsTransferLocation desc"|"IntercompanyBillingDate"|"IntercompanyBillingDate desc"|"InternalFinancialDocument"|"InternalFinancialDocument desc"|"IsDeliveryForSingleWarehouse"|"IsDeliveryForSingleWarehouse desc"|"IsExportDelivery"|"IsExportDelivery desc"|"LastChangeDate"|"LastChangeDate desc"|"LastChangedByUser"|"LastChangedByUser desc"|"LoadingDate"|"LoadingDate desc"|"LoadingPoint"|"LoadingPoint desc"|"LoadingTime"|"LoadingTime desc"|"MeansOfTransport"|"MeansOfTransport desc"|"MeansOfTransportRefMaterial"|"MeansOfTransportRefMaterial desc"|"MeansOfTransportType"|"MeansOfTransportType desc"|"OrderCombinationIsAllowed"|"OrderCombinationIsAllowed desc"|"OrderID"|"OrderID desc"|"OverallDelivConfStatus"|"OverallDelivConfStatus desc"|"OverallDelivReltdBillgStatus"|"OverallDelivReltdBillgStatus desc"|"OverallGoodsMovementStatus"|"OverallGoodsMovementStatus desc"|"OverallIntcoBillingStatus"|"OverallIntcoBillingStatus desc"|"OverallPackingStatus"|"OverallPackingStatus desc"|"OverallPickingConfStatus"|"OverallPickingConfStatus desc"|"OverallPickingStatus"|"OverallPickingStatus desc"|"OverallProofOfDeliveryStatus"|"OverallProofOfDeliveryStatus desc"|"OverallSDProcessStatus"|"OverallSDProcessStatus desc"|"OverallWarehouseActivityStatus"|"OverallWarehouseActivityStatus desc"|"OvrlItmDelivIncompletionSts"|"OvrlItmDelivIncompletionSts desc"|"OvrlItmGdsMvtIncompletionSts"|"OvrlItmGdsMvtIncompletionSts desc"|"OvrlItmGeneralIncompletionSts"|"OvrlItmGeneralIncompletionSts desc"|"OvrlItmPackingIncompletionSts"|"OvrlItmPackingIncompletionSts desc"|"OvrlItmPickingIncompletionSts"|"OvrlItmPickingIncompletionSts desc"|"PaymentGuaranteeProcedure"|"PaymentGuaranteeProcedure desc"|"PickedItemsLocation"|"PickedItemsLocation desc"|"PickingDate"|"PickingDate desc"|"PickingTime"|"PickingTime desc"|"PlannedGoodsIssueDate"|"PlannedGoodsIssueDate desc"|"ProofOfDeliveryDate"|"ProofOfDeliveryDate desc"|"ProposedDeliveryRoute"|"ProposedDeliveryRoute desc"|"ReceivingLocationTimeZone"|"ReceivingLocationTimeZone desc"|"ReceivingPlant"|"ReceivingPlant desc"|"RouteSchedule"|"RouteSchedule desc"|"SalesDistrict"|"SalesDistrict desc"|"SalesOffice"|"SalesOffice desc"|"SalesOrganization"|"SalesOrganization desc"|"SDDocumentCategory"|"SDDocumentCategory desc"|"ShipmentBlockReason"|"ShipmentBlockReason desc"|"ShippingCondition"|"ShippingCondition desc"|"ShippingPoint"|"ShippingPoint desc"|"ShippingType"|"ShippingType desc"|"ShipToParty"|"ShipToParty desc"|"SoldToParty"|"SoldToParty desc"|"SpecialProcessingCode"|"SpecialProcessingCode desc"|"StatisticsCurrency"|"StatisticsCurrency desc"|"Supplier"|"Supplier desc"|"TotalBlockStatus"|"TotalBlockStatus desc"|"TotalCreditCheckStatus"|"TotalCreditCheckStatus desc"|"TotalNumberOfPackage"|"TotalNumberOfPackage desc"|"TransactionCurrency"|"TransactionCurrency desc"|"TransportationGroup"|"TransportationGroup desc"|"TransportationPlanningDate"|"TransportationPlanningDate desc"|"TransportationPlanningStatus"|"TransportationPlanningStatus desc"|"TransportationPlanningTime"|"TransportationPlanningTime desc"|"UnloadingPointName"|"UnloadingPointName desc"|"Warehouse"|"Warehouse desc"|"WarehouseGate"|"WarehouseGate desc"|"WarehouseStagingArea"|"WarehouseStagingArea desc")[];
+
+public type PutawayOneItemWithBaseQuantityWrapper record {
+    Collection\ of\ PutawayReport d?;
+};
 
 public type A_ReturnsDeliveryItemWrapper record {
     A_ReturnsDeliveryItem d?;
@@ -255,39 +157,6 @@ public type CreatePutawayOneItemWithSalesQuantityQueries record {
     # (Value needs to be enclosed in single quotes)
     @constraint:String {maxLength: 5, pattern: re `^'[^']*(''[^']*)*'$`}
     string DeliveryQuantityUnit;
-};
-
-public type A_ReturnsDeliveryItemSelectOptions ("ActualDeliveredQtyInBaseUnit"|"ActualDeliveryQuantity"|"AdditionalCustomerGroup1"|"AdditionalCustomerGroup2"|"DeliveryVersion"|"AdditionalCustomerGroup3"|"AdditionalCustomerGroup4"|"AdditionalCustomerGroup5"|"AdditionalMaterialGroup1"|"AdditionalMaterialGroup2"|"AdditionalMaterialGroup3"|"AdditionalMaterialGroup4"|"AdditionalMaterialGroup5"|"AlternateProductNumber"|"BaseUnit"|"Batch"|"BatchBySupplier"|"BatchClassification"|"BOMExplosion"|"BusinessArea"|"ConsumptionPosting"|"ControllingArea"|"CostCenter"|"CreatedByUser"|"CreationDate"|"CreationTime"|"CustEngineeringChgStatus"|"DeliveryDocument"|"DeliveryDocumentItem"|"DeliveryDocumentItemCategory"|"DeliveryDocumentItemText"|"DeliveryGroup"|"DeliveryQuantityUnit"|"DeliveryRelatedBillingStatus"|"DeliveryToBaseQuantityDnmntr"|"DeliveryToBaseQuantityNmrtr"|"DepartmentClassificationByCust"|"DistributionChannel"|"Division"|"FixedShipgProcgDurationInDays"|"GLAccount"|"GoodsMovementReasonCode"|"GoodsMovementStatus"|"GoodsMovementType"|"HigherLevelItem"|"HigherLvlItmOfBatSpltItm"|"InspectionLot"|"InspectionPartialLot"|"IntercompanyBillingStatus"|"InternationalArticleNumber"|"InventorySpecialStockType"|"InventoryValuationType"|"IsCompletelyDelivered"|"IsNotGoodsMovementsRelevant"|"IsSeparateValuation"|"IssgOrRcvgBatch"|"IssgOrRcvgMaterial"|"IssgOrRcvgSpclStockInd"|"IssgOrRcvgStockCategory"|"IssgOrRcvgValuationType"|"IssuingOrReceivingPlant"|"IssuingOrReceivingStorageLoc"|"ItemBillingBlockReason"|"ItemBillingIncompletionStatus"|"ItemDeliveryIncompletionStatus"|"ItemGdsMvtIncompletionSts"|"ItemGeneralIncompletionStatus"|"ItemGrossWeight"|"ItemIsBillingRelevant"|"ItemNetWeight"|"ItemPackingIncompletionStatus"|"ItemPickingIncompletionStatus"|"ItemVolume"|"ItemVolumeUnit"|"ItemWeightUnit"|"LastChangeDate"|"LoadingGroup"|"ManufactureDate"|"Material"|"MaterialByCustomer"|"MaterialFreightGroup"|"MaterialGroup"|"MaterialIsBatchManaged"|"MaterialIsIntBatchManaged"|"NumberOfSerialNumbers"|"OrderID"|"OrderItem"|"OriginalDeliveryQuantity"|"OriginallyRequestedMaterial"|"OverdelivTolrtdLmtRatioInPct"|"PackingStatus"|"PartialDeliveryIsAllowed"|"PaymentGuaranteeForm"|"PickingConfirmationStatus"|"PickingControl"|"PickingStatus"|"Plant"|"PrimaryPostingSwitch"|"ProductAvailabilityDate"|"ProductAvailabilityTime"|"ProductConfiguration"|"ProductHierarchyNode"|"ProfitabilitySegment"|"ProfitCenter"|"ProofOfDeliveryRelevanceCode"|"ProofOfDeliveryStatus"|"QuantityIsFixed"|"ReceivingPoint"|"ReferenceDocumentLogicalSystem"|"ReferenceSDDocument"|"ReferenceSDDocumentCategory"|"ReferenceSDDocumentItem"|"RetailPromotion"|"SalesDocumentItemType"|"SalesGroup"|"SalesOffice"|"SDDocumentCategory"|"SDProcessStatus"|"ShelfLifeExpirationDate"|"StatisticsDate"|"StockType"|"StorageBin"|"StorageLocation"|"StorageType"|"SubsequentMovementType"|"TransportationGroup"|"UnderdelivTolrtdLmtRatioInPct"|"UnlimitedOverdeliveryIsAllowed"|"VarblShipgProcgDurationInDays"|"Warehouse"|"WarehouseActivityStatus"|"WarehouseStagingArea"|"WarehouseStockCategory"|"WarehouseStorageBin"|"to_SerialDeliveryItem"|"to_DocumentFlow")[];
-
-# Represents the Queries record for the operation: listDeliveryDocumentItemsOfA_ReturnsDeliveryHeader
-public type ListDeliveryDocumentItemsOfA_ReturnsDeliveryHeaderQueries record {
-    # Skip the first n items, see [Paging - Skip](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=65)
-    int \$skip?;
-    # Search items by search phrases, see [Searching](https://wiki.scn.sap.com/wiki/display/EmTech/SAP+Annotations+for+OData+Version+2.0#SAPAnnotationsforODataVersion2.0-Query_Option_searchQueryOptionsearch)
-    string search?;
-    # Show only the first n items, see [Paging - Top](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=66)
-    int \$top?;
-    # Filter items by property values, see [Filtering](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=64)
-    string \$filter?;
-    # Order items by property values, see [Sorting](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=65)
-    DeliveryDocumentItemOfA_ReturnsDeliveryHeaderOrderByOptions \$orderby?;
-    # Expand related entities, see [Expand](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=63)
-    DeliveryDocumentItemOfA_ReturnsDeliveryHeaderExpandOptions \$expand?;
-    # Include count of items, see [Inlinecount](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=67)
-    "allpages"|"none" \$inlinecount?;
-    # Select properties to be returned, see [Select](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=68)
-    DeliveryDocumentItemOfA_ReturnsDeliveryHeaderSelectOptions \$select?;
-};
-
-# Represents the Queries record for the operation: createPostGoodsReceipt
-public type CreatePostGoodsReceiptQueries record {
-    # Delivery  
-    # (Value needs to be enclosed in single quotes)
-    @constraint:String {maxLength: 12, pattern: re `^'[^']*(''[^']*)*'$`}
-    string DeliveryDocument;
-    # Actual GI Date  
-    # (Value needs to be enclosed in single quotes and prefixed with `datetime`, e.g. `datetime'2017-12-31T00:00'`)
-    string? ActualGoodsMovementDate?;
 };
 
 # Provides a set of configurations for controlling the behaviours when communicating with a remote HTTP endpoint.
@@ -466,6 +335,340 @@ public type A_ReturnsDeliveryItem record {
     A_ReturnsDeliveryItem_to_DocumentFlow to_DocumentFlow?;
 };
 
+public type A_ReturnsDeliveryItemExpandOptions ("to_SerialDeliveryItem"|"to_DocumentFlow")[];
+
+public type CollectionOfA_ReturnsDeliveryPartner record {
+    count __count?;
+    A_ReturnsDeliveryPartner[] results?;
+};
+
+# Represents the Queries record for the operation: createConfirmPutawayAllItems
+public type CreateConfirmPutawayAllItemsQueries record {
+    # Delivery  
+    # (Value needs to be enclosed in single quotes)
+    @constraint:String {maxLength: 12, pattern: re `^'[^']*(''[^']*)*'$`}
+    string DeliveryDocument;
+};
+
+public type SerialDeliveryItemOfA_ReturnsDeliveryItemSelectOptions ("DeliveryDate"|"DeliveryDocument"|"DeliveryDocumentItem"|"MaintenanceItemObjectList"|"SDDocumentCategory"|"to_MaintenanceItemObject")[];
+
+public type UpdateA_ReturnsDeliveryHeader record {
+    string? ActualGoodsMovementDate?;
+    string? ActualGoodsMovementTime?;
+    string? BillOfLading?;
+    string? CreationDate?;
+    string? CreationTime?;
+    string? DeliveryBlockReason?;
+    string? DeliveryDate?;
+    string? DeliveryDocumentBySupplier?;
+    string? DeliveryPriority?;
+    string? DeliveryTime?;
+    string? GoodsIssueTime?;
+    string? HeaderGrossWeight?;
+    string? HeaderNetWeight?;
+    string? HeaderVolume?;
+    string? HeaderVolumeUnit?;
+    string? HeaderWeightUnit?;
+    string? IncotermsClassification?;
+    string? IncotermsTransferLocation?;
+    string? LoadingDate?;
+    string? LoadingTime?;
+    string? PickingDate?;
+    string? PickingTime?;
+    string? PlannedGoodsIssueDate?;
+    string? ProposedDeliveryRoute?;
+    string? ShippingType?;
+    string? TransportationPlanningDate?;
+    string? TransportationPlanningTime?;
+    string? UnloadingPointName?;
+};
+
+# Represents the Queries record for the operation: createPutawayOneItem
+public type CreatePutawayOneItemQueries record {
+    # Delivery  
+    # (Value needs to be enclosed in single quotes)
+    @constraint:String {maxLength: 12, pattern: re `^'[^']*(''[^']*)*'$`}
+    string DeliveryDocument;
+    # Item  
+    # (Value needs to be enclosed in single quotes)
+    @constraint:String {maxLength: 8, pattern: re `^'[^']*(''[^']*)*'$`}
+    string DeliveryDocumentItem;
+};
+
+public type CreateA_ReturnsDeliveryHeader_to_DeliveryDocumentPartner record {
+    CreateA_ReturnsDeliveryPartner[] results?;
+};
+
+public type AddressOfA_ReturnsDeliveryPartnerSelectOptions ("TransportZone"|"TaxJurisdiction"|"StreetSuffixName"|"StreetSearch"|"StreetPrefixName"|"StreetName"|"SearchTerm1"|"RoomNumber"|"Region"|"PrfrdCommMediumType"|"PostalCode"|"POBoxPostalCode"|"POBoxLobbyName"|"POBoxIsWithoutNumber"|"POBoxDeviatingRegion"|"POBoxDeviatingCountry"|"POBoxDeviatingCityName"|"POBox"|"PhoneNumber"|"Person"|"Nation"|"HouseNumberSupplementText"|"HouseNumber"|"HomeCityName"|"FullName"|"FormOfAddress"|"Floor"|"FaxNumber"|"District"|"DeliveryServiceTypeCode"|"DeliveryServiceNumber"|"County"|"Country"|"CorrespondenceLanguage"|"CompanyPostalCode"|"CitySearch"|"CityName"|"CityCode"|"CareOfName"|"BusinessPartnerName4"|"BusinessPartnerName3"|"BusinessPartnerName2"|"BusinessPartnerName1"|"Building"|"AddressTimeZone"|"AddressID"|"AdditionalStreetSuffixName"|"AdditionalStreetPrefixName")[];
+
+public type CreateA_ReturnsDeliveryPartner record {
+    CreateA_ReturnsDeliveryAddress to_Address?;
+};
+
+public type A_ReturnsDeliveryAddressWrapper record {
+    A_ReturnsDeliveryAddress d?;
+};
+
+public type CreatedDeliveryItem_1 record {
+    CreatedDeliveryItem_1_d d?;
+};
+
+public type A_ReturnsDeliverySrlNmbr record {
+    string DeliveryDate?;
+    @constraint:String {maxLength: 10}
+    string DeliveryDocument?;
+    @constraint:String {maxLength: 6}
+    string DeliveryDocumentItem?;
+    string MaintenanceItemObjectList?;
+    @constraint:String {maxLength: 4}
+    string SDDocumentCategory?;
+    A_ReturnsDeliverySrlNmbr_to_MaintenanceItemObject to_MaintenanceItemObject?;
+};
+
+public type CreateA_ReturnsDeliveryHeader_to_DeliveryDocumentItem record {
+    CreateA_ReturnsDeliveryItem[] results?;
+};
+
+public type CreatedDeliveryItem record {
+    @constraint:String {maxLength: 10}
+    string DeliveryDocument?;
+    @constraint:String {maxLength: 6}
+    string DeliveryDocumentItem?;
+};
+
+public type CreateA_ReturnsDeliveryItem_to_DocumentFlow record {
+    CreateA_ReturnsDeliveryDocFlow[] results?;
+};
+
+public type SetPutawayQuantityWithBaseQuantityWrapper record {
+    Collection\ of\ PutawayReport d?;
+};
+
+public type CollectionOfA_ReturnsDeliveryHeader record {
+    count __count?;
+    A_ReturnsDeliveryHeader[] results?;
+};
+
+public type Collection\ of\ PutawayReport record {
+    count __count?;
+    PutawayReport[] results?;
+};
+
+# Represents the Queries record for the operation: createSetPutawayQuantityWithBaseQuantity
+public type CreateSetPutawayQuantityWithBaseQuantityQueries record {
+    # Delivery  
+    # (Value needs to be enclosed in single quotes)
+    @constraint:String {maxLength: 12, pattern: re `^'[^']*(''[^']*)*'$`}
+    string DeliveryDocument;
+    # Item  
+    # (Value needs to be enclosed in single quotes)
+    @constraint:String {maxLength: 8, pattern: re `^'[^']*(''[^']*)*'$`}
+    string DeliveryDocumentItem;
+    # Qty (stckp.unt)  
+    # (Value needs to be suffixed with `M`)
+    @constraint:String {pattern: re `^[-]?[0-9]+(\.[0-9]+)?[mM]$`}
+    string ActualDeliveredQtyInBaseUnit;
+    # Base Unit  
+    # (Value needs to be enclosed in single quotes)
+    @constraint:String {maxLength: 5, pattern: re `^'[^']*(''[^']*)*'$`}
+    string BaseUnit;
+};
+
+# Represents the Queries record for the operation: listA_ReturnsDeliveryHeaders
+public type ListA_ReturnsDeliveryHeadersQueries record {
+    # Skip the first n items, see [Paging - Skip](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=65)
+    int \$skip?;
+    # Search items by search phrases, see [Searching](https://wiki.scn.sap.com/wiki/display/EmTech/SAP+Annotations+for+OData+Version+2.0#SAPAnnotationsforODataVersion2.0-Query_Option_searchQueryOptionsearch)
+    string search?;
+    # Show only the first n items, see [Paging - Top](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=66)
+    int \$top?;
+    # Filter items by property values, see [Filtering](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=64)
+    string \$filter?;
+    # Order items by property values, see [Sorting](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=65)
+    A_ReturnsDeliveryHeaderOrderByOptions \$orderby?;
+    # Expand related entities, see [Expand](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=63)
+    A_ReturnsDeliveryHeaderExpandOptions \$expand?;
+    # Include count of items, see [Inlinecount](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=67)
+    "allpages"|"none" \$inlinecount?;
+    # Select properties to be returned, see [Select](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=68)
+    A_ReturnsDeliveryHeaderSelectOptions \$select?;
+};
+
+public type A_ReturnsDeliveryHeaderSelectOptions ("ActualDeliveryRoute"|"ActualGoodsMovementDate"|"ActualGoodsMovementTime"|"BillingDocumentDate"|"BillOfLading"|"CompleteDeliveryIsDefined"|"ConfirmationTime"|"CreatedByUser"|"CreationDate"|"CreationTime"|"CustomerGroup"|"DeliveryBlockReason"|"DeliveryDate"|"DeliveryDocument"|"DeliveryDocumentBySupplier"|"DeliveryDocumentType"|"DeliveryIsInPlant"|"DeliveryPriority"|"DeliveryTime"|"DeliveryVersion"|"DepreciationPercentage"|"DistrStatusByDecentralizedWrhs"|"DocumentDate"|"ExternalIdentificationType"|"ExternalTransportSystem"|"FactoryCalendarByCustomer"|"GoodsIssueOrReceiptSlipNumber"|"GoodsIssueTime"|"HandlingUnitInStock"|"HdrGeneralIncompletionStatus"|"HdrGoodsMvtIncompletionStatus"|"HeaderBillgIncompletionStatus"|"HeaderBillingBlockReason"|"HeaderDelivIncompletionStatus"|"HeaderGrossWeight"|"HeaderNetWeight"|"HeaderPackingIncompletionSts"|"HeaderPickgIncompletionStatus"|"HeaderVolume"|"HeaderVolumeUnit"|"HeaderWeightUnit"|"IncotermsClassification"|"IncotermsTransferLocation"|"IntercompanyBillingDate"|"InternalFinancialDocument"|"IsDeliveryForSingleWarehouse"|"IsExportDelivery"|"LastChangeDate"|"LastChangedByUser"|"LoadingDate"|"LoadingPoint"|"LoadingTime"|"MeansOfTransport"|"MeansOfTransportRefMaterial"|"MeansOfTransportType"|"OrderCombinationIsAllowed"|"OrderID"|"OverallDelivConfStatus"|"OverallDelivReltdBillgStatus"|"OverallGoodsMovementStatus"|"OverallIntcoBillingStatus"|"OverallPackingStatus"|"OverallPickingConfStatus"|"OverallPickingStatus"|"OverallProofOfDeliveryStatus"|"OverallSDProcessStatus"|"OverallWarehouseActivityStatus"|"OvrlItmDelivIncompletionSts"|"OvrlItmGdsMvtIncompletionSts"|"OvrlItmGeneralIncompletionSts"|"OvrlItmPackingIncompletionSts"|"OvrlItmPickingIncompletionSts"|"PaymentGuaranteeProcedure"|"PickedItemsLocation"|"PickingDate"|"PickingTime"|"PlannedGoodsIssueDate"|"ProofOfDeliveryDate"|"ProposedDeliveryRoute"|"ReceivingLocationTimeZone"|"ReceivingPlant"|"RouteSchedule"|"SalesDistrict"|"SalesOffice"|"SalesOrganization"|"SDDocumentCategory"|"ShipmentBlockReason"|"ShippingCondition"|"ShippingPoint"|"ShippingType"|"ShipToParty"|"SoldToParty"|"SpecialProcessingCode"|"StatisticsCurrency"|"Supplier"|"TotalBlockStatus"|"TotalCreditCheckStatus"|"TotalNumberOfPackage"|"TransactionCurrency"|"TransportationGroup"|"TransportationPlanningDate"|"TransportationPlanningStatus"|"TransportationPlanningTime"|"UnloadingPointName"|"Warehouse"|"WarehouseGate"|"WarehouseStagingArea"|"to_DeliveryDocumentItem"|"to_DeliveryDocumentPartner")[];
+
+# Represents the Queries record for the operation: listDocumentFlowsOfA_ReturnsDeliveryItem
+public type ListDocumentFlowsOfA_ReturnsDeliveryItemQueries record {
+    # Filter items by property values, see [Filtering](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=64)
+    string \$filter?;
+    # Include count of items, see [Inlinecount](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=67)
+    "allpages"|"none" \$inlinecount?;
+    # Select properties to be returned, see [Select](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=68)
+    DocumentFlowOfA_ReturnsDeliveryItemSelectOptions \$select?;
+};
+
+# Provides settings related to HTTP/1.x protocol.
+public type ClientHttp1Settings record {|
+    # Specifies whether to reuse a connection for multiple requests
+    http:KeepAlive keepAlive = http:KEEPALIVE_AUTO;
+    # The chunking behaviour of the request
+    http:Chunking chunking = http:CHUNKING_AUTO;
+    # Proxy server related options
+    ProxyConfig proxy?;
+|};
+
+public type A_ReturnsDeliveryHeaderExpandOptions ("to_DeliveryDocumentItem"|"to_DeliveryDocumentPartner")[];
+
+public type Modified\ A_ReturnsDeliveryItemType record {
+    UpdateA_ReturnsDeliveryItem d?;
+};
+
+public type CreatedDeliveryItem_1_d record {
+    CreatedDeliveryItem CreateBatchSplitItem?;
+};
+
+public type CreateA_ReturnsDeliveryItem record {
+    string? ActualDeliveryQuantity?;
+    string? Batch?;
+    @constraint:String {maxLength: 10}
+    string DeliveryDocument;
+    string? DeliveryQuantityUnit?;
+    string? ManufactureDate?;
+    string? ReferenceSDDocument?;
+    string? ReferenceSDDocumentItem?;
+    string? ShelfLifeExpirationDate?;
+    CreateA_ReturnsDeliverySrlNmbr? to_SerialDeliveryItem?;
+    CreateA_ReturnsDeliveryItem_to_DocumentFlow to_DocumentFlow?;
+};
+
+public type MaintenanceItemObjectOfA_ReturnsDeliverySrlNmbrSelectOptions ("Assembly"|"Equipment"|"FunctionalLocation"|"MaintenanceItemObject"|"MaintenanceItemObjectList"|"MaintenanceNotification"|"MaintObjectLocAcctAssgmtNmbr"|"Material"|"SerialNumber")[];
+
+# Represents the Queries record for the operation: createCreateBatchSplitItem
+public type CreateCreateBatchSplitItemQueries record {
+    # Value needs to be enclosed in single quotes
+    @constraint:String {maxLength: 12, pattern: re `^'[^']*(''[^']*)*'$`}
+    string DeliveryDocument;
+    # Value needs to be enclosed in single quotes
+    @constraint:String {maxLength: 8, pattern: re `^'[^']*(''[^']*)*'$`}
+    string DeliveryDocumentItem;
+    # Value needs to be enclosed in single quotes
+    @constraint:String {maxLength: 12, pattern: re `^'[^']*(''[^']*)*'$`}
+    string Batch;
+    # Time Stamp  
+    # (Value needs to be enclosed in single quotes and prefixed with `datetime`, e.g. `datetime'2017-12-31T00:00'`)
+    string? ManufactureDate?;
+    # Value needs to be suffixed with `M`
+    @constraint:String {pattern: re `^[-]?[0-9]+(\.[0-9]+)?[mM]$`}
+    string ActualDeliveryQuantity;
+    # Time Stamp  
+    # (Value needs to be enclosed in single quotes and prefixed with `datetime`, e.g. `datetime'2017-12-31T00:00'`)
+    string? ShelfLifeExpirationDate?;
+    # Value needs to be suffixed with `M`
+    string? PickQuantityInSalesUOM?;
+    # Value needs to be enclosed in single quotes
+    @constraint:String {maxLength: 5, pattern: re `^'[^']*(''[^']*)*'$`}
+    string DeliveryQuantityUnit;
+};
+
+# Represents the Queries record for the operation: createPutawayOneItemWithBaseQuantity
+public type CreatePutawayOneItemWithBaseQuantityQueries record {
+    # Delivery  
+    # (Value needs to be enclosed in single quotes)
+    @constraint:String {maxLength: 12, pattern: re `^'[^']*(''[^']*)*'$`}
+    string DeliveryDocument;
+    # Item  
+    # (Value needs to be enclosed in single quotes)
+    @constraint:String {maxLength: 8, pattern: re `^'[^']*(''[^']*)*'$`}
+    string DeliveryDocumentItem;
+    # Qty (stckp.unt)  
+    # (Value needs to be suffixed with `M`)
+    @constraint:String {pattern: re `^[-]?[0-9]+(\.[0-9]+)?[mM]$`}
+    string ActualDeliveredQtyInBaseUnit;
+    # Base Unit  
+    # (Value needs to be enclosed in single quotes)
+    @constraint:String {maxLength: 5, pattern: re `^'[^']*(''[^']*)*'$`}
+    string BaseUnit;
+};
+
+# Represents the Queries record for the operation: listDeliveryDocumentPartnersOfA_ReturnsDeliveryHeader
+public type ListDeliveryDocumentPartnersOfA_ReturnsDeliveryHeaderQueries record {
+    # Filter items by property values, see [Filtering](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=64)
+    string \$filter?;
+    # Expand related entities, see [Expand](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=63)
+    DeliveryDocumentPartnerOfA_ReturnsDeliveryHeaderExpandOptions \$expand?;
+    # Include count of items, see [Inlinecount](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=67)
+    "allpages"|"none" \$inlinecount?;
+    # Select properties to be returned, see [Select](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=68)
+    DeliveryDocumentPartnerOfA_ReturnsDeliveryHeaderSelectOptions \$select?;
+};
+
+public type PutawayOneItemWithSalesQuantityWrapper record {
+    Collection\ of\ PutawayReport d?;
+};
+
+public type CollectionOfA_ReturnsDeliveryDocFlow record {
+    count __count?;
+    A_ReturnsDeliveryDocFlow[] results?;
+};
+
+public type A_ReturnsDeliveryDocFlowWrapper record {
+    A_ReturnsDeliveryDocFlow d?;
+};
+
+public type A_ReturnsDeliveryPartner record {
+    @constraint:String {maxLength: 10}
+    string AddressID?;
+    string BusinessPartnerAddressUUID?;
+    string RefBusinessPartnerAddressUUID?;
+    @constraint:String {maxLength: 10}
+    string ContactPerson?;
+    @constraint:String {maxLength: 10}
+    string Customer?;
+    @constraint:String {maxLength: 2}
+    string PartnerFunction?;
+    @constraint:String {maxLength: 8}
+    string Personnel?;
+    @constraint:String {maxLength: 10}
+    string SDDocument?;
+    @constraint:String {maxLength: 6}
+    string SDDocumentItem?;
+    @constraint:String {maxLength: 10}
+    string Supplier?;
+    A_ReturnsDeliveryAddress to_Address?;
+};
+
+public type A_ReturnsDeliveryItemSelectOptions ("ActualDeliveredQtyInBaseUnit"|"ActualDeliveryQuantity"|"AdditionalCustomerGroup1"|"AdditionalCustomerGroup2"|"DeliveryVersion"|"AdditionalCustomerGroup3"|"AdditionalCustomerGroup4"|"AdditionalCustomerGroup5"|"AdditionalMaterialGroup1"|"AdditionalMaterialGroup2"|"AdditionalMaterialGroup3"|"AdditionalMaterialGroup4"|"AdditionalMaterialGroup5"|"AlternateProductNumber"|"BaseUnit"|"Batch"|"BatchBySupplier"|"BatchClassification"|"BOMExplosion"|"BusinessArea"|"ConsumptionPosting"|"ControllingArea"|"CostCenter"|"CreatedByUser"|"CreationDate"|"CreationTime"|"CustEngineeringChgStatus"|"DeliveryDocument"|"DeliveryDocumentItem"|"DeliveryDocumentItemCategory"|"DeliveryDocumentItemText"|"DeliveryGroup"|"DeliveryQuantityUnit"|"DeliveryRelatedBillingStatus"|"DeliveryToBaseQuantityDnmntr"|"DeliveryToBaseQuantityNmrtr"|"DepartmentClassificationByCust"|"DistributionChannel"|"Division"|"FixedShipgProcgDurationInDays"|"GLAccount"|"GoodsMovementReasonCode"|"GoodsMovementStatus"|"GoodsMovementType"|"HigherLevelItem"|"HigherLvlItmOfBatSpltItm"|"InspectionLot"|"InspectionPartialLot"|"IntercompanyBillingStatus"|"InternationalArticleNumber"|"InventorySpecialStockType"|"InventoryValuationType"|"IsCompletelyDelivered"|"IsNotGoodsMovementsRelevant"|"IsSeparateValuation"|"IssgOrRcvgBatch"|"IssgOrRcvgMaterial"|"IssgOrRcvgSpclStockInd"|"IssgOrRcvgStockCategory"|"IssgOrRcvgValuationType"|"IssuingOrReceivingPlant"|"IssuingOrReceivingStorageLoc"|"ItemBillingBlockReason"|"ItemBillingIncompletionStatus"|"ItemDeliveryIncompletionStatus"|"ItemGdsMvtIncompletionSts"|"ItemGeneralIncompletionStatus"|"ItemGrossWeight"|"ItemIsBillingRelevant"|"ItemNetWeight"|"ItemPackingIncompletionStatus"|"ItemPickingIncompletionStatus"|"ItemVolume"|"ItemVolumeUnit"|"ItemWeightUnit"|"LastChangeDate"|"LoadingGroup"|"ManufactureDate"|"Material"|"MaterialByCustomer"|"MaterialFreightGroup"|"MaterialGroup"|"MaterialIsBatchManaged"|"MaterialIsIntBatchManaged"|"NumberOfSerialNumbers"|"OrderID"|"OrderItem"|"OriginalDeliveryQuantity"|"OriginallyRequestedMaterial"|"OverdelivTolrtdLmtRatioInPct"|"PackingStatus"|"PartialDeliveryIsAllowed"|"PaymentGuaranteeForm"|"PickingConfirmationStatus"|"PickingControl"|"PickingStatus"|"Plant"|"PrimaryPostingSwitch"|"ProductAvailabilityDate"|"ProductAvailabilityTime"|"ProductConfiguration"|"ProductHierarchyNode"|"ProfitabilitySegment"|"ProfitCenter"|"ProofOfDeliveryRelevanceCode"|"ProofOfDeliveryStatus"|"QuantityIsFixed"|"ReceivingPoint"|"ReferenceDocumentLogicalSystem"|"ReferenceSDDocument"|"ReferenceSDDocumentCategory"|"ReferenceSDDocumentItem"|"RetailPromotion"|"SalesDocumentItemType"|"SalesGroup"|"SalesOffice"|"SDDocumentCategory"|"SDProcessStatus"|"ShelfLifeExpirationDate"|"StatisticsDate"|"StockType"|"StorageBin"|"StorageLocation"|"StorageType"|"SubsequentMovementType"|"TransportationGroup"|"UnderdelivTolrtdLmtRatioInPct"|"UnlimitedOverdeliveryIsAllowed"|"VarblShipgProcgDurationInDays"|"Warehouse"|"WarehouseActivityStatus"|"WarehouseStagingArea"|"WarehouseStockCategory"|"WarehouseStorageBin"|"to_SerialDeliveryItem"|"to_DocumentFlow")[];
+
+# Represents the Queries record for the operation: listDeliveryDocumentItemsOfA_ReturnsDeliveryHeader
+public type ListDeliveryDocumentItemsOfA_ReturnsDeliveryHeaderQueries record {
+    # Skip the first n items, see [Paging - Skip](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=65)
+    int \$skip?;
+    # Search items by search phrases, see [Searching](https://wiki.scn.sap.com/wiki/display/EmTech/SAP+Annotations+for+OData+Version+2.0#SAPAnnotationsforODataVersion2.0-Query_Option_searchQueryOptionsearch)
+    string search?;
+    # Show only the first n items, see [Paging - Top](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=66)
+    int \$top?;
+    # Filter items by property values, see [Filtering](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=64)
+    string \$filter?;
+    # Order items by property values, see [Sorting](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=65)
+    DeliveryDocumentItemOfA_ReturnsDeliveryHeaderOrderByOptions \$orderby?;
+    # Expand related entities, see [Expand](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=63)
+    DeliveryDocumentItemOfA_ReturnsDeliveryHeaderExpandOptions \$expand?;
+    # Include count of items, see [Inlinecount](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=67)
+    "allpages"|"none" \$inlinecount?;
+    # Select properties to be returned, see [Select](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=68)
+    DeliveryDocumentItemOfA_ReturnsDeliveryHeaderSelectOptions \$select?;
+};
+
+# Represents the Queries record for the operation: createPostGoodsReceipt
+public type CreatePostGoodsReceiptQueries record {
+    # Delivery  
+    # (Value needs to be enclosed in single quotes)
+    @constraint:String {maxLength: 12, pattern: re `^'[^']*(''[^']*)*'$`}
+    string DeliveryDocument;
+    # Actual GI Date  
+    # (Value needs to be enclosed in single quotes and prefixed with `datetime`, e.g. `datetime'2017-12-31T00:00'`)
+    string? ActualGoodsMovementDate?;
+};
+
 public type A_ReturnsDeliveryHeader record {
     string? ActualDeliveryRoute?;
     string? ActualGoodsMovementDate?;
@@ -579,10 +782,6 @@ public type A_ReturnsDeliveryHeader record {
     A_ReturnsDeliveryHeader_to_DeliveryDocumentPartner to_DeliveryDocumentPartner?;
 };
 
-public type Wrapper record {
-    Collection\ of\ DeliveryMessage d?;
-};
-
 public type CollectionOfA_ReturnsDeliveryHeaderWrapper record {
     CollectionOfA_ReturnsDeliveryHeader d?;
 };
@@ -595,15 +794,8 @@ public type GetAddressOfA_ReturnsDeliveryPartnerQueries record {
 
 public type A_ReturnsDeliveryItemOrderByOptions ("ActualDeliveredQtyInBaseUnit"|"ActualDeliveredQtyInBaseUnit desc"|"ActualDeliveryQuantity"|"ActualDeliveryQuantity desc"|"AdditionalCustomerGroup1"|"AdditionalCustomerGroup1 desc"|"AdditionalCustomerGroup2"|"AdditionalCustomerGroup2 desc"|"DeliveryVersion"|"DeliveryVersion desc"|"AdditionalCustomerGroup3"|"AdditionalCustomerGroup3 desc"|"AdditionalCustomerGroup4"|"AdditionalCustomerGroup4 desc"|"AdditionalCustomerGroup5"|"AdditionalCustomerGroup5 desc"|"AdditionalMaterialGroup1"|"AdditionalMaterialGroup1 desc"|"AdditionalMaterialGroup2"|"AdditionalMaterialGroup2 desc"|"AdditionalMaterialGroup3"|"AdditionalMaterialGroup3 desc"|"AdditionalMaterialGroup4"|"AdditionalMaterialGroup4 desc"|"AdditionalMaterialGroup5"|"AdditionalMaterialGroup5 desc"|"AlternateProductNumber"|"AlternateProductNumber desc"|"BaseUnit"|"BaseUnit desc"|"Batch"|"Batch desc"|"BatchBySupplier"|"BatchBySupplier desc"|"BatchClassification"|"BatchClassification desc"|"BOMExplosion"|"BOMExplosion desc"|"BusinessArea"|"BusinessArea desc"|"ConsumptionPosting"|"ConsumptionPosting desc"|"ControllingArea"|"ControllingArea desc"|"CostCenter"|"CostCenter desc"|"CreatedByUser"|"CreatedByUser desc"|"CreationDate"|"CreationDate desc"|"CreationTime"|"CreationTime desc"|"CustEngineeringChgStatus"|"CustEngineeringChgStatus desc"|"DeliveryDocument"|"DeliveryDocument desc"|"DeliveryDocumentItem"|"DeliveryDocumentItem desc"|"DeliveryDocumentItemCategory"|"DeliveryDocumentItemCategory desc"|"DeliveryDocumentItemText"|"DeliveryDocumentItemText desc"|"DeliveryGroup"|"DeliveryGroup desc"|"DeliveryQuantityUnit"|"DeliveryQuantityUnit desc"|"DeliveryRelatedBillingStatus"|"DeliveryRelatedBillingStatus desc"|"DeliveryToBaseQuantityDnmntr"|"DeliveryToBaseQuantityDnmntr desc"|"DeliveryToBaseQuantityNmrtr"|"DeliveryToBaseQuantityNmrtr desc"|"DepartmentClassificationByCust"|"DepartmentClassificationByCust desc"|"DistributionChannel"|"DistributionChannel desc"|"Division"|"Division desc"|"FixedShipgProcgDurationInDays"|"FixedShipgProcgDurationInDays desc"|"GLAccount"|"GLAccount desc"|"GoodsMovementReasonCode"|"GoodsMovementReasonCode desc"|"GoodsMovementStatus"|"GoodsMovementStatus desc"|"GoodsMovementType"|"GoodsMovementType desc"|"HigherLevelItem"|"HigherLevelItem desc"|"HigherLvlItmOfBatSpltItm"|"HigherLvlItmOfBatSpltItm desc"|"InspectionLot"|"InspectionLot desc"|"InspectionPartialLot"|"InspectionPartialLot desc"|"IntercompanyBillingStatus"|"IntercompanyBillingStatus desc"|"InternationalArticleNumber"|"InternationalArticleNumber desc"|"InventorySpecialStockType"|"InventorySpecialStockType desc"|"InventoryValuationType"|"InventoryValuationType desc"|"IsCompletelyDelivered"|"IsCompletelyDelivered desc"|"IsNotGoodsMovementsRelevant"|"IsNotGoodsMovementsRelevant desc"|"IsSeparateValuation"|"IsSeparateValuation desc"|"IssgOrRcvgBatch"|"IssgOrRcvgBatch desc"|"IssgOrRcvgMaterial"|"IssgOrRcvgMaterial desc"|"IssgOrRcvgSpclStockInd"|"IssgOrRcvgSpclStockInd desc"|"IssgOrRcvgStockCategory"|"IssgOrRcvgStockCategory desc"|"IssgOrRcvgValuationType"|"IssgOrRcvgValuationType desc"|"IssuingOrReceivingPlant"|"IssuingOrReceivingPlant desc"|"IssuingOrReceivingStorageLoc"|"IssuingOrReceivingStorageLoc desc"|"ItemBillingBlockReason"|"ItemBillingBlockReason desc"|"ItemBillingIncompletionStatus"|"ItemBillingIncompletionStatus desc"|"ItemDeliveryIncompletionStatus"|"ItemDeliveryIncompletionStatus desc"|"ItemGdsMvtIncompletionSts"|"ItemGdsMvtIncompletionSts desc"|"ItemGeneralIncompletionStatus"|"ItemGeneralIncompletionStatus desc"|"ItemGrossWeight"|"ItemGrossWeight desc"|"ItemIsBillingRelevant"|"ItemIsBillingRelevant desc"|"ItemNetWeight"|"ItemNetWeight desc"|"ItemPackingIncompletionStatus"|"ItemPackingIncompletionStatus desc"|"ItemPickingIncompletionStatus"|"ItemPickingIncompletionStatus desc"|"ItemVolume"|"ItemVolume desc"|"ItemVolumeUnit"|"ItemVolumeUnit desc"|"ItemWeightUnit"|"ItemWeightUnit desc"|"LastChangeDate"|"LastChangeDate desc"|"LoadingGroup"|"LoadingGroup desc"|"ManufactureDate"|"ManufactureDate desc"|"Material"|"Material desc"|"MaterialByCustomer"|"MaterialByCustomer desc"|"MaterialFreightGroup"|"MaterialFreightGroup desc"|"MaterialGroup"|"MaterialGroup desc"|"MaterialIsBatchManaged"|"MaterialIsBatchManaged desc"|"MaterialIsIntBatchManaged"|"MaterialIsIntBatchManaged desc"|"NumberOfSerialNumbers"|"NumberOfSerialNumbers desc"|"OrderID"|"OrderID desc"|"OrderItem"|"OrderItem desc"|"OriginalDeliveryQuantity"|"OriginalDeliveryQuantity desc"|"OriginallyRequestedMaterial"|"OriginallyRequestedMaterial desc"|"OverdelivTolrtdLmtRatioInPct"|"OverdelivTolrtdLmtRatioInPct desc"|"PackingStatus"|"PackingStatus desc"|"PartialDeliveryIsAllowed"|"PartialDeliveryIsAllowed desc"|"PaymentGuaranteeForm"|"PaymentGuaranteeForm desc"|"PickingConfirmationStatus"|"PickingConfirmationStatus desc"|"PickingControl"|"PickingControl desc"|"PickingStatus"|"PickingStatus desc"|"Plant"|"Plant desc"|"PrimaryPostingSwitch"|"PrimaryPostingSwitch desc"|"ProductAvailabilityDate"|"ProductAvailabilityDate desc"|"ProductAvailabilityTime"|"ProductAvailabilityTime desc"|"ProductConfiguration"|"ProductConfiguration desc"|"ProductHierarchyNode"|"ProductHierarchyNode desc"|"ProfitabilitySegment"|"ProfitabilitySegment desc"|"ProfitCenter"|"ProfitCenter desc"|"ProofOfDeliveryRelevanceCode"|"ProofOfDeliveryRelevanceCode desc"|"ProofOfDeliveryStatus"|"ProofOfDeliveryStatus desc"|"QuantityIsFixed"|"QuantityIsFixed desc"|"ReceivingPoint"|"ReceivingPoint desc"|"ReferenceDocumentLogicalSystem"|"ReferenceDocumentLogicalSystem desc"|"ReferenceSDDocument"|"ReferenceSDDocument desc"|"ReferenceSDDocumentCategory"|"ReferenceSDDocumentCategory desc"|"ReferenceSDDocumentItem"|"ReferenceSDDocumentItem desc"|"RetailPromotion"|"RetailPromotion desc"|"SalesDocumentItemType"|"SalesDocumentItemType desc"|"SalesGroup"|"SalesGroup desc"|"SalesOffice"|"SalesOffice desc"|"SDDocumentCategory"|"SDDocumentCategory desc"|"SDProcessStatus"|"SDProcessStatus desc"|"ShelfLifeExpirationDate"|"ShelfLifeExpirationDate desc"|"StatisticsDate"|"StatisticsDate desc"|"StockType"|"StockType desc"|"StorageBin"|"StorageBin desc"|"StorageLocation"|"StorageLocation desc"|"StorageType"|"StorageType desc"|"SubsequentMovementType"|"SubsequentMovementType desc"|"TransportationGroup"|"TransportationGroup desc"|"UnderdelivTolrtdLmtRatioInPct"|"UnderdelivTolrtdLmtRatioInPct desc"|"UnlimitedOverdeliveryIsAllowed"|"UnlimitedOverdeliveryIsAllowed desc"|"VarblShipgProcgDurationInDays"|"VarblShipgProcgDurationInDays desc"|"Warehouse"|"Warehouse desc"|"WarehouseActivityStatus"|"WarehouseActivityStatus desc"|"WarehouseStagingArea"|"WarehouseStagingArea desc"|"WarehouseStockCategory"|"WarehouseStockCategory desc"|"WarehouseStorageBin"|"WarehouseStorageBin desc")[];
 
-public type A_ReturnsDeliveryItemExpandOptions ("to_SerialDeliveryItem"|"to_DocumentFlow")[];
-
 public type A_ReturnsDeliveryHeader_to_DeliveryDocumentItem record {
     A_ReturnsDeliveryItem[] results?;
-};
-
-public type CollectionOfA_ReturnsDeliveryPartner record {
-    count __count?;
-    A_ReturnsDeliveryPartner[] results?;
 };
 
 public type A_ReturnsDeliveryMaintObj record {
@@ -625,61 +817,8 @@ public type A_ReturnsDeliveryMaintObj record {
     string SerialNumber?;
 };
 
-# Represents the Queries record for the operation: createConfirmPutawayAllItems
-public type CreateConfirmPutawayAllItemsQueries record {
-    # Delivery  
-    # (Value needs to be enclosed in single quotes)
-    @constraint:String {maxLength: 12, pattern: re `^'[^']*(''[^']*)*'$`}
-    string DeliveryDocument;
-};
-
-public type SerialDeliveryItemOfA_ReturnsDeliveryItemSelectOptions ("DeliveryDate"|"DeliveryDocument"|"DeliveryDocumentItem"|"MaintenanceItemObjectList"|"SDDocumentCategory"|"to_MaintenanceItemObject")[];
-
 # The number of entities in the collection. Available when using the [$inlinecount](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=67) query option.
 public type count string;
-
-public type UpdateA_ReturnsDeliveryHeader record {
-    string? ActualGoodsMovementDate?;
-    string? ActualGoodsMovementTime?;
-    string? BillOfLading?;
-    string? CreationDate?;
-    string? CreationTime?;
-    string? DeliveryBlockReason?;
-    string? DeliveryDate?;
-    string? DeliveryDocumentBySupplier?;
-    string? DeliveryPriority?;
-    string? DeliveryTime?;
-    string? GoodsIssueTime?;
-    string? HeaderGrossWeight?;
-    string? HeaderNetWeight?;
-    string? HeaderVolume?;
-    string? HeaderVolumeUnit?;
-    string? HeaderWeightUnit?;
-    string? IncotermsClassification?;
-    string? IncotermsTransferLocation?;
-    string? LoadingDate?;
-    string? LoadingTime?;
-    string? PickingDate?;
-    string? PickingTime?;
-    string? PlannedGoodsIssueDate?;
-    string? ProposedDeliveryRoute?;
-    string? ShippingType?;
-    string? TransportationPlanningDate?;
-    string? TransportationPlanningTime?;
-    string? UnloadingPointName?;
-};
-
-# Represents the Queries record for the operation: createPutawayOneItem
-public type CreatePutawayOneItemQueries record {
-    # Delivery  
-    # (Value needs to be enclosed in single quotes)
-    @constraint:String {maxLength: 12, pattern: re `^'[^']*(''[^']*)*'$`}
-    string DeliveryDocument;
-    # Item  
-    # (Value needs to be enclosed in single quotes)
-    @constraint:String {maxLength: 8, pattern: re `^'[^']*(''[^']*)*'$`}
-    string DeliveryDocumentItem;
-};
 
 public type CreateA_ReturnsDeliveryDocFlow record {
     string? QuantityInBaseUnit?;
@@ -729,21 +868,7 @@ public type A_ReturnsDeliveryHeader_to_DeliveryDocumentPartner record {
     A_ReturnsDeliveryPartner[] results?;
 };
 
-public type CreateA_ReturnsDeliveryHeader_to_DeliveryDocumentPartner record {
-    CreateA_ReturnsDeliveryPartner[] results?;
-};
-
-public type AddressOfA_ReturnsDeliveryPartnerSelectOptions ("TransportZone"|"TaxJurisdiction"|"StreetSuffixName"|"StreetSearch"|"StreetPrefixName"|"StreetName"|"SearchTerm1"|"RoomNumber"|"Region"|"PrfrdCommMediumType"|"PostalCode"|"POBoxPostalCode"|"POBoxLobbyName"|"POBoxIsWithoutNumber"|"POBoxDeviatingRegion"|"POBoxDeviatingCountry"|"POBoxDeviatingCityName"|"POBox"|"PhoneNumber"|"Person"|"Nation"|"HouseNumberSupplementText"|"HouseNumber"|"HomeCityName"|"FullName"|"FormOfAddress"|"Floor"|"FaxNumber"|"District"|"DeliveryServiceTypeCode"|"DeliveryServiceNumber"|"County"|"Country"|"CorrespondenceLanguage"|"CompanyPostalCode"|"CitySearch"|"CityName"|"CityCode"|"CareOfName"|"BusinessPartnerName4"|"BusinessPartnerName3"|"BusinessPartnerName2"|"BusinessPartnerName1"|"Building"|"AddressTimeZone"|"AddressID"|"AdditionalStreetSuffixName"|"AdditionalStreetPrefixName")[];
-
-public type CreateA_ReturnsDeliveryPartner record {
-    CreateA_ReturnsDeliveryAddress to_Address?;
-};
-
 public type CreateA_ReturnsDeliveryAddress record {
-};
-
-public type A_ReturnsDeliveryAddressWrapper record {
-    A_ReturnsDeliveryAddress d?;
 };
 
 public type A_ReturnsDeliveryItem_to_DocumentFlow record {
@@ -759,27 +884,11 @@ public type CollectionOfA_ReturnsDeliveryMaintObj record {
     A_ReturnsDeliveryMaintObj[] results?;
 };
 
-public type CreatedDeliveryItem_1 record {
-    CreatedDeliveryItem_1_d d?;
-};
-
-public type A_ReturnsDeliverySrlNmbr record {
-    string DeliveryDate?;
-    @constraint:String {maxLength: 10}
-    string DeliveryDocument?;
-    @constraint:String {maxLength: 6}
-    string DeliveryDocumentItem?;
-    string MaintenanceItemObjectList?;
-    @constraint:String {maxLength: 4}
-    string SDDocumentCategory?;
-    A_ReturnsDeliverySrlNmbr_to_MaintenanceItemObject to_MaintenanceItemObject?;
+public type PutawayOneItemWrapper record {
+    Collection\ of\ PutawayReport d?;
 };
 
 public type DeliveryDocumentItemOfA_ReturnsDeliveryHeaderExpandOptions ("to_SerialDeliveryItem"|"to_DocumentFlow")[];
-
-public type CreateA_ReturnsDeliveryHeader_to_DeliveryDocumentItem record {
-    CreateA_ReturnsDeliveryItem[] results?;
-};
 
 public type A_ReturnsDeliveryAddress record {
     @constraint:String {maxLength: 10}
@@ -896,6 +1005,10 @@ public type PutawayReport record {
     string? DeliveryDocument?;
 };
 
+public type ConfirmPutawayAllItemsWrapper record {
+    Collection\ of\ PutawayReport d?;
+};
+
 # Represents the Queries record for the operation: createReverseGoodsReceipt
 public type CreateReverseGoodsReceiptQueries record {
     # Delivery  
@@ -908,11 +1021,8 @@ public type CreateReverseGoodsReceiptQueries record {
     string ActualGoodsMovementDate;
 };
 
-public type CreatedDeliveryItem record {
-    @constraint:String {maxLength: 10}
-    string DeliveryDocument?;
-    @constraint:String {maxLength: 6}
-    string DeliveryDocumentItem?;
+public type ReverseGoodsReceiptWrapper record {
+    Collection\ of\ DeliveryMessage d?;
 };
 
 public type SerialDeliveryItemOfA_ReturnsDeliveryItemExpandOptions ("to_MaintenanceItemObject")[];
@@ -923,10 +1033,6 @@ public type GetA_ReturnsDeliveryHeaderQueries record {
     A_ReturnsDeliveryHeaderExpandOptions \$expand?;
     # Select properties to be returned, see [Select](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=68)
     A_ReturnsDeliveryHeaderSelectOptions \$select?;
-};
-
-public type Wrapper_1 record {
-    Collection\ of\ PutawayReport d?;
 };
 
 # OAuth2 Refresh Token Grant Configs
@@ -946,18 +1052,9 @@ public type Modified\ A_ReturnsDeliveryHeaderType record {
     UpdateA_ReturnsDeliveryHeader d?;
 };
 
-public type CreateA_ReturnsDeliveryItem_to_DocumentFlow record {
-    CreateA_ReturnsDeliveryDocFlow[] results?;
-};
-
 public type Collection\ of\ DeliveryMessage record {
     count __count?;
     DeliveryMessage[] results?;
-};
-
-public type CollectionOfA_ReturnsDeliveryHeader record {
-    count __count?;
-    A_ReturnsDeliveryHeader[] results?;
 };
 
 # Represents the Queries record for the operation: getSerialDeliveryItemOfA_ReturnsDeliveryItem
@@ -975,53 +1072,6 @@ public type GetA_ReturnsDeliveryItemQueries record {
     # Select properties to be returned, see [Select](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=68)
     A_ReturnsDeliveryItemSelectOptions \$select?;
 };
-
-public type Collection\ of\ PutawayReport record {
-    count __count?;
-    PutawayReport[] results?;
-};
-
-# Represents the Queries record for the operation: createSetPutawayQuantityWithBaseQuantity
-public type CreateSetPutawayQuantityWithBaseQuantityQueries record {
-    # Delivery  
-    # (Value needs to be enclosed in single quotes)
-    @constraint:String {maxLength: 12, pattern: re `^'[^']*(''[^']*)*'$`}
-    string DeliveryDocument;
-    # Item  
-    # (Value needs to be enclosed in single quotes)
-    @constraint:String {maxLength: 8, pattern: re `^'[^']*(''[^']*)*'$`}
-    string DeliveryDocumentItem;
-    # Qty (stckp.unt)  
-    # (Value needs to be suffixed with `M`)
-    @constraint:String {pattern: re `^[-]?[0-9]+(\.[0-9]+)?[mM]$`}
-    string ActualDeliveredQtyInBaseUnit;
-    # Base Unit  
-    # (Value needs to be enclosed in single quotes)
-    @constraint:String {maxLength: 5, pattern: re `^'[^']*(''[^']*)*'$`}
-    string BaseUnit;
-};
-
-# Represents the Queries record for the operation: listA_ReturnsDeliveryHeaders
-public type ListA_ReturnsDeliveryHeadersQueries record {
-    # Skip the first n items, see [Paging - Skip](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=65)
-    int \$skip?;
-    # Search items by search phrases, see [Searching](https://wiki.scn.sap.com/wiki/display/EmTech/SAP+Annotations+for+OData+Version+2.0#SAPAnnotationsforODataVersion2.0-Query_Option_searchQueryOptionsearch)
-    string search?;
-    # Show only the first n items, see [Paging - Top](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=66)
-    int \$top?;
-    # Filter items by property values, see [Filtering](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=64)
-    string \$filter?;
-    # Order items by property values, see [Sorting](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=65)
-    A_ReturnsDeliveryHeaderOrderByOptions \$orderby?;
-    # Expand related entities, see [Expand](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=63)
-    A_ReturnsDeliveryHeaderExpandOptions \$expand?;
-    # Include count of items, see [Inlinecount](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=67)
-    "allpages"|"none" \$inlinecount?;
-    # Select properties to be returned, see [Select](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=68)
-    A_ReturnsDeliveryHeaderSelectOptions \$select?;
-};
-
-public type A_ReturnsDeliveryHeaderSelectOptions ("ActualDeliveryRoute"|"ActualGoodsMovementDate"|"ActualGoodsMovementTime"|"BillingDocumentDate"|"BillOfLading"|"CompleteDeliveryIsDefined"|"ConfirmationTime"|"CreatedByUser"|"CreationDate"|"CreationTime"|"CustomerGroup"|"DeliveryBlockReason"|"DeliveryDate"|"DeliveryDocument"|"DeliveryDocumentBySupplier"|"DeliveryDocumentType"|"DeliveryIsInPlant"|"DeliveryPriority"|"DeliveryTime"|"DeliveryVersion"|"DepreciationPercentage"|"DistrStatusByDecentralizedWrhs"|"DocumentDate"|"ExternalIdentificationType"|"ExternalTransportSystem"|"FactoryCalendarByCustomer"|"GoodsIssueOrReceiptSlipNumber"|"GoodsIssueTime"|"HandlingUnitInStock"|"HdrGeneralIncompletionStatus"|"HdrGoodsMvtIncompletionStatus"|"HeaderBillgIncompletionStatus"|"HeaderBillingBlockReason"|"HeaderDelivIncompletionStatus"|"HeaderGrossWeight"|"HeaderNetWeight"|"HeaderPackingIncompletionSts"|"HeaderPickgIncompletionStatus"|"HeaderVolume"|"HeaderVolumeUnit"|"HeaderWeightUnit"|"IncotermsClassification"|"IncotermsTransferLocation"|"IntercompanyBillingDate"|"InternalFinancialDocument"|"IsDeliveryForSingleWarehouse"|"IsExportDelivery"|"LastChangeDate"|"LastChangedByUser"|"LoadingDate"|"LoadingPoint"|"LoadingTime"|"MeansOfTransport"|"MeansOfTransportRefMaterial"|"MeansOfTransportType"|"OrderCombinationIsAllowed"|"OrderID"|"OverallDelivConfStatus"|"OverallDelivReltdBillgStatus"|"OverallGoodsMovementStatus"|"OverallIntcoBillingStatus"|"OverallPackingStatus"|"OverallPickingConfStatus"|"OverallPickingStatus"|"OverallProofOfDeliveryStatus"|"OverallSDProcessStatus"|"OverallWarehouseActivityStatus"|"OvrlItmDelivIncompletionSts"|"OvrlItmGdsMvtIncompletionSts"|"OvrlItmGeneralIncompletionSts"|"OvrlItmPackingIncompletionSts"|"OvrlItmPickingIncompletionSts"|"PaymentGuaranteeProcedure"|"PickedItemsLocation"|"PickingDate"|"PickingTime"|"PlannedGoodsIssueDate"|"ProofOfDeliveryDate"|"ProposedDeliveryRoute"|"ReceivingLocationTimeZone"|"ReceivingPlant"|"RouteSchedule"|"SalesDistrict"|"SalesOffice"|"SalesOrganization"|"SDDocumentCategory"|"ShipmentBlockReason"|"ShippingCondition"|"ShippingPoint"|"ShippingType"|"ShipToParty"|"SoldToParty"|"SpecialProcessingCode"|"StatisticsCurrency"|"Supplier"|"TotalBlockStatus"|"TotalCreditCheckStatus"|"TotalNumberOfPackage"|"TransactionCurrency"|"TransportationGroup"|"TransportationPlanningDate"|"TransportationPlanningStatus"|"TransportationPlanningTime"|"UnloadingPointName"|"Warehouse"|"WarehouseGate"|"WarehouseStagingArea"|"to_DeliveryDocumentItem"|"to_DeliveryDocumentPartner")[];
 
 # Represents the Queries record for the operation: createConfirmPutawayOneItem
 public type CreateConfirmPutawayOneItemQueries record {
@@ -1068,39 +1118,17 @@ public type CreatePutawayAllItemsQueries record {
     string DeliveryDocument;
 };
 
-# Represents the Queries record for the operation: listDocumentFlowsOfA_ReturnsDeliveryItem
-public type ListDocumentFlowsOfA_ReturnsDeliveryItemQueries record {
-    # Filter items by property values, see [Filtering](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=64)
-    string \$filter?;
-    # Include count of items, see [Inlinecount](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=67)
-    "allpages"|"none" \$inlinecount?;
-    # Select properties to be returned, see [Select](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=68)
-    DocumentFlowOfA_ReturnsDeliveryItemSelectOptions \$select?;
+public type PutawayAllItemsWrapper record {
+    Collection\ of\ PutawayReport d?;
 };
 
-# Provides settings related to HTTP/1.x protocol.
-public type ClientHttp1Settings record {|
-    # Specifies whether to reuse a connection for multiple requests
-    http:KeepAlive keepAlive = http:KEEPALIVE_AUTO;
-    # The chunking behaviour of the request
-    http:Chunking chunking = http:CHUNKING_AUTO;
-    # Proxy server related options
-    ProxyConfig proxy?;
-|};
-
 public type DeliveryDocumentItemOfA_ReturnsDeliveryHeaderSelectOptions ("ActualDeliveredQtyInBaseUnit"|"ActualDeliveryQuantity"|"AdditionalCustomerGroup1"|"AdditionalCustomerGroup2"|"DeliveryVersion"|"AdditionalCustomerGroup3"|"AdditionalCustomerGroup4"|"AdditionalCustomerGroup5"|"AdditionalMaterialGroup1"|"AdditionalMaterialGroup2"|"AdditionalMaterialGroup3"|"AdditionalMaterialGroup4"|"AdditionalMaterialGroup5"|"AlternateProductNumber"|"BaseUnit"|"Batch"|"BatchBySupplier"|"BatchClassification"|"BOMExplosion"|"BusinessArea"|"ConsumptionPosting"|"ControllingArea"|"CostCenter"|"CreatedByUser"|"CreationDate"|"CreationTime"|"CustEngineeringChgStatus"|"DeliveryDocument"|"DeliveryDocumentItem"|"DeliveryDocumentItemCategory"|"DeliveryDocumentItemText"|"DeliveryGroup"|"DeliveryQuantityUnit"|"DeliveryRelatedBillingStatus"|"DeliveryToBaseQuantityDnmntr"|"DeliveryToBaseQuantityNmrtr"|"DepartmentClassificationByCust"|"DistributionChannel"|"Division"|"FixedShipgProcgDurationInDays"|"GLAccount"|"GoodsMovementReasonCode"|"GoodsMovementStatus"|"GoodsMovementType"|"HigherLevelItem"|"HigherLvlItmOfBatSpltItm"|"InspectionLot"|"InspectionPartialLot"|"IntercompanyBillingStatus"|"InternationalArticleNumber"|"InventorySpecialStockType"|"InventoryValuationType"|"IsCompletelyDelivered"|"IsNotGoodsMovementsRelevant"|"IsSeparateValuation"|"IssgOrRcvgBatch"|"IssgOrRcvgMaterial"|"IssgOrRcvgSpclStockInd"|"IssgOrRcvgStockCategory"|"IssgOrRcvgValuationType"|"IssuingOrReceivingPlant"|"IssuingOrReceivingStorageLoc"|"ItemBillingBlockReason"|"ItemBillingIncompletionStatus"|"ItemDeliveryIncompletionStatus"|"ItemGdsMvtIncompletionSts"|"ItemGeneralIncompletionStatus"|"ItemGrossWeight"|"ItemIsBillingRelevant"|"ItemNetWeight"|"ItemPackingIncompletionStatus"|"ItemPickingIncompletionStatus"|"ItemVolume"|"ItemVolumeUnit"|"ItemWeightUnit"|"LastChangeDate"|"LoadingGroup"|"ManufactureDate"|"Material"|"MaterialByCustomer"|"MaterialFreightGroup"|"MaterialGroup"|"MaterialIsBatchManaged"|"MaterialIsIntBatchManaged"|"NumberOfSerialNumbers"|"OrderID"|"OrderItem"|"OriginalDeliveryQuantity"|"OriginallyRequestedMaterial"|"OverdelivTolrtdLmtRatioInPct"|"PackingStatus"|"PartialDeliveryIsAllowed"|"PaymentGuaranteeForm"|"PickingConfirmationStatus"|"PickingControl"|"PickingStatus"|"Plant"|"PrimaryPostingSwitch"|"ProductAvailabilityDate"|"ProductAvailabilityTime"|"ProductConfiguration"|"ProductHierarchyNode"|"ProfitabilitySegment"|"ProfitCenter"|"ProofOfDeliveryRelevanceCode"|"ProofOfDeliveryStatus"|"QuantityIsFixed"|"ReceivingPoint"|"ReferenceDocumentLogicalSystem"|"ReferenceSDDocument"|"ReferenceSDDocumentCategory"|"ReferenceSDDocumentItem"|"RetailPromotion"|"SalesDocumentItemType"|"SalesGroup"|"SalesOffice"|"SDDocumentCategory"|"SDProcessStatus"|"ShelfLifeExpirationDate"|"StatisticsDate"|"StockType"|"StorageBin"|"StorageLocation"|"StorageType"|"SubsequentMovementType"|"TransportationGroup"|"UnderdelivTolrtdLmtRatioInPct"|"UnlimitedOverdeliveryIsAllowed"|"VarblShipgProcgDurationInDays"|"Warehouse"|"WarehouseActivityStatus"|"WarehouseStagingArea"|"WarehouseStockCategory"|"WarehouseStorageBin"|"to_SerialDeliveryItem"|"to_DocumentFlow")[];
-
-public type A_ReturnsDeliveryHeaderExpandOptions ("to_DeliveryDocumentItem"|"to_DeliveryDocumentPartner")[];
 
 public type CollectionOfA_ReturnsDeliveryMaintObjWrapper record {
     CollectionOfA_ReturnsDeliveryMaintObj d?;
 };
 
 public type A_ReturnsDeliveryDocFlowByKeySelectOptions ("DeliveryVersion"|"PrecedingDocument"|"PrecedingDocumentCategory"|"PrecedingDocumentItem"|"Subsequentdocument"|"QuantityInBaseUnit"|"SubsequentDocumentItem"|"SDFulfillmentCalculationRule"|"SubsequentDocumentCategory"|"TransferOrderInWrhsMgmtIsConfd")[];
-
-public type Modified\ A_ReturnsDeliveryItemType record {
-    UpdateA_ReturnsDeliveryItem d?;
-};
 
 public type Modified\ A_ReturnsDeliveryDocFlowType record {
     UpdateA_ReturnsDeliveryDocFlow d?;

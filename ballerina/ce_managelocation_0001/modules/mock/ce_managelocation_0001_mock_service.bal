@@ -61,26 +61,6 @@ service /sap/opu/odata4/sap/api_managelocation/srvd_a2x/sap/managelocation/'0001
         };
     }
 
-    # Get entities from LocationText
-    #
-    # + \$top - Show only the first n items, see [Paging - Top](http://docs.oasis-open.org/odata/odata/v4.01/odata-v4.01-part1-protocol.html#sec_SystemQueryOptiontop)
-    # + \$skip - Skip the first n items, see [Paging - Skip](http://docs.oasis-open.org/odata/odata/v4.01/odata-v4.01-part1-protocol.html#sec_SystemQueryOptionskip)
-    # + \$filter - Filter items by property values, see [Filtering](http://docs.oasis-open.org/odata/odata/v4.01/odata-v4.01-part1-protocol.html#sec_SystemQueryOptionfilter)
-    # + \$count - Include count of items, see [Count](http://docs.oasis-open.org/odata/odata/v4.01/odata-v4.01-part1-protocol.html#sec_SystemQueryOptioncount)
-    # + \$orderby - Order items by property values, see [Sorting](http://docs.oasis-open.org/odata/odata/v4.01/odata-v4.01-part1-protocol.html#sec_SystemQueryOptionorderby)
-    # + \$select - Select properties to be returned, see [Select](http://docs.oasis-open.org/odata/odata/v4.01/odata-v4.01-part1-protocol.html#sec_SystemQueryOptionselect)
-    # + \$expand - Expand related entities, see [Expand](http://docs.oasis-open.org/odata/odata/v4.01/odata-v4.01-part1-protocol.html#sec_SystemQueryOptionexpand)
-    # + return - returns can be any of following types 
-    # http:Ok (Retrieved entities)
-    # http:Response (Error)
-    resource function get LocationText(int? \$top, int? \$skip, string? \$filter, boolean? \$count, LocationTextOrderByOptions? \$orderby, LocationTextSelectOptions? \$select, LocationTextExpandOptions? \$expand) returns CollectionOfLocationText|http:Response {
-        return {
-            value: [
-                {LocationUUID: "12345", Language: "12345"}
-            ]
-        };
-    }
-
     # Add new entity to Location
     #
     # + payload - New entity 
@@ -88,12 +68,6 @@ service /sap/opu/odata4/sap/api_managelocation/srvd_a2x/sap/managelocation/'0001
     # http:Created (Created entity)
     # http:Response (Error)
     resource function post Location(@http:Payload CreateLocation payload) returns Location|http:Response {
-        http:Response res = new;
-        res.statusCode = 500;
-        return res;
-    }
-
-    resource function post \$batch(http:Request request) returns OkAnydata|http:Response {
         http:Response res = new;
         res.statusCode = 500;
         return res;

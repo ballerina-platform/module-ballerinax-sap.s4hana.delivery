@@ -43,32 +43,6 @@ service /sap/opu/odata/sap/API_CUSTOMER_RETURNS_DELIVERY_SRV on ep0 {
         res.setHeader("X-CSRF-TOKEN", "SAP-InfoRecord-Process");
         return res;
     }
-
-    # Reads customer returns delivery headers.
-    #
-    # + \$top - Show only the first n items, see [Paging - Top](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=66)
-    # + \$skip - Skip the first n items, see [Paging - Skip](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=65)
-    # + search - Search items by search phrases, see [Searching](https://wiki.scn.sap.com/wiki/display/EmTech/SAP+Annotations+for+OData+Version+2.0#SAPAnnotationsforODataVersion2.0-Query_Option_searchQueryOptionsearch)
-    # + \$filter - Filter items by property values, see [Filtering](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=64)
-    # + \$inlinecount - Include count of items, see [Inlinecount](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=67)
-    # + \$orderby - Order items by property values, see [Sorting](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=65)
-    # + \$select - Select properties to be returned, see [Select](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=68)
-    # + \$expand - Expand related entities, see [Expand](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=63)
-    # + return - returns can be any of following types 
-    # http:Ok (Retrieved entities)
-    # http:Response (Error)
-    resource function get A_ReturnsDeliveryHeader(int? \$top, int? \$skip, string? search, string? \$filter, "allpages"|"none"? \$inlinecount, A_ReturnsDeliveryHeaderOrderByOptions? \$orderby, A_ReturnsDeliveryHeaderSelectOptions? \$select, A_ReturnsDeliveryHeaderExpandOptions? \$expand) returns CollectionOfA_ReturnsDeliveryHeaderWrapper|http:Response {
-        return {
-            d: {
-                results: [
-                    {
-                        "ReturnsDeliveryHeader": "12345"
-                    }
-                ]
-            }
-        };
-    }
-
     # Reads customer returns delivery items.
     #
     # + \$top - Show only the first n items, see [Paging - Top](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=66)
@@ -94,45 +68,6 @@ service /sap/opu/odata/sap/API_CUSTOMER_RETURNS_DELIVERY_SRV on ep0 {
         };
     }
 
-    # Creates customer returns deliveries with reference to preceding document.
-    #
-    # + payload - New entity 
-    # + return - returns can be any of following types 
-    # http:Created (Created entity)
-    # http:Response (Error)
-    resource function post A_ReturnsDeliveryHeader(@http:Payload CreateA_ReturnsDeliveryHeader payload) returns A_ReturnsDeliveryHeaderWrapper|http:Response {
-        http:Response res = new;
-        res.statusCode = 500;
-        return res;
-    }
-
-    # Confirms putaway quantity of customer returns delivery items.
-    #
-    # + DeliveryDocument - Delivery  
-    # (Value needs to be enclosed in single quotes)
-    # + return - returns can be any of following types 
-    # http:Ok (Success)
-    # http:Response (Error)
-    resource function post ConfirmPutawayAllItems(string DeliveryDocument) returns OkWrapper_1|http:Response {
-        http:Response res = new;
-        res.statusCode = 500;
-        return res;
-    }
-
-    # Confirms putaway quantity of customer returns delivery item.
-    #
-    # + DeliveryDocument - Delivery  
-    # (Value needs to be enclosed in single quotes)
-    # + DeliveryDocumentItem - Item  
-    # (Value needs to be enclosed in single quotes)
-    # + return - returns can be any of following types 
-    # http:Ok (Success)
-    # http:Response (Error)
-    resource function post ConfirmPutawayOneItem(string DeliveryDocument, string DeliveryDocumentItem) returns OkWrapper_1|http:Response {
-        http:Response res = new;
-        res.statusCode = 500;
-        return res;
-    }
 
     # Creates an additional batch split item for an customer returns delivery item.
     #
@@ -150,127 +85,6 @@ service /sap/opu/odata/sap/API_CUSTOMER_RETURNS_DELIVERY_SRV on ep0 {
     # http:Ok (Success)
     # http:Response (Error)
     resource function post CreateBatchSplitItem(string? ShelfLifeExpirationDate, string? ManufactureDate, string? PickQuantityInSalesUOM, string DeliveryQuantityUnit, string DeliveryDocumentItem, string DeliveryDocument, string Batch, string ActualDeliveryQuantity) returns OkCreatedDeliveryItem_1|http:Response {
-            http:Response res = new;
-        res.statusCode = 500;
-        return res;
-    }
-
-    # Posts goods receipt for customer returns delivery.
-    #
-    # + ActualGoodsMovementDate - Actual GI Date  
-    # (Value needs to be enclosed in single quotes and prefixed with `datetime`, e.g. `datetime'2017-12-31T00:00'`)
-    # + DeliveryDocument - Delivery  
-    # (Value needs to be enclosed in single quotes)
-    # + return - returns can be any of following types 
-    # http:Ok (Success)
-    # http:Response (Error)
-    resource function post PostGoodsReceipt(string? ActualGoodsMovementDate, string DeliveryDocument) returns OkWrapper_1|http:Response {
-        http:Response res = new;
-        res.statusCode = 500;
-        return res;
-    }
-
-    # Takes over delivery quantity as putaway quantity for all customer returns delivery items.
-    #
-    # + DeliveryDocument - Delivery  
-    # (Value needs to be enclosed in single quotes)
-    # + return - returns can be any of following types 
-    # http:Ok (Success)
-    # http:Response (Error)
-    resource function post PutawayAllItems(string DeliveryDocument) returns OkWrapper_1|http:Response {
-        http:Response res = new;
-        res.statusCode = 500;
-        return res;
-    }
-
-    # Takes over delivery quantity as putaway quantity for specified customer returns delivery item.
-    #
-    # + DeliveryDocument - Delivery  
-    # (Value needs to be enclosed in single quotes)
-    # + DeliveryDocumentItem - Item  
-    # (Value needs to be enclosed in single quotes)
-    # + return - returns can be any of following types 
-    # http:Ok (Success)
-    # http:Response (Error)
-    resource function post PutawayOneItem(string DeliveryDocument, string DeliveryDocumentItem) returns OkWrapper_1|http:Response {
-        http:Response res = new;
-        res.statusCode = 500;
-        return res;
-    }
-
-    # Sets putaway quantity and delivery quantity for customer returns delivery item.
-    #
-    # + DeliveryDocument - Delivery  
-    # (Value needs to be enclosed in single quotes)
-    # + BaseUnit - Base Unit  
-    # (Value needs to be enclosed in single quotes)
-    # + ActualDeliveredQtyInBaseUnit - Qty (stckp.unt)  
-    # (Value needs to be suffixed with `M`)
-    # + DeliveryDocumentItem - Item  
-    # (Value needs to be enclosed in single quotes)
-    # + return - returns can be any of following types 
-    # http:Ok (Success)
-    # http:Response (Error)
-    resource function post PutawayOneItemWithBaseQuantity(string DeliveryDocument, string BaseUnit, string ActualDeliveredQtyInBaseUnit, string DeliveryDocumentItem) returns OkWrapper_1|http:Response {
-        http:Response res = new;
-        res.statusCode = 500;
-        return res;
-    }
-
-    # Sets putaway quantity and delivery quantity for customer returns delivery item.
-    #
-    # + ActualDeliveryQuantity - Delivery qty  
-    # (Value needs to be suffixed with `M`)
-    # + DeliveryQuantityUnit - Sales Unit  
-    # (Value needs to be enclosed in single quotes)
-    # + DeliveryDocumentItem - Item  
-    # (Value needs to be enclosed in single quotes)
-    # + DeliveryDocument - Delivery  
-    # (Value needs to be enclosed in single quotes)
-    # + return - returns can be any of following types 
-    # http:Ok (Success)
-    # http:Response (Error)
-    resource function post PutawayOneItemWithSalesQuantity(string ActualDeliveryQuantity, string DeliveryQuantityUnit, string DeliveryDocumentItem, string DeliveryDocument) returns OkWrapper_1|http:Response {
-        http:Response res = new;
-        res.statusCode = 500;
-        return res;
-    }
-
-    # Reverses goods receipt for customer returns delivery.
-    #
-    # + ActualGoodsMovementDate - Actual GI Date  
-    # (Value needs to be enclosed in single quotes and prefixed with `datetime`, e.g. `datetime'2017-12-31T00:00'`)
-    # + DeliveryDocument - Delivery  
-    # (Value needs to be enclosed in single quotes)
-    # + return - returns can be any of following types 
-    # http:Ok (Success)
-    # http:Response (Error)
-    resource function post ReverseGoodsReceipt(string ActualGoodsMovementDate, string DeliveryDocument) returns OkWrapper|http:Response {
-        http:Response res = new;
-        res.statusCode = 500;
-        return res;
-    }
-
-    # Sets putaway quantity in base unit of measure for delivery item.
-    #
-    # + DeliveryDocumentItem - Item  
-    # (Value needs to be enclosed in single quotes)
-    # + DeliveryDocument - Delivery  
-    # (Value needs to be enclosed in single quotes)
-    # + BaseUnit - Base Unit  
-    # (Value needs to be enclosed in single quotes)
-    # + ActualDeliveredQtyInBaseUnit - Qty (stckp.unt)  
-    # (Value needs to be suffixed with `M`)
-    # + return - returns can be any of following types 
-    # http:Ok (Success)
-    # http:Response (Error)
-    resource function post SetPutawayQuantityWithBaseQuantity(string DeliveryDocumentItem, string DeliveryDocument, string BaseUnit, string ActualDeliveredQtyInBaseUnit) returns OkWrapper_1|http:Response {
-        http:Response res = new;
-        res.statusCode = 500;
-        return res;
-    }
-
-    resource function post \$batch(http:Request request) returns AcceptedAnydata|http:Response {
         http:Response res = new;
         res.statusCode = 500;
         return res;

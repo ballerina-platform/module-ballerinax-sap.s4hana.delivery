@@ -20,29 +20,27 @@
 import ballerina/constraint;
 import ballerina/http;
 
-public type ReturnMessage_3_d record {
-    ReturnMessage ReleaseCreditBlock?;
-};
-
 public type A_CreditBlockedDeliveryDocOrderByOptions ("DeliveryDocument"|"DeliveryDocument desc"|"SDDocumentCategory"|"SDDocumentCategory desc"|"SalesOrganization"|"SalesOrganization desc"|"SalesOffice"|"SalesOffice desc"|"ShippingPoint"|"ShippingPoint desc"|"CreationDate"|"CreationDate desc"|"CreatedByUser"|"CreatedByUser desc"|"LastChangedByUser"|"LastChangedByUser desc"|"LastChangeDate"|"LastChangeDate desc"|"SoldToParty"|"SoldToParty desc"|"CustomerCreditAccount"|"CustomerCreditAccount desc"|"ControllingAreaCurrency"|"ControllingAreaCurrency desc"|"ReleasedCreditAmount"|"ReleasedCreditAmount desc"|"CreditBlockReleaseDate"|"CreditBlockReleaseDate desc"|"NextShippingDate"|"NextShippingDate desc"|"CentralCreditChkTechErrSts"|"CentralCreditChkTechErrSts desc"|"OverallSDProcessStatus"|"OverallSDProcessStatus desc"|"OverallGoodsMovementStatus"|"OverallGoodsMovementStatus desc"|"TotalCreditCheckStatus"|"TotalCreditCheckStatus desc"|"FinDocCreditCheckStatus"|"FinDocCreditCheckStatus desc"|"CentralCreditCheckStatus"|"CentralCreditCheckStatus desc")[];
 
-public type AcceptedAnydata record {|
-    *http:Accepted;
-    anydata body;
+public type ReturnMessage_1 record {
+    ReturnMessage_1_d d?;
+};
+
+public type OkReturnMessage_1 record {|
+    *http:Ok;
+    ReturnMessage_1 body;
     map<string|string[]> headers;
 |};
+
+public type CollectionOfA_CreditBlockedDeliveryDoc record {
+    count __count?;
+    A_CreditBlockedDeliveryDoc[] results?;
+};
 
 public type A_CreditBlockedDeliveryDocSelectOptions ("DeliveryDocument"|"SDDocumentCategory"|"SalesOrganization"|"SalesOffice"|"ShippingPoint"|"CreationDate"|"CreatedByUser"|"LastChangedByUser"|"LastChangeDate"|"SoldToParty"|"CustomerCreditAccount"|"ControllingAreaCurrency"|"ReleasedCreditAmount"|"CreditBlockReleaseDate"|"NextShippingDate"|"CentralCreditChkTechErrSts"|"OverallSDProcessStatus"|"OverallGoodsMovementStatus"|"TotalCreditCheckStatus"|"FinDocCreditCheckStatus"|"CentralCreditCheckStatus")[];
 
 # The number of entities in the collection. Available when using the [$inlinecount](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=67) query option.
 public type count string;
-
-public type A_SalesDocumentRjcnReason record {
-    # Reason for Rejection of Sales Documents
-    @constraint:String {maxLength: 2}
-    string SalesDocumentRjcnReason?;
-    string? SalesDocumentRjcnReason_Text?;
-};
 
 public type ReturnMessage record {
     string MessageType?;
@@ -52,8 +50,6 @@ public type ReturnMessage record {
 public type CollectionOfA_CreditBlockedDeliveryDocWrapper record {
     CollectionOfA_CreditBlockedDeliveryDoc d?;
 };
-
-public type A_SalesDocumentRjcnReasonSelectOptions ("SalesDocumentRjcnReason"|"SalesDocumentRjcnReason_Text")[];
 
 public type A_CreditBlockedDeliveryDoc record {
     @constraint:String {maxLength: 10}
@@ -95,56 +91,6 @@ public type A_CreditBlockedDeliveryDoc record {
     string? CentralCreditCheckStatus?;
 };
 
-public type CollectionOfA_SalesDocumentRjcnReasonWrapper record {
-    CollectionOfA_SalesDocumentRjcnReason d?;
-};
-
-public type A_SalesDocumentRjcnReasonOrderByOptions ("SalesDocumentRjcnReason"|"SalesDocumentRjcnReason desc"|"SalesDocumentRjcnReason_Text"|"SalesDocumentRjcnReason_Text desc")[];
-
-public type OkReturnMessage_2 record {|
-    *http:Ok;
-    ReturnMessage_2 body;
-    map<string|string[]> headers;
-|};
-
-public type ReturnMessage_3 record {
-    ReturnMessage_3_d d?;
-};
-
-public type CollectionOfA_SalesDocumentRjcnReason record {
-    count __count?;
-    A_SalesDocumentRjcnReason[] results?;
-};
-
-public type ReturnMessage_2 record {
-    ReturnMessage_2_d d?;
-};
-
-public type OkReturnMessage_3 record {|
-    *http:Ok;
-    ReturnMessage_3 body;
-    map<string|string[]> headers;
-|};
-
-public type ReturnMessage_1 record {
-    ReturnMessage_1_d d?;
-};
-
-public type OkReturnMessage_1 record {|
-    *http:Ok;
-    ReturnMessage_1 body;
-    map<string|string[]> headers;
-|};
-
-public type CollectionOfA_CreditBlockedDeliveryDoc record {
-    count __count?;
-    A_CreditBlockedDeliveryDoc[] results?;
-};
-
 public type ReturnMessage_1_d record {
     ReturnMessage CheckCreditBlock?;
-};
-
-public type ReturnMessage_2_d record {
-    ReturnMessage RejectCreditBlock?;
 };

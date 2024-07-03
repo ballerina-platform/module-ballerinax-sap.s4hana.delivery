@@ -26,7 +26,6 @@ configurable string hostname = isTestOnLiveServer ? os:getEnv("HOST_NAME") : "lo
 configurable string username = isTestOnLiveServer ? os:getEnv("USERNAME") : "admin";
 configurable string password = isTestOnLiveServer ? os:getEnv("PASSWORD") : "admin";
 
-// boolean isBalBuild = os:getEnv("IS_BAL_BUILD") == "true";
 boolean isBalBuild = true;
 string certPathPostFix = isBalBuild ? "../" : "/home/ballerina/ballerina/";
 
@@ -75,7 +74,7 @@ function testlistDocumentInfoRecord() returns error? {
 }
 function testAttachmentHarmonizedOperation() returns error? {
     AttachmentHarmonizedOperation_1|error attachmentHarmonizedOperation = s4HanaClient->createAttachmentHarmonizedOperationSet({
-        MimeType : "1234"
+        MimeType: "1234"
     });
     test:assertTrue(attachmentHarmonizedOperation is error, "The purchasing info record response expected to be 500");
     error e = <error>attachmentHarmonizedOperation;

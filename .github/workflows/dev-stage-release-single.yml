@@ -15,12 +15,12 @@ on:
         description: Select Connector
         required: true
         options:
-          - api_del_doc_with_credit_block
-          - api_customer_returns_delivery_srv_0002
           - api_outbound_delivery_srv_0002
-          - api_cv_attachment_srv
-          - ce_managelocation_0001
           - api_inbound_delivery_srv_0002
+          - api_customer_returns_delivery_srv_0002
+          - api_del_doc_with_credit_block
+          - ce_managelocation_0001
+          - api_cv_attachment_srv
 
 jobs:
   publish-release:
