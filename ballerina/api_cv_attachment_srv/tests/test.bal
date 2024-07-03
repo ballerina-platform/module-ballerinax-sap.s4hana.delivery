@@ -75,7 +75,7 @@ function testlistDocumentInfoRecord() returns error? {
 }
 function testAttachmentHarmonizedOperation() returns error? {
     AttachmentHarmonizedOperation_1|error attachmentHarmonizedOperation = s4HanaClient->createAttachmentHarmonizedOperationSet({
-        MimeType : "1234"
+        MimeType: "1234"
     });
     test:assertTrue(attachmentHarmonizedOperation is error, "The purchasing info record response expected to be 500");
     error e = <error>attachmentHarmonizedOperation;

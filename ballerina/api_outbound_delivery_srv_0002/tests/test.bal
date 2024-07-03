@@ -75,9 +75,9 @@ function testlistA_OutbDeliveryItems() returns error? {
 function testOutbDeliveryItemText() returns error? {
     A_OutbDeliveryItemTextWrapper|error creatingoutbdeliveryitemText = s4HanaClient->createA_OutbDeliveryItemText({
         DeliveryDocument: "1234",
-        DeliveryDocumentItem : "12",
-        TextElement : "12",
-        Language : "12"
+        DeliveryDocumentItem: "12",
+        TextElement: "12",
+        Language: "12"
     });
     test:assertTrue(creatingoutbdeliveryitemText is error, "The purchasing info record response expected to be 500");
     error e = <error>creatingoutbdeliveryitemText;

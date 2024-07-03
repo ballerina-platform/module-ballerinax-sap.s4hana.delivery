@@ -40,7 +40,7 @@ service /sap/opu/odata/sap/API_INBOUND_DELIVERY_SRV on ep0 {
         res.setHeader("X-CSRF-TOKEN", "SAP-Delivery-Document");
         return res;
     }
-    
+
     # Reads inbound delivery headers.
     #
     # + \$top - Show only the first n items, see [Paging - Top](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=66)

@@ -549,7 +549,7 @@ function sanitizeResponseSchemaNames(string specPath) returns error? {
                 ResponseSchema schema = app.schema ?: {};
                 string schemaTitle = schema.title ?: "";
                 if schemaTitle == "Wrapper" {
-                     schemaTitle = key.substring(1, key.length()) + "Wrapper";
+                    schemaTitle = key.substring(1, key.length()) + "Wrapper";
                     schema.title = schemaTitle;
                 } else if schemaTitle.endsWith("Type") {
                     schemaTitle = schemaTitle.substring(0, schemaTitle.length() - 4);

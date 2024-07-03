@@ -18,7 +18,7 @@ listener http:Listener ep0 = new (9090,
 
 service /sap/opu/odata/sap/API_OUTBOUND_DELIVERY_SRV on ep0 {
 
-     resource function head .() returns http:Response {
+    resource function head .() returns http:Response {
         http:Response res = new;
         res.statusCode = 200;
         res.setHeader("X-CSRF-TOKEN", "SAP-InfoRecord-Process");
@@ -48,7 +48,7 @@ service /sap/opu/odata/sap/API_OUTBOUND_DELIVERY_SRV on ep0 {
                 ]
             }
         };
-   }
+    }
 
     # Creates outbound delivery item texts.
     #
@@ -62,5 +62,4 @@ service /sap/opu/odata/sap/API_OUTBOUND_DELIVERY_SRV on ep0 {
         return res;
     }
 
-    
 }

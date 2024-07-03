@@ -3,5 +3,5 @@
   "communication-scenario": "Sales Credit Management Integration",
   "import-statement": "import ballerinax/sap.s4hana.api_del_doc_with_credit_block as delDoc;",
   "client-init": "delDoc:Client delDocClient = check new (",
-  "api-invocation": "delDoc:CollectionOfA_CreditBlockedDeliveryDocWrapper listcreditBlockedDeliveryDocs = check delDocClient->listA_CreditBlockedDeliveryDocs();"
+  "api-invocation": "delDoc:CollectionOfA_CreditBlockedDeliveryDocWrapper listCreditBlockedDeliveryDocs = check delDocClient->listA_CreditBlockedDeliveryDocs();"
 }

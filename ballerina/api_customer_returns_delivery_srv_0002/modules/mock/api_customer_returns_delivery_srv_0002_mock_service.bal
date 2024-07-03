@@ -150,7 +150,7 @@ service /sap/opu/odata/sap/API_CUSTOMER_RETURNS_DELIVERY_SRV on ep0 {
     # http:Ok (Success)
     # http:Response (Error)
     resource function post CreateBatchSplitItem(string? ShelfLifeExpirationDate, string? ManufactureDate, string? PickQuantityInSalesUOM, string DeliveryQuantityUnit, string DeliveryDocumentItem, string DeliveryDocument, string Batch, string ActualDeliveryQuantity) returns OkCreatedDeliveryItem_1|http:Response {
-            http:Response res = new;
+        http:Response res = new;
         res.statusCode = 500;
         return res;
     }
