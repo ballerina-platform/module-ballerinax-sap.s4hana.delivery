@@ -3,7 +3,7 @@
 [S/4HANA](https://www.sap.com/india/products/erp/s4hana.html) is a robust enterprise resource planning (ERP) solution,
 designed for large-scale enterprises by SAP SE.
 
-The `ballerinax/sap.s4hana.api_cv_attachment_srv` package offers APIs for seamless integration with the [Freight Agreement Attachments API v1.0.0](https://api.sap.com/api/API_CV_ATTACHMENT_SRV/overview). This service allows you to manage attachments and attachment URLs for business objects. You can perform operations such as create, read, rename, and deletion of attachments.
+The `ballerinax/sap.s4hana.api_cv_attachment_srv` package offers APIs for seamless integration with the [Freight Agreement Attachments API v1.0.0](https://api.sap.com/api/API_CV_ATTACHMENT_SRV/overview). This service allows you to manage attachments and attachment URLs for business objects.
 
 ## Setup guide
 

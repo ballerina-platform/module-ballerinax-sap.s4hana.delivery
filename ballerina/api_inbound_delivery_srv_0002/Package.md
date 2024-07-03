@@ -3,7 +3,7 @@
 [S/4HANA](https://www.sap.com/india/products/erp/s4hana.html) is a robust enterprise resource planning (ERP) solution,
 designed for large-scale enterprises by SAP SE.
 
-The ballerinax/sap.s4hana.api_inbound_delivery_srv_0002 package offers APIs for seamless integration with the  [Inbound Delivery API v2.2.0](https://api.sap.com/api/API_INBOUND_DELIVERY_SRV_0002/overview). This service enables users to create, read, update and delete inbound deliveries.
+The `ballerinax/sap.s4hana.api_inbound_delivery_srv_0002` package offers APIs for seamless integration with the [Inbound Delivery API v2.2.0](https://api.sap.com/api/API_INBOUND_DELIVERY_SRV_0002/overview). This service enables users to create, read, update and delete inbound deliveries.
 
 ## Setup guide
 

@@ -97,7 +97,7 @@ _Edition_: Swan Lake
 
 5. Add the `<API_NAME>.json` file under the `docs/spec` directory.
 
-   **Note**: Following scripts need to be run within the docs folder.
+   **Note**: Following scripts need to be run within the `docs` folder.
 
 6. Run `bal run sanitation/sanitations.bal -- "<API Name>"`
 

@@ -17,7 +17,8 @@ Notably:
    the [Outbound Delivery API v1.0.0](https://api.sap.com/api/API_OUTBOUND_DELIVERY_SRV_0002/overview). This service
    enables you to create, read, update and delete outbound deliveries.
 
-2. The ballerinax/sap.s4hana.api_inbound_delivery_srv_0002 package offers APIs for seamless integration with the  [Inbound Delivery API v2.2.0](https://api.sap.com/api/API_INBOUND_DELIVERY_SRV_0002/overview). This service enables users to create, read, update and delete inbound deliveries.
+2. The `ballerinax/sap.s4hana.api_inbound_delivery_srv_0002` package offers APIs for seamless integration with
+   the  [Inbound Delivery API v2.2.0](https://api.sap.com/api/API_INBOUND_DELIVERY_SRV_0002/overview). This service enables users to create, read, update and delete inbound deliveries.
 
 3. The `ballerinax/sap.s4hana.api_customer_returns_delivery_srv_0002` package offers APIs for seamless integration with
    the [Customer Returns Delivery API v2.1.0](https://api.sap.com/api/API_CUSTOMER_RETURNS_DELIVERY_SRV_0002/overview).
@@ -28,12 +29,13 @@ Notably:
    The service contains entities for credit blocked delivery document and reject reason. Once the delivery document has
    been checked, released, or rejected, a success message containing the document number is sent in the response.
 
-5. The `ballerinax/sap.s4hana.ce_managelocation_0001` package offers APIs for seamless integration with the [Location API v1.0.1](https://api.sap.com/api/CE_MANAGELOCATION_0001/overview).This service enables users to create, read, update, and delete locations through an API call.
+5. The `ballerinax/sap.s4hana.ce_managelocation_0001` package offers APIs for seamless integration with
+   the [Location API v1.0.1](https://api.sap.com/api/CE_MANAGELOCATION_0001/overview).This service enables users to
+   create, read, update, and delete locations through an API call.
 
 6. The `ballerinax/sap.s4hana.api_cv_attachment_srv` package offers APIs for seamless integration with
-   the [Freight Agreement Attachments API v2.1.0](https://api.sap.com/api/API_CV_ATTACHMENT_SRV/overview). This service
-   allows you to manage attachments and attachment URLs for business objects. You can perform operations such as create,
-   read, rename, and deletion of attachments.
+   the [Freight Agreement Attachments API v1.0.0](https://api.sap.com/api/API_CV_ATTACHMENT_SRV/overview). This service
+   allows you to manage attachments and attachment URLs for business objects.
 
 ## Issues and projects
 
@@ -134,8 +136,7 @@ Execute the commands below to build from the source.
 
 As an open-source project, Ballerina welcomes contributions from the community.
 
-For more information, go to
-the [contribution guidelines](https://github.com/ballerina-platform/ballerina-lang/blob/master/CONTRIBUTING.md).
+For more information, go to the [contribution guidelines](https://github.com/ballerina-platform/ballerina-lang/blob/master/CONTRIBUTING.md).
 
 ## Code of conduct
 
@@ -146,5 +147,4 @@ All the contributors are encouraged to read the [Ballerina Code of Conduct](http
 * For more information go to the [`sap` package](https://lib.ballerina.io/ballerinax/sap/latest).
 * For example demonstrations of the usage, go to [Ballerina By Examples](https://ballerina.io/learn/by-example/).
 * Chat live with us via our [Discord server](https://discord.gg/ballerinalang).
-* Post all technical questions on Stack Overflow with 
-the [#ballerina](https://stackoverflow.com/questions/tagged/ballerina) tag.
+* Post all technical questions on Stack Overflow with the [#ballerina](https://stackoverflow.com/questions/tagged/ballerina) tag.
