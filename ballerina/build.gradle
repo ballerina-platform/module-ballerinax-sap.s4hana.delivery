@@ -90,6 +90,7 @@ task build {
     dependsOn(':delivery-ballerina:api_outbound_delivery_srv_0002:commitTomlFiles')
     dependsOn(':delivery-ballerina:api_cv_attachment_srv:commitTomlFiles')
     dependsOn(':delivery-ballerina:ce_managelocation_0001:commitTomlFiles')
+    dependsOn(':delivery-ballerina:api_inbound_delivery_srv_0002:commitTomlFiles')
 }
 
 publishToMavenLocal.dependsOn build

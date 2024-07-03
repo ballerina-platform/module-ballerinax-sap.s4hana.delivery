@@ -3,7 +3,7 @@
 [S/4HANA](https://www.sap.com/india/products/erp/s4hana.html) is a robust enterprise resource planning (ERP) solution,
 designed for large-scale enterprises by SAP SE.
 
-The `ballerinax/sap.s4hana.api_outbound_delivery_srv_0002` package offers APIs for seamless integration with the [Outbound Delivery API v2.1.0](https://api.sap.com/api/API_OUTBOUND_DELIVERY_SRV_0002/overview). This service enables you to create, read, update and delete outbound deliveries.
+The ballerinax/sap.s4hana.api_inbound_delivery_srv_0002 package offers APIs for seamless integration with the  [Inbound Delivery API v2.2.0](https://api.sap.com/api/API_INBOUND_DELIVERY_SRV_0002/overview). This service enables users to create, read, update and delete inbound deliveries.
 
 ## Setup guide
 
@@ -35,14 +35,14 @@ The `ballerinax/sap.s4hana.api_outbound_delivery_srv_0002` package offers APIs f
 
 ## Quickstart
 
-To use the `sap.s4hana.api_outbound_delivery_srv_0002` connector in your Ballerina application, modify the `.bal` file as follows:
+To use the `sap.s4hana.api_inbound_delivery_srv_0002` connector in your Ballerina application, modify the `.bal` file as follows:
 
 ### Step 1: Import the module
 
-Import the `sap.s4hana.api_outbound_delivery_srv_0002` module.
+Import the `sap.s4hana.api_inbound_delivery_srv_0002` module.
 
 ```ballerina
-import ballerinax/sap.s4hana.api_outbound_delivery_srv_0002 as outbDel;
+import ballerinax/sap.s4hana.api_inbound_delivery_srv_0002 as inbDel;
 ```
 
 ### Step 2: Instantiate a new connector
@@ -54,7 +54,7 @@ configurable string hostname = ?;
 configurable string username = ?;
 configurable string password = ?;
 
-outbDel:Client outbDelClient = check new (
+inbDel:Client inbDelClient = check new (
     hostname = hostname,
     config = {
         auth: {
@@ -70,7 +70,7 @@ outbDel:Client outbDelClient = check new (
 Now, utilize the available connector operations.
 
 ```ballerina
-outbDel:CollectionOfA_OutbDeliveryItemWrapper listOutbDeliveryItems = check outbdDelClient->listA_OutbDeliveryItems();
+inbDel:CollectionOfA_InbDeliveryItemWrapper listInbDeliveryItems = check inbdDelClient->listA_InbDeliveryItems();
 ```
 
 ### Step 4: Run the Ballerina application

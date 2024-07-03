@@ -1,0 +1,7 @@
+{
+  "description": "The ballerinax/sap.s4hana.api_inbound_delivery_srv_0002 package offers APIs for seamless integration with the  [Inbound Delivery API v2.2.0](https://api.sap.com/api/API_INBOUND_DELIVERY_SRV_0002/overview). This service enables users to create, read, update and delete inbound deliveries.",
+  "communication-scenario": "Delivery Processing Integration",
+  "import-statement": "import ballerinax/sap.s4hana.api_inbound_delivery_srv_0002 as inbDel;",
+  "client-init": "inbDel:Client inbDelClient = check new (",
+  "api-invocation": "inbDel:CollectionOfA_InbDeliveryItemWrapper listInbDeliveryItems = check inbdDelClient->listA_InbDeliveryItems();"
+}
