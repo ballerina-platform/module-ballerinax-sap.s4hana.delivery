@@ -1,0 +1,8 @@
+[package]
+org = "osara_bandara"
+name = "returns_from_sap"
+version = "0.1.0"
+distribution = "2201.9.0"
+
+[build-options]
+observabilityIncluded = true
