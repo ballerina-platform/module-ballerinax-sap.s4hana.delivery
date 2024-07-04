@@ -1,0 +1,14 @@
+[package]
+org = "integration_samples"
+name = "inbound_deliveries_to_sap"
+version = "0.1.0"
+distribution = "2201.9.0"
+
+[[dependency]]
+org = "ballerinax"
+name = "sap.s4hana.api_inbound_delivery_srv_0002"
+version = "1.0.0"
+repository = "local"
+
+[build-options]
+observabilityIncluded = true
