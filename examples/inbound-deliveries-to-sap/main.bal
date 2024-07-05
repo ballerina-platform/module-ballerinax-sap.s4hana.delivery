@@ -18,50 +18,47 @@ import ballerina/http;
 import ballerina/io;
 import ballerina/time;
 import ballerina/xmldata;
-import ballerinax/s4hana.api_inbound_delivery_srv_0002 as inbound;
+import ballerinax/sap.s4hana.api_inbound_delivery_srv_0002 as inbound;
 
 configurable S4HANAClientConfig s4hanaClientConfig = ?;
 
 final inbound:Client inboundClient = check new (
     config = {
         auth: {
-            username: s4hanaconfig.username,
-            password: s4hanaconfig.password
+            username: s4hanaClientConfig.username,
+            password: s4hanaClientConfig.password
         }
     },
-    hostname = s4hanaconfig.hostname
+    hostname = s4hanaClientConfig.hostname
 );
 
 public function main() returns error? {
 
     xml readXml = check io:fileReadXml("files/document.xml");
-    inbound_deliveries filereading = check xmldata:fromXml(readXml);
+    InbDeliveries deliveries = check xmldata:fromXml(readXml);
 
-    string currentDate = time:utcToString(time:utcNow());
-    string dayafterDate = time:utcToString(time:utcAddSeconds(time:utcNow(), 24 * 60 * 60));
+    string daybeforeDate = time:utcToString(time:utcAddSeconds(time:utcNow(), - 24 * 60 * 60));
 
-    inbound:UpdateA_InbDeliveryHeader deliveryentities = {ActualGoodsMovementDate: currentDate};
+    inbound:UpdateA_InbDeliveryHeader deliveryentities = {ActualGoodsMovementDate: time:utcToString(time:utcNow())};
     inbound:Modified\ A_InbDeliveryHeaderType deliverypayload = {d: deliveryentities};
 
-    string filterQuery = "DeliveryDate gt datetime'" + currentDate + "' and ls datetime'" + dayafterDate;
+    inbound:CollectionOfA_InbDeliveryHeaderWrapper deliveriesHeader = check inboundClient->listA_InbDeliveryHeaders(\$filter = "DeliveryDate gt datetime'" + daybeforeDate + "' and ls datetime'" + time:utcToString(time:utcNow()));
 
-    inbound:CollectionOfA_InbDeliveryHeaderWrapper deliveries = check inboundClient->listA_InbDeliveryHeaders(\$filter = filterQuery);
-
-    inbound:A_InbDeliveryHeader[] resultsList = deliveries.d?.results ?: [];
+    inbound:A_InbDeliveryHeader[] resultsList = deliveriesHeader.d?.results ?: [];
 
     foreach inbound:A_InbDeliveryHeader result in resultsList {
-        foreach int i in 0 ... filereading.delivery.length() - 1 {
-            if (filereading.delivery[i].DeliveryDate == currentDate.substring(0, 10)) {
-                string deliveryDocument = filereading.delivery[i].DeliveryDocument;
-                if (filereading.delivery[i].Supplier == result?.Supplier) {
+        foreach int i in 0 ... deliveries.delivery.length() - 1 {
+            if (deliveries.delivery[i].DeliveryDate == time:utcToString(time:utcNow()).substring(0, 10)) {
+                string deliveryDocument = deliveries.delivery[i].DeliveryDocument;
+                if (deliveries.delivery[i].Supplier == result?.Supplier) {
                     http:Response|error patchAInbDeliveryHeader = inboundClient->patchA_InbDeliveryHeader(
                                 deliveryDocument,
                                 deliverypayload
                         );
 
-                    foreach int j in 0 ... filereading.delivery[i].DeliveryDocumentItem.Item.length() - 1 {
-                        string deliveryItemId = filereading.delivery[i].DeliveryDocumentItem.Item[j].ItemId ?: "";
-                        string itemQuantity = filereading.delivery[i].DeliveryDocumentItem.Item[j].Quantity ?: "";
+                    foreach int j in 0 ... deliveries.delivery[i].DeliveryDocumentItem.Item.length() - 1 {
+                        string deliveryItemId = deliveries.delivery[i].DeliveryDocumentItem.Item[j].ItemId ?: "";
+                        string itemQuantity = deliveries.delivery[i].DeliveryDocumentItem.Item[j].Quantity ?: "";
 
                         inbound:UpdateA_InbDeliveryItem itemEntities = {ActualDeliveryQuantity: itemQuantity};
                         inbound:Modified\ A_InbDeliveryItemType itempayload = {d: itemEntities};

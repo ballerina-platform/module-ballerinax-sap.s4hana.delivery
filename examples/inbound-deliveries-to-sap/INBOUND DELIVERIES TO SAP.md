@@ -1,4 +1,4 @@
-# Extract delivery information from XML files and confirm receipt in S/4HANA inbound delivery
+# Integrate Warehouse System with S/4HANA
 
 This example illustrates leveraging the `sap.s4hana.api_inbound_delivery_srv_0002:Client` in Ballerina for S/4HANA API interactions. It specifically showcases how to extract everyday delivery information from XML files and confirm the receipt in the S/4HANA inbound delivery.
 
