@@ -1,6 +1,6 @@
 # Weekly report generation on customer returns deliveries
 
-This example demonstrates leveraging the `sap.s4hana.api_customer_returns_delivery_srv_0002:Client` in Ballerina for S/4HANA API interactions. It specifically showcases how to retrieve customer returns delivery items and send an email containing a report on the returns delivery items in the S/4HANA SD module.
+This example showcases the use of `sap.s4hana.api_customer_returns_delivery_srv_0002:Client` for API interactions with S/4HANA. It focuses on retrieving data on customer returns delivery items and compiling this information into an email report, demonstrating an automated reporting process within the S/4HANA SD module.
 
 ## Prerequisites
 
@@ -18,18 +18,17 @@ Refer to the [Setup Guide](https://central.ballerina.io/ballerinax/googleapis.gm
 Configure Salesforce and S/4HANA API credentials and Gmail credentials in `Config.toml` in the example directory:
 
 ```toml
-[S4HANAClientConfig]
+[s4hanaClientConfig]
 hostname = "<Hostname>"
 username = "<Username>"
 password = "<Password>"
 
-[GmailClientConfig]
+[gmailClientConfig]
 clientId = "<Client_ID>"
 clientSecret = "<Client_Secret>"
 refreshToken = "<Refresh_token>"
 recipientAddress = "<Recipient_Address>"
-senderAddress = "<Sender_Address>"
-
+fromAddress = "<Sender_Address>"
 ```
 
 ## Run the Example

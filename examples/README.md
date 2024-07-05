@@ -1,11 +1,12 @@
 # Examples
 
-The S/4 HANA Delivery Ballerina connectors provide practical examples illustrating usage in various scenarios. Explore these [examples](https://github.com/ballerina-platform/module-ballerinax-sap.s4hana.delivery/tree/main/examples), covering use cases like integrating warehouse system with S/4HANA and generating weekly reports from S/4HANA. 
+The S/4 HANA Delivery Ballerina connectors offer practical examples that demonstrate their application in various scenarios. Dive into these [examples](https://github.com/ballerina-platform/module-ballerinax-sap.s4hana.delivery/tree/main/examples) to discover how to integrate external systems with S/4HANA for tasks such as warehouse system integration and automated report generation.
 
-1. [Weekly Report Generation](https://github.com/ballerina-platform/module-ballerinax-sap.s4hana.delivery/tree/main/examples/generate-report) -
-   Demonstrates leveraging the `sap.s4hana.api_customer_returns_delivery_srv_0002:Client` in Ballerina for S/4HANA API interactions. It
-   specifically showcases how to retrieve customer returns delivery items and send an email containing a report on the returns delivery items
-   in the S/4HANA SD module.
+1. [Weekly Report Generation](https://github.com/ballerina-platform/module-ballerinax-sap.s4hana.delivery/tree/main/examples/generate-report) - 
+   This example showcases the use of `sap.s4hana.api_customer_returns_delivery_srv_0002:Client` for API interactions with S/4HANA. It focuses on retrieving data on customer returns delivery items and compiling this information into an email report, demonstrating an automated reporting process within the S/4HANA SD module.
+
+2. [Warehouse System Integration with S/4HANA](https://github.com/ballerina-platform/module-ballerinax-sap.s4hana.delivery/tree/main/examples/inbound-deliveries-to-sap) - 
+    This example demonstrates the use of `sap.s4hana.api_inbound_delivery_srv_0002:Client` for seamless API interactions with S/4HANA. It highlights how to process daily delivery information from XML files and confirm receipts in the S/4HANA inbound delivery system, illustrating efficient warehouse to S/4HANA integration.
 
 ## Prerequisites
 

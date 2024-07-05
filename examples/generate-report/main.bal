@@ -13,12 +13,13 @@
 // KIND, either express or implied.  See the License for the
 // specific language governing permissions and limitations
 // under the License.
+
 import ballerina/io;
 import ballerina/time;
 import ballerinax/googleapis.gmail as gmail;
 import ballerinax/sap.s4hana.api_customer_returns_delivery_srv_0002 as returnDel;
 
-configurable S4HANAClientConfig s4hanaClientConfig = ?;
+configurable S4hanaClientConfig s4hanaClientConfig = ?;
 
 returnDel:Client returnDelClient = check new (config = {
         auth: {
