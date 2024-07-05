@@ -18,17 +18,15 @@ Refer to the [Setup Guide](https://central.ballerina.io/ballerinax/googleapis.gm
 Configure Salesforce and S/4HANA API credentials and Gmail credentials in `Config.toml` in the example directory:
 
 ```toml
-[s4hanaClientConfig]
+[S4HANAClientConfig]
 hostname = "<Hostname>"
 username = "<Username>"
 password = "<Password>"
 
-[gmailClientConfig]
+[GmailClientConfig]
 clientId = "<Client_ID>"
 clientSecret = "<Client_Secret>"
 refreshToken = "<Refresh_token>"
-
-[gmailConfig]
 recipientAddress = "<Recipient_Address>"
 senderAddress = "<Sender_Address>"
 

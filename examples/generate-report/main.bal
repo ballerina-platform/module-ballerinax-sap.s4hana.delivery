@@ -18,31 +18,25 @@ import ballerina/time;
 import ballerinax/googleapis.gmail as gmail;
 import ballerinax/sap.s4hana.api_customer_returns_delivery_srv_0002 as returnDel;
 
-configurable string hostname = ?;
-configurable string username = ?;
-configurable string password = ?;
+configurable S4HANAClientConfig s4hanaClientConfig = ?;
 
 returnDel:Client returnDelClient = check new (config = {
         auth: {
-            username,
-            password
+            username: s4hanaClientConfig.username,
+            password: s4hanaClientConfig.password
         }
     },
-    hostname = hostname
+    hostname = s4hanaClientConfig.hostname
 );
 
-configurable string refreshToken = ?;
-configurable string clientId = ?;
-configurable string clientSecret = ?;
-configurable string recipientAddress = ?;
-configurable string fromAddress = ?;
+configurable GmailClientConfig gmailClientConfig = ?;
 
 gmail:Client gmail = check new gmail:Client(
     config = {
         auth: {
-            refreshToken,
-            clientId,
-            clientSecret
+            refreshToken: gmailClientConfig.refreshToken,
+            clientId: gmailClientConfig.clientId,
+            clientSecret: gmailClientConfig.clientSecret
         }
     }
 );
@@ -67,8 +61,8 @@ public function main() returns error? {
     }
 
     gmail:MessageRequest message = {
-        to: [recipientAddress],
-        'from: fromAddress,
+        to: [gmailClientConfig.recipientAddress],
+        'from: gmailClientConfig.fromAddress,
         subject: "Weekly Customer Returns Delivery Report",
         bodyInHtml: report
     };
