@@ -1,18 +1,27 @@
+// Copyright (c) 2024, WSO2 LLC. (http://www.wso2.org).
+//
+// WSO2 LLC. licenses this file to you under the Apache License,
+// Version 2.0 (the "License"); you may not use this file except
+// in compliance with the License.
+// You may obtain a copy of the License at
+//
+// http://www.apache.org/licenses/LICENSE-2.0
+//
+// Unless required by applicable law or agreed to in writing,
+// software distributed under the License is distributed on an
+// "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+// KIND, either express or implied.  See the License for the
+// specific language governing permissions and limitations
+// under the License.
 import ballerina/io;
 import ballerina/time;
 import ballerinax/googleapis.gmail as gmail;
-import osa/api_customer_returns_delivery_srv_0002 as returnDel;
+
+import ballerinax/sap.s4hana.api_customer_returns_delivery_srv_0002 as returnDel;
 
 configurable string hostname = ?;
 configurable string username = ?;
 configurable string password = ?;
-
-configurable string refreshToken = ?;
-configurable string clientId = ?;
-configurable string clientSecret = ?;
-
-configurable string recipientAddress = ?;
-configurable string fromAddress = ?;
 
 returnDel:ConnectionConfig config = {
     auth: {
@@ -20,6 +29,12 @@ returnDel:ConnectionConfig config = {
         password: password
     }
 };
+
+configurable string refreshToken = ?;
+configurable string clientId = ?;
+configurable string clientSecret = ?;
+configurable string recipientAddress = ?;
+configurable string fromAddress = ?;
 
 gmail:Client gmail = check new gmail:Client(
     config = {
@@ -34,19 +49,16 @@ gmail:Client gmail = check new gmail:Client(
 public function main() returns error? {
 
     returnDel:Client returnDelClient = check new (config, hostname);
-    io:println("Client is created successfully");
-    string query = "CreationDate gt datetime'" + getUTC() + "'";
+    string query = "CreationDate gt datetime'" + getStartOfWeekTimestamp() + "'";
 
-    returnDel:CollectionOfA_ReturnsDeliveryItemWrapper returnsDeliveries = check returnDelClient->listA_ReturnsDeliveryItems(
-        \$filter = query
-    );
-    
+    returnDel:CollectionOfA_ReturnsDeliveryItemWrapper returnsDeliveries = check returnDelClient->listA_ReturnsDeliveryItems(\$filter = query);
+
     string report = generateReport(returnsDeliveries);
 
     gmail:MessageRequest message = {
         to: [recipientAddress],
         'from: fromAddress,
-        subject: "Customer Returns Delivery Report",
+        subject: "Weekly Customer Returns Delivery Report",
         bodyInHtml: report
     };
 
@@ -72,19 +84,15 @@ function generateReport(returnDel:CollectionOfA_ReturnsDeliveryItemWrapper retur
         groupedItems = [];
     }
 
-    foreach var Item in groupedItems {
-        string material = Item.Material ?: "";
-        string deliveryDocStr = Item.DeliveryDocument.toString();
-        string totalQuantity = Item.ActualDeliveryQuantity.toString();
+    from var Item in groupedItems
+    do {
+        tableRows += string `<tr><td>${Item.Material ?: ""}</td><td>${Item.DeliveryDocument.toString()}</td><td>${Item.ActualDeliveryQuantity.toString()}</td></tr>`;
+    };
 
-        tableRows += "<tr><td>" + material + "</td>";
-        tableRows += "<td>" + deliveryDocStr + "</td>";
-        tableRows += "<td>" + totalQuantity.toString() + "</td></tr>";
-    }
     return tableStart + tableRows + tableEnd;
 }
 
-public function getUTC() returns string {
+public function getStartOfWeekTimestamp() returns string {
     time:Utc currentUtc = time:utcNow();
     time:Utc utc = time:utcAddSeconds(currentUtc, -7 * 24 * 60 * 60);
     return time:utcToString(utc).substring(0, 19);
