@@ -16,19 +16,20 @@
 import ballerina/io;
 import ballerina/time;
 import ballerinax/googleapis.gmail as gmail;
-
 import ballerinax/sap.s4hana.api_customer_returns_delivery_srv_0002 as returnDel;
 
 configurable string hostname = ?;
 configurable string username = ?;
 configurable string password = ?;
 
-returnDel:ConnectionConfig config = {
-    auth: {
-        username: username,
-        password: password
-    }
-};
+returnDel:Client returnDelClient = check new (config = {
+        auth: {
+            username,
+            password
+        }
+    },
+    hostname = hostname
+);
 
 configurable string refreshToken = ?;
 configurable string clientId = ?;
@@ -48,12 +49,22 @@ gmail:Client gmail = check new gmail:Client(
 
 public function main() returns error? {
 
-    returnDel:Client returnDelClient = check new (config, hostname);
     string query = "CreationDate gt datetime'" + getStartOfWeekTimestamp() + "'";
 
-    returnDel:CollectionOfA_ReturnsDeliveryItemWrapper returnsDeliveries = check returnDelClient->listA_ReturnsDeliveryItems(\$filter = query);
+    returnDel:CollectionOfA_ReturnsDeliveryItemWrapper response = check returnDelClient->listA_ReturnsDeliveryItems(\$filter = query);
+    returnDel:A_ReturnsDeliveryItem[] returnedDeliveries = response.d?.results ?: [];
 
-    string report = generateReport(returnsDeliveries);
+    if returnedDeliveries.length() == 0 {
+        io:println("No returns deliveries found for the week");
+        return;
+    }
+
+    string|error report = generateReport(returnedDeliveries);
+
+    if (report is error) {
+        io:println(string `Error while generating report, ${report.message()}`);
+        return;
+    }
 
     gmail:MessageRequest message = {
         to: [recipientAddress],
@@ -62,34 +73,30 @@ public function main() returns error? {
         bodyInHtml: report
     };
 
-    gmail:Message sendResult = check gmail->/users/me/messages/send.post(message);
-    io:println(sendResult);
+    _ = check gmail->/users/me/messages/send.post(message);
+    io:println("Weekly Report Sent Successfully!");
 }
 
-// Function to generate the report
-function generateReport(returnDel:CollectionOfA_ReturnsDeliveryItemWrapper returnsDeliveries) returns string {
-    string tableStart = "<table border='1'><tr><th>Product</th><th>Delivery Document</th><th> Delivered Quantity</th></tr>";
-    string tableEnd = "</table>";
-    string tableRows = "";
+function generateReport(returnDel:A_ReturnsDeliveryItem[] returnsList) returns string|error {
 
-    returnDel:A_ReturnsDeliveryItem[]? returnsList = returnsDeliveries.d?.results ?: [];
-
-    record {|string? Material; [string?...] DeliveryDocument; [string?...] ActualDeliveryQuantity;|}[] groupedItems;
-    if returnsList !is () {
-        groupedItems =
+    record {|string? Material; [string?...] DeliveryDocument; int ActualDeliveryQuantity;|}[] groupedItems =
         from var {Material, DeliveryDocument, ActualDeliveryQuantity} in returnsList
-        group by Material
-        select {Material, DeliveryDocument: [DeliveryDocument], ActualDeliveryQuantity: [ActualDeliveryQuantity]};
-    } else {
-        groupedItems = [];
-    }
-
-    from var Item in groupedItems
-    do {
-        tableRows += string `<tr><td>${Item.Material ?: ""}</td><td>${Item.DeliveryDocument.toString()}</td><td>${Item.ActualDeliveryQuantity.toString()}</td></tr>`;
+    let int quantity = check int:fromString(ActualDeliveryQuantity ?: "0")
+    group by Material
+    select {
+        Material,
+        DeliveryDocument: [DeliveryDocument],
+        ActualDeliveryQuantity: sum(quantity)
     };
 
-    return tableStart + tableRows + tableEnd;
+    string[] tableRows = from var Item in groupedItems
+        select string `<tr><td>${Item.Material ?: ""}</td><td>${Item.DeliveryDocument.toString()}</td><td>${Item.ActualDeliveryQuantity.toString()}</td></tr>`;
+
+    string emailTemplate = string `<table border='1'>
+                                        <tr><th>Product</th><th>Delivery Document</th><th> Delivered Quantity</th></tr>
+                                        ${tableRows.reduce(function(string result, string val) returns string => result + val, "")}
+                                        </table>`;
+    return emailTemplate;
 }
 
 public function getStartOfWeekTimestamp() returns string {

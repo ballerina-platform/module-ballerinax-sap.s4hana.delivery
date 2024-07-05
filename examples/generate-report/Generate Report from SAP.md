@@ -1,6 +1,7 @@
 # Weekly report generation on customer returns deliveries
 
 This example demonstrates leveraging the `sap.s4hana.api_customer_returns_delivery_srv_0002:Client` in Ballerina for S/4HANA API interactions. It specifically showcases how to retrieve customer returns delivery items and send an email containing a report on the returns delivery items in the S/4HANA SD module.
+
 ## Prerequisites
 
 ### 1. Setup the S/4HANA API
