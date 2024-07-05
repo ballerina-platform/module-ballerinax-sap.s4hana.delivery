@@ -87,7 +87,7 @@ function generateReport(returnDel:A_ReturnsDeliveryItem[] returnsList) returns s
     string[] tableRows = from var Item in groupedItems
         select string `<tr><td>${Item.Material ?: ""}</td><td>${Item.DeliveryDocument.toString()}</td><td>${Item.ActualDeliveryQuantity.toString()}</td></tr>`;
 
-    string emailTemplate = string `<p>This is an automated delivery report generated to provide detailed information on the materials, delivery documents, and quantities for each product.</p>
+    string emailTemplate = string `<p>This automated report provides detailed information on the quantity of products returned in the past week.</p>
                                         <table border='1'>
                                         <tr><th>Product</th><th>Delivery Document</th><th> Delivered Quantity</th></tr>
                                         ${tableRows.reduce(function(string result, string val) returns string => result + val, "")}
