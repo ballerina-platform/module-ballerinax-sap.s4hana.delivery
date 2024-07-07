@@ -1,6 +1,8 @@
 # Integrate Warehouse System with S/4HANA
 
-This example demonstrates the use of `sap.s4hana.api_inbound_delivery_srv_0002:Client` for seamless API interactions with S/4HANA. It highlights how to process daily delivery information from XML files and confirm receipts in the S/4HANA inbound delivery system, illustrating efficient warehouse to S/4HANA integration.
+This example demonstrates the use of `sap.s4hana.api_inbound_delivery_srv_0002:Client` for seamless API interactions
+with S/4HANA. It highlights how to process daily delivery information from XML files and confirm receipts in the S/4HANA
+inbound delivery system, illustrating efficient warehouse to S/4HANA integration.
 
 ## Prerequisites
 

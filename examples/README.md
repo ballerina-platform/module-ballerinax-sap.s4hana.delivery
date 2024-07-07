@@ -1,12 +1,20 @@
 # Examples
 
-The S/4 HANA Delivery Ballerina connectors offer practical examples that demonstrate their application in various scenarios. Dive into these [examples](https://github.com/ballerina-platform/module-ballerinax-sap.s4hana.delivery/tree/main/examples) to discover how to integrate external systems with S/4HANA for tasks such as warehouse system integration and automated report generation.
+The S/4 HANA Delivery Ballerina connectors offer practical examples that demonstrate their application in various
+scenarios. Dive into
+these [examples](https://github.com/ballerina-platform/module-ballerinax-sap.s4hana.delivery/tree/main/examples) to
+discover how to integrate external systems with S/4HANA for tasks such as warehouse system integration and automated
+report generation.
 
-1. [Weekly Report Generation](https://github.com/ballerina-platform/module-ballerinax-sap.s4hana.delivery/tree/main/examples/generate-report) - 
-   This example showcases the use of `sap.s4hana.api_customer_returns_delivery_srv_0002:Client` for API interactions with S/4HANA. It focuses on retrieving data on customer returns delivery items and compiling this information into an email report, demonstrating an automated reporting process within the S/4HANA SD module.
+1. [Weekly Report Generation](https://github.com/ballerina-platform/module-ballerinax-sap.s4hana.delivery/tree/main/examples/generate-report) -
+   This example showcases the use of `sap.s4hana.api_customer_returns_delivery_srv_0002:Client` for API interactions
+   with S/4HANA. It focuses on retrieving data on customer returns delivery items and compiling this information into an
+   email report, demonstrating an automated reporting process within the S/4HANA SD module.
 
-2. [Warehouse System Integration with S/4HANA](https://github.com/ballerina-platform/module-ballerinax-sap.s4hana.delivery/tree/main/examples/inbound-deliveries-to-sap) - 
-    This example demonstrates the use of `sap.s4hana.api_inbound_delivery_srv_0002:Client` for seamless API interactions with S/4HANA. It highlights how to process daily delivery information from XML files and confirm receipts in the S/4HANA inbound delivery system, illustrating efficient warehouse to S/4HANA integration.
+2. [Warehouse System Integration with S/4HANA](https://github.com/ballerina-platform/module-ballerinax-sap.s4hana.delivery/tree/main/examples/inbound-deliveries-to-sap) -
+   This example demonstrates the use of `sap.s4hana.api_inbound_delivery_srv_0002:Client` for seamless API interactions
+   with S/4HANA. It highlights how to process daily delivery information from XML files and confirm receipts in the
+   S/4HANA inbound delivery system, illustrating efficient warehouse to S/4HANA integration.
 
 ## Prerequisites
 
