@@ -1,0 +1,18 @@
+<?xml version="1.1" encoding="UTF-8"?>
+<inbound_deliveries>
+    <delivery>
+        <DeliveryDocument>DOC001</DeliveryDocument>
+        <DeliveryDocumentItem>
+            <Item>
+                <ItemId>I001</ItemId>
+                <Quantity>20</Quantity>
+            </Item>
+            <Item>
+                <ItemId>I002</ItemId>
+                <Quantity>20</Quantity>
+            </Item>
+        </DeliveryDocumentItem>
+        <Supplier>Supplier A</Supplier>
+        <DeliveryDate>2024-07-10</DeliveryDate>
+    </delivery> 
+</inbound_deliveries>

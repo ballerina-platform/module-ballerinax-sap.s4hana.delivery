@@ -34,7 +34,7 @@ final inbound:Client inboundClient = check new (
 
 public function main() returns error? {
 
-    xml readXml = check io:fileReadXml("files/document.xml");
+    xml readXml = check io:fileReadXml("resources/delivery.xml");
     InbDeliveries deliveries = check xmldata:fromXml(readXml);
 
     string daybeforeDate = time:utcToString(time:utcAddSeconds(time:utcNow(), - 24 * 60 * 60));
