@@ -1,6 +1,6 @@
 [package]
-org = "integration_samples"
-name = "inbound_deliveries_to_sap"
+org = "wso2"
+name = "warehouse_to_s4hana"
 version = "0.1.0"
 distribution = "2201.9.0"
 
