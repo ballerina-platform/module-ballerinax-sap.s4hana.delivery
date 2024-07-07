@@ -25,17 +25,13 @@ type InbDeliveries record {
 };
 
 type Delivery record {
-    string DeliveryDocument;
-    string Supplier;
-    string DeliveryDate;
-    DeliveryDocumentItem DeliveryDocumentItem;
+    string deliveryDocument;
+    string supplier;
+    string deliveryDate;
+    DeliveryItem[] item;
 };
 
-type DeliveryDocumentItem record{
-    Item[] Item;
-};
-
-type Item record{
-    string ItemId?;
-    string Quantity?;
+type DeliveryItem record {
+    string id;
+    int quantity;
 };
