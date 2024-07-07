@@ -1,4 +1,4 @@
-# Ballerina S/4HANA Delivery and Transportation Connectors
+# Ballerina S/4HANA Delivery Connectors
 
 [![Build](https://github.com/ballerina-platform/module-ballerinax-sap.s4hana.delivery/actions/workflows/ci.yml/badge.svg)](https://github.com/ballerina-platform/module-ballerinax-sap.s4hana.delivery/actions/workflows/ci.yml)
 [![codecov](https://codecov.io/gh/ballerina-platform/module-ballerinax-sap.s4hana.delivery/branch/main/graph/badge.svg)](https://codecov.io/gh/ballerina-platform/module-ballerinax-sap.s4hana.delivery)
@@ -10,15 +10,15 @@
 [S/4HANA](https://www.sap.com/india/products/erp/s4hana.html) is a robust enterprise resource planning (ERP) solution,
 designed for large-scale enterprises by SAP SE.
 
-This repository encompasses all Ballerina packages pertaining to the S/4HANA transportation & delivery submodule.
-Notably:
+This repository encompasses all Ballerina packages pertaining to the S/4HANA delivery submodule. Notably:
 
 1. The `ballerinax/sap.s4hana.api_outbound_delivery_srv_0002` package offers APIs for seamless integration with
    the [Outbound Delivery API v1.0.0](https://api.sap.com/api/API_OUTBOUND_DELIVERY_SRV_0002/overview). This service
    enables you to create, read, update and delete outbound deliveries.
 
 2. The `ballerinax/sap.s4hana.api_inbound_delivery_srv_0002` package offers APIs for seamless integration with
-   the  [Inbound Delivery API v2.2.0](https://api.sap.com/api/API_INBOUND_DELIVERY_SRV_0002/overview). This service enables users to create, read, update and delete inbound deliveries.
+   the  [Inbound Delivery API v2.2.0](https://api.sap.com/api/API_INBOUND_DELIVERY_SRV_0002/overview). This service
+   enables users to create, read, update and delete inbound deliveries.
 
 3. The `ballerinax/sap.s4hana.api_customer_returns_delivery_srv_0002` package offers APIs for seamless integration with
    the [Customer Returns Delivery API v2.1.0](https://api.sap.com/api/API_CUSTOMER_RETURNS_DELIVERY_SRV_0002/overview).

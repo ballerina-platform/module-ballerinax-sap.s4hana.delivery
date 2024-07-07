@@ -1,0 +1,16 @@
+<?xml version="1.1" encoding="UTF-8"?>
+<InbDeliveries>
+    <delivery>
+        <deliveryDocument>DOC001</deliveryDocument>
+        <supplier>Supplier A</supplier>
+        <deliveryDate>2024-07-10</deliveryDate>
+        <item>
+            <id>I001</id>
+            <quantity>20</quantity>
+        </item>
+        <item>
+            <id>I002</id>
+            <quantity>20</quantity>
+        </item>
+    </delivery>
+</InbDeliveries>

@@ -1,6 +1,8 @@
 # Weekly report generation on customer returns deliveries
 
-This example showcases the use of `sap.s4hana.api_customer_returns_delivery_srv_0002:Client` for API interactions with S/4HANA. It focuses on retrieving data on customer returns delivery items and compiling this information into an email report, demonstrating an automated reporting process within the S/4HANA SD module.
+This example showcases the use of `sap.s4hana.api_customer_returns_delivery_srv_0002:Client` for API interactions with
+S/4HANA. It focuses on retrieving data on customer returns delivery items and compiling this information into an email
+report, demonstrating an automated reporting process within the S/4HANA SD module.
 
 ## Prerequisites
 
@@ -11,7 +13,8 @@ hostname, username, password).
 
 ### 2. Setup the Gmail Client
 
-Refer to the [Setup Guide](https://central.ballerina.io/ballerinax/googleapis.gmail/latest#setup-guide) for necessary credentials (client ID, secret, tokens).
+Refer to the [Setup Guide](https://central.ballerina.io/ballerinax/googleapis.gmail/latest#setup-guide) for necessary
+credentials (client ID, secret, tokens).
 
 ### 3. Configuration
 
