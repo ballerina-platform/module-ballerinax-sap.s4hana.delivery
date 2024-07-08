@@ -59,6 +59,7 @@ task clean {
 }
 
 task build {
+    dependsOn(':delivery-sanitation:build')
     dependsOn(':delivery-ballerina:build')
     dependsOn(':delivery-examples:build')
 }
