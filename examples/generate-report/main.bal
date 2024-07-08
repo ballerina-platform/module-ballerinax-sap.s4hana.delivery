@@ -56,7 +56,7 @@ public function main() returns error? {
 
     string|error report = generateReport(returnedDeliveries);
 
-    if (report is error) {
+    if report is error {
         io:println(string `Error while generating report, ${report.message()}`);
         return;
     }
@@ -84,8 +84,8 @@ function generateReport(returnDel:A_ReturnsDeliveryItem[] returnsList) returns s
         ActualDeliveryQuantity: sum(quantity)
     };
 
-    string[] tableRows = from var Item in groupedItems
-        select string `<tr><td>${Item.Material ?: ""}</td><td>${Item.DeliveryDocument.toString()}</td><td>${Item.ActualDeliveryQuantity.toString()}</td></tr>`;
+    string[] tableRows = from var item in groupedItems
+        select string `<tr><td>${item.Material ?: ""}</td><td>${item.DeliveryDocument.toString()}</td><td>${item.ActualDeliveryQuantity.toString()}</td></tr>`;
 
     string emailTemplate = string `<p>This automated report provides detailed information on the quantity of products returned in the past week.</p>
                                         <table border='1'>
