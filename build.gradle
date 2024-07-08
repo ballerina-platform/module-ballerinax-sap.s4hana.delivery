@@ -16,7 +16,7 @@
  * under the License.
  */
 
-description = 'Ballerina - SAP S/4HANA Delivery and Transportation APIs'
+description = 'Ballerina - SAP S/4HANA Delivery APIs'
 
 ext.ballerinaLangVersion = project.ballerinaLangVersion
 
