@@ -55,13 +55,13 @@ configurable string username = ?;
 configurable string password = ?;
 
 outbDel:Client outbDelClient = check new (
-    hostname = hostname,
-    config = {
-        auth: {
-            username,
-            password
-        }
-    }
+    {
+      auth: {
+        username,
+        password
+      }
+    },
+    hostname
 );
 ```
 
