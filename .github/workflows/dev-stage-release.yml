@@ -19,3 +19,4 @@ jobs:
     secrets: inherit
     with:
       environment: ${{ github.event.inputs.environment }}
+      additional-publish-flags: "-x :delivery-examples:test -x :delivery-sanitation:build"
