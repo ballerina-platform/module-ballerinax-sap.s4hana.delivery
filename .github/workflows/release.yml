@@ -103,7 +103,7 @@ jobs:
           publishUser: ${{ secrets.BALLERINA_BOT_USERNAME }}
           publishPAT: ${{ secrets.BALLERINA_BOT_TOKEN }}
         run: |
-          ./gradlew clean :delivery-ballerina:${{ inputs.connector }}:release -Prelease.useAutomaticVersion=true 
+          ./gradlew clean :delivery-ballerina:${{ inputs.connector }}:release -x :delivery-examples:test -Prelease.useAutomaticVersion=true 
           ./gradlew -Pversion=${VERSION} :delivery-ballerina:${{ inputs.connector }}:publish -x test -PpublishToCentral=true 
 
       - name: GitHub Release and Release Sync PR
