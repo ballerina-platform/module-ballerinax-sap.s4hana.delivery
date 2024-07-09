@@ -43,6 +43,7 @@ service /sap/opu/odata/sap/API_CUSTOMER_RETURNS_DELIVERY_SRV on ep0 {
         res.setHeader("X-CSRF-TOKEN", "SAP-InfoRecord-Process");
         return res;
     }
+
     # Reads customer returns delivery items.
     #
     # + \$top - Show only the first n items, see [Paging - Top](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=66)
@@ -67,7 +68,6 @@ service /sap/opu/odata/sap/API_CUSTOMER_RETURNS_DELIVERY_SRV on ep0 {
             }
         };
     }
-
 
     # Creates an additional batch split item for an customer returns delivery item.
     #

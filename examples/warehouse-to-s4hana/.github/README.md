@@ -1,1 +1,1 @@
-../WAREHOUSE TO S4HANA.md
+../Warehouse to S4Hana.md

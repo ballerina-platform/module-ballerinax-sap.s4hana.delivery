@@ -55,7 +55,7 @@ service /sap/opu/odata4/sap/api_managelocation/srvd_a2x/sap/managelocation/'0001
     resource function get Location(int? \$top, int? \$skip, string? \$filter, boolean? \$count, LocationOrderByOptions? \$orderby, LocationSelectOptions? \$select, LocationExpandOptions? \$expand) returns CollectionOfLocation|http:Response {
         return {
             value: [
-                {LocationUUID: "12345",Location: "Location One", LocationType: "1100"}, 
+                {LocationUUID: "12345", Location: "Location One", LocationType: "1100"},
                 {LocationUUID: "67890", Location: "Location Two", LocationType: "1100"}
             ]
         };

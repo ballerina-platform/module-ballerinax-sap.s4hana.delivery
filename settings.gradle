@@ -30,6 +30,7 @@ plugins {
 
 rootProject.name = "module-ballerinax-sap.s4hana.delivery"
 
+include ':delivery-sanitation'
 include ':delivery-ballerina'
 include ':delivery-ballerina:api_outbound_delivery_srv_0002'
 include ':delivery-ballerina:api_inbound_delivery_srv_0002'
@@ -39,7 +40,7 @@ include ':delivery-ballerina:ce_managelocation_0001'
 include ':delivery-ballerina:api_cv_attachment_srv'
 include ':delivery-examples'
 
-
+project(':delivery-sanitation').projectDir = file("docs/sanitation")
 project(':delivery-ballerina').projectDir = file("ballerina")
 project(':delivery-ballerina:api_outbound_delivery_srv_0002').projectDir = file("ballerina/api_outbound_delivery_srv_0002")
 project(':delivery-ballerina:api_inbound_delivery_srv_0002').projectDir = file("ballerina/api_inbound_delivery_srv_0002")
