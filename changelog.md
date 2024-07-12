@@ -46,24 +46,3 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Changed
 
-## sap.s4hana.ce_managelocation_0001
-
-## [Unreleased]
-
-### Added
-
-- Initial client implementation
-
-### Changed
-
-## sap.s4hana.api_cv_attachment_srv
-
-## [Unreleased]
-
-### Added
-
-- Initial client implementation
-
-### Changed
-
-

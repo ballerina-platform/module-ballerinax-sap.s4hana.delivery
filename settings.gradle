@@ -36,8 +36,6 @@ include ':delivery-ballerina:api_outbound_delivery_srv_0002'
 include ':delivery-ballerina:api_inbound_delivery_srv_0002'
 include ':delivery-ballerina:api_customer_returns_delivery_srv_0002'
 include ':delivery-ballerina:api_del_doc_with_credit_block'
-include ':delivery-ballerina:ce_managelocation_0001'
-include ':delivery-ballerina:api_cv_attachment_srv'
 include ':delivery-examples'
 
 project(':delivery-sanitation').projectDir = file("docs/sanitation")
@@ -46,8 +44,6 @@ project(':delivery-ballerina:api_outbound_delivery_srv_0002').projectDir = file(
 project(':delivery-ballerina:api_inbound_delivery_srv_0002').projectDir = file("ballerina/api_inbound_delivery_srv_0002")
 project(':delivery-ballerina:api_customer_returns_delivery_srv_0002').projectDir = file("ballerina/api_customer_returns_delivery_srv_0002")
 project(':delivery-ballerina:api_del_doc_with_credit_block').projectDir = file("ballerina/api_del_doc_with_credit_block")
-project(':delivery-ballerina:ce_managelocation_0001').projectDir = file("ballerina/ce_managelocation_0001")
-project(':delivery-ballerina:api_cv_attachment_srv').projectDir = file("ballerina/api_cv_attachment_srv")
 project(':delivery-examples').projectDir = file("examples")
 
 gradleEnterprise {

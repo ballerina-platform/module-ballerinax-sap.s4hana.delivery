@@ -19,8 +19,6 @@ on:
           - api_inbound_delivery_srv_0002
           - api_customer_returns_delivery_srv_0002
           - api_del_doc_with_credit_block
-          - ce_managelocation_0001
-          - api_cv_attachment_srv
 
 jobs:
   publish-release:
@@ -65,7 +63,7 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.BALLERINA_BOT_TOKEN }}
         run: |
           sed -i 's/version=\(.*\)-SNAPSHOT/version=\1/g' gradle.properties
-          ./gradlew clean :delivery-ballerina:${{ inputs.connector}}:build -x :delivery-examples:test -PpublishToCentral=true 
+          ./gradlew clean :delivery-ballerina:${{ inputs.connector}}:build -x :delivery-examples:build -PpublishToCentral=true 
 
       - name: Ballerina Central Stage Push
         if: ${{ inputs.environment == 'STAGE CENTRAL' }}
@@ -78,4 +76,4 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.BALLERINA_BOT_TOKEN }}
         run: |
           sed -i 's/version=\(.*\)-SNAPSHOT/version=\1/g' gradle.properties
-          ./gradlew clean :delivery-ballerina:${{ inputs.connector }}:build -x :delivery-examples:test -PpublishToCentral=true 
+          ./gradlew clean :delivery-ballerina:${{ inputs.connector }}:build -x :delivery-examples:build -PpublishToCentral=true 

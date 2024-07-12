@@ -1,7 +1,0 @@
-{
-  "description": "The `ballerinax/sap.s4hana.api_cv_attachment_srv` package offers APIs for seamless integration with the [Freight Agreement Attachments API v1.0.0](https://api.sap.com/api/API_CV_ATTACHMENT_SRV/overview). This service allows you to manage attachments and attachment URLs for business objects.",
-  "communication-scenario": "Freight Agreement Integration",
-  "import-statement": "import ballerinax/sap.s4hana.api_cv_attachment_srv as cvAttach;",
-  "client-init": "cvAttach:Client cvAttachClient = check new (",
-  "api-invocation": "cvAttach: CollectionOfA_DocumentInfoRecordAttchWrapper listDocumentInfoRecord = check cvAttachClient->listA_DocumentInfoRecordAttches();"
-}

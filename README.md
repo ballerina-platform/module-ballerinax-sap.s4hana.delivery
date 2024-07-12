@@ -29,14 +29,6 @@ This repository encompasses all Ballerina packages pertaining to the S/4HANA del
    The service contains entities for credit blocked delivery document and reject reason. Once the delivery document has
    been checked, released, or rejected, a success message containing the document number is sent in the response.
 
-5. The `ballerinax/sap.s4hana.ce_managelocation_0001` package offers APIs for seamless integration with
-   the [Location API v1.0.1](https://api.sap.com/api/CE_MANAGELOCATION_0001/overview).This service enables users to
-   create, read, update, and delete locations through an API call.
-
-6. The `ballerinax/sap.s4hana.api_cv_attachment_srv` package offers APIs for seamless integration with
-   the [Freight Agreement Attachments API v1.0.0](https://api.sap.com/api/API_CV_ATTACHMENT_SRV/overview). This service
-   allows you to manage attachments and attachment URLs for business objects.
-
 ## Issues and projects
 
 The **Issues** and **Projects** tabs are disabled for this repository as this is part of the Ballerina library. To
@@ -98,8 +90,6 @@ Execute the commands below to build from the source.
    | api_inbound_delivery_srv_0002          | ballerinax/sap.s4hana.api_inbound_delivery_srv_0002          |
    | api_customer_returns_delivery_srv_0002 | ballerinax/sap.s4hana.api_customer_returns_delivery_srv_0002 |
    | api_del_doc_with_credit_block          | ballerinax/sap.s4hana.api_del_doc_with_credit_block          |
-   | ce_managelocation_0001                 | ballerinax/sap.s4hana.ce_managelocation_0001                 |
-   | api_cv_attachment_srv                  | ballerinax/sap.s4hana.api_cv_attachment_srv                  |
 
 5. To run tests against different environment:
 

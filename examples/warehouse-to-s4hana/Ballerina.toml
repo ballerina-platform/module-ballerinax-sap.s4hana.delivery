@@ -3,12 +3,3 @@ org = "wso2"
 name = "warehouse_to_s4hana"
 version = "0.1.0"
 distribution = "2201.9.0"
-
-[[dependency]]
-org = "ballerinax"
-name = "sap.s4hana.api_inbound_delivery_srv_0002"
-version = "1.0.0"
-repository = "local"
-
-[build-options]
-observabilityIncluded = true
