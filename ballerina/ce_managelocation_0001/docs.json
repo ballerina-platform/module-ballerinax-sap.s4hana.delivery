@@ -1,7 +1,0 @@
-{
-  "description": "The `ballerinax/sap.s4hana.ce_managelocation_0001` package offers APIs for seamless integration with the [Location API v1.0.1](https://api.sap.com/api/CE_MANAGELOCATION_0001/overview).This service enables users to create, read, update, and delete locations through an API call.",
-  "communication-scenario": "Location Integration",
-  "import-statement": "import ballerinax/sap.s4hana.ce_managelocation_0001 as location;",
-  "client-init": "location:Client locationClient = check new (",
-  "api-invocation": "location:CollectionOfLocation listLocations = check locationClient->listLocations();"
-}
