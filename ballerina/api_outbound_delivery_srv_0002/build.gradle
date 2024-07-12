@@ -27,7 +27,6 @@ description = 'Ballerina - SAP S/4HANA Outbound Delivery API'
 def packageName = "sap.s4hana.api_outbound_delivery_srv_0002"
 def moduleVersion = project.api_outbound_delivery_srv_0002Version.replace("-SNAPSHOT", "")
 def ballerinaTomlFile = file("${project.projectDir}/Ballerina.toml")
-def ballerinaTomlFilePlaceHolder = new File("${project.rootDir}/build-config/resources/BallerinaDelivery.toml")
 
 ballerina {
     packageOrganization = project.ext.packageOrg
