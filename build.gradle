@@ -58,7 +58,7 @@ allprojects {
 task clean {
 }
 
-task build {
+tasks.register('build') {
     dependsOn(':delivery-sanitation:build')
     dependsOn(':delivery-ballerina:build')
     dependsOn(':delivery-examples:build')
