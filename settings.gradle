@@ -25,7 +25,7 @@ pluginManagement {
 }
 
 plugins {
-    id "com.gradle.enterprise" version "3.2"
+    id "com.gradle.develocity" version "3.19.2"
 }
 
 rootProject.name = "module-ballerinax-sap.s4hana.delivery"
@@ -46,9 +46,9 @@ project(':delivery-ballerina:api_customer_returns_delivery_srv_0002').projectDir
 project(':delivery-ballerina:api_del_doc_with_credit_block').projectDir = file("ballerina/api_del_doc_with_credit_block")
 project(':delivery-examples').projectDir = file("examples")
 
-gradleEnterprise {
+develocity {
     buildScan {
-        termsOfServiceUrl = 'https://gradle.com/terms-of-service'
-        termsOfServiceAgree = 'yes'
+        termsOfUseUrl = 'https://gradle.com/help/legal-terms-of-use'
+        termsOfUseAgree = 'yes'
     }
 }
