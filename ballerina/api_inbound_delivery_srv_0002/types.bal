@@ -92,31 +92,40 @@ public type ConnectionConfig record {|
     # The HTTP version understood by the client
     http:HttpVersion httpVersion = http:HTTP_2_0;
     # Configurations related to HTTP/1.x protocol
-    ClientHttp1Settings http1Settings?;
+    http:ClientHttp1Settings http1Settings = {};
     # Configurations related to HTTP/2 protocol
-    http:ClientHttp2Settings http2Settings?;
+    http:ClientHttp2Settings http2Settings = {};
     # The maximum time to wait (in seconds) for a response before closing the connection
     decimal timeout = 60;
     # The choice of setting `forwarded`/`x-forwarded` header
     string forwarded = "disable";
+    # Configurations associated with Redirection
+    http:FollowRedirects followRedirects?;
     # Configurations associated with request pooling
     http:PoolConfiguration poolConfig?;
     # HTTP caching related configurations
-    http:CacheConfig cache?;
+    http:CacheConfig cache = {};
     # Specifies the way of handling compression (`accept-encoding`) header
     http:Compression compression = http:COMPRESSION_AUTO;
     # Configurations associated with the behaviour of the Circuit Breaker
     http:CircuitBreakerConfig circuitBreaker?;
     # Configurations associated with retrying
     http:RetryConfig retryConfig?;
+    # Configurations associated with cookies
+    http:CookieConfig cookieConfig?;
     # Configurations associated with inbound response size limits
-    http:ResponseLimitConfigs responseLimits?;
+    http:ResponseLimitConfigs responseLimits = {};
     # SSL/TLS-related options
     http:ClientSecureSocket secureSocket?;
     # Proxy server related options
     http:ProxyConfig proxy?;
+    # Provides settings related to client socket configuration
+    http:ClientSocketConfig socketConfig = {};
     # Enables the inbound payload validation functionality which provided by the constraint package. Enabled by default
     boolean validation = true;
+    # Enables relaxed data binding on the client side. When enabled, `nil` values are treated as optional,
+    # and absent fields are handled as `nilable` types. Enabled by default.
+    boolean laxDataBinding = true;
 |};
 
 # Represents the Queries record for the operation: getAddressOfA_InbDeliveryPartner
@@ -791,15 +800,6 @@ public type A_InbDeliveryHeader_to_DeliveryDocumentPartner record {
 
 public type A_InbDeliveryHeaderOrderByOptions ("ReceivingLocationTimeZone"|"ReceivingLocationTimeZone desc"|"ActualDeliveryRoute"|"ActualDeliveryRoute desc"|"ActualGoodsMovementDate"|"ActualGoodsMovementDate desc"|"ActualGoodsMovementTime"|"ActualGoodsMovementTime desc"|"BillingDocumentDate"|"BillingDocumentDate desc"|"BillOfLading"|"BillOfLading desc"|"CompleteDeliveryIsDefined"|"CompleteDeliveryIsDefined desc"|"ConfirmationTime"|"ConfirmationTime desc"|"CreatedByUser"|"CreatedByUser desc"|"CreationDate"|"CreationDate desc"|"CreationTime"|"CreationTime desc"|"CustomerGroup"|"CustomerGroup desc"|"DeliveryBlockReason"|"DeliveryBlockReason desc"|"DeliveryDate"|"DeliveryDate desc"|"DeliveryDocument"|"DeliveryDocument desc"|"DeliveryDocumentBySupplier"|"DeliveryDocumentBySupplier desc"|"DeliveryDocumentType"|"DeliveryDocumentType desc"|"DeliveryIsInPlant"|"DeliveryIsInPlant desc"|"DeliveryPriority"|"DeliveryPriority desc"|"DeliveryTime"|"DeliveryTime desc"|"DeliveryVersion"|"DeliveryVersion desc"|"DepreciationPercentage"|"DepreciationPercentage desc"|"DistrStatusByDecentralizedWrhs"|"DistrStatusByDecentralizedWrhs desc"|"DocumentDate"|"DocumentDate desc"|"ExternalIdentificationType"|"ExternalIdentificationType desc"|"ExternalTransportSystem"|"ExternalTransportSystem desc"|"FactoryCalendarByCustomer"|"FactoryCalendarByCustomer desc"|"GoodsIssueOrReceiptSlipNumber"|"GoodsIssueOrReceiptSlipNumber desc"|"GoodsIssueTime"|"GoodsIssueTime desc"|"HandlingUnitInStock"|"HandlingUnitInStock desc"|"HdrGeneralIncompletionStatus"|"HdrGeneralIncompletionStatus desc"|"HdrGoodsMvtIncompletionStatus"|"HdrGoodsMvtIncompletionStatus desc"|"HeaderBillgIncompletionStatus"|"HeaderBillgIncompletionStatus desc"|"HeaderBillingBlockReason"|"HeaderBillingBlockReason desc"|"HeaderDelivIncompletionStatus"|"HeaderDelivIncompletionStatus desc"|"HeaderGrossWeight"|"HeaderGrossWeight desc"|"HeaderNetWeight"|"HeaderNetWeight desc"|"HeaderPackingIncompletionSts"|"HeaderPackingIncompletionSts desc"|"HeaderPickgIncompletionStatus"|"HeaderPickgIncompletionStatus desc"|"HeaderVolume"|"HeaderVolume desc"|"HeaderVolumeUnit"|"HeaderVolumeUnit desc"|"HeaderWeightUnit"|"HeaderWeightUnit desc"|"IncotermsClassification"|"IncotermsClassification desc"|"IncotermsTransferLocation"|"IncotermsTransferLocation desc"|"IntercompanyBillingDate"|"IntercompanyBillingDate desc"|"InternalFinancialDocument"|"InternalFinancialDocument desc"|"IsDeliveryForSingleWarehouse"|"IsDeliveryForSingleWarehouse desc"|"IsExportDelivery"|"IsExportDelivery desc"|"LastChangeDate"|"LastChangeDate desc"|"LastChangedByUser"|"LastChangedByUser desc"|"LoadingDate"|"LoadingDate desc"|"LoadingPoint"|"LoadingPoint desc"|"LoadingTime"|"LoadingTime desc"|"MeansOfTransport"|"MeansOfTransport desc"|"MeansOfTransportRefMaterial"|"MeansOfTransportRefMaterial desc"|"MeansOfTransportType"|"MeansOfTransportType desc"|"OrderCombinationIsAllowed"|"OrderCombinationIsAllowed desc"|"OrderID"|"OrderID desc"|"OverallDelivConfStatus"|"OverallDelivConfStatus desc"|"OverallDelivReltdBillgStatus"|"OverallDelivReltdBillgStatus desc"|"OverallGoodsMovementStatus"|"OverallGoodsMovementStatus desc"|"OverallIntcoBillingStatus"|"OverallIntcoBillingStatus desc"|"OverallPackingStatus"|"OverallPackingStatus desc"|"OverallPickingConfStatus"|"OverallPickingConfStatus desc"|"OverallPickingStatus"|"OverallPickingStatus desc"|"OverallProofOfDeliveryStatus"|"OverallProofOfDeliveryStatus desc"|"OverallSDProcessStatus"|"OverallSDProcessStatus desc"|"OverallWarehouseActivityStatus"|"OverallWarehouseActivityStatus desc"|"OvrlItmDelivIncompletionSts"|"OvrlItmDelivIncompletionSts desc"|"OvrlItmGdsMvtIncompletionSts"|"OvrlItmGdsMvtIncompletionSts desc"|"OvrlItmGeneralIncompletionSts"|"OvrlItmGeneralIncompletionSts desc"|"OvrlItmPackingIncompletionSts"|"OvrlItmPackingIncompletionSts desc"|"OvrlItmPickingIncompletionSts"|"OvrlItmPickingIncompletionSts desc"|"PaymentGuaranteeProcedure"|"PaymentGuaranteeProcedure desc"|"PickedItemsLocation"|"PickedItemsLocation desc"|"PickingDate"|"PickingDate desc"|"PickingTime"|"PickingTime desc"|"PlannedGoodsIssueDate"|"PlannedGoodsIssueDate desc"|"ProofOfDeliveryDate"|"ProofOfDeliveryDate desc"|"ProposedDeliveryRoute"|"ProposedDeliveryRoute desc"|"ReceivingPlant"|"ReceivingPlant desc"|"RouteSchedule"|"RouteSchedule desc"|"SalesDistrict"|"SalesDistrict desc"|"SalesOffice"|"SalesOffice desc"|"SalesOrganization"|"SalesOrganization desc"|"SDDocumentCategory"|"SDDocumentCategory desc"|"ShipmentBlockReason"|"ShipmentBlockReason desc"|"ShippingCondition"|"ShippingCondition desc"|"ShippingPoint"|"ShippingPoint desc"|"ShippingType"|"ShippingType desc"|"ShipToParty"|"ShipToParty desc"|"SoldToParty"|"SoldToParty desc"|"SpecialProcessingCode"|"SpecialProcessingCode desc"|"StatisticsCurrency"|"StatisticsCurrency desc"|"Supplier"|"Supplier desc"|"TotalBlockStatus"|"TotalBlockStatus desc"|"TotalCreditCheckStatus"|"TotalCreditCheckStatus desc"|"TotalNumberOfPackage"|"TotalNumberOfPackage desc"|"TransactionCurrency"|"TransactionCurrency desc"|"TransportationGroup"|"TransportationGroup desc"|"TransportationPlanningDate"|"TransportationPlanningDate desc"|"TransportationPlanningStatus"|"TransportationPlanningStatus desc"|"TransportationPlanningTime"|"TransportationPlanningTime desc"|"UnloadingPointName"|"UnloadingPointName desc"|"Warehouse"|"Warehouse desc"|"WarehouseGate"|"WarehouseGate desc"|"WarehouseStagingArea"|"WarehouseStagingArea desc")[];
 
-# Provides settings related to HTTP/1.x protocol.
-public type ClientHttp1Settings record {|
-    # Specifies whether to reuse a connection for multiple requests
-    http:KeepAlive keepAlive = http:KEEPALIVE_AUTO;
-    # The chunking behaviour of the request
-    http:Chunking chunking = http:CHUNKING_AUTO;
-    # Proxy server related options
-    ProxyConfig proxy?;
-|};
 
 public type DeliveryDocumentItemOfA_InbDeliveryHeaderExpandOptions ("to_SerialDeliveryItem"|"to_DocumentFlow"|"to_DeliveryDocumentItemText")[];
 
@@ -1183,18 +1183,6 @@ public type CreateConfirmPutawayOneItemQueries record {
     string DeliveryDocumentItem;
 };
 
-# Proxy server configurations to be used with the HTTP client endpoint.
-public type ProxyConfig record {|
-    # Host name of the proxy server
-    string host = "";
-    # Proxy server port
-    int port = 0;
-    # Proxy server username
-    string userName = "";
-    # Proxy server password
-    @display {label: "", kind: "password"}
-    string password = "";
-|};
 
 # Represents the Queries record for the operation: listA_InbDeliveryItems
 public type ListA_InbDeliveryItemsQueries record {
